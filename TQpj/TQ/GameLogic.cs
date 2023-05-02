@@ -36,7 +36,7 @@ namespace GameLogic
 
             private List<ChatMessage> chatMessageList;
 
-            private Player? currentChallenger;
+            private Player currentChallenger;
 
             private Category category;
             private string keyword;
