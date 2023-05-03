@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace TQ
 {
     public partial class Form1 : Form
@@ -15,6 +16,8 @@ namespace TQ
         public Form1()
         {
             InitializeComponent();
+            
         }
+        
     }
 }
