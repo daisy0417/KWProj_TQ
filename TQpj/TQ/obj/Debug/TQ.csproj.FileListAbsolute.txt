@@ -14,3 +14,6 @@ C:\Users\rcpla\OneDrive\바탕 화면\BB\대학교\2023년(3학년)\응용SW실�
 C:\Users\rcpla\OneDrive\바탕 화면\BB\대학교\2023년(3학년)\응용SW실습\KWProj_TQ\TQpj\TQ\obj\Debug\TQ.exe
 C:\Users\rcpla\OneDrive\바탕 화면\BB\대학교\2023년(3학년)\응용SW실습\KWProj_TQ\TQpj\TQ\obj\Debug\TQ.pdb
 C:\Users\rcpla\OneDrive\바탕 화면\BB\대학교\2023년(3학년)\응용SW실습\KWProj_TQ\TQpj\TQ\obj\Debug\TQ.LoginForm.resources
+C:\Users\rcpla\OneDrive\바탕 화면\BB\대학교\2023년(3학년)\응용SW실습\KWProj_TQ\TQpj\TQ\obj\Debug\TQ.mkRoomForm.resources
+C:\Users\rcpla\OneDrive\바탕 화면\BB\대학교\2023년(3학년)\응용SW실습\KWProj_TQ\TQpj\TQ\obj\Debug\TQ.roomListForm.resources
+C:\Users\rcpla\OneDrive\바탕 화면\BB\대학교\2023년(3학년)\응용SW실습\KWProj_TQ\TQpj\TQ\obj\Debug\TQ.GameStartForm.resources

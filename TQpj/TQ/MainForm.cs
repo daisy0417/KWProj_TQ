@@ -12,10 +12,9 @@ namespace TQ
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm // 상속 클래스 변경
     {
-
+       
         public MainForm()
         {
-
             InitializeComponent();
         }
         private void loginBtn_Click(object sender, EventArgs e)
@@ -26,5 +25,14 @@ namespace TQ
             this.Close();
 
         }
+
+        private void metroSetButton1_Click(object sender, EventArgs e)
+        {
+            roomListForm rLf = new roomListForm();
+            this.Hide();
+            rLf.ShowDialog();
+            this.Close();
+        }
+
     }
 }

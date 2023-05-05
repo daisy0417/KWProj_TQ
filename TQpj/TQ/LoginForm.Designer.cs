@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ServerTxtBox = new System.Windows.Forms.TextBox();
             this.nameTxtBox = new System.Windows.Forms.TextBox();
             this.IpLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -37,15 +37,17 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // ServerTxtBox
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.textBox1.Location = new System.Drawing.Point(291, 406);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(486, 46);
-            this.textBox1.TabIndex = 16;
+            this.ServerTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ServerTxtBox.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ServerTxtBox.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.ServerTxtBox.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.ServerTxtBox.Location = new System.Drawing.Point(291, 406);
+            this.ServerTxtBox.Name = "ServerTxtBox";
+            this.ServerTxtBox.Size = new System.Drawing.Size(486, 46);
+            this.ServerTxtBox.TabIndex = 16;
+            this.ServerTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ServerTxtBox_KeyPress);
             // 
             // nameTxtBox
             // 
@@ -129,8 +131,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1024, 630);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ServerTxtBox);
             this.Controls.Add(this.nameTxtBox);
             this.Controls.Add(this.IpLabel);
             this.Controls.Add(this.nameLabel);
@@ -145,7 +148,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ServerTxtBox;
         private System.Windows.Forms.TextBox nameTxtBox;
         private System.Windows.Forms.Label IpLabel;
         private System.Windows.Forms.Label nameLabel;
