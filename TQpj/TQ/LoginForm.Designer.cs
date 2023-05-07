@@ -141,6 +141,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.titleLabel);
             this.Name = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
