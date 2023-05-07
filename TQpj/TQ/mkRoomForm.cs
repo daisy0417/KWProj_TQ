@@ -45,10 +45,18 @@ namespace TQ
 
         private void peopleTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(peopleTxtBox.Text) > 5)
+            if (Convert.ToInt32(peopleTxtBox.Text) > 5 || Convert.ToInt32(peopleTxtBox.Text) <= 0)
             {
-                peopleTxtBox.Text = "0";
-                MessageBox.Show("최대 접속 인원은 5명입니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(Convert.ToInt32(peopleTxtBox.Text) <= 0)
+                {
+                    MessageBox.Show("최소 2명의 인원이 입장해야 합니다.","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    peopleTxtBox.Text = "0";
+                    MessageBox.Show("최대 접속 인원은 5명입니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
 
         }

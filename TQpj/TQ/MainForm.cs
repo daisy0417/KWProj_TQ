@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TQ
 {
-    public partial class MainForm : MetroFramework.Forms.MetroForm // 상속 클래스 변경
+    public partial class MainForm : ClientForm
     {
        
         public MainForm()
@@ -19,10 +19,13 @@ namespace TQ
         }
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            /*
             this.Hide();
             LoginForm login = new LoginForm();
             login.ShowDialog();
             this.Close();
+            */
+            titleLabel.Visible = false;
 
         }
 
@@ -31,8 +34,14 @@ namespace TQ
             roomListForm rLf = new roomListForm();
             this.Hide();
             rLf.ShowDialog();
-            this.Close();
+            //this.Close();
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //TryConnectServer();
+        }
+
+   
     }
 }

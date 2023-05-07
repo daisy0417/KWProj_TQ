@@ -11,7 +11,7 @@ using System.IO;
 
 namespace TQ
 {
-    public partial class LoginForm : MetroFramework.Forms.MetroForm
+    public partial class LoginForm : ClientForm
     {
         private string name;
         public string Value
@@ -76,6 +76,9 @@ namespace TQ
             }
         }
 
-
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            TryConnectServer();
+        }
     }
 }
