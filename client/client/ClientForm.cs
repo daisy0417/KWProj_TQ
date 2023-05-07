@@ -88,9 +88,9 @@ namespace client
         /// <summary>
         ///  MessageBox를 보여준다. override 불필요
         /// </summary>
-        public void ShowMessageBox(string msg)
+        public void ShowMessageBox(string msg,string caption,MessageBoxButtons btn, MessageBoxIcon icon)
         {
-            MessageBox.Show(msg);
+            MessageBox.Show(msg, caption, btn, icon);
         }
 
 
@@ -103,7 +103,7 @@ namespace client
 
             if (client.Activate)
             {
-                ShowMessageBox("이미 접속중");
+                ShowMessageBox("이미 접속중", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
