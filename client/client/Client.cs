@@ -55,8 +55,8 @@ namespace client
                 //만약 입력된 IP가 127.0.0.1 이면 로컬 연결이므로 clientIP, serverIP 모두 127.0.0.1로
                 IPAddress clientIP = IPAddress.Parse("127.0.0.1");
                 if (!serverIP.ToString().Equals("127.0.0.1")) clientIP = IPAddress.Parse(GetMyIP());
-
-                //내 아이피를 서버로 전달
+                
+                //서버에 내 IP를 보냄. 딱히 쓰이는 곳은 없고 로그 출력할 때만 쓰임
                 TcpClient client = new TcpClient();
                 client.Connect(serverIP, 5000);
                 swriter = new StreamWriter(client.GetStream());
@@ -70,7 +70,7 @@ namespace client
                 sreader = new StreamReader(client2.GetStream());
                 int port = int.Parse(sreader.ReadLine());
                 sreader.Close();
-                client.Close();
+                client2.Close();
 
                 //서버-클라이언트 연결 시작
                 client = new TcpClient();
