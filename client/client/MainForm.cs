@@ -21,7 +21,7 @@ namespace client
         {
             //TryConnectServer();
         }
-        /*
+        
         private void main_login_btn_Click(object sender, EventArgs e)
         {
             panel1_login.Visible = true;
@@ -49,7 +49,7 @@ namespace client
                     return;
                 } 
             }
-            
+           */ 
 
             if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
             {
@@ -88,8 +88,8 @@ namespace client
 
             if (result == DialogResult.Yes)
             {
-                p1_1_ip_panel.Visible = true;
-                p1_connect_btn.Visible = true;
+               // p1_1_ip_panel.Visible = true;
+                //p1_connect_btn.Visible = true;
             }
 
         }
@@ -101,7 +101,7 @@ namespace client
             //TryConnectServer();
             p1_gamestart_btn.Visible = true;
         }
-        
+        */
 
         public override void SignIn(string username)
         {
@@ -127,8 +127,9 @@ namespace client
                 ShowMessageBox("회원가입 실패", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        #endregion
 
+        #endregion
+        /*
         #region 서버 연결 panel
         private void p1_ip_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
