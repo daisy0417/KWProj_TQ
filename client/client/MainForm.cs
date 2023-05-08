@@ -21,7 +21,7 @@ namespace client
         {
             //TryConnectServer();
         }
-
+        /*
         private void main_login_btn_Click(object sender, EventArgs e)
         {
             panel1_login.Visible = true;
@@ -49,7 +49,7 @@ namespace client
                     return;
                 } 
             }
-            */
+            
 
             if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
             {
@@ -101,7 +101,7 @@ namespace client
             //TryConnectServer();
             p1_gamestart_btn.Visible = true;
         }
-        */
+        
 
         public override void SignIn(string username)
         {
@@ -171,7 +171,7 @@ namespace client
 
         #region 게임 시작 화면 panel
         #endregion
-
+        */
 
     }
 }

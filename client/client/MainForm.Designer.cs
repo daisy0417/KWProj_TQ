@@ -39,7 +39,7 @@
             this.title_label.AutoSize = true;
             this.title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.title_label.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.title_label.Location = new System.Drawing.Point(337, 114);
+            this.title_label.Location = new System.Drawing.Point(356, 114);
             this.title_label.Name = "title_label";
             this.title_label.Size = new System.Drawing.Size(400, 87);
             this.title_label.TabIndex = 0;
@@ -75,7 +75,7 @@
             // 
             this.midTitle_label.AutoSize = true;
             this.midTitle_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.midTitle_label.Location = new System.Drawing.Point(302, 265);
+            this.midTitle_label.Location = new System.Drawing.Point(321, 265);
             this.midTitle_label.Name = "midTitle_label";
             this.midTitle_label.Size = new System.Drawing.Size(482, 38);
             this.midTitle_label.TabIndex = 2;
@@ -107,7 +107,6 @@
             this.main_login_btn.Text = "로그인하기";
             this.main_login_btn.ThemeAuthor = "Narwin";
             this.main_login_btn.ThemeName = "MetroLite";
-            this.main_login_btn.Click += new System.EventHandler(this.main_login_btn_Click);
             // 
             // MainForm
             // 
