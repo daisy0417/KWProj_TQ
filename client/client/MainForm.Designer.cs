@@ -57,16 +57,23 @@
             this.p3_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_Join_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p3_list_tbx = new System.Windows.Forms.TextBox();
+            this.p3_nameList_tbx = new System.Windows.Forms.TextBox();
             this.p3_people_tbx = new System.Windows.Forms.TextBox();
             this.p3_people_label = new System.Windows.Forms.Label();
             this.p3_roomname_label = new System.Windows.Forms.Label();
             this.p3_roomname_tbx = new System.Windows.Forms.TextBox();
             this.p3_title_label = new System.Windows.Forms.Label();
+            this.panel4_waitRoom = new System.Windows.Forms.Panel();
+            this.p4_ready_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p4_roomInfo_label = new System.Windows.Forms.Label();
+            this.p4_chat_tbx = new System.Windows.Forms.TextBox();
+            this.p4_message_tbx = new System.Windows.Forms.TextBox();
+            this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel1_login.SuspendLayout();
             this.p1_1_ip_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
             this.panel3_roomList.SuspendLayout();
+            this.panel4_waitRoom.SuspendLayout();
             this.SuspendLayout();
             // 
             // title_label
@@ -443,7 +450,7 @@
             this.panel3_roomList.Controls.Add(this.p3_refresh_btn);
             this.panel3_roomList.Controls.Add(this.p3_Out_btn);
             this.panel3_roomList.Controls.Add(this.p3_Join_btn);
-            this.panel3_roomList.Controls.Add(this.p3_list_tbx);
+            this.panel3_roomList.Controls.Add(this.p3_nameList_tbx);
             this.panel3_roomList.Controls.Add(this.p3_people_tbx);
             this.panel3_roomList.Controls.Add(this.p3_people_label);
             this.panel3_roomList.Controls.Add(this.p3_roomname_label);
@@ -464,7 +471,6 @@
             this.p3_comein_label.Size = new System.Drawing.Size(682, 40);
             this.p3_comein_label.TabIndex = 19;
             this.p3_comein_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.p3_comein_label.Visible = false;
             // 
             // p3_create_btn
             // 
@@ -602,16 +608,17 @@
             this.p3_Join_btn.ThemeName = "MetroLite";
             this.p3_Join_btn.Click += new System.EventHandler(this.p3_Join_btn_Click);
             // 
-            // p3_list_tbx
+            // p3_nameList_tbx
             // 
-            this.p3_list_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.p3_list_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
-            this.p3_list_tbx.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.p3_list_tbx.Location = new System.Drawing.Point(16, 81);
-            this.p3_list_tbx.Multiline = true;
-            this.p3_list_tbx.Name = "p3_list_tbx";
-            this.p3_list_tbx.Size = new System.Drawing.Size(719, 452);
-            this.p3_list_tbx.TabIndex = 13;
+            this.p3_nameList_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p3_nameList_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p3_nameList_tbx.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.p3_nameList_tbx.Location = new System.Drawing.Point(16, 81);
+            this.p3_nameList_tbx.Multiline = true;
+            this.p3_nameList_tbx.Name = "p3_nameList_tbx";
+            this.p3_nameList_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.p3_nameList_tbx.Size = new System.Drawing.Size(719, 452);
+            this.p3_nameList_tbx.TabIndex = 13;
             // 
             // p3_people_tbx
             // 
@@ -668,12 +675,112 @@
             this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p3_title_label.Visible = false;
             // 
+            // panel4_waitRoom
+            // 
+            this.panel4_waitRoom.Controls.Add(this.p4_send_btn);
+            this.panel4_waitRoom.Controls.Add(this.p4_message_tbx);
+            this.panel4_waitRoom.Controls.Add(this.p4_ready_btn);
+            this.panel4_waitRoom.Controls.Add(this.p4_roomInfo_label);
+            this.panel4_waitRoom.Controls.Add(this.p4_chat_tbx);
+            this.panel4_waitRoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4_waitRoom.Location = new System.Drawing.Point(20, 60);
+            this.panel4_waitRoom.Name = "panel4_waitRoom";
+            this.panel4_waitRoom.Size = new System.Drawing.Size(984, 550);
+            this.panel4_waitRoom.TabIndex = 20;
+            this.panel4_waitRoom.Visible = false;
+            this.panel4_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
+            // 
+            // p4_ready_btn
+            // 
+            this.p4_ready_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_ready_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_ready_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p4_ready_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_ready_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p4_ready_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p4_ready_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p4_ready_btn.IsDerivedStyle = true;
+            this.p4_ready_btn.Location = new System.Drawing.Point(351, 12);
+            this.p4_ready_btn.Name = "p4_ready_btn";
+            this.p4_ready_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_ready_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_ready_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p4_ready_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p4_ready_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p4_ready_btn.PressTextColor = System.Drawing.Color.White;
+            this.p4_ready_btn.Size = new System.Drawing.Size(333, 54);
+            this.p4_ready_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_ready_btn.StyleManager = null;
+            this.p4_ready_btn.TabIndex = 19;
+            this.p4_ready_btn.Text = "READY";
+            this.p4_ready_btn.ThemeAuthor = "Narwin";
+            this.p4_ready_btn.ThemeName = "MetroLite";
+            // 
+            // p4_roomInfo_label
+            // 
+            this.p4_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p4_roomInfo_label.Location = new System.Drawing.Point(706, 12);
+            this.p4_roomInfo_label.Name = "p4_roomInfo_label";
+            this.p4_roomInfo_label.Size = new System.Drawing.Size(258, 54);
+            this.p4_roomInfo_label.TabIndex = 18;
+            this.p4_roomInfo_label.Text = "방 이름 - 4 / 5";
+            this.p4_roomInfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // p4_chat_tbx
+            // 
+            this.p4_chat_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_chat_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.p4_chat_tbx.Location = new System.Drawing.Point(134, 81);
+            this.p4_chat_tbx.Multiline = true;
+            this.p4_chat_tbx.Name = "p4_chat_tbx";
+            this.p4_chat_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.p4_chat_tbx.Size = new System.Drawing.Size(830, 409);
+            this.p4_chat_tbx.TabIndex = 17;
+            // 
+            // p4_message_tbx
+            // 
+            this.p4_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_message_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.p4_message_tbx.Location = new System.Drawing.Point(134, 496);
+            this.p4_message_tbx.Multiline = true;
+            this.p4_message_tbx.Name = "p4_message_tbx";
+            this.p4_message_tbx.Size = new System.Drawing.Size(697, 45);
+            this.p4_message_tbx.TabIndex = 20;
+            // 
+            // p4_send_btn
+            // 
+            this.p4_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_send_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_send_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p4_send_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_send_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p4_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p4_send_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p4_send_btn.IsDerivedStyle = true;
+            this.p4_send_btn.Location = new System.Drawing.Point(837, 496);
+            this.p4_send_btn.Name = "p4_send_btn";
+            this.p4_send_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_send_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_send_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p4_send_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p4_send_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p4_send_btn.PressTextColor = System.Drawing.Color.White;
+            this.p4_send_btn.Size = new System.Drawing.Size(127, 45);
+            this.p4_send_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_send_btn.StyleManager = null;
+            this.p4_send_btn.TabIndex = 21;
+            this.p4_send_btn.Text = "SEND";
+            this.p4_send_btn.ThemeAuthor = "Narwin";
+            this.p4_send_btn.ThemeName = "MetroLite";
+            this.p4_send_btn.Click += new System.EventHandler(this.p4_send_btn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
+            this.Controls.Add(this.panel4_waitRoom);
             this.Controls.Add(this.p3_title_label);
             this.Controls.Add(this.panel3_roomList);
             this.Controls.Add(this.panel2_gameStart);
@@ -691,6 +798,8 @@
             this.panel2_gameStart.PerformLayout();
             this.panel3_roomList.ResumeLayout(false);
             this.panel3_roomList.PerformLayout();
+            this.panel4_waitRoom.ResumeLayout(false);
+            this.panel4_waitRoom.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -724,7 +833,7 @@
         private System.Windows.Forms.Label p3_roomname_label;
         private System.Windows.Forms.TextBox p3_roomname_tbx;
         private System.Windows.Forms.Label p3_people_label;
-        private System.Windows.Forms.TextBox p3_list_tbx;
+        private System.Windows.Forms.TextBox p3_nameList_tbx;
         private System.Windows.Forms.TextBox p3_people_tbx;
         private MetroSet_UI.Controls.MetroSetButton p3_makeRoom_btn;
         private MetroSet_UI.Controls.MetroSetButton p3_refresh_btn;
@@ -733,5 +842,11 @@
         private MetroSet_UI.Controls.MetroSetButton p3_create_btn;
         private System.Windows.Forms.Label p3_title_label;
         private System.Windows.Forms.Label p3_comein_label;
+        private System.Windows.Forms.Panel panel4_waitRoom;
+        private MetroSet_UI.Controls.MetroSetButton p4_ready_btn;
+        private System.Windows.Forms.Label p4_roomInfo_label;
+        private System.Windows.Forms.TextBox p4_chat_tbx;
+        private System.Windows.Forms.TextBox p4_message_tbx;
+        private MetroSet_UI.Controls.MetroSetButton p4_send_btn;
     }
 }

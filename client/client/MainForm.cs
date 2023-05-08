@@ -30,7 +30,7 @@ namespace client
             p1_pw_tbx.Text = null;
         }
 
-        #region 로그인 panel
+        #region panel1_login: 로그인 panel
         private void p1_login_btn_Click(object sender, EventArgs e)
         {
             // 로그인 버튼 눌렀을 때 유효성 검사
@@ -130,7 +130,7 @@ namespace client
 
         #endregion
 
-        #region 서버 연결 panel
+        #region panel1-1: 서버 연결 panel
         private void p1_ip_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 숫자, 백스페이스, '.'만 입력 가능
@@ -170,6 +170,7 @@ namespace client
 
         #endregion
 
+        #region panel2_gameStart: 로그아웃, 게임시작 가능
         private void p1_gameStart_btn_Click(object sender, EventArgs e)
         {
             p1_1_ip_panel.Visible = false;
@@ -188,7 +189,9 @@ namespace client
             panel3_roomList.Visible = true;
             p3_title_label.Visible = true;
         }
+        #endregion
 
+        #region panel3_roomList: 방 리스트 (방 생성, 입장, 퇴장)
         private void p3_makeRoom_btn_Click(object sender, EventArgs e)
         {
             p3_roomname_label.Text = "생성 할 방 이름";
@@ -199,7 +202,7 @@ namespace client
 
         public override void RoomList(List<string> roomList)
         {
-            p3_list_tbx.Text = "";
+            p3_nameList_tbx.Text = "";
 
             foreach (string room in roomList)
             {
@@ -208,7 +211,7 @@ namespace client
                 string playerCount = roomInfo[1];
                 string roomMax = roomInfo[2];
 
-                p3_list_tbx.Text = p3_list_tbx.Text + string.Format("{0} - {1}/{2}\r\n", roomName, playerCount, roomMax);
+                p3_nameList_tbx.Text = p3_nameList_tbx.Text + $"{roomName}\t\t접속 인원 {playerCount,2} / {roomMax,-2}\r\n";
             }
         }
 
@@ -274,6 +277,8 @@ namespace client
             {
                 client.RequestRoomJoin(roomName);
             }
+            panel3_roomList.Visible = false;
+            panel4_waitRoom.Visible = true;
         }
 
         private void p3_Out_btn_Click(object sender, EventArgs e)
@@ -286,27 +291,33 @@ namespace client
             p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
         }
 
+        #endregion
 
 
-        /*
+        
         public override void RoomChat(List<string> chatList)
         {
-            tbRoomChat.Text = "";
+            p4_chat_tbx.Text = "";
             chatList.ForEach(chat =>
             {
-                tbRoomChat.Text += chat + "\r\n";
+                p4_chat_tbx.Text += chat + "\r\n";
             });
         }
 
-       private void btnSend_Click(object sender, EventArgs e)
-       {
-           string content = tbMessage.Text;
-           if (content != string.Empty)
-           {
-               client.RequestSendRoomChat(client.username, content);
-               tbMessage.Text = "";
-           }
-       }
-       */
+        private void p4_send_btn_Click(object sender, EventArgs e)
+        {
+            string content = p4_message_tbx.Text;
+            client.username = p1_username_tbx.Text; // 추가됨
+            if (content != string.Empty)
+            {
+                client.RequestSendRoomChat(client.username, content);
+                p4_message_tbx.Text = "";
+            }
+        }
+
+        private void panel4_waitRoom_VisibleChanged(object sender, EventArgs e)
+        {
+            // 방 이름 - 접속 인원 / 최대 정원
+        }
     }
 }
