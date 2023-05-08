@@ -159,7 +159,7 @@ namespace client
             {
                 //연결 성공
                 p1_connect_btn.Visible = false;
-                //p1_gameStart_btn.Visible = true;
+                p1_gameStart_btn.Visible = true;
             }
             else
             {
@@ -170,9 +170,31 @@ namespace client
 
         #endregion
 
-        #region 게임 시작 화면 panel
-        #endregion
-        
+        private void p1_gameStart_btn_Click(object sender, EventArgs e)
+        {
+            p1_1_ip_panel.Visible = false;
+            panel1_login.Visible = false;
+            panel2_gameStart.Visible = true;
+        }
 
+        private void panel2_gameStart_VisibleChanged(object sender, EventArgs e)
+        {
+            p2_welcome__label.Text = String.Format("{0} 님 환영합니다:)", p1_username_tbx.Text);
+        }
+
+        private void p2_gameStart_btn_Click(object sender, EventArgs e)
+        {
+            panel2_gameStart.Visible=false;
+            panel3_roomList.Visible = true;
+            p3_title_label.Visible = true;
+        }
+
+        private void p3_makeRoom_btn_Click(object sender, EventArgs e)
+        {
+            p3_roomname_label.Text = "생성 할 방 이름";
+            p3_create_btn.Visible = true;
+            p3_people_label.Visible = true;
+            p3_people_tbx.Visible = true;
+        }
     }
 }
