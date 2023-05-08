@@ -19,16 +19,18 @@ namespace ServerProgram
         private StreamReader reader;
         private StreamWriter writer;
         private int room;
+        private IPAddress serverIP;
         public IPAddress clientIP;
         private int port;
         public int Port { get { return port; } }
 
-        public Server(IPAddress clientIP, int port, int room)
+        public Server(IPAddress serverIP, IPAddress clientIP, int port, int room)
         { //서버 생성자. 클라스 생성과 함께 서버연결
             this.port = port;
             this.room = room;
+            this.serverIP = serverIP;
             this.clientIP = clientIP;
-            this.listener = new TcpListener(clientIP, port);
+            this.listener = new TcpListener(serverIP, port);
         }
 
         public void change_room(int newRoom)
@@ -74,7 +76,7 @@ namespace ServerProgram
 
         private const int portmain = 5000; //기본(로비)포트
         private int portCount = 1;
-        private IPAddress ip = IPAddress.Parse("127.0.0.1"); // ip는 입력 받아 저장
+        private IPAddress serverIP = IPAddress.Parse("127.0.0.1"); // ip는 입력 받아 저장
 
         public int NewPort() { return portmain + portCount++; }
 
@@ -82,7 +84,11 @@ namespace ServerProgram
         {
             this.parentForm = parentForm;
 
-            parentForm.PrintLog("Server IP : " + GetMyIP());
+            //서버 아이피 저장 및 로그로 출력
+            string myIPString = GetMyIP();
+            serverIP = IPAddress.Parse(myIPString);
+
+            parentForm.PrintLog("Server IP : " + myIPString);
         }
 
         public void server_start()//lobby server를 시작. 한 번만 호출
@@ -109,10 +115,11 @@ namespace ServerProgram
                 {
                     TcpListener listener = new TcpListener(IPAddress.Any, portmain);
                     listener.Start();
+
+                    //클라이언트의 IP 주소를 받음. 딱히 사용하지는 않고 로그 출력할 때만 사용됨
                     TcpClient client = listener.AcceptTcpClient();
                     StreamReader sread = new StreamReader(client.GetStream());
                     string msg = sread.ReadLine();
-                    IPAddress clientIP = IPAddress.Parse(msg); //클라이언트의 IP 주소를 받음
                     //int room = int.Parse(msg); //방번호 받고 포트번호 주기 -> 이재 방 번호는 필요없음. 0으로 고정
                     sread.Close();
                     client.Close();
@@ -126,7 +133,7 @@ namespace ServerProgram
                     client2.Close();
                     listener.Stop();
 
-                    servers.Add(new Server(clientIP, newPort, 0));
+                    servers.Add(new Server(serverIP, IPAddress.Parse(msg), newPort, 0));
                     Thread thread1 = new Thread(chat_server);
                     thread1.IsBackground = true;
                     thread1.Start();
