@@ -17,32 +17,144 @@ namespace client
             InitializeComponent();
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //TryConnectServer();
+        }
+
         private void main_login_btn_Click(object sender, EventArgs e)
         {
             panel1_login.Visible = true;
+            //home_btn.Visible = true;
+            p1_username_tbx.Text = null;
+            p1_pw_tbx.Text = null;
         }
 
         private void p1_login_btn_Click(object sender, EventArgs e)
         {
-            p1_userName_label.Visible = false;
-            p1_pw_label.Visible = false;
-            p1_username_tbx.Visible = false;
-            p1_pw_tbx.Visible = false;
-            p1_1_ip_panel.Visible = true;
-
             // 로그인 버튼 눌렀을 때 유효성 검사
+            string username = p1_username_tbx.Text;
+            string password = p1_pw_tbx.Text;
+            DialogResult result = DialogResult.None;
+            /*
+            if (username != string.Empty && password != string.Empty)
+            {
+                try
+                {
+                    client.RequestSignIn(username, password);
+                }catch(NullReferenceException nre)
+                {
+                    return;
+                }
+                
+            }
+            */
+            if(string.IsNullOrEmpty(p1_username_tbx.Text)||string.IsNullOrEmpty(p1_pw_tbx.Text))
+            {
+                ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                string nameCheck = string.Format("당신은 {0} 님이 맞습니까?", p1_username_tbx.Text);
+                var name_messageRes = MessageBox.Show(nameCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (name_messageRes == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    name_messageRes = DialogResult.Yes;
+                }
+
+                string pwCheck = string.Format("비밀번호는 {0} 이 맞습니까?", p1_pw_tbx.Text);
+                var pw_messageRes = MessageBox.Show(pwCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (pw_messageRes == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    pw_messageRes = DialogResult.Yes;
+                }
+
+                if(pw_messageRes == DialogResult.Yes && name_messageRes ==DialogResult.Yes)
+                {
+                    result = DialogResult.Yes;
+                }
+            }
+
+            if(result == DialogResult.Yes)
+            {
+                p1_1_ip_panel.Visible = true;
+                p1_connect_btn.Visible = true;
+            }
+   
         }
 
-        private void p1_1_ip_panel_VisibleChanged(object sender, EventArgs e)
-        {
-            p1_ip_label.Visible = true;
-            p1_ip_tbx.Visible = true;
-            p1_connect_btn.Visible = true;
-        }
-
+        /*
         private void p1_connect_btn_Click(object sender, EventArgs e)
         {
             // 서버 연결 안 됐을 경우 팝업 알림
+            //TryConnectServer();
+            p1_gamestart_btn.Visible = true;
         }
+        */
+
+        public override void SignIn(string username)
+        {
+            if(username!=string.Empty)
+            {
+                client.username = username;
+                ShowMessageBox("로그인 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ShowMessageBox("로그인 실패", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public override void SignUp(bool success)
+        {
+            if (success)
+            {
+                ShowMessageBox("회원가입 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ShowMessageBox("회원가입 실패", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void home_btn_Click(object sender, EventArgs e)
+        {
+            // 모든 패널 닫기
+            p1_1_ip_panel.Visible = false;
+            panel1_login.Visible = false;
+        }
+
+        private void p1_gamestart_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void p1_login_btn_Click1(object sender, EventArgs e)
+        {
+            p1_1_ip_panel.Visible = true;
+            p1_connect_btn.Visible = true;
+        }
+
+
+
+        /*
+        private void p1_ip_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 숫자, 백스페이스, '.'만 입력 가능
+            if(!(char.IsLetter(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == 46))
+            {
+                e.Handled = true;
+            }
+        }
+        */
     }
 }

@@ -59,7 +59,7 @@ namespace client
             }
             catch
             {
-                parentForm.ShowMessageBox("서버 연결 실패");
+                parentForm.ShowMessageBox("서버 연결 실패", "Fail", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
 
@@ -88,7 +88,7 @@ namespace client
 
             if (header.Equals("NONE"))
             {
-                parentForm.ShowMessageBox(content);
+                parentForm.ShowMessageBox(content, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             else if (header.Equals("GETROOM"))
             {
