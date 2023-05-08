@@ -88,8 +88,8 @@ namespace client
 
             if (result == DialogResult.Yes)
             {
-               // p1_1_ip_panel.Visible = true;
-                //p1_connect_btn.Visible = true;
+                p1_1_ip_panel.Visible = true;
+                p1_connect_btn.Visible = true;
             }
 
         }
@@ -129,7 +129,7 @@ namespace client
         }
 
         #endregion
-        /*
+        
         #region 서버 연결 panel
         private void p1_ip_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -159,7 +159,7 @@ namespace client
             {
                 //연결 성공
                 p1_connect_btn.Visible = false;
-                p1_gameStart_btn.Visible = true;
+                //p1_gameStart_btn.Visible = true;
             }
             else
             {
@@ -172,7 +172,7 @@ namespace client
 
         #region 게임 시작 화면 panel
         #endregion
-        */
+        
 
     }
 }

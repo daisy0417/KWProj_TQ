@@ -40,7 +40,12 @@
             this.p1_username_label = new System.Windows.Forms.Label();
             this.p1_midTitle_label = new System.Windows.Forms.Label();
             this.p1_title_label = new System.Windows.Forms.Label();
+            this.p1_1_ip_panel = new System.Windows.Forms.Panel();
+            this.p1_connect_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p1_ip_label = new System.Windows.Forms.Label();
+            this.p1_ip_tbx = new System.Windows.Forms.TextBox();
             this.panel1_login.SuspendLayout();
+            this.p1_1_ip_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // title_label
@@ -120,6 +125,8 @@
             // 
             // panel1_login
             // 
+            this.panel1_login.Controls.Add(this.p1_connect_btn);
+            this.panel1_login.Controls.Add(this.p1_1_ip_panel);
             this.panel1_login.Controls.Add(this.p1_login_btn);
             this.panel1_login.Controls.Add(this.p1_pw_tbx);
             this.panel1_login.Controls.Add(this.p1_username_tbx);
@@ -230,6 +237,67 @@
             this.p1_title_label.Text = "LOGIN";
             this.p1_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // p1_1_ip_panel
+            // 
+            this.p1_1_ip_panel.Controls.Add(this.p1_ip_tbx);
+            this.p1_1_ip_panel.Controls.Add(this.p1_ip_label);
+            this.p1_1_ip_panel.Location = new System.Drawing.Point(245, 114);
+            this.p1_1_ip_panel.Name = "p1_1_ip_panel";
+            this.p1_1_ip_panel.Size = new System.Drawing.Size(565, 294);
+            this.p1_1_ip_panel.TabIndex = 5;
+            this.p1_1_ip_panel.Visible = false;
+            // 
+            // p1_connect_btn
+            // 
+            this.p1_connect_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_connect_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_connect_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p1_connect_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p1_connect_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p1_connect_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p1_connect_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p1_connect_btn.IsDerivedStyle = true;
+            this.p1_connect_btn.Location = new System.Drawing.Point(418, 435);
+            this.p1_connect_btn.Name = "p1_connect_btn";
+            this.p1_connect_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_connect_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_connect_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p1_connect_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p1_connect_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p1_connect_btn.PressTextColor = System.Drawing.Color.White;
+            this.p1_connect_btn.Size = new System.Drawing.Size(244, 70);
+            this.p1_connect_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p1_connect_btn.StyleManager = null;
+            this.p1_connect_btn.TabIndex = 7;
+            this.p1_connect_btn.Text = "연결하기";
+            this.p1_connect_btn.ThemeAuthor = "Narwin";
+            this.p1_connect_btn.ThemeName = "MetroLite";
+            this.p1_connect_btn.Visible = false;
+            this.p1_connect_btn.Click += new System.EventHandler(this.p1_connect_btn_Click);
+            // 
+            // p1_ip_label
+            // 
+            this.p1_ip_label.AutoSize = true;
+            this.p1_ip_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p1_ip_label.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.p1_ip_label.Location = new System.Drawing.Point(86, 90);
+            this.p1_ip_label.Name = "p1_ip_label";
+            this.p1_ip_label.Size = new System.Drawing.Size(42, 35);
+            this.p1_ip_label.TabIndex = 3;
+            this.p1_ip_label.Text = "IP";
+            this.p1_ip_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // p1_ip_tbx
+            // 
+            this.p1_ip_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p1_ip_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p1_ip_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.p1_ip_tbx.Location = new System.Drawing.Point(92, 128);
+            this.p1_ip_tbx.Name = "p1_ip_tbx";
+            this.p1_ip_tbx.Size = new System.Drawing.Size(412, 42);
+            this.p1_ip_tbx.TabIndex = 6;
+            this.p1_ip_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p1_ip_tbx_KeyPress);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -244,6 +312,8 @@
             this.Name = "MainForm";
             this.panel1_login.ResumeLayout(false);
             this.panel1_login.PerformLayout();
+            this.p1_1_ip_panel.ResumeLayout(false);
+            this.p1_1_ip_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +333,9 @@
         private System.Windows.Forms.Label p1_username_label;
         private System.Windows.Forms.Label p1_midTitle_label;
         private MetroSet_UI.Controls.MetroSetButton p1_login_btn;
+        private System.Windows.Forms.Panel p1_1_ip_panel;
+        private MetroSet_UI.Controls.MetroSetButton p1_connect_btn;
+        private System.Windows.Forms.TextBox p1_ip_tbx;
+        private System.Windows.Forms.Label p1_ip_label;
     }
 }
