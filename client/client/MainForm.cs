@@ -51,7 +51,7 @@ namespace client
             }
             */
 
-            if(string.IsNullOrEmpty(p1_username_tbx.Text)||string.IsNullOrEmpty(p1_pw_tbx.Text))
+            if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
             {
                 ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -80,18 +80,18 @@ namespace client
                     pw_messageRes = DialogResult.Yes;
                 }
 
-                if(pw_messageRes == DialogResult.Yes && name_messageRes ==DialogResult.Yes)
+                if (pw_messageRes == DialogResult.Yes && name_messageRes == DialogResult.Yes)
                 {
                     result = DialogResult.Yes;
                 }
             }
 
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 p1_1_ip_panel.Visible = true;
                 p1_connect_btn.Visible = true;
             }
-   
+
         }
 
         /*
@@ -102,10 +102,10 @@ namespace client
             p1_gamestart_btn.Visible = true;
         }
         */
-        
+
         public override void SignIn(string username)
         {
-            if(username!=string.Empty)
+            if (username != string.Empty)
             {
                 client.username = username;
                 ShowMessageBox("로그인 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -133,7 +133,7 @@ namespace client
         private void p1_ip_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 숫자, 백스페이스, '.'만 입력 가능
-            if(!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == 46))
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == 46))
             {
                 e.Handled = true;
             }
@@ -141,9 +141,9 @@ namespace client
 
         private void p1_connect_btn_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(p1_ip_tbx.Text))
+            if (string.IsNullOrEmpty(p1_ip_tbx.Text))
             {
-                ShowMessageBox("IP를 입력해주세요","Warning",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowMessageBox("IP를 입력해주세요", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
