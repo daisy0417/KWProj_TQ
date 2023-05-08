@@ -147,11 +147,24 @@ namespace client
             }
             else
             {
-                p1_connect_btn.Visible = false;
-                p1_gameStart_btn.Visible = true;
-
+                TryConnectServer(p1_ip_tbx.Text);
             }
 
+        }
+
+        public override void ConnectServerResult(bool success)
+        {
+            if (success)
+            {
+                //연결 성공
+                p1_connect_btn.Visible = false;
+                p1_gameStart_btn.Visible = true;
+            }
+            else
+            {
+                //연결 실패
+                ShowMessageBox("서버 연결 실패", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion

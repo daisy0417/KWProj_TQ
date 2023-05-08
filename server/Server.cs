@@ -19,14 +19,16 @@ namespace ServerProgram
         private StreamReader reader;
         private StreamWriter writer;
         private int room;
+        public IPAddress clientIP;
         private int port;
         public int Port { get { return port; } }
 
-        public Server(IPAddress ip, int port, int room)
+        public Server(IPAddress clientIP, int port, int room)
         { //서버 생성자. 클라스 생성과 함께 서버연결
             this.port = port;
             this.room = room;
-            this.listener = new TcpListener(ip, port);
+            this.clientIP = clientIP;
+            this.listener = new TcpListener(clientIP, port);
         }
 
         public void change_room(int newRoom)
@@ -79,6 +81,8 @@ namespace ServerProgram
         public MainServer(ServerForm parentForm)
         {
             this.parentForm = parentForm;
+
+            parentForm.PrintLog("Server IP : " + GetMyIP());
         }
 
         public void server_start()//lobby server를 시작. 한 번만 호출
@@ -103,12 +107,13 @@ namespace ServerProgram
             {
                 while (true)
                 {
-                    TcpListener listener = new TcpListener(ip, portmain);
+                    TcpListener listener = new TcpListener(IPAddress.Any, portmain);
                     listener.Start();
                     TcpClient client = listener.AcceptTcpClient();
                     StreamReader sread = new StreamReader(client.GetStream());
                     string msg = sread.ReadLine();
-                    int room = int.Parse(msg); //방번호 받고 포트번호 주기
+                    IPAddress clientIP = IPAddress.Parse(msg); //클라이언트의 IP 주소를 받음
+                    //int room = int.Parse(msg); //방번호 받고 포트번호 주기 -> 이재 방 번호는 필요없음. 0으로 고정
                     sread.Close();
                     client.Close();
 
@@ -121,12 +126,12 @@ namespace ServerProgram
                     client2.Close();
                     listener.Stop();
 
-                    servers.Add(new Server(IPAddress.Parse("127.0.0.1"), newPort, 0));
+                    servers.Add(new Server(clientIP, newPort, 0));
                     Thread thread1 = new Thread(chat_server);
                     thread1.IsBackground = true;
                     thread1.Start();
 
-                    parentForm.PrintLog("new clent connected | port : " + newPort + " | room : " + room);
+                    parentForm.PrintLog("new clent connected ip : " + msg + " | port : " + newPort + " | room : " + 0);
                 }
             }catch(Exception e)
             {
@@ -224,11 +229,29 @@ namespace ServerProgram
             }
             catch
             {
-                parentForm.PrintLog("disconnect client | port : " + 
-                    server.Port.ToString() + " | room : " + server.roomnum().ToString());
+                parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() + 
+                    " | port : " + server.Port.ToString() + " | room : " + server.roomnum().ToString());
                 servers.Remove(server);
             }
         }
+
+        //실행하는 컴퓨터의 ip 주소를 반환
+        private string GetMyIP()
+        {
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            string myIP = string.Empty;
+            for (int i = 0; i < host.AddressList.Length; i++)
+            {
+                if (host.AddressList[i].AddressFamily == AddressFamily.InterNetwork)
+                {
+                    myIP = host.AddressList[i].ToString();
+                    break;
+                }
+            }
+
+            return myIP;
+        }
+
         #endregion
 
         #region 로그인 기능

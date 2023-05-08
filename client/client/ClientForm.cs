@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -97,9 +98,9 @@ namespace client
         /// <summary>
         ///  서버에 접속을 시도한다. 이때 client도 자동으로 생성된다. client를 통해 서버에 요청을 보낼 수 있다. override 불필요
         /// </summary>
-        protected void TryConnectServer()
+        protected void TryConnectServer(string serverIP)
         {
-            if (client == null) client = new Client(this);
+            if(client == null) client = new Client(this, serverIP);
 
             if (client.Activate)
             {
@@ -107,8 +108,17 @@ namespace client
             }
             else
             {
+                client.ServerIP = IPAddress.Parse(serverIP);
                 client.Start();
             }
+        }
+
+        /// <summary>
+        ///  TryConnectServer 호출 후 도착하는 응답. success를 통해 서버 연결 성공 여부를 전달한다. override 필요
+        /// </summary>
+        public virtual void ConnectServerResult(bool success)
+        {
+
         }
     }
 }
