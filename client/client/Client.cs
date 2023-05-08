@@ -12,18 +12,39 @@ namespace client
 {
     public partial class Client
     {
-        StreamReader sreader;
-        StreamWriter swriter;
+        private IPAddress serverIP;
+        public IPAddress ServerIP { set { serverIP = value; } get { return serverIP; } }
 
-        ClientForm parentForm;
+        private StreamReader sreader;
+        private StreamWriter swriter;
+
+        private ClientForm parentForm;
 
         public string username = "None";
         private bool activate = false;
         public bool Activate { get { return activate; } } //현재 클라이언트가 서버와 접속중인지
 
-        public Client(ClientForm parentForm)
+        public Client(ClientForm parentForm, string serverIPString)
         {
+            this.serverIP = IPAddress.Parse(serverIPString);
             this.parentForm = parentForm;
+        }
+
+        //실행하는 컴퓨터의 ip 주소를 반환
+        private string GetMyIP()
+        {
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            string myIP = string.Empty;
+            for (int i = 0; i < host.AddressList.Length; i++)
+            {
+                if (host.AddressList[i].AddressFamily == AddressFamily.InterNetwork)
+                {
+                    myIP = host.AddressList[i].ToString();
+                    break;
+                }
+            }
+
+            return myIP;
         }
 
         //서버와 접속을 시작한다.
@@ -31,22 +52,29 @@ namespace client
         {
             try
             {
+                //만약 입력된 IP가 127.0.0.1 이면 로컬 연결이므로 clientIP, serverIP 모두 127.0.0.1로
+                IPAddress clientIP = IPAddress.Parse("127.0.0.1");
+                if (!serverIP.ToString().Equals("127.0.0.1")) clientIP = IPAddress.Parse(GetMyIP());
+                
+                //서버에 내 IP를 보냄. 딱히 쓰이는 곳은 없고 로그 출력할 때만 쓰임
                 TcpClient client = new TcpClient();
-                client.Connect(IPAddress.Parse("127.0.0.1"), 5000);
+                client.Connect(serverIP, 5000);
                 swriter = new StreamWriter(client.GetStream());
-                swriter.WriteLine(0);
+                swriter.WriteLine(clientIP); 
                 swriter.Close();
                 client.Close();
 
+                //서버에서 포트를 할당받음
                 TcpClient client2 = new TcpClient();
-                client2.Connect(IPAddress.Parse("127.0.0.1"), 5000);
+                client2.Connect(serverIP, 5000);
                 sreader = new StreamReader(client2.GetStream());
                 int port = int.Parse(sreader.ReadLine());
                 sreader.Close();
-                client.Close();
+                client2.Close();
 
+                //서버-클라이언트 연결 시작
                 client = new TcpClient();
-                client.Connect(IPAddress.Parse("127.0.0.1"), port);
+                client.Connect(serverIP, port);
                 sreader = new StreamReader(client.GetStream());
                 swriter = new StreamWriter(client.GetStream());
                 swriter.AutoFlush = true;
@@ -59,7 +87,12 @@ namespace client
             }
             catch
             {
-                parentForm.ShowMessageBox("서버 연결 실패", "Fail", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                //parentForm.ShowMessageBox("서버 연결 실패", "Fail", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            finally
+            {
+                //서버 연결 성공 여부를 전달
+                parentForm.ConnectServerResult(activate);
             }
         }
 
