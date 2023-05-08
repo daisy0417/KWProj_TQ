@@ -35,7 +35,7 @@
             this.panel1_login = new System.Windows.Forms.Panel();
             this.p1_1_ip_panel = new System.Windows.Forms.Panel();
             this.p1_ip_label = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.p1_ip_tbx = new System.Windows.Forms.TextBox();
             this.p1_connect_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p1_login_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p1_pw_tbx = new System.Windows.Forms.TextBox();
@@ -43,6 +43,7 @@
             this.p1_pw_label = new System.Windows.Forms.Label();
             this.p1_userName_label = new System.Windows.Forms.Label();
             this.p1_title_label = new System.Windows.Forms.Label();
+            this.p1_gameStart_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel1_login.SuspendLayout();
             this.p1_1_ip_panel.SuspendLayout();
             this.SuspendLayout();
@@ -123,6 +124,7 @@
             // 
             // panel1_login
             // 
+            this.panel1_login.Controls.Add(this.p1_gameStart_btn);
             this.panel1_login.Controls.Add(this.p1_1_ip_panel);
             this.panel1_login.Controls.Add(this.p1_connect_btn);
             this.panel1_login.Controls.Add(this.p1_login_btn);
@@ -142,7 +144,7 @@
             // p1_1_ip_panel
             // 
             this.p1_1_ip_panel.Controls.Add(this.p1_ip_label);
-            this.p1_1_ip_panel.Controls.Add(this.textBox1);
+            this.p1_1_ip_panel.Controls.Add(this.p1_ip_tbx);
             this.p1_1_ip_panel.Location = new System.Drawing.Point(240, 99);
             this.p1_1_ip_panel.Name = "p1_1_ip_panel";
             this.p1_1_ip_panel.Size = new System.Drawing.Size(584, 301);
@@ -160,15 +162,16 @@
             this.p1_ip_label.Text = "IP";
             this.p1_ip_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // p1_ip_tbx
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.Location = new System.Drawing.Point(93, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(361, 42);
-            this.textBox1.TabIndex = 12;
+            this.p1_ip_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p1_ip_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p1_ip_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.p1_ip_tbx.Location = new System.Drawing.Point(93, 117);
+            this.p1_ip_tbx.Name = "p1_ip_tbx";
+            this.p1_ip_tbx.Size = new System.Drawing.Size(361, 42);
+            this.p1_ip_tbx.TabIndex = 12;
+            this.p1_ip_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p1_ip_tbx_KeyPress);
             // 
             // p1_connect_btn
             // 
@@ -196,6 +199,7 @@
             this.p1_connect_btn.ThemeAuthor = "Narwin";
             this.p1_connect_btn.ThemeName = "MetroLite";
             this.p1_connect_btn.Visible = false;
+            this.p1_connect_btn.Click += new System.EventHandler(this.p1_connect_btn_Click);
             // 
             // p1_login_btn
             // 
@@ -233,6 +237,7 @@
             this.p1_pw_tbx.Name = "p1_pw_tbx";
             this.p1_pw_tbx.Size = new System.Drawing.Size(361, 42);
             this.p1_pw_tbx.TabIndex = 11;
+            this.p1_pw_tbx.UseSystemPasswordChar = true;
             // 
             // p1_username_tbx
             // 
@@ -278,6 +283,33 @@
             this.p1_title_label.Text = "LOGIN";
             this.p1_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // p1_gameStart_btn
+            // 
+            this.p1_gameStart_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_gameStart_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_gameStart_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p1_gameStart_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p1_gameStart_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p1_gameStart_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p1_gameStart_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p1_gameStart_btn.IsDerivedStyle = true;
+            this.p1_gameStart_btn.Location = new System.Drawing.Point(403, 406);
+            this.p1_gameStart_btn.Name = "p1_gameStart_btn";
+            this.p1_gameStart_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_gameStart_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_gameStart_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p1_gameStart_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p1_gameStart_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p1_gameStart_btn.PressTextColor = System.Drawing.Color.White;
+            this.p1_gameStart_btn.Size = new System.Drawing.Size(211, 59);
+            this.p1_gameStart_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p1_gameStart_btn.StyleManager = null;
+            this.p1_gameStart_btn.TabIndex = 14;
+            this.p1_gameStart_btn.Text = "게임 시작하기";
+            this.p1_gameStart_btn.ThemeAuthor = "Narwin";
+            this.p1_gameStart_btn.ThemeName = "MetroLite";
+            this.p1_gameStart_btn.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -316,7 +348,8 @@
         private MetroSet_UI.Controls.MetroSetButton p1_connect_btn;
         private System.Windows.Forms.Panel p1_1_ip_panel;
         private System.Windows.Forms.Label p1_ip_label;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox p1_ip_tbx;
+        private MetroSet_UI.Controls.MetroSetButton p1_gameStart_btn;
     }
 }
 

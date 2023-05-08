@@ -30,12 +30,14 @@ namespace client
             p1_pw_tbx.Text = null;
         }
 
+        #region 로그인 panel
         private void p1_login_btn_Click(object sender, EventArgs e)
         {
             // 로그인 버튼 눌렀을 때 유효성 검사
             string username = p1_username_tbx.Text;
             string password = p1_pw_tbx.Text;
             DialogResult result = DialogResult.None;
+
             /*
             if (username != string.Empty && password != string.Empty)
             {
@@ -45,10 +47,10 @@ namespace client
                 }catch(NullReferenceException nre)
                 {
                     return;
-                }
-                
+                } 
             }
             */
+
             if(string.IsNullOrEmpty(p1_username_tbx.Text)||string.IsNullOrEmpty(p1_pw_tbx.Text))
             {
                 ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -100,7 +102,7 @@ namespace client
             p1_gamestart_btn.Visible = true;
         }
         */
-
+        
         public override void SignIn(string username)
         {
             if(username!=string.Empty)
@@ -125,36 +127,38 @@ namespace client
                 ShowMessageBox("회원가입 실패", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
-        private void home_btn_Click(object sender, EventArgs e)
-        {
-            // 모든 패널 닫기
-            p1_1_ip_panel.Visible = false;
-            panel1_login.Visible = false;
-        }
-
-        private void p1_gamestart_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void p1_login_btn_Click1(object sender, EventArgs e)
-        {
-            p1_1_ip_panel.Visible = true;
-            p1_connect_btn.Visible = true;
-        }
-
-
-
-        /*
+        #region 서버 연결 panel
         private void p1_ip_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 숫자, 백스페이스, '.'만 입력 가능
-            if(!(char.IsLetter(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == 46))
+            if(!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == 46))
             {
                 e.Handled = true;
             }
         }
-        */
+
+        private void p1_connect_btn_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(p1_ip_tbx.Text))
+            {
+                ShowMessageBox("IP를 입력해주세요","Warning",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                p1_connect_btn.Visible = false;
+                p1_gameStart_btn.Visible = true;
+
+            }
+
+        }
+
+        #endregion
+
+        #region 게임 시작 화면 panel
+        #endregion
+
+
     }
 }
