@@ -21,7 +21,7 @@ namespace client
         {
             //TryConnectServer();
         }
-        
+
         private void main_login_btn_Click(object sender, EventArgs e)
         {
             panel1_login.Visible = true;
@@ -49,7 +49,7 @@ namespace client
                     return;
                 } 
             }
-           */ 
+           */
 
             if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
             {
@@ -129,7 +129,7 @@ namespace client
         }
 
         #endregion
-        
+
         #region 서버 연결 panel
         private void p1_ip_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -184,7 +184,7 @@ namespace client
 
         private void p2_gameStart_btn_Click(object sender, EventArgs e)
         {
-            panel2_gameStart.Visible=false;
+            panel2_gameStart.Visible = false;
             panel3_roomList.Visible = true;
             p3_title_label.Visible = true;
         }
@@ -196,5 +196,117 @@ namespace client
             p3_people_label.Visible = true;
             p3_people_tbx.Visible = true;
         }
+
+        public override void RoomList(List<string> roomList)
+        {
+            p3_list_tbx.Text = "";
+
+            foreach (string room in roomList)
+            {
+                string[] roomInfo = room.Split(',');
+                string roomName = roomInfo[0];
+                string playerCount = roomInfo[1];
+                string roomMax = roomInfo[2];
+
+                p3_list_tbx.Text = p3_list_tbx.Text + string.Format("{0} - {1}/{2}\r\n", roomName, playerCount, roomMax);
+            }
+        }
+
+        public override void RoomCreate(bool success)
+        {
+            if (success)
+            {
+                ShowMessageBox("방 생성 성공","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else
+            {
+                ShowMessageBox("방 생성 실패","Fail",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+        }
+
+        public override void RoomJoin(string result)
+        {
+            if (result.Equals("-1"))
+            {
+                ShowMessageBox("존재하지 않는 방입니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (result.Equals("-2"))
+            {
+                ShowMessageBox("정원이 가득 찼습니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                client.RequestSendRoomChat("시스템", client.username + "이(가) 방에 참가함");
+                ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public override void RoomOut()
+        {
+            ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void p3_refresh_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestRoomList();
+        }
+
+        private void p3_create_btn_Click(object sender, EventArgs e)
+        {
+            string roomName = p3_roomname_tbx.Text;
+            string roomMax = p3_people_tbx.Text;
+
+            if (roomName != string.Empty && roomMax != string.Empty)
+            {
+                int num = 0;
+                if (int.TryParse(p3_people_tbx.Text, out num))
+                {
+                    client.RequestRoomCreate(roomName, roomMax);
+                }
+            }
+        }
+
+        private void p3_Join_btn_Click(object sender, EventArgs e)
+        {
+            string roomName = p3_roomname_tbx.Text;
+
+            if (roomName != string.Empty)
+            {
+                client.RequestRoomJoin(roomName);
+            }
+        }
+
+        private void p3_Out_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestRoomOut();
+        }
+
+        private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
+        {
+            p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
+        }
+
+
+
+        /*
+        public override void RoomChat(List<string> chatList)
+        {
+            tbRoomChat.Text = "";
+            chatList.ForEach(chat =>
+            {
+                tbRoomChat.Text += chat + "\r\n";
+            });
+        }
+
+       private void btnSend_Click(object sender, EventArgs e)
+       {
+           string content = tbMessage.Text;
+           if (content != string.Empty)
+           {
+               client.RequestSendRoomChat(client.username, content);
+               tbMessage.Text = "";
+           }
+       }
+       */
     }
 }

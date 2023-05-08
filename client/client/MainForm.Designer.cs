@@ -51,6 +51,7 @@
             this.p2_welcome__label = new System.Windows.Forms.Label();
             this.p2_title_label = new System.Windows.Forms.Label();
             this.panel3_roomList = new System.Windows.Forms.Panel();
+            this.p3_comein_label = new System.Windows.Forms.Label();
             this.p3_create_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_makeRoom_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
@@ -436,6 +437,7 @@
             // 
             // panel3_roomList
             // 
+            this.panel3_roomList.Controls.Add(this.p3_comein_label);
             this.panel3_roomList.Controls.Add(this.p3_create_btn);
             this.panel3_roomList.Controls.Add(this.p3_makeRoom_btn);
             this.panel3_roomList.Controls.Add(this.p3_refresh_btn);
@@ -452,6 +454,17 @@
             this.panel3_roomList.Size = new System.Drawing.Size(984, 550);
             this.panel3_roomList.TabIndex = 6;
             this.panel3_roomList.Visible = false;
+            this.panel3_roomList.VisibleChanged += new System.EventHandler(this.panel3_roomList_VisibleChanged);
+            // 
+            // p3_comein_label
+            // 
+            this.p3_comein_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13F);
+            this.p3_comein_label.Location = new System.Drawing.Point(274, 26);
+            this.p3_comein_label.Name = "p3_comein_label";
+            this.p3_comein_label.Size = new System.Drawing.Size(682, 40);
+            this.p3_comein_label.TabIndex = 19;
+            this.p3_comein_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.p3_comein_label.Visible = false;
             // 
             // p3_create_btn
             // 
@@ -479,6 +492,7 @@
             this.p3_create_btn.ThemeAuthor = "Narwin";
             this.p3_create_btn.ThemeName = "MetroLite";
             this.p3_create_btn.Visible = false;
+            this.p3_create_btn.Click += new System.EventHandler(this.p3_create_btn_Click);
             // 
             // p3_makeRoom_btn
             // 
@@ -532,6 +546,7 @@
             this.p3_refresh_btn.Text = "새로고침";
             this.p3_refresh_btn.ThemeAuthor = "Narwin";
             this.p3_refresh_btn.ThemeName = "MetroLite";
+            this.p3_refresh_btn.Click += new System.EventHandler(this.p3_refresh_btn_Click);
             // 
             // p3_Out_btn
             // 
@@ -546,7 +561,7 @@
             this.p3_Out_btn.Location = new System.Drawing.Point(772, 493);
             this.p3_Out_btn.Name = "p3_Out_btn";
             this.p3_Out_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p3_Out_btn.NormalColor = System.Drawing.Color.Red;
+            this.p3_Out_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_Out_btn.NormalTextColor = System.Drawing.Color.White;
             this.p3_Out_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p3_Out_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
@@ -558,6 +573,7 @@
             this.p3_Out_btn.Text = "퇴장하기";
             this.p3_Out_btn.ThemeAuthor = "Narwin";
             this.p3_Out_btn.ThemeName = "MetroLite";
+            this.p3_Out_btn.Click += new System.EventHandler(this.p3_Out_btn_Click);
             // 
             // p3_Join_btn
             // 
@@ -584,6 +600,7 @@
             this.p3_Join_btn.Text = "입장하기";
             this.p3_Join_btn.ThemeAuthor = "Narwin";
             this.p3_Join_btn.ThemeName = "MetroLite";
+            this.p3_Join_btn.Click += new System.EventHandler(this.p3_Join_btn_Click);
             // 
             // p3_list_tbx
             // 
@@ -641,11 +658,11 @@
             // p3_title_label
             // 
             this.p3_title_label.AutoSize = true;
-            this.p3_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.p3_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Bold);
             this.p3_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
             this.p3_title_label.Location = new System.Drawing.Point(14, 15);
             this.p3_title_label.Name = "p3_title_label";
-            this.p3_title_label.Size = new System.Drawing.Size(143, 31);
+            this.p3_title_label.Size = new System.Drawing.Size(162, 35);
             this.p3_title_label.TabIndex = 19;
             this.p3_title_label.Text = "스무고개 게임";
             this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -715,5 +732,6 @@
         private MetroSet_UI.Controls.MetroSetButton p3_Join_btn;
         private MetroSet_UI.Controls.MetroSetButton p3_create_btn;
         private System.Windows.Forms.Label p3_title_label;
+        private System.Windows.Forms.Label p3_comein_label;
     }
 }
