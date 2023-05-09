@@ -169,6 +169,11 @@ namespace client
         #endregion
 
         #region panel3_roomList: 방 리스트 (방 생성, 입장, 퇴장)
+        private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
+        {
+            p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
+        }
+
         private void p3_makeRoom_btn_Click(object sender, EventArgs e)
         {
             p3_roomname_label.Text = "생성 할 방 이름";
@@ -177,8 +182,10 @@ namespace client
             p3_people_tbx.Visible = true;
         }
 
+
+        List<string> serverRoomInfo;    // RoomList 함수가 서버로 부터 받아 온 방 정보를 사용하기 위함.
+
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
-        List<string> serverRoomInfo;
         public override void RoomList(List<string> roomList)
         {
             p3_nameList_tbx.Text = "";
@@ -208,17 +215,6 @@ namespace client
             }
         }
 
-        
-        public override void RoomOut()
-        {
-            ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void p3_refresh_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestRoomList();
-        }
-
         /// <summary>
         /// 방 생성하기 버튼 클릭 시 이벤트
         /// 방 이름과 최대 정원이 모두 입력되면 방 생성함
@@ -239,14 +235,21 @@ namespace client
                     }
                     panel3_roomList.Visible = false;
                     panel4_waitRoom.Visible = true;
-                } catch(NullReferenceException nre)
+                }
+                catch (NullReferenceException nre)
                 {
                     return;
                 }
             }
         }
 
+        public override void RoomOut()
+        {
+            ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         int joinRes;     // 방 입장 시 정원 여부를 확인하기 위해 사용함.
+
         public override void RoomJoin(string result)
         {
             if (result.Equals("-1"))
@@ -264,6 +267,8 @@ namespace client
                 joinRes = 0;
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                panel3_roomList.Visible = false;
+                panel4_waitRoom.Visible = true;
             }
         }
 
@@ -271,32 +276,23 @@ namespace client
         private void p3_Join_btn_Click(object sender, EventArgs e)
         {
             string roomName = p3_roomname_tbx.Text;
-            
+
             if (roomName != string.Empty)
             {
                 client.RequestRoomJoin(roomName);   // 서버에 방 이름 정보 보냄
             }
-            
-            if(joinRes==0)
-            {
-                panel3_roomList.Visible = false;
-                panel4_waitRoom.Visible = true;
-            }
-            else
-            {
-                ShowMessageBox("nonono","test",MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        }
+
+        // 새로 고침 버튼 클릭 시 이벤트
+        private void p3_refresh_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestRoomList();
         }
 
         // 퇴장하기 버튼 클릭 시 이벤트
         private void p3_Out_btn_Click(object sender, EventArgs e)
         {
             client.RequestRoomOut();
-        }
-
-        private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
-        {
-            p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
         }
 
         #endregion
@@ -334,8 +330,9 @@ namespace client
                     string playerCount = roomInfo[1];
                     string roomMax = roomInfo[2];
 
-                    // 방 이름 - 접속 인원 / 최대 정원
-                    p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
+                    p4_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName);
+                    // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
+                    // p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
                 }
             }
             else
@@ -344,13 +341,23 @@ namespace client
             }
 
         }
-        #endregion
+
 
         private void p4_Out_btn_Click(object sender, EventArgs e)
         {
             client.RequestRoomOut();
+            p3_people_label.Visible = false;
+            p3_people_tbx.Visible = false;
+            p3_create_btn.Visible = false;
+            p3_roomname_label.Text = "입장 할 방 이름";
             panel4_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
         }
+
+        private void p4_ready_btn_Click(object sender, EventArgs e)
+        {
+            p4_ready_btn.Text = "게임 시작하기";
+        }
+        #endregion
     }
 }

@@ -64,12 +64,12 @@
             this.p3_roomname_tbx = new System.Windows.Forms.TextBox();
             this.p3_title_label = new System.Windows.Forms.Label();
             this.panel4_waitRoom = new System.Windows.Forms.Panel();
+            this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_message_tbx = new System.Windows.Forms.TextBox();
             this.p4_ready_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_chat_tbx = new System.Windows.Forms.TextBox();
-            this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -693,6 +693,33 @@
             this.panel4_waitRoom.Visible = false;
             this.panel4_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
             // 
+            // p4_Out_btn
+            // 
+            this.p4_Out_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_Out_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_Out_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p4_Out_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p4_Out_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p4_Out_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p4_Out_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p4_Out_btn.IsDerivedStyle = true;
+            this.p4_Out_btn.Location = new System.Drawing.Point(15, 12);
+            this.p4_Out_btn.Name = "p4_Out_btn";
+            this.p4_Out_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_Out_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_Out_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p4_Out_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p4_Out_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p4_Out_btn.PressTextColor = System.Drawing.Color.White;
+            this.p4_Out_btn.Size = new System.Drawing.Size(110, 54);
+            this.p4_Out_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_Out_btn.StyleManager = null;
+            this.p4_Out_btn.TabIndex = 22;
+            this.p4_Out_btn.Text = "나가기";
+            this.p4_Out_btn.ThemeAuthor = "Narwin";
+            this.p4_Out_btn.ThemeName = "MetroLite";
+            this.p4_Out_btn.Click += new System.EventHandler(this.p4_Out_btn_Click);
+            // 
             // p4_send_btn
             // 
             this.p4_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -755,6 +782,7 @@
             this.p4_ready_btn.Text = "READY";
             this.p4_ready_btn.ThemeAuthor = "Narwin";
             this.p4_ready_btn.ThemeName = "MetroLite";
+            this.p4_ready_btn.Click += new System.EventHandler(this.p4_ready_btn_Click);
             // 
             // p4_roomInfo_label
             // 
@@ -775,33 +803,6 @@
             this.p4_chat_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.p4_chat_tbx.Size = new System.Drawing.Size(830, 409);
             this.p4_chat_tbx.TabIndex = 17;
-            // 
-            // p4_Out_btn
-            // 
-            this.p4_Out_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p4_Out_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p4_Out_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_Out_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
-            this.p4_Out_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p4_Out_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p4_Out_btn.HoverTextColor = System.Drawing.Color.White;
-            this.p4_Out_btn.IsDerivedStyle = true;
-            this.p4_Out_btn.Location = new System.Drawing.Point(15, 12);
-            this.p4_Out_btn.Name = "p4_Out_btn";
-            this.p4_Out_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p4_Out_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p4_Out_btn.NormalTextColor = System.Drawing.Color.White;
-            this.p4_Out_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p4_Out_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p4_Out_btn.PressTextColor = System.Drawing.Color.White;
-            this.p4_Out_btn.Size = new System.Drawing.Size(110, 54);
-            this.p4_Out_btn.Style = MetroSet_UI.Enums.Style.Light;
-            this.p4_Out_btn.StyleManager = null;
-            this.p4_Out_btn.TabIndex = 22;
-            this.p4_Out_btn.Text = "나가기";
-            this.p4_Out_btn.ThemeAuthor = "Narwin";
-            this.p4_Out_btn.ThemeName = "MetroLite";
-            this.p4_Out_btn.Click += new System.EventHandler(this.p4_Out_btn_Click);
             // 
             // MainForm
             // 
