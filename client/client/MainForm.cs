@@ -232,7 +232,7 @@ namespace client
             }
             else
             {
-                client.RequestSendRoomChat("시스템", client.username + "이(가) 방에 참가함");
+                client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -259,6 +259,8 @@ namespace client
                 {
                     client.RequestRoomCreate(roomName, roomMax);
                 }
+                panel3_roomList.Visible = false;
+                panel4_waitRoom.Visible = true;
             }
         }
 
