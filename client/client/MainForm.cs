@@ -239,11 +239,10 @@ namespace client
                     }
                     panel3_roomList.Visible = false;
                     panel4_waitRoom.Visible = true;
-                }catch(NullReferenceException nre)
+                } catch(NullReferenceException nre)
                 {
                     return;
                 }
-                
             }
         }
 
