@@ -31,7 +31,8 @@ namespace client
         }
 
         /// <summary>
-        ///  RequestSignIn 호출 후 도착하는 응답. 로그인을 시도한 후 username을 통해 성공하면 계정 아이디, 실패하면 빈 문자열을 전달한다. override 필요
+        ///  RequestSignIn 호출 후 도착하는 응답. 로그인을 시도한 후 
+        ///  username을 통해 성공하면 계정 아이디, 실패하면 빈 문자열을 전달한다. override 필요
         /// </summary>
         public virtual void SignIn(string username)
         {
@@ -47,7 +48,8 @@ namespace client
         }
 
         /// <summary>
-        ///  RequestRoomList 호출 후 도착하는 응답. 현재 서버에 존재하는 방의 정보를 roomList로 전달한다. ','로 구분되어 방 이름, 현재 방 인원, 방의 최대 인원이 담겨있다. override 필요
+        ///  RequestRoomList 호출 후 도착하는 응답. 현재 서버에 존재하는 방의 정보를 roomList로 전달한다. 
+        ///  ','로 구분되어 방 이름, 현재 방 인원, 방의 최대 인원이 담겨있다. override 필요
         /// </summary>
         public virtual void RoomList(List<string> roomList)
         {
@@ -63,7 +65,8 @@ namespace client
         }
 
         /// <summary>
-        ///  RequestRoomJoin 호출 후 도착하는 응답. 서버에 있는 방에 참가한 후 result를 통해 방이 없으면 -1, 정원이 가득 찼으면 -2, 성공하면 방의 이름을 전달한다. override 필요
+        ///  RequestRoomJoin 호출 후 도착하는 응답. 서버에 있는 방에 참가한 후 
+        ///  result를 통해 방이 없으면 -1, 정원이 가득 찼으면 -2, 성공하면 방의 이름을 전달한다. override 필요
         /// </summary>
         public virtual void RoomJoin(string result)
         {
@@ -79,12 +82,96 @@ namespace client
         }
 
         /// <summary>
-        ///  RequestSendRoomChat 호출 후 도착하는 응답. 메세지를 보낸 후 chatList를 통해 해당 메세지가 포함된 채팅 목록을 전달한다. 계정명과 채팅 내용이 ':'로 구분되어 있다. override 필요
+        ///  RequestSendRoomChat 호출 후 도착하는 응답. 메세지를 보낸 후 chatList를 통해 해당 메세지가 포함된 채팅 목록을 전달한다. 
+        ///  계정명과 채팅 내용이 ':'로 구분되어 있다. override 필요
         /// </summary>
         public virtual void RoomChat(List<string> chatList)
         {
 
         }
+
+        /// <summary>
+        ///  RequestPlayerList 호출 후 도착하는 응답. 현재 방에 존재하는 플레이어의 username 목록을 playerList로 전달한다. 
+        ///  해당 방에 플레이어가 진입할때 기존에 있던 다른 플레이어들에게 자동으로 호출되어 방의 인원 변경을 자동으로 반영하게 함. override 필요
+        /// </summary>
+        public virtual void PlayerList(List<string> playerList)
+        {
+
+        }
+
+        /// <summary>
+        ///  RequestGameStart 호출 후 도착하는 응답. 실패했을 경우에만 호출되며 성공했을 경우에는 PresenterChoice가 호출될 것이다.
+        /// </summary>
+        public virtual void GameStartFail()
+        {
+
+        }
+
+        /// <summary>
+        ///  RequestGameReady 호출 후 도착하는 응답. 현재 준비 여부를 전달한다.
+        /// </summary>
+        public virtual void GameReady(bool ready)
+        {
+
+        }
+
+        #region 게임 진행에 따른 화면들
+        /// <summary>
+        /// 방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼 등 방장의 고유한 권한이 있는 화면
+        /// </summary>
+        public virtual void OwnerWait()
+        {
+            
+        }
+
+        /// <summary>
+        /// 참가자의 게임 시작 전 화면. 방장의 고유한 권한을 제외하고, 준비버튼등만 활성화
+        /// </summary>
+        public virtual void PlayerWait()
+        {
+
+        }
+
+        /// <summary>
+        /// 게임 시작 후 출제자가 제시어를 정하는 화면 RequestWordSelect() 요청을 보낼 수 있는 버튼이 존재해야한다.
+        /// </summary>
+        public virtual void PresenterChoice()
+        {
+
+        }
+
+        /// <summary>
+        /// 게임 시작 후 출제자가 질문을 기다리는 화면.
+        /// </summary>
+        public virtual void PresenterWait()
+        {
+
+        }
+
+        /// <summary>
+        /// 게임 시작 후 출제자가 질문에 대한 답변을 작성하는 화면. RequestSendAnswer() 요청을 보낼 수 있는 버튼이 존재해야한다.
+        /// </summary>
+        public virtual void PresenterAnswer()
+        {
+
+        }
+
+        /// <summary>
+        /// 게임 시작 후 질문자가 질문을 기다리는 화면.
+        /// </summary>
+        public virtual void QuestionerWait()
+        {
+
+        }
+
+        /// <summary>
+        /// 게임 시작 후 질문자가 질문을 작성하는 화면. RequestSendQuestion() 요청을 보낼 수 있는 버튼이 존재해야한다.
+        /// </summary>
+        public virtual void QuestionerQuestion()
+        {
+
+        }
+        #endregion
 
         /// <summary>
         ///  MessageBox를 보여준다. override 불필요

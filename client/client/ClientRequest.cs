@@ -55,5 +55,35 @@ namespace client
         {
             SendRequest("ROOMCHAT", username + ":" + content);
         }
+
+        public void RequestPlayerList(string roomName)
+        {
+            SendRequest("PLAYERLIST", roomName);
+        }
+
+        public void RequestGameReady()
+        {
+            SendRequest("GAMEREADY", "0");
+        }
+
+        public void RequestGameStart()
+        {
+            SendRequest("GAMESTART", "0");
+        }
+
+        public void RequestWordSelect(string word)
+        {
+            SendRequest("WORDSELECT", word);
+        }
+
+        public void RequestSendAnswer(string answer)
+        {
+            SendRequest("SENDANSWER", answer);
+        }
+
+        public void RequestSendQuestion(string question)
+        {
+            SendRequest("SENDQUESTION", question);
+        }
     }
 }
