@@ -85,9 +85,10 @@ namespace client
 
                 activate = true;
             }
-            catch
+            catch(Exception ex)
             {
                 //parentForm.ShowMessageBox("서버 연결 실패", "Fail", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                parentForm.ShowMessageBox(ex.Message, "Fail", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             finally
             {
@@ -170,6 +171,55 @@ namespace client
                 else
                 {
                     parentForm.RoomChat(new List<string>());
+                }
+            }
+            else if (header.Equals("PLAYERLIST"))
+            {
+                if(string.IsNullOrEmpty(content) == false)
+                {
+                    string[] playerArr = content.Split(',');
+                    parentForm.PlayerList(playerArr.ToList());
+                }
+            }
+            else if (header.Equals("GAMESTART"))
+            {
+                if (content.Equals("0"))
+                {
+                    parentForm.GameStartFail();
+                }
+            }else if (header.Equals("GAMEREADY"))
+            {
+                parentForm.GameReady(content.Equals("1"));
+            }
+            else if (header.Equals("GAMESCREEN"))
+            {
+                if (content.Equals("OWNERWAIT"))
+                {
+                    parentForm.PresenterWait();
+                }
+                else if (content.Equals("PLAYERWAIT"))
+                {
+                    parentForm.PresenterWait();
+                }
+                else if (content.Equals("PRESENTERCHOICE"))
+                {
+                    parentForm.PresenterChoice();
+                }
+                else if (content.Equals("PRESENTERWAIT"))
+                {
+                    parentForm.PresenterWait();
+                }
+                else if (content.Equals("PRESENTERWANSWER"))
+                {
+                    parentForm.PresenterAnswer();
+                }
+                else if (content.Equals("QUESTIONERWAIT"))
+                {
+                    parentForm.QuestionerWait();
+                }
+                else if (content.Equals("QUESTIONERQUESTION"))
+                {
+                    parentForm.QuestionerQuestion();
                 }
             }
         }
