@@ -1,0 +1,16 @@
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\bin\Debug\client.exe.config
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\bin\Debug\client.exe
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\bin\Debug\client.pdb
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\bin\Debug\MetroFramework.dll
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\bin\Debug\MetroSet UI.dll
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.csproj.AssemblyReference.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.csproj.SuggestedBindingRedirects.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.ClientForm.resources
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.MainForm.resources
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.csproj.GenerateResource.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.csproj.CoreCompileInputs.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.csproj.CopyComplete
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.exe
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\client\client\obj\Debug\client.pdb

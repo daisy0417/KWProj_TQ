@@ -1,0 +1,11 @@
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\bin\Debug\ServerForm.exe.config
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\bin\Debug\ServerForm.exe
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\bin\Debug\ServerForm.pdb
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerProgram.csproj.AssemblyReference.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerProgram.csproj.SuggestedBindingRedirects.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerProgram.Form1.resources
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerForm.Properties.Resources.resources
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerProgram.csproj.GenerateResource.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerProgram.csproj.CoreCompileInputs.cache
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerForm.exe
+C:\Users\hjpk1\Documents\객체지향프로그래밍 과제\test\KWProj_TQ\server\obj\Debug\ServerForm.pdb
