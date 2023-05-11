@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading;
 using System.Media;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace ServerProgram
 {
@@ -300,17 +301,30 @@ namespace ServerProgram
         #region 로그인 기능
 
         private Dictionary<string, string> loginData = new Dictionary<string, string>();
-
+        private SQLiteConnection conn;
         private void LoadLoginData()
         {
             //파일에서 아이디-패스워드 데이터 읽어오기. 아직 구현 안됨.
+            SQLiteConnection.CreateFile("login_info.db");
+            conn=new SQLiteConnection("Data Source=login_info.db");
+            conn.Open();
+            string query = "create table if not exists idpw (ID varchar(20), pw varchar(20)" +
+                ", primary key (ID))";
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            int result=cmd.ExecuteNonQuery();
+            query = "insert into idpw (ID,pw) values ('admin','1234'),('player1','1234'),('player2','1234')";
+            cmd=new SQLiteCommand(query, conn);
+            result=cmd.ExecuteNonQuery();
 
-            //임시 데이터들
-            loginData.Add("admin", "1234");
-            loginData.Add("player1", "1234");
-            loginData.Add("player2", "1234");
-            loginData.Add("player3", "1234");
-            loginData.Add("player4", "1234");
+            query = "select * from idpw";
+            cmd=new SQLiteCommand(query, conn);
+            SQLiteDataReader reader=cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                loginData.Add(reader["ID"].ToString(), reader["pw"].ToString());
+            }
+            reader.Close();
+
         }
 
         private void SignIn(string username, string password, Server server)

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -89,6 +90,19 @@ namespace client
         /// <summary>
         /// 로그인 버튼을 눌렀을 때, 각 경우에 따라 다른 팝업 창 띄움
         /// </summary>
+        static string message;
+        readonly object locker=new object();
+        bool islock = false;
+        public override void SignIn(string username)
+        {
+            lock (locker)
+            {
+                islock= true;
+                message= username;
+                islock= false;
+                Monitor.Pulse(locker);
+            }
+        }
         private void p1_login_btn_Click(object sender, EventArgs e)
         {
             // 로그인 버튼 눌렀을 때 유효성 검사
@@ -137,9 +151,25 @@ namespace client
             // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감
             if (result == DialogResult.Yes)
             {
+                client.RequestSignIn(p1_username_tbx.Text, p1_pw_tbx.Text);
+                islock=true;
+                lock (locker)
+                {
+                    while (islock == true)
+                    {
+                        Monitor.Wait(locker);
+                    }
+                }
+                if (message.Equals(p1_username_tbx.Text))
+                {
                 p1_gameStart_btn.Visible = true;
                 panel1_login_server.Visible = false;
                 panel2_gameStart.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Failed", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         #endregion
