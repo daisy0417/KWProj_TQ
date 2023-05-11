@@ -188,7 +188,6 @@ namespace client
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
         {
-            p3_nameList_tbx.Text = "";
             serverRoomInfo = roomList;
 
             foreach (string room in roomList)
@@ -199,7 +198,9 @@ namespace client
                 string roomMax = roomInfo[2];
 
                 // 아무 정보도 없을 때 예외 처리 필요함
-                p3_nameList_tbx.Text = p3_nameList_tbx.Text + $"{roomName}\t\t접속 인원 {playerCount,2} / {roomMax,-2}\r\n";
+                //foreach (DataGridViewRow row in ｐ３＿dataGridView1.Rows)
+                    //row.Cells[2].Value = "입장하기";
+                ｐ３＿dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
             }
         }
 
