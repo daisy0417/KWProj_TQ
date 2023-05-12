@@ -283,7 +283,9 @@ namespace client
                 client.RequestRoomJoin(roomName);   // 서버에 방 이름 정보 보냄
             }
         }
-        void p3_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        //테이블 내 입장하기 버튼 클릭 시
+        void p3_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)    
         {
             string rName = p3_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
