@@ -185,11 +185,25 @@ namespace client
 
         List<string> serverRoomInfo;    // RoomList 함수가 서버로 부터 받아 온 방 정보를 사용하기 위함.
 
+        public class RoomInfo
+        {
+            [DisplayName("방 이름")]
+            public string Rname { get; set; }
+            [DisplayName("접속 인원")]
+            public string Rpeo { get; set; }
+            public RoomInfo(string name, string Pnum, string Mnum)
+            {
+                this.Rname = name;
+                this.Rpeo = Pnum + '/' + Mnum;
+            }
+        };
+
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
         {
+            // 아무 정보도 없을 때 예외 처리 필요함
             serverRoomInfo = roomList;
-            //List<string> RList = new List<string>();
+            List<RoomInfo> RList = new List<RoomInfo>();
 
             foreach (string room in roomList)
             {
@@ -198,13 +212,23 @@ namespace client
                 string playerCount = roomInfo[1];
                 string roomMax = roomInfo[2];
                 //RList.Add(roomName, playerCount + '/' + roomMax);
-                // 아무 정보도 없을 때 예외 처리 필요함
+                
                 //row.Cells[0].Value = roomName;
+                RList.Add(new RoomInfo(roomName, playerCount, roomMax));
 
-                p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
+                //p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
             }
-            //p3_dataGridView1.DataSource = null;
-            //p3_dataGridView1.DataSource = RList;
+            p3_dataGridView1.DataSource = null;
+            p3_dataGridView1.DataSource = RList;
+
+            //새로고침시, 버튼 추가 문제 발생
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            btnColumn.HeaderText = "버튼";
+            btnColumn.Name = "buttonColumn";
+            p3_dataGridView1.Columns.Add(btnColumn);
+
+            foreach (DataGridViewRow row in p3_dataGridView1.Rows)
+                row.Cells[2].Value = "입장하기";
         }
 
         public override void RoomCreate(bool success)
