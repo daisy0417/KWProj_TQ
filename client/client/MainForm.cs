@@ -189,6 +189,7 @@ namespace client
         public override void RoomList(List<string> roomList)
         {
             serverRoomInfo = roomList;
+            //List<string> RList = new List<string>();
 
             foreach (string room in roomList)
             {
@@ -196,12 +197,14 @@ namespace client
                 string roomName = roomInfo[0];
                 string playerCount = roomInfo[1];
                 string roomMax = roomInfo[2];
-
+                //RList.Add(roomName, playerCount + '/' + roomMax);
                 // 아무 정보도 없을 때 예외 처리 필요함
-                //foreach (DataGridViewRow row in ｐ３＿dataGridView1.Rows)
-                    //row.Cells[2].Value = "입장하기";
-                ｐ３＿dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
+                //row.Cells[0].Value = roomName;
+
+                p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
             }
+            //p3_dataGridView1.DataSource = null;
+            //p3_dataGridView1.DataSource = RList;
         }
 
         public override void RoomCreate(bool success)
