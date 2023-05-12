@@ -203,7 +203,9 @@ namespace client
         {
             // 아무 정보도 없을 때 예외 처리 필요함
             serverRoomInfo = roomList;
-            List<RoomInfo> RList = new List<RoomInfo>();
+            //List<RoomInfo> RList = new List<RoomInfo>();
+
+            p3_dataGridView1.Rows.Clear();
 
             foreach (string room in roomList)
             {
@@ -214,13 +216,13 @@ namespace client
                 //RList.Add(roomName, playerCount + '/' + roomMax);
                 
                 //row.Cells[0].Value = roomName;
-                RList.Add(new RoomInfo(roomName, playerCount, roomMax));
+                //RList.Add(new RoomInfo(roomName, playerCount, roomMax));
 
-                //p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
+                p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
             }
-            p3_dataGridView1.DataSource = null;
-            p3_dataGridView1.DataSource = RList;
+            //p3_dataGridView1.DataSource = RList;
 
+            /*
             //새로고침시, 버튼 추가 문제 발생
             DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
             btnColumn.HeaderText = "버튼";
@@ -229,6 +231,7 @@ namespace client
 
             foreach (DataGridViewRow row in p3_dataGridView1.Rows)
                 row.Cells[2].Value = "입장하기";
+            */
         }
 
         public override void RoomCreate(bool success)
