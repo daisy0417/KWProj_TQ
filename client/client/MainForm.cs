@@ -93,6 +93,7 @@ namespace client
         static string message;
         readonly object locker=new object();
         bool islock = false;
+        
         public override void SignIn(string username)
         {
             lock (locker)
@@ -151,6 +152,8 @@ namespace client
             // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감
             if (result == DialogResult.Yes)
             {
+                
+               
                 client.RequestSignIn(p1_username_tbx.Text, p1_pw_tbx.Text);
                 islock=true;
                 lock (locker)
@@ -170,6 +173,7 @@ namespace client
                 {
                     MessageBox.Show("Failed", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
         }
         #endregion
@@ -218,7 +222,7 @@ namespace client
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
         {
-            p3_nameList_tbx.Text = "";
+            p3_nameList_tbx.Invoke(new MethodInvoker(delegate { p3_nameList_tbx.Text = ""; }));
             serverRoomInfo = roomList;
 
             foreach (string room in roomList)
@@ -229,7 +233,8 @@ namespace client
                 string roomMax = roomInfo[2];
 
                 // 아무 정보도 없을 때 예외 처리 필요함
-                p3_nameList_tbx.Text = p3_nameList_tbx.Text + $"{roomName}\t\t접속 인원 {playerCount,2} / {roomMax,-2}\r\n";
+                p3_nameList_tbx.Invoke(new MethodInvoker(delegate { p3_nameList_tbx.Text = p3_nameList_tbx.Text + $"{roomName}\t\t접속 인원 {playerCount,2} / {roomMax,-2}\r\n"; }));
+                
             }
         }
 
@@ -297,8 +302,9 @@ namespace client
                 joinRes = 0;
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                panel3_roomList.Visible = false;
-                panel4_waitRoom.Visible = true;
+                panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
+                
             }
         }
 
@@ -331,10 +337,12 @@ namespace client
         #region panel4_waitRoom: 대기 방(채팅)
         public override void RoomChat(List<string> chatList)
         {
-            p4_chat_tbx.Text = "";
+       
+            p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text = ""; }));
             chatList.ForEach(chat =>
             {
-                p4_chat_tbx.Text += chat + "\r\n";
+                p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text += chat + "\r\n"; }));
+                
             });
         }
 
