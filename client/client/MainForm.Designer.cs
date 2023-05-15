@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -71,16 +71,19 @@
             this.p3_Join_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_people_tbx = new System.Windows.Forms.TextBox();
             this.p3_people_label = new System.Windows.Forms.Label();
-            this.p3_roomname_label = new System.Windows.Forms.Label();
             this.p3_roomname_tbx = new System.Windows.Forms.TextBox();
-            this.p3_title_label = new System.Windows.Forms.Label();
             this.panel4_waitRoom = new System.Windows.Forms.Panel();
+            this.p4_label1 = new System.Windows.Forms.Label();
+            this.p4_playerList = new System.Windows.Forms.ListBox();
+            this.metroSetListBox1 = new MetroSet_UI.Controls.MetroSetListBox();
             this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_message_tbx = new System.Windows.Forms.TextBox();
             this.p4_ready_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_chat_tbx = new System.Windows.Forms.TextBox();
+            this.p3_title_label = new System.Windows.Forms.Label();
+            this.p3_roomname_label = new System.Windows.Forms.Label();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -480,48 +483,48 @@
             // p3_dataGridView1
             // 
             this.p3_dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.p3_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.p3_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.p3_dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.People,
             this.btn});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle30;
             this.p3_dataGridView1.Location = new System.Drawing.Point(16, 83);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.p3_dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowTemplate.Height = 40;
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
@@ -530,8 +533,8 @@
             // 
             // RoomName
             // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle27;
             this.RoomName.FillWeight = 150F;
             this.RoomName.HeaderText = "방 이름";
             this.RoomName.MinimumWidth = 6;
@@ -540,8 +543,8 @@
             // 
             // People
             // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.People.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.People.DefaultCellStyle = dataGridViewCellStyle28;
             this.People.HeaderText = "접속 인원";
             this.People.MinimumWidth = 6;
             this.People.Name = "People";
@@ -549,9 +552,9 @@
             // 
             // btn
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn.DefaultCellStyle = dataGridViewCellStyle29;
             this.btn.HeaderText = "버튼";
             this.btn.MinimumWidth = 6;
             this.btn.Name = "btn";
@@ -726,17 +729,6 @@
             this.p3_people_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p3_people_label.Visible = false;
             // 
-            // p3_roomname_label
-            // 
-            this.p3_roomname_label.AutoSize = true;
-            this.p3_roomname_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 11F);
-            this.p3_roomname_label.Location = new System.Drawing.Point(767, 172);
-            this.p3_roomname_label.Name = "p3_roomname_label";
-            this.p3_roomname_label.Size = new System.Drawing.Size(130, 25);
-            this.p3_roomname_label.TabIndex = 9;
-            this.p3_roomname_label.Text = "입장 할 방 이름";
-            this.p3_roomname_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // p3_roomname_tbx
             // 
             this.p3_roomname_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
@@ -746,21 +738,11 @@
             this.p3_roomname_tbx.Size = new System.Drawing.Size(183, 33);
             this.p3_roomname_tbx.TabIndex = 8;
             // 
-            // p3_title_label
-            // 
-            this.p3_title_label.AutoSize = true;
-            this.p3_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Bold);
-            this.p3_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.p3_title_label.Location = new System.Drawing.Point(14, 15);
-            this.p3_title_label.Name = "p3_title_label";
-            this.p3_title_label.Size = new System.Drawing.Size(162, 35);
-            this.p3_title_label.TabIndex = 19;
-            this.p3_title_label.Text = "스무고개 게임";
-            this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p3_title_label.Visible = false;
-            // 
             // panel4_waitRoom
             // 
+            this.panel4_waitRoom.Controls.Add(this.p4_label1);
+            this.panel4_waitRoom.Controls.Add(this.p4_playerList);
+            this.panel4_waitRoom.Controls.Add(this.metroSetListBox1);
             this.panel4_waitRoom.Controls.Add(this.p4_Out_btn);
             this.panel4_waitRoom.Controls.Add(this.p4_send_btn);
             this.panel4_waitRoom.Controls.Add(this.p4_message_tbx);
@@ -774,6 +756,57 @@
             this.panel4_waitRoom.TabIndex = 20;
             this.panel4_waitRoom.Visible = false;
             this.panel4_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
+            // 
+            // p4_label1
+            // 
+            this.p4_label1.AutoSize = true;
+            this.p4_label1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Bold);
+            this.p4_label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.p4_label1.Location = new System.Drawing.Point(13, 96);
+            this.p4_label1.Name = "p4_label1";
+            this.p4_label1.Size = new System.Drawing.Size(234, 35);
+            this.p4_label1.TabIndex = 21;
+            this.p4_label1.Text = "< 접속 중인 사용자 >";
+            this.p4_label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_label1.Visible = false;
+            // 
+            // p4_playerList
+            // 
+            this.p4_playerList.FormattingEnabled = true;
+            this.p4_playerList.ItemHeight = 15;
+            this.p4_playerList.Location = new System.Drawing.Point(16, 158);
+            this.p4_playerList.Name = "p4_playerList";
+            this.p4_playerList.Size = new System.Drawing.Size(224, 379);
+            this.p4_playerList.TabIndex = 24;
+            // 
+            // metroSetListBox1
+            // 
+            this.metroSetListBox1.BackColor = System.Drawing.Color.White;
+            this.metroSetListBox1.BorderColor = System.Drawing.Color.LightGray;
+            this.metroSetListBox1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroSetListBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.metroSetListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroSetListBox1.HoveredItemBackColor = System.Drawing.Color.LightGray;
+            this.metroSetListBox1.HoveredItemColor = System.Drawing.Color.DimGray;
+            this.metroSetListBox1.IsDerivedStyle = true;
+            this.metroSetListBox1.ItemHeight = 30;
+            this.metroSetListBox1.Location = new System.Drawing.Point(269, 504);
+            this.metroSetListBox1.MultiSelect = false;
+            this.metroSetListBox1.Name = "metroSetListBox1";
+            this.metroSetListBox1.SelectedIndex = -1;
+            this.metroSetListBox1.SelectedItem = null;
+            this.metroSetListBox1.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroSetListBox1.SelectedItemColor = System.Drawing.Color.White;
+            this.metroSetListBox1.SelectedText = null;
+            this.metroSetListBox1.SelectedValue = null;
+            this.metroSetListBox1.ShowBorder = false;
+            this.metroSetListBox1.ShowScrollBar = false;
+            this.metroSetListBox1.Size = new System.Drawing.Size(75, 23);
+            this.metroSetListBox1.Style = MetroSet_UI.Enums.Style.Light;
+            this.metroSetListBox1.StyleManager = null;
+            this.metroSetListBox1.TabIndex = 23;
+            this.metroSetListBox1.ThemeAuthor = "Narwin";
+            this.metroSetListBox1.ThemeName = "MetroLite";
             // 
             // p4_Out_btn
             // 
@@ -833,10 +866,10 @@
             // 
             this.p4_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
             this.p4_message_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p4_message_tbx.Location = new System.Drawing.Point(134, 496);
+            this.p4_message_tbx.Location = new System.Drawing.Point(261, 496);
             this.p4_message_tbx.Multiline = true;
             this.p4_message_tbx.Name = "p4_message_tbx";
-            this.p4_message_tbx.Size = new System.Drawing.Size(697, 45);
+            this.p4_message_tbx.Size = new System.Drawing.Size(570, 45);
             this.p4_message_tbx.TabIndex = 20;
             // 
             // p4_ready_btn
@@ -879,12 +912,35 @@
             // 
             this.p4_chat_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
             this.p4_chat_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p4_chat_tbx.Location = new System.Drawing.Point(134, 81);
+            this.p4_chat_tbx.Location = new System.Drawing.Point(261, 81);
             this.p4_chat_tbx.Multiline = true;
             this.p4_chat_tbx.Name = "p4_chat_tbx";
             this.p4_chat_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.p4_chat_tbx.Size = new System.Drawing.Size(830, 409);
+            this.p4_chat_tbx.Size = new System.Drawing.Size(703, 409);
             this.p4_chat_tbx.TabIndex = 17;
+            // 
+            // p3_title_label
+            // 
+            this.p3_title_label.AutoSize = true;
+            this.p3_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Bold);
+            this.p3_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.p3_title_label.Location = new System.Drawing.Point(14, 15);
+            this.p3_title_label.Name = "p3_title_label";
+            this.p3_title_label.Size = new System.Drawing.Size(162, 35);
+            this.p3_title_label.TabIndex = 19;
+            this.p3_title_label.Text = "스무고개 게임";
+            this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p3_title_label.Visible = false;
+            // 
+            // p3_roomname_label
+            // 
+            this.p3_roomname_label.AutoSize = true;
+            this.p3_roomname_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 11F);
+            this.p3_roomname_label.Location = new System.Drawing.Point(767, 172);
+            this.p3_roomname_label.Name = "p3_roomname_label";
+            this.p3_roomname_label.Size = new System.Drawing.Size(0, 25);
+            this.p3_roomname_label.TabIndex = 9;
+            this.p3_roomname_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -893,8 +949,8 @@
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
             this.Controls.Add(this.panel4_waitRoom);
-            this.Controls.Add(this.p3_title_label);
             this.Controls.Add(this.panel3_roomList);
+            this.Controls.Add(this.p3_title_label);
             this.Controls.Add(this.panel2_gameStart);
             this.Controls.Add(this.panel1_login_server);
             this.Controls.Add(this.main_login_btn);
@@ -902,6 +958,7 @@
             this.Controls.Add(this.metroSetControlBox1);
             this.Controls.Add(this.title_label);
             this.Name = "MainForm";
+            this.Text = "T";
             this.panel1_login_server.ResumeLayout(false);
             this.panel1_login_server.PerformLayout();
             this.p1_1_login_panel.ResumeLayout(false);
@@ -943,7 +1000,6 @@
         private System.Windows.Forms.Label p2_title_label;
         private MetroSet_UI.Controls.MetroSetButton p2_logout_btn;
         private System.Windows.Forms.Panel panel3_roomList;
-        private System.Windows.Forms.Label p3_roomname_label;
         private System.Windows.Forms.TextBox p3_roomname_tbx;
         private System.Windows.Forms.Label p3_people_label;
         private System.Windows.Forms.TextBox p3_people_tbx;
@@ -952,7 +1008,6 @@
         private MetroSet_UI.Controls.MetroSetButton p3_Out_btn;
         private MetroSet_UI.Controls.MetroSetButton p3_Join_btn;
         private MetroSet_UI.Controls.MetroSetButton p3_create_btn;
-        private System.Windows.Forms.Label p3_title_label;
         private System.Windows.Forms.Label p3_comein_label;
         private System.Windows.Forms.Panel panel4_waitRoom;
         private MetroSet_UI.Controls.MetroSetButton p4_ready_btn;
@@ -965,5 +1020,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomName;
         private System.Windows.Forms.DataGridViewTextBoxColumn People;
         private System.Windows.Forms.DataGridViewButtonColumn btn;
+        private System.Windows.Forms.ListBox p4_playerList;
+        private MetroSet_UI.Controls.MetroSetListBox metroSetListBox1;
+        private System.Windows.Forms.Label p4_label1;
+        private System.Windows.Forms.Label p3_title_label;
+        private System.Windows.Forms.Label p3_roomname_label;
     }
 }

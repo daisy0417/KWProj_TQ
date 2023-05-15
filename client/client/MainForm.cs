@@ -173,11 +173,13 @@ namespace client
         private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
         {
             p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
+            p3_roomname_tbx.Visible = false;
         }
 
         private void p3_makeRoom_btn_Click(object sender, EventArgs e)
         {
             p3_roomname_label.Text = "생성 할 방 이름";
+            p3_roomname_tbx.Visible = true;
             p3_create_btn.Visible = true;
             p3_people_label.Visible = true;
             p3_people_tbx.Visible = true;
@@ -307,6 +309,15 @@ namespace client
 
 
         #region panel4_waitRoom: 대기 방(채팅)
+        // 접속자 리스트
+        public override void PlayerList(List<string> playerList)
+        {
+            foreach (string player in playerList)
+            {
+                p4_playerList.Items.Add(player);
+            }
+        }
+
         public override void RoomChat(List<string> chatList)
         {
             p4_chat_tbx.Text = "";
