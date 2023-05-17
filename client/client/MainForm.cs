@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -90,6 +91,20 @@ namespace client
         /// <summary>
         /// 로그인 버튼을 눌렀을 때, 각 경우에 따라 다른 팝업 창 띄움
         /// </summary>
+        static string message;
+        readonly object locker=new object();
+        bool islock = false;
+        
+        public override void SignIn(string username)
+        {
+            lock (locker)
+            {
+                islock= true;
+                message= username;
+                islock= false;
+                Monitor.Pulse(locker);
+            }
+        }
         private void p1_login_btn_Click(object sender, EventArgs e)
         {
             // 로그인 버튼 눌렀을 때 유효성 검사
@@ -138,9 +153,28 @@ namespace client
             // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감
             if (result == DialogResult.Yes)
             {
+                
+               
+                client.RequestSignIn(p1_username_tbx.Text, p1_pw_tbx.Text);
+                islock=true;
+                lock (locker)
+                {
+                    while (islock == true)
+                    {
+                        Monitor.Wait(locker);
+                    }
+                }
+                if (message.Equals(p1_username_tbx.Text))
+                {
                 p1_gameStart_btn.Visible = true;
                 panel1_login_server.Visible = false;
                 panel2_gameStart.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Failed", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
         }
         #endregion
@@ -191,9 +225,8 @@ namespace client
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
         {
-            serverRoomInfo = roomList; 
-
-            p3_dataGridView1.Rows.Clear(); //새로 고침시, 셀 추가 문제 해결
+            p3_dataGridView1.Rows.Clear();    //새로 고침시, 셀 추가 문제 해결
+            serverRoomInfo = roomList;
 
             foreach (string room in roomList)
             {
@@ -201,7 +234,7 @@ namespace client
                 string roomName = roomInfo[0];
                 string playerCount = roomInfo[1];
                 string roomMax = roomInfo[2];
-
+                // 아무 정보도 없을 때 예외 처리 필요함
                 p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
             }
         }
@@ -270,8 +303,9 @@ namespace client
                 joinRes = 0;
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                panel3_roomList.Visible = false;
-                panel4_waitRoom.Visible = true;
+                panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
+                
             }
         }
 
@@ -309,21 +343,23 @@ namespace client
 
 
         #region panel4_waitRoom: 대기 방(채팅)
-        // 접속자 리스트
+        // 접속자 리스트 - 아직 미완(사용자 별로 출력 차이 발생)
         public override void PlayerList(List<string> playerList)
         {
-            foreach (string player in playerList)
+            p4_playerList.Items.Clear();
+            playerList.ForEach(player =>
             {
                 p4_playerList.Items.Add(player);
-            }
+            });
         }
 
         public override void RoomChat(List<string> chatList)
         {
-            p4_chat_tbx.Text = "";
+       
+            p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text = ""; }));
             chatList.ForEach(chat =>
             {
-                p4_chat_tbx.Text += chat + "\r\n";
+                p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text += chat + "\r\n"; }));
             });
         }
 
@@ -368,7 +404,6 @@ namespace client
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
-            p3_roomname_label.Text = "입장 할 방 이름";
             panel4_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
         }
