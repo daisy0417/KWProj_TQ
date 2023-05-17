@@ -212,6 +212,7 @@ namespace client
 
         private void p3_makeRoom_btn_Click(object sender, EventArgs e)
         {
+            p3_roomname_label.Visible = true;
             p3_roomname_label.Text = "생성 할 방 이름";
             p3_roomname_tbx.Visible = true;
             p3_create_btn.Visible = true;
@@ -234,6 +235,7 @@ namespace client
                 string roomName = roomInfo[0];
                 string playerCount = roomInfo[1];
                 string roomMax = roomInfo[2];
+
                 // 아무 정보도 없을 때 예외 처리 필요함
                 p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
             }
@@ -343,6 +345,7 @@ namespace client
 
 
         #region panel4_waitRoom: 대기 방(채팅)
+
         // 접속자 리스트 - 아직 미완(사용자 별로 출력 차이 발생)
         public override void PlayerList(List<string> playerList)
         {
@@ -404,6 +407,7 @@ namespace client
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
+            p3_roomname_label.Visible = false;
             panel4_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
         }
