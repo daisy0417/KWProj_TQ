@@ -36,12 +36,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
             this.main_login_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel1_login_server = new System.Windows.Forms.Panel();
             this.p1_login_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p1_signUp_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p1_gameStart_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p1_1_login_panel = new System.Windows.Forms.Panel();
             this.p1_midTitle_label = new System.Windows.Forms.Label();
@@ -73,8 +80,6 @@
             this.p3_roomname_label = new System.Windows.Forms.Label();
             this.p3_roomname_tbx = new System.Windows.Forms.TextBox();
             this.panel4_waitRoom = new System.Windows.Forms.Panel();
-            this.p4_label = new System.Windows.Forms.Label();
-            this.p4_playerList = new System.Windows.Forms.ListBox();
             this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_message_tbx = new System.Windows.Forms.TextBox();
@@ -82,13 +87,15 @@
             this.p4_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_chat_tbx = new System.Windows.Forms.TextBox();
             this.p3_title_label = new System.Windows.Forms.Label();
-            this.p1_signUp_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p4_dgv = new System.Windows.Forms.DataGridView();
+            this.player = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
             this.panel3_roomList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).BeginInit();
             this.panel4_waitRoom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.p4_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // title_label
@@ -210,6 +217,34 @@
             this.p1_login_btn.ThemeName = "MetroLite";
             this.p1_login_btn.Visible = false;
             this.p1_login_btn.Click += new System.EventHandler(this.p1_login_btn_Click);
+            // 
+            // p1_signUp_btn
+            // 
+            this.p1_signUp_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_signUp_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_signUp_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p1_signUp_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p1_signUp_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p1_signUp_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p1_signUp_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p1_signUp_btn.IsDerivedStyle = true;
+            this.p1_signUp_btn.Location = new System.Drawing.Point(300, 435);
+            this.p1_signUp_btn.Name = "p1_signUp_btn";
+            this.p1_signUp_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_signUp_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p1_signUp_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p1_signUp_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p1_signUp_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p1_signUp_btn.PressTextColor = System.Drawing.Color.White;
+            this.p1_signUp_btn.Size = new System.Drawing.Size(244, 70);
+            this.p1_signUp_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p1_signUp_btn.StyleManager = null;
+            this.p1_signUp_btn.TabIndex = 9;
+            this.p1_signUp_btn.Text = "회원가입";
+            this.p1_signUp_btn.ThemeAuthor = "Narwin";
+            this.p1_signUp_btn.ThemeName = "MetroLite";
+            this.p1_signUp_btn.Visible = false;
+            this.p1_signUp_btn.Click += new System.EventHandler(this.p1_signUp_btn_Click);
             // 
             // p1_gameStart_btn
             // 
@@ -521,6 +556,7 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.p3_dataGridView1.RowHeadersVisible = false;
             this.p3_dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
@@ -722,8 +758,7 @@
             // 
             // panel4_waitRoom
             // 
-            this.panel4_waitRoom.Controls.Add(this.p4_label);
-            this.panel4_waitRoom.Controls.Add(this.p4_playerList);
+            this.panel4_waitRoom.Controls.Add(this.p4_dgv);
             this.panel4_waitRoom.Controls.Add(this.p4_Out_btn);
             this.panel4_waitRoom.Controls.Add(this.p4_send_btn);
             this.panel4_waitRoom.Controls.Add(this.p4_message_tbx);
@@ -737,27 +772,6 @@
             this.panel4_waitRoom.TabIndex = 20;
             this.panel4_waitRoom.Visible = false;
             this.panel4_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
-            // 
-            // p4_label
-            // 
-            this.p4_label.AutoSize = true;
-            this.p4_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_label.Location = new System.Drawing.Point(10, 96);
-            this.p4_label.Name = "p4_label";
-            this.p4_label.Size = new System.Drawing.Size(241, 36);
-            this.p4_label.TabIndex = 25;
-            this.p4_label.Text = "< 접속 중인 사용자 >";
-            this.p4_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // p4_playerList
-            // 
-            this.p4_playerList.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_playerList.FormattingEnabled = true;
-            this.p4_playerList.ItemHeight = 26;
-            this.p4_playerList.Location = new System.Drawing.Point(16, 158);
-            this.p4_playerList.Name = "p4_playerList";
-            this.p4_playerList.Size = new System.Drawing.Size(224, 368);
-            this.p4_playerList.TabIndex = 24;
             // 
             // p4_Out_btn
             // 
@@ -885,33 +899,63 @@
             this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p3_title_label.Visible = false;
             // 
-            // p1_signUp_btn
+            // p4_dgv
             // 
-            this.p1_signUp_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_signUp_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_signUp_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p1_signUp_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
-            this.p1_signUp_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p1_signUp_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p1_signUp_btn.HoverTextColor = System.Drawing.Color.White;
-            this.p1_signUp_btn.IsDerivedStyle = true;
-            this.p1_signUp_btn.Location = new System.Drawing.Point(300, 435);
-            this.p1_signUp_btn.Name = "p1_signUp_btn";
-            this.p1_signUp_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_signUp_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_signUp_btn.NormalTextColor = System.Drawing.Color.White;
-            this.p1_signUp_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p1_signUp_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p1_signUp_btn.PressTextColor = System.Drawing.Color.White;
-            this.p1_signUp_btn.Size = new System.Drawing.Size(244, 70);
-            this.p1_signUp_btn.Style = MetroSet_UI.Enums.Style.Light;
-            this.p1_signUp_btn.StyleManager = null;
-            this.p1_signUp_btn.TabIndex = 9;
-            this.p1_signUp_btn.Text = "회원가입";
-            this.p1_signUp_btn.ThemeAuthor = "Narwin";
-            this.p1_signUp_btn.ThemeName = "MetroLite";
-            this.p1_signUp_btn.Visible = false;
-            this.p1_signUp_btn.Click += new System.EventHandler(this.p1_signUp_btn_Click);
+            this.p4_dgv.AllowUserToAddRows = false;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p4_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.p4_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p4_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.p4_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.p4_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.player});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p4_dgv.DefaultCellStyle = dataGridViewCellStyle12;
+            this.p4_dgv.Location = new System.Drawing.Point(10, 84);
+            this.p4_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p4_dgv.MultiSelect = false;
+            this.p4_dgv.Name = "p4_dgv";
+            this.p4_dgv.ReadOnly = true;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p4_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.p4_dgv.RowHeadersVisible = false;
+            this.p4_dgv.RowHeadersWidth = 51;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_dgv.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.p4_dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_dgv.RowTemplate.Height = 40;
+            this.p4_dgv.Size = new System.Drawing.Size(240, 450);
+            this.p4_dgv.TabIndex = 21;
+            // 
+            // player
+            // 
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.player.DefaultCellStyle = dataGridViewCellStyle11;
+            this.player.HeaderText = "접속 중인 사용자";
+            this.player.MinimumWidth = 6;
+            this.player.Name = "player";
+            this.player.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -940,6 +984,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).EndInit();
             this.panel4_waitRoom.ResumeLayout(false);
             this.panel4_waitRoom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.p4_dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -989,10 +1034,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomName;
         private System.Windows.Forms.DataGridViewTextBoxColumn People;
         private System.Windows.Forms.DataGridViewButtonColumn btn;
-        private System.Windows.Forms.ListBox p4_playerList;
         private System.Windows.Forms.Label p3_title_label;
         private System.Windows.Forms.Label p3_roomname_label;
-        private System.Windows.Forms.Label p4_label;
         private MetroSet_UI.Controls.MetroSetButton p1_signUp_btn;
+        private System.Windows.Forms.DataGridView p4_dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn player;
     }
 }

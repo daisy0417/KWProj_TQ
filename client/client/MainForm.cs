@@ -401,10 +401,10 @@ namespace client
         // 접속자 리스트 - 아직 미완(사용자 별로 출력 차이 발생)
         public override void PlayerList(List<string> playerList)
         {
-            p4_playerList.Items.Clear();
+            p4_dgv.Rows.Clear();
             playerList.ForEach(player =>
             {
-                p4_playerList.Items.Add(player);
+                p4_dgv.Rows.Add(player);
             });
         }
 
