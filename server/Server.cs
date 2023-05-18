@@ -277,6 +277,14 @@ namespace ServerProgram
                     {
                         GameReady(server);
                     }
+                    else if (header.Equals("GUESSANSWER"))
+                    {
+                        GuessAnswer(content,server);
+                    }
+                    else if (header.Equals("BUZZER"))
+                    {
+                        Buzzer(server);
+                    }
                     //알 수 없는 header일때
                     else
                     {
