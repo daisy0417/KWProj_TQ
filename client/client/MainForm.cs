@@ -466,8 +466,14 @@ namespace client
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
-            p4_ready_btn.Text = "게임 시작하기";
+            p4_gameStart_btn.Visible = true;
         }
+
         #endregion
+
+        private void p4_gameStart_btn_Click(object sender, EventArgs e)
+        {
+            panel5_Quest.Visible = true;
+        }
     }
 }
