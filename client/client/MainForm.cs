@@ -507,5 +507,24 @@ namespace client
         {
             panel5_Quest.Visible = true;
         }
+
+
+
+        private void buzzer_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            client.RequestBuzzer();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {   //시간 표시할 라벨
+            //label1.Text=(int.Parse(label1.text)+1).ToString();
+            //if (Label1.text == '5')
+            {
+                timer1.Stop();
+               // client.RequestGuessAnswer(Textbox.Text);
+               //답 읽어오기
+            }
+        }
     }
 }
