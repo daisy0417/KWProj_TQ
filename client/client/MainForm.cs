@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace client
 {
@@ -206,11 +207,14 @@ namespace client
         private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
         {
             p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
+            p3_roomname_tbx.Visible = false;
         }
 
         private void p3_makeRoom_btn_Click(object sender, EventArgs e)
         {
+            p3_roomname_label.Visible = true;
             p3_roomname_label.Text = "생성 할 방 이름";
+            p3_roomname_tbx.Visible = true;
             p3_create_btn.Visible = true;
             p3_people_label.Visible = true;
             p3_people_tbx.Visible = true;
@@ -222,7 +226,7 @@ namespace client
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
         {
-            p3_nameList_tbx.Invoke(new MethodInvoker(delegate { p3_nameList_tbx.Text = ""; }));
+            p3_dataGridView1.Rows.Clear();    //새로 고침시, 셀 추가 문제 해결
             serverRoomInfo = roomList;
 
             foreach (string room in roomList)
@@ -233,8 +237,7 @@ namespace client
                 string roomMax = roomInfo[2];
 
                 // 아무 정보도 없을 때 예외 처리 필요함
-                p3_nameList_tbx.Invoke(new MethodInvoker(delegate { p3_nameList_tbx.Text = p3_nameList_tbx.Text + $"{roomName}\t\t접속 인원 {playerCount,2} / {roomMax,-2}\r\n"; }));
-                
+                p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
             }
         }
 
@@ -319,6 +322,13 @@ namespace client
             }
         }
 
+        //테이블 내 입장하기 버튼 클릭 시
+        void p3_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)    
+        {
+            string rName = p3_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
+        }
+
         // 새로 고침 버튼 클릭 시 이벤트
         private void p3_refresh_btn_Click(object sender, EventArgs e)
         {
@@ -335,6 +345,17 @@ namespace client
 
 
         #region panel4_waitRoom: 대기 방(채팅)
+
+        // 접속자 리스트 - 아직 미완(사용자 별로 출력 차이 발생)
+        public override void PlayerList(List<string> playerList)
+        {
+            p4_playerList.Items.Clear();
+            playerList.ForEach(player =>
+            {
+                p4_playerList.Items.Add(player);
+            });
+        }
+
         public override void RoomChat(List<string> chatList)
         {
        
@@ -342,7 +363,6 @@ namespace client
             chatList.ForEach(chat =>
             {
                 p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text += chat + "\r\n"; }));
-                
             });
         }
 
@@ -387,7 +407,7 @@ namespace client
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
-            p3_roomname_label.Text = "입장 할 방 이름";
+            p3_roomname_label.Visible = false;
             panel4_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
         }
