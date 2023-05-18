@@ -97,6 +97,20 @@ namespace client
         bool islock = false;
 
 
+        public override void SignUp(bool success)
+        {
+            lock (locker)
+            {
+                islock = true;
+                if (success)
+                    message = "success";
+                else
+                    message = "failed";
+                islock = false;
+                Monitor.Pulse(locker);
+            }
+        }
+
         private void p1_signUp_btn_Click(object sender, EventArgs e)
         {
             string username = p1_pw_tbx.Text;
@@ -140,12 +154,30 @@ namespace client
                     result = DialogResult.Yes;
                 }
 
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("회원가입 성공","Success",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+
+                    client.RequestSignUp(p1_username_tbx.Text, p1_pw_tbx.Text);
+                    islock = true;
+                    lock (locker)
+                    {
+                        while (islock == true)
+                        {
+                            Monitor.Wait(locker);
+                        }
+                    }
+                    if (message.Equals("success"))
+                    {
+                        MessageBox.Show("회원가입 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Duplicated", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
+
 
 
         public override void SignIn(string username)

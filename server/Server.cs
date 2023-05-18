@@ -305,21 +305,19 @@ namespace ServerProgram
         private void LoadLoginData()
         {
             //파일에서 아이디-패스워드 데이터 읽어오기. 아직 구현 안됨.
-            SQLiteConnection.CreateFile("login_info.db");
-            conn=new SQLiteConnection("Data Source=login_info.db");
+            if (!System.IO.File.Exists("login_info.db"))
+                SQLiteConnection.CreateFile("login_info.db");
+            conn = new SQLiteConnection("Data Source=login_info.db");
             conn.Open();
             string query = "create table if not exists idpw (ID varchar(20), pw varchar(20)" +
                 ", primary key (ID))";
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            int result=cmd.ExecuteNonQuery();
-            query = "insert into idpw (ID,pw) values ('admin','1234'),('player1','1234'),('player2','1234')";
-            cmd=new SQLiteCommand(query, conn);
-            result=cmd.ExecuteNonQuery();
+            int result = cmd.ExecuteNonQuery();
 
             query = "select * from idpw";
-            cmd=new SQLiteCommand(query, conn);
-            SQLiteDataReader reader=cmd.ExecuteReader();
-            while(reader.Read())
+            cmd = new SQLiteCommand(query, conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
                 loginData.Add(reader["ID"].ToString(), reader["pw"].ToString());
             }
@@ -353,6 +351,13 @@ namespace ServerProgram
             {
                 parentForm.PrintLog("create new account : " + username + ", " + password);
                 loginData.Add(username, password);
+
+                conn = new SQLiteConnection("Data Source=login_info.db");
+                conn.Open();
+                string query = "insert into idpw (ID,pw) values ('" + username + "','" + password + "')";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                int result = cmd.ExecuteNonQuery();
+
                 server.SendClient("SIGNUP|1");
             }
         }
