@@ -85,6 +85,7 @@ namespace client
         /// </summary>
         private void p1_1_login_panel_VisibleChanged(object sender, EventArgs e)
         {
+            p1_signUp_btn.Visible = true;
             p1_login_btn.Visible = true;
         }
 
@@ -94,7 +95,59 @@ namespace client
         static string message;
         readonly object locker=new object();
         bool islock = false;
-        
+
+
+        private void p1_signUp_btn_Click(object sender, EventArgs e)
+        {
+            string username = p1_pw_tbx.Text;
+            string password = p1_username_tbx.Text;
+            DialogResult result;
+
+            if (username != string.Empty && password != string.Empty)
+            {
+                client.RequestSignUp(username, password);
+            }
+            // 이름, 비번 둘 중 하나라도 입력하지 않으면 팝업 띄움
+            if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
+            {
+                ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // 입력 정보가 맞는 지 확인하는 팝업 띄움
+            // 팝업에 Yes, No 버튼이 있음. No가 입력되면 다시 입력 창으로 되돌아감 
+            else
+            {
+                string nameCheck = string.Format("당신은 {0} 님이 맞습니까?", p1_username_tbx.Text);
+                var name_messageRes = MessageBox.Show(nameCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (name_messageRes == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    name_messageRes = DialogResult.Yes;
+                }
+
+                string pwCheck = string.Format("비밀번호는 {0} 이 맞습니까?", p1_pw_tbx.Text);
+                var pw_messageRes = MessageBox.Show(pwCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (pw_messageRes == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    pw_messageRes = DialogResult.Yes;
+                    result = DialogResult.Yes;
+                }
+
+                if(result == DialogResult.Yes)
+                {
+                    MessageBox.Show("회원가입 성공","Success",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                }
+            }
+        }
+
+
         public override void SignIn(string username)
         {
             lock (locker)
@@ -105,6 +158,7 @@ namespace client
                 Monitor.Pulse(locker);
             }
         }
+
         private void p1_login_btn_Click(object sender, EventArgs e)
         {
             // 로그인 버튼 눌렀을 때 유효성 검사
@@ -153,8 +207,6 @@ namespace client
             // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감
             if (result == DialogResult.Yes)
             {
-                
-               
                 client.RequestSignIn(p1_username_tbx.Text, p1_pw_tbx.Text);
                 islock=true;
                 lock (locker)
