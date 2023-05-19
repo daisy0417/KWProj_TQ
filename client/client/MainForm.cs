@@ -415,8 +415,6 @@ namespace client
                 panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
                 panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
             }
-            
-           
         }
 
         // 새로 고침 버튼 클릭 시 이벤트
