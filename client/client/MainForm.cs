@@ -398,6 +398,7 @@ namespace client
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
         public override void PlayerList(List<string> playerList)
         {
+<<<<<<< HEAD
             int cnt = playerList.Count;
             if(cnt > 0)
             {
@@ -429,6 +430,13 @@ namespace client
         {
             p4_player_change();
             client.RequestPlayerList(roomName);
+=======
+            p4_dgv.Rows.Clear();
+            playerList.ForEach(player =>
+            {
+                p4_dgv.Rows.Add(player);
+            });
+>>>>>>> main
         }
         public override void RoomChat(List<string> chatList)
         {
