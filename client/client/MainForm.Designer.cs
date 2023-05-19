@@ -89,12 +89,14 @@
             this.p3_title_label = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
             this.panel3_roomList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).BeginInit();
             this.panel4_waitRoom.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // title_label
@@ -999,6 +1001,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.button1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(18, 75);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1006,6 +1009,15 @@
             this.panel5.Size = new System.Drawing.Size(988, 539);
             this.panel5.TabIndex = 21;
             this.panel5.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(540, 321);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(312, 72);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -1037,6 +1049,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).EndInit();
             this.panel4_waitRoom.ResumeLayout(false);
             this.panel4_waitRoom.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1097,5 +1110,6 @@
         private System.Windows.Forms.Label p4_player1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button1;
     }
 }
