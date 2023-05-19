@@ -496,10 +496,12 @@ namespace client
                 p6_player5_score.Invoke(new MethodInvoker(delegate { p6_player5_score.Visible = true; }));
             }
             p4_current_player();
+            p6_current_player();
         }
         private void p4_refesh_Click(object sender, EventArgs e)
         {
-            //p4_player_change();
+            p4_player_change();
+            p4_current_player();
             client.RequestPlayerList(roomName);
         }
         public override void RoomChat(List<string> chatList)
@@ -547,9 +549,13 @@ namespace client
                         case "1":
                             p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = p1_username_tbx.Text; }));
                             break;
+                        case "2":
+                            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "3":
+                            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = p1_username_tbx.Text; }));
+                            break;
                     }
-                    
-            //client.RequestPlayerList(roomName);
         }
     }
             else
@@ -634,19 +640,100 @@ namespace client
         {
             panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = false; }));
             //panel5_Quest.Invoke(new MethodInvoker(delegate { panel5_Quest.Visible = true; }));
-            panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; })); 
+            panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; })); //test
         }
 
         private void buzzer_Click(object sender, EventArgs e)
         {
             timer1.Start();
             client.RequestBuzzer();
+
+            //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
+            //버저를 누른 유저에게만 해당하도록 설정 필요
+            p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = false; }));
+            p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.ReadOnly = false; }));
+            p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
+            p6_answer_tbx.ForeColor = Color.CornflowerBlue;
+
+            //정답을 맞추는 사람만 라벨 변경 필요
+
+            //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
         }
 
-        #region panel6_Answer: 질문자 화면
-        public override void PresenterWait()
+        #region panel6_Answer: 질문자(=맞추는 사람) 화면
+        private void p6_turn()
         {
-            //
+            p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; })); 
+            string p_name = p1_username_tbx.Text;
+            if (p_name == p4_player1.Text)
+                p6_player_turn_label.Location = new Point(34, 23);
+            else if (p_name == p4_player2.Text)
+                p6_player_turn_label.Location = new Point(34, 114);
+            else if (p_name == p4_player3.Text)
+                p6_player_turn_label.Location = new Point(34, 204);
+            else if (p_name == p4_player4.Text)
+                p6_player_turn_label.Location = new Point(34, 294);
+            else if (p_name == p4_player5.Text)
+                p6_player_turn_label.Location = new Point(34, 384);
+        }
+
+        private void p6_current_player()
+        {
+            string p_name = p1_username_tbx.Text;
+            if(p_name == p6_player1.Text)
+            {       //테두리 추가시, 사용자 이름이랑 뒷배경색 안 나옴
+                p6_player1.BackColor = Color.MediumSeaGreen;
+                p6_player1_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if(p_name == p6_player2.Text)
+            {
+                p6_player2.BackColor = Color.MediumSeaGreen;
+                p6_player2_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if(p_name == p6_player3.Text)
+            {
+                p6_player3.BackColor = Color.MediumSeaGreen;
+                p6_player3_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if( p_name == p6_player4.Text)
+            {
+                p6_player4.BackColor = Color.MediumSeaGreen;
+                p6_player4_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if (p_name == p6_player5.Text)
+            {
+                p6_player5.BackColor = Color.MediumSeaGreen;
+                p6_player5_score.BackColor = Color.MediumSeaGreen;
+            }
+        }
+
+        // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
+        public override void QuestionerWait()
+        {
+            p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
+            p6_answer_tbx.ReadOnly = true;
+        }
+
+        // 게임 시작 후 질문자가 질문을 작성하는 화면 > 턴o
+        public override void QuestionerQuestion()
+        {
+            //사용자 턴에 따른 사용자 리스트 라벨 변경 > 사용자 누구? -> 테두리 색 변환
+            p6_turn(); // 질문자 표시
+            p6_answer_tbx.Text = "";
+            p6_answer_tbx.ReadOnly = false; //입력받기 가능
+            p6_answer_tbx.ForeColor = Color.DodgerBlue;
+        }
+
+        private void panel6_Answer_VisibleChanged(object sender, EventArgs e)
+        {
+            p6_solution_label.Invoke(new MethodInvoker(delegate { p6_solution_label.Text = "? ? ?"; }));
+            p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
+            p6_answer_tbx.ReadOnly = true;
+        }
+
+        private void p6_send_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer(p6_answer_tbx.Text);
         }
         #endregion
         private void timer1_Tick(object sender, EventArgs e)
@@ -659,5 +746,6 @@ namespace client
                //답 읽어오기
             }
         }
+
     }
 }
