@@ -369,8 +369,8 @@ namespace client
                         client.RequestRoomCreate(roomName, roomMax);
                     }
 
-                    // panel3_roomList.Visible = false;
-                    // panel4_waitRoom.Visible = true;
+                    panel3_roomList.Visible = false;
+                    panel4_waitRoom.Visible = true;
                 }
                 catch (NullReferenceException nre)
                 {
