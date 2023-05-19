@@ -582,9 +582,9 @@ namespace client
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
             //p4_gameStart_btn.Visible = true;
+            client.RequestGameReady();
             panel5.Visible = true;
         }
-
         #endregion
 
         private void p4_gameStart_btn_Click(object sender, EventArgs e)
