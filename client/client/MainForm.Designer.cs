@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-=======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,13 +44,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
->>>>>>> main
+       
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -91,15 +83,12 @@
             this.p3_roomname_label = new System.Windows.Forms.Label();
             this.p3_roomname_tbx = new System.Windows.Forms.TextBox();
             this.panel4_waitRoom = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
             this.p4_refesh = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_player5 = new System.Windows.Forms.Label();
             this.p4_player4 = new System.Windows.Forms.Label();
             this.p4_player3 = new System.Windows.Forms.Label();
             this.p4_player2 = new System.Windows.Forms.Label();
             this.p4_player1 = new System.Windows.Forms.Label();
-=======
->>>>>>> main
             this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_message_tbx = new System.Windows.Forms.TextBox();
@@ -107,18 +96,14 @@
             this.p4_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_chat_tbx = new System.Windows.Forms.TextBox();
             this.p3_title_label = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-=======
-            this.p4_dgv = new System.Windows.Forms.DataGridView();
-            this.player = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> main
+            
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
             this.panel3_roomList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).BeginInit();
             this.panel4_waitRoom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.p4_dgv)).BeginInit();
+            
             this.SuspendLayout();
             // 
             // title_label
@@ -571,7 +556,6 @@
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-<<<<<<< HEAD
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle15.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -580,16 +564,6 @@
             dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
-=======
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
->>>>>>> main
             this.p3_dataGridView1.RowHeadersVisible = false;
             this.p3_dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle16.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -792,16 +766,12 @@
             // 
             // panel4_waitRoom
             // 
-<<<<<<< HEAD
             this.panel4_waitRoom.Controls.Add(this.p4_refesh);
             this.panel4_waitRoom.Controls.Add(this.p4_player5);
             this.panel4_waitRoom.Controls.Add(this.p4_player4);
             this.panel4_waitRoom.Controls.Add(this.p4_player3);
             this.panel4_waitRoom.Controls.Add(this.p4_player2);
             this.panel4_waitRoom.Controls.Add(this.p4_player1);
-=======
-            this.panel4_waitRoom.Controls.Add(this.p4_dgv);
->>>>>>> main
             this.panel4_waitRoom.Controls.Add(this.p4_Out_btn);
             this.panel4_waitRoom.Controls.Add(this.p4_send_btn);
             this.panel4_waitRoom.Controls.Add(this.p4_message_tbx);
@@ -816,7 +786,6 @@
             this.panel4_waitRoom.Visible = false;
             this.panel4_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
             // 
-<<<<<<< HEAD
             // p4_refesh
             // 
             this.p4_refesh.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -895,8 +864,6 @@
             this.p4_player1.TabIndex = 23;
             this.p4_player1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-=======
->>>>>>> main
             // p4_Out_btn
             // 
             this.p4_Out_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1023,67 +990,6 @@
             this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p3_title_label.Visible = false;
             // 
-<<<<<<< HEAD
-=======
-            // p4_dgv
-            // 
-            this.p4_dgv.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p4_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.p4_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p4_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.p4_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.p4_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.player});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p4_dgv.DefaultCellStyle = dataGridViewCellStyle12;
-            this.p4_dgv.Location = new System.Drawing.Point(10, 84);
-            this.p4_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.p4_dgv.MultiSelect = false;
-            this.p4_dgv.Name = "p4_dgv";
-            this.p4_dgv.ReadOnly = true;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p4_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.p4_dgv.RowHeadersVisible = false;
-            this.p4_dgv.RowHeadersWidth = 51;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_dgv.RowsDefaultCellStyle = dataGridViewCellStyle14;
-            this.p4_dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_dgv.RowTemplate.Height = 40;
-            this.p4_dgv.Size = new System.Drawing.Size(240, 450);
-            this.p4_dgv.TabIndex = 21;
-            // 
-            // player
-            // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.player.DefaultCellStyle = dataGridViewCellStyle11;
-            this.player.HeaderText = "접속 중인 사용자";
-            this.player.MinimumWidth = 6;
-            this.player.Name = "player";
-            this.player.ReadOnly = true;
-            // 
->>>>>>> main
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1111,7 +1017,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).EndInit();
             this.panel4_waitRoom.ResumeLayout(false);
             this.panel4_waitRoom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.p4_dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1164,16 +1069,11 @@
         private System.Windows.Forms.Label p3_title_label;
         private System.Windows.Forms.Label p3_roomname_label;
         private MetroSet_UI.Controls.MetroSetButton p1_signUp_btn;
-<<<<<<< HEAD
         private System.Windows.Forms.Label p4_player2;
         private System.Windows.Forms.Label p4_player1;
         private System.Windows.Forms.Label p4_player5;
         private System.Windows.Forms.Label p4_player4;
         private System.Windows.Forms.Label p4_player3;
         private MetroSet_UI.Controls.MetroSetButton p4_refesh;
-=======
-        private System.Windows.Forms.DataGridView p4_dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn player;
->>>>>>> main
     }
 }
