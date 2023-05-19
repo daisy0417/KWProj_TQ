@@ -582,6 +582,7 @@ namespace client
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
             //p4_gameStart_btn.Visible = true;
+            panel5.Visible = true;
         }
 
         #endregion
@@ -594,7 +595,7 @@ namespace client
 
         private void buzzer_Click(object sender, EventArgs e)
         {
-            //timer1.Start();
+            timer1.Start();
             client.RequestBuzzer();
         }
 
