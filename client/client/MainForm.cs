@@ -368,8 +368,9 @@ namespace client
                     {
                         client.RequestRoomCreate(roomName, roomMax);
                     }
-                    panel3_roomList.Visible = false;
-                    panel4_waitRoom.Visible = true;
+
+                    // panel3_roomList.Visible = false;
+                    // panel4_waitRoom.Visible = true;
                 }
                 catch (NullReferenceException nre)
                 {
@@ -377,8 +378,6 @@ namespace client
                 }
             }
         }
-
-
 
         int joinRes;     // 방 입장 시 정원 여부를 확인하기 위해 사용함.
 
@@ -415,6 +414,7 @@ namespace client
             if (rName != string.Empty)
             {
                 client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
+                //client.RequestRoomCreate(roomName, "5");
                 panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
                 panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
             }
@@ -444,6 +444,17 @@ namespace client
 
 
         #region panel4_waitRoom: 대기 방(채팅)
+        
+
+        public override void PresenterWait()
+        {
+            // 방 리스트에서 대기 방으로 이동
+            //panel3_roomList.Visible = false;
+            //panel4_waitRoom.Visible = true;
+
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
+        }
 
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
         public override void PlayerList(List<string> playerList)
@@ -571,6 +582,7 @@ namespace client
         private void p4_Out_btn_Click(object sender, EventArgs e)
         {
             client.RequestRoomOut();
+            p4_ready_btn.Text = "READY";
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
@@ -579,12 +591,33 @@ namespace client
             panel3_roomList.Visible = true;
         }
 
+        public override void GameReady(bool ready)
+        {
+            //ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //p4_ready_btn.Invoke(new MethodInvoker(delegate { p4_ready_btn.Text = "Ready Done"; }));
+            
+            if (ready == true)
+            {
+                // 출제자와 정답자 구분
+                // 출제자이면 5번 패널 -> 방장 위임, 게임 시작하기 버튼 들어감
+                // 정답자이면 6번 패널 -> 별도 다른 조치 필요 없음
+                ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                p4_ready_btn.Invoke(new MethodInvoker(delegate { p4_ready_btn.Text = "Ready Done"; }));
+                //p4_ready_btn.Text = "Ready Done";
+            }
+            
+        }
+
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
             //p4_gameStart_btn.Visible = true;
             client.RequestGameReady();
-            panel5.Visible = true;
+            //panel4_waitRoom.Visible = false;
+            //panel5.Visible = true;
         }
+
+      
+
         #endregion
 
         private void p4_gameStart_btn_Click(object sender, EventArgs e)
@@ -609,5 +642,7 @@ namespace client
                //답 읽어오기
             }
         }
+
+
     }
 }
