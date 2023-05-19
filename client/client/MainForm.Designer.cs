@@ -43,7 +43,6 @@
             this.panel1_login_server = new System.Windows.Forms.Panel();
             this.p1_login_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p1_signUp_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p1_gameStart_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p1_1_login_panel = new System.Windows.Forms.Panel();
             this.p1_midTitle_label = new System.Windows.Forms.Label();
             this.p1_username_tbx = new System.Windows.Forms.TextBox();
@@ -192,7 +191,6 @@
             // 
             this.panel1_login_server.Controls.Add(this.p1_login_btn);
             this.panel1_login_server.Controls.Add(this.p1_signUp_btn);
-            this.panel1_login_server.Controls.Add(this.p1_gameStart_btn);
             this.panel1_login_server.Controls.Add(this.p1_1_login_panel);
             this.panel1_login_server.Controls.Add(this.p1_ip_tbx);
             this.panel1_login_server.Controls.Add(this.p1_ip_label);
@@ -262,35 +260,6 @@
             this.p1_signUp_btn.ThemeName = "MetroLite";
             this.p1_signUp_btn.Visible = false;
             this.p1_signUp_btn.Click += new System.EventHandler(this.p1_signUp_btn_Click);
-            // 
-            // p1_gameStart_btn
-            // 
-            this.p1_gameStart_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_gameStart_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_gameStart_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p1_gameStart_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
-            this.p1_gameStart_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p1_gameStart_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p1_gameStart_btn.HoverTextColor = System.Drawing.Color.White;
-            this.p1_gameStart_btn.IsDerivedStyle = true;
-            this.p1_gameStart_btn.Location = new System.Drawing.Point(418, 435);
-            this.p1_gameStart_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.p1_gameStart_btn.Name = "p1_gameStart_btn";
-            this.p1_gameStart_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_gameStart_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p1_gameStart_btn.NormalTextColor = System.Drawing.Color.White;
-            this.p1_gameStart_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p1_gameStart_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p1_gameStart_btn.PressTextColor = System.Drawing.Color.White;
-            this.p1_gameStart_btn.Size = new System.Drawing.Size(245, 70);
-            this.p1_gameStart_btn.Style = MetroSet_UI.Enums.Style.Light;
-            this.p1_gameStart_btn.StyleManager = null;
-            this.p1_gameStart_btn.TabIndex = 8;
-            this.p1_gameStart_btn.Text = "게임 시작하기";
-            this.p1_gameStart_btn.ThemeAuthor = "Narwin";
-            this.p1_gameStart_btn.ThemeName = "MetroLite";
-            this.p1_gameStart_btn.Visible = false;
-            this.p1_gameStart_btn.Click += new System.EventHandler(this.p1_gameStart_btn_Click);
             // 
             // p1_1_login_panel
             // 
@@ -1294,7 +1263,6 @@
         private MetroSet_UI.Controls.MetroSetButton p1_connect_btn;
         private System.Windows.Forms.TextBox p1_ip_tbx;
         private System.Windows.Forms.Label p1_ip_label;
-        private MetroSet_UI.Controls.MetroSetButton p1_gameStart_btn;
         private System.Windows.Forms.Panel panel2_gameStart;
         private MetroSet_UI.Controls.MetroSetButton p2_gameStart_btn;
         private System.Windows.Forms.Label p2_welcome__label;

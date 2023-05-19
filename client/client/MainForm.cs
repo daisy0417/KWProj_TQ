@@ -94,6 +94,7 @@ namespace client
         {
             p1_signUp_btn.Invoke(new MethodInvoker(delegate { p1_signUp_btn.Visible = true; }));
             p1_login_btn.Invoke(new MethodInvoker(delegate { p1_login_btn.Visible = true; }));
+            p2_gameStart_btn.Invoke(new MethodInvoker(delegate { p2_gameStart_btn.Visible = false; }));
             /*
             p1_signUp_btn.Visible = true;
             p1_login_btn.Visible = true;
@@ -260,7 +261,7 @@ namespace client
                 }
                 if (message.Equals(p1_username_tbx.Text))
                 {
-                    p1_gameStart_btn.Invoke(new MethodInvoker(delegate { p1_gameStart_btn.Visible = true; }));
+                    //p1_gameStart_btn.Invoke(new MethodInvoker(delegate { p1_gameStart_btn.Visible = true; }));
                     panel1_login_server.Invoke(new MethodInvoker(delegate { panel1_login_server.Visible = false; }));
                     panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = true; }));
                 }
@@ -275,21 +276,17 @@ namespace client
         #endregion
 
         #region panel2_gameStart: 로그아웃, 게임시작 가능
-        private void p1_gameStart_btn_Click(object sender, EventArgs e)
-        {
-            p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = false; }));
-            panel1_login_server.Invoke(new MethodInvoker(delegate { panel1_login_server.Visible = false; }));
-            panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = true; }));
-        }
+
         private void p2_logout_btn_Click(object sender, EventArgs e)
         {
-            panel2_gameStart.Visible = false;
-            p2_gameStart_btn.Visible = false;
-            p1_1_login_panel.Visible = true;
+            panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = false; }));
+            p2_gameStart_btn.Invoke(new MethodInvoker(delegate { p2_logout_btn.Visible = false; }));
+            p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
 
-            // 현재(0520)는 로그아웃 기능이 없어서 그냥 텍스트 박스만 비워둠.
-            p1_username_tbx.Text = "";
-            p1_pw_tbx.Text = "";
+            //panel2_gameStart.Visible = false;
+            //p2_gameStart_btn.Visible = false;
+            //p1_1_login_panel.Visible = true;
+
         }
 
         /// <summary>
@@ -298,6 +295,8 @@ namespace client
         private void panel2_gameStart_VisibleChanged(object sender, EventArgs e)
         {
             p2_welcome__label.Text = String.Format("{0} 님 환영합니다:)", p1_username_tbx.Text);
+            p2_gameStart_btn.Visible = true;
+            p2_logout_btn.Visible = true;
         }
 
         private void p2_gameStart_btn_Click(object sender, EventArgs e)
@@ -818,7 +817,5 @@ namespace client
                 //답 읽어오기
             }
         }
-
-
     }
 }
