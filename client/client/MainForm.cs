@@ -450,8 +450,7 @@ namespace client
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
         public override void PlayerList(List<string> playerList)
         {
-            /*
-             * int cnt = playerList.Count;
+            int cnt = playerList.Count;
             if(cnt > 0)
             {
                 p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = playerList[0]; }));
@@ -476,7 +475,7 @@ namespace client
                 p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = playerList[4]; }));
                 p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.BackColor = Color.LightSkyBlue; })); 
             }
-            p4_current_player();*/
+            p4_current_player();
         }
         private void p4_refesh_Click(object sender, EventArgs e)
         {
@@ -519,7 +518,7 @@ namespace client
                     // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
                     // p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
 
-                    /*
+                    
                     switch(playerCount)
                     {
                         case "0":
@@ -529,7 +528,7 @@ namespace client
                             p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = p1_username_tbx.Text; }));
                             break;
                     }
-                    */
+                    
             //client.RequestPlayerList(roomName);
         }
     }
@@ -540,8 +539,7 @@ namespace client
 
         }
 
-        /*
-         * private void p4_current_player()
+        private void p4_current_player()
         {
             string p_name = p1_username_tbx.Text;
             if(p_name == p4_player1.Text)
@@ -567,7 +565,6 @@ namespace client
             p4_player5.BackColor = Color.LightGray;
             p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = ""; }));
         }
-        */
         public override void RoomOut()
         {
             ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
