@@ -175,6 +175,7 @@ namespace client
             }
             else if (header.Equals("PLAYERLIST"))
             {
+                // 받아 온 content가 비어있지 않다면, 접속된 유저 이름 가져옴
                 if(string.IsNullOrEmpty(content) == false)
                 {
                     string[] playerArr = content.Split(',');
