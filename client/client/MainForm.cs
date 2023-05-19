@@ -279,9 +279,11 @@ namespace client
 
         private void p2_logout_btn_Click(object sender, EventArgs e)
         {
-            panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = false; }));
+            panel2_gameStart.Visible = false;
+            p1_1_login_panel.Visible = true;
+            //panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = false; }));
             p2_gameStart_btn.Invoke(new MethodInvoker(delegate { p2_logout_btn.Visible = false; }));
-            p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
+            //p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
 
             //panel2_gameStart.Visible = false;
             //p2_gameStart_btn.Visible = false;
@@ -381,7 +383,7 @@ namespace client
                     {
                         client.RequestRoomCreate(roomName, roomMax);
                     }
-
+                    OwnerWait();
                     //panel3_roomList.Visible = false;
                     //panel4_waitRoom.Visible = true;
                 }
@@ -426,8 +428,7 @@ namespace client
             {
                 client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
                 //client.RequestRoomCreate(roomName, "5");
-                //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-                //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+                PlayerWait();
             }
         }
 
@@ -457,12 +458,12 @@ namespace client
         public override void PlayerWait()
         {
             // 참가자의 게임 시작 전 화면 -> 플레이어용 대기 방 화면
-            panel3_roomList.Visible = false;
-            panel4_player_waitRoom.Visible = true;
+            //panel3_roomList.Visible = false;
+            //panel4_player_waitRoom.Visible = true;
             p4_chat_tbx.Text = "";
 
-            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
         }
 
         // 새로 고침 버튼 클릭 시 이벤트
@@ -768,16 +769,12 @@ namespace client
 
         public override void GameReady(bool ready)
         {
-            //ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //p4_ready_btn.Invoke(new MethodInvoker(delegate { p4_ready_btn.Text = "Ready Done"; }));
-
             if (ready == true)
             {
                 // 출제자와 정답자 구분
                 // 출제자이면 5번 패널 -> 방장 위임, 게임 시작하기 버튼 들어감
                 // 정답자이면 6번 패널 -> 별도 다른 조치 필요 없음
                 ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                p4_ready_btn.Invoke(new MethodInvoker(delegate { p4_ready_btn.Text = "Ready Done"; }));
                 //p4_ready_btn.Text = "Ready Done";
             }
 
@@ -786,11 +783,13 @@ namespace client
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
             client.RequestGameReady();
+            p4_done_label.Visible = true;
         }
 
         private void p4_1_ready_btn_Click(object sender, EventArgs e)
         {
             client.RequestGameReady();
+            p4_1_done_label.Visible = true;
         }
 
         #endregion

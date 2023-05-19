@@ -101,6 +101,8 @@
             this.p4_1_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_1_player1 = new System.Windows.Forms.Label();
             this.p4_1_chat_tbx = new System.Windows.Forms.TextBox();
+            this.p4_1_done_label = new System.Windows.Forms.Label();
+            this.p4_done_label = new System.Windows.Forms.Label();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -752,6 +754,7 @@
             // 
             // panel4_player_waitRoom
             // 
+            this.panel4_player_waitRoom.Controls.Add(this.p4_done_label);
             this.panel4_player_waitRoom.Controls.Add(this.p4_refesh);
             this.panel4_player_waitRoom.Controls.Add(this.p4_Out_btn);
             this.panel4_player_waitRoom.Controls.Add(this.p4_player5);
@@ -982,6 +985,7 @@
             // 
             // panel4_1_owner_waitRoom
             // 
+            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_done_label);
             this.panel4_1_owner_waitRoom.Controls.Add(this.label1);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_refresh_btn);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_out_btn);
@@ -1208,6 +1212,32 @@
             this.p4_1_chat_tbx.Size = new System.Drawing.Size(703, 409);
             this.p4_1_chat_tbx.TabIndex = 17;
             // 
+            // p4_1_done_label
+            // 
+            this.p4_1_done_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_1_done_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_1_done_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.p4_1_done_label.Location = new System.Drawing.Point(352, 12);
+            this.p4_1_done_label.Name = "p4_1_done_label";
+            this.p4_1_done_label.Size = new System.Drawing.Size(333, 54);
+            this.p4_1_done_label.TabIndex = 36;
+            this.p4_1_done_label.Text = "준비 완료";
+            this.p4_1_done_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_done_label.Visible = false;
+            // 
+            // p4_done_label
+            // 
+            this.p4_done_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p4_done_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_done_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.p4_done_label.Location = new System.Drawing.Point(352, 12);
+            this.p4_done_label.Name = "p4_done_label";
+            this.p4_done_label.Size = new System.Drawing.Size(333, 54);
+            this.p4_done_label.TabIndex = 37;
+            this.p4_done_label.Text = "준비 완료";
+            this.p4_done_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_done_label.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1312,5 +1342,7 @@
         private System.Windows.Forms.Label p4_1_player1;
         private System.Windows.Forms.TextBox p4_1_chat_tbx;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label p4_1_done_label;
+        private System.Windows.Forms.Label p4_done_label;
     }
 }
