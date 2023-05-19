@@ -23,6 +23,8 @@ namespace ServerProgram
         private IPAddress serverIP;
         public IPAddress clientIP;
         private int port;
+        private int win_point;
+        
         public int Port { get { return port; } }
 
         public string username = "NONE";
@@ -35,6 +37,15 @@ namespace ServerProgram
             this.serverIP = serverIP;
             this.clientIP = clientIP;
             this.listener = new TcpListener(serverIP, port);
+        }
+        ~Server()
+        {
+            SQLiteConnection conn;
+            conn = new SQLiteConnection("Data Source=login_info.db");
+            conn.Open();
+            string query = "update idpw set wins = "+win_point+" where ID= '"+username+"'";
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            int result = cmd.ExecuteNonQuery();
         }
 
         public void change_room(int newRoom)
@@ -76,6 +87,8 @@ namespace ServerProgram
             }
         }
         public int roomnum() { return this.room; }
+        public void win() { win_point++; } //이겼을 때 호출, 점수 부여
+        public void set_winpoint(int winpoint) { win_point = winpoint; }
     }
 
     public class MainServer
@@ -264,6 +277,14 @@ namespace ServerProgram
                     {
                         GameReady(server);
                     }
+                    else if (header.Equals("GUESSANSWER"))
+                    {
+                        GuessAnswer(content,server);
+                    }
+                    else if (header.Equals("BUZZER"))
+                    {
+                        Buzzer(server);
+                    }
                     //알 수 없는 header일때
                     else
                     {
@@ -301,16 +322,17 @@ namespace ServerProgram
         #region 로그인 기능
 
         private Dictionary<string, string> loginData = new Dictionary<string, string>();
+        private Dictionary<string, int> win_points= new Dictionary<string, int>();
         private SQLiteConnection conn;
         private void LoadLoginData()
         {
-            //파일에서 아이디-패스워드 데이터 읽어오기. 아직 구현 안됨.
+            //파일에서 아이디-패스워드 데이터 읽어오기. 
             if (!System.IO.File.Exists("login_info.db"))
                 SQLiteConnection.CreateFile("login_info.db");
             conn = new SQLiteConnection("Data Source=login_info.db");
             conn.Open();
             string query = "create table if not exists idpw (ID varchar(20), pw varchar(20)" +
-                ", primary key (ID))";
+                ", wins numeric(5,0), primary key (ID))";
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
             int result = cmd.ExecuteNonQuery();
 
@@ -320,6 +342,7 @@ namespace ServerProgram
             while (reader.Read())
             {
                 loginData.Add(reader["ID"].ToString(), reader["pw"].ToString());
+                win_points.Add(reader["ID"].ToString(),(int) reader["wins"]);
             }
             reader.Close();
 
@@ -334,6 +357,9 @@ namespace ServerProgram
                     parentForm.PrintLog("login user : " + username + ", " + password);
                     server.SendClient("SIGNIN|" + username);
                     server.username = username;
+                    int win;
+                    win_points.TryGetValue(username, out win);
+                    server.set_winpoint(win);
                     return;
                 }
             }
@@ -351,10 +377,12 @@ namespace ServerProgram
             {
                 parentForm.PrintLog("create new account : " + username + ", " + password);
                 loginData.Add(username, password);
+                win_points.Add(username, 0);
 
                 conn = new SQLiteConnection("Data Source=login_info.db");
                 conn.Open();
-                string query = "insert into idpw (ID,pw) values ('" + username + "','" + password + "')";
+                string query = "insert into idpw (ID,pw,wins) values ('" +
+                    username + "','" + password + "','0')";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 int result = cmd.ExecuteNonQuery();
 
@@ -624,6 +652,110 @@ namespace ServerProgram
                 qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
             }
         }
+
+        private void GuessAnswer(string guess,Server server)
+        {
+            RoomChat(guess, server);
+            GameRoom room = null;
+            for (int i = 0; i < gameRooms.Count; i++)
+            {
+                if (gameRooms[i].ContainPlayer(server))
+                {
+                    room = gameRooms[i];
+                    break;
+                }
+            }
+            if (room == null) return;
+            if (room.word.CompareTo(guess) == 0)
+            {
+                server.win(); //점수추가
+                RoomChat("정답!", server);
+                int questioner = room.NextQuestioner();
+                room.NextPresenter();
+                List<Server> qList = room.GetQuestionerList();
+                if (room.CurrentQuestioner != 0)
+                {//출제자 한바퀴만
+                    for (int i = 0; i < qList.Count; i++)
+                    {
+                        if (i == questioner)//다음 문제
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "PRESENTERCHOICE");
+                        }
+                        else
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                        }
+                    }
+                }
+                else //대기방으로
+                {
+                    RoomChat("게임 종료!", server);
+                    room.starting = false; 
+                    for (int i = 0; i < qList.Count; i++)
+                    {
+                        if (server.username.CompareTo(room.GetOwner().username)==0)
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "OWNERWAIT");
+                        }
+                        else
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "PLAYERWAIT");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWAIT");
+                int questioner = room.CurrentQuestioner;
+
+                List<Server> qList = room.GetQuestionerList();
+
+                for (int i = 0; i < qList.Count; i++)
+                {
+                    if (server.username.CompareTo(room.GetOwner().username) == 0)
+                    {
+                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
+                    }
+                    else
+                    {
+                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                    }
+                }
+            }
+        }
+        private void Buzzer(Server server)
+        {
+            RoomChat(server.username + " 정답 시도중", server);
+            GameRoom room = null;
+            for (int i = 0; i < gameRooms.Count; i++)
+            {
+                if (gameRooms[i].ContainPlayer(server))
+                {
+                    room = gameRooms[i];
+                    break;
+                }
+            }
+
+            if (room == null) return;
+
+            room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWAIT");
+            int questioner = room.CurrentQuestioner;
+
+            List<Server> qList = room.GetQuestionerList();
+
+            for (int i = 0; i < qList.Count; i++)
+            {
+                if (server.username.CompareTo(room.GetOwner().username) == 0)
+                {
+                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
+                }
+                else
+                {
+                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                }
+            }
+        }
         #endregion
     }
 
@@ -728,7 +860,11 @@ namespace ServerProgram
         {
             return players[presenter];
         }
-
+        public void NextPresenter() { presenter++; }
+        public Server GetOwner()
+        {
+            return ownerPlayer;
+        }
         public List<Server> GetQuestionerList()
         {
             List<Server> questionerList = new List<Server>();

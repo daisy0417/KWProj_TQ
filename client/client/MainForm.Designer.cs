@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@
             this.p3_create_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_makeRoom_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p3_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p3_back_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_people_tbx = new System.Windows.Forms.TextBox();
             this.p3_people_label = new System.Windows.Forms.Label();
             this.p3_roomname_label = new System.Windows.Forms.Label();
@@ -80,11 +81,12 @@
             this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_message_tbx = new System.Windows.Forms.TextBox();
             this.p4_ready_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p4_gameStart_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_chat_tbx = new System.Windows.Forms.TextBox();
             this.p3_title_label = new System.Windows.Forms.Label();
             this.panel5_Quest = new System.Windows.Forms.Panel();
-            this.p4_gameStart_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -98,7 +100,7 @@
             this.title_label.AutoSize = true;
             this.title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.title_label.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.title_label.Location = new System.Drawing.Point(356, 114);
+            this.title_label.Location = new System.Drawing.Point(357, 114);
             this.title_label.Name = "title_label";
             this.title_label.Size = new System.Drawing.Size(400, 87);
             this.title_label.TabIndex = 0;
@@ -113,6 +115,7 @@
             this.metroSetControlBox1.DisabledForeColor = System.Drawing.Color.DimGray;
             this.metroSetControlBox1.IsDerivedStyle = true;
             this.metroSetControlBox1.Location = new System.Drawing.Point(901, 21);
+            this.metroSetControlBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroSetControlBox1.MaximizeBox = true;
             this.metroSetControlBox1.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.metroSetControlBox1.MaximizeHoverForeColor = System.Drawing.Color.Gray;
@@ -152,6 +155,7 @@
             this.main_login_btn.HoverTextColor = System.Drawing.Color.White;
             this.main_login_btn.IsDerivedStyle = true;
             this.main_login_btn.Location = new System.Drawing.Point(390, 424);
+            this.main_login_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.main_login_btn.Name = "main_login_btn";
             this.main_login_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.main_login_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -179,9 +183,10 @@
             this.panel1_login_server.Controls.Add(this.p1_connect_btn);
             this.panel1_login_server.Controls.Add(this.p1_title_label);
             this.panel1_login_server.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1_login_server.Location = new System.Drawing.Point(20, 60);
+            this.panel1_login_server.Location = new System.Drawing.Point(18, 75);
+            this.panel1_login_server.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1_login_server.Name = "panel1_login_server";
-            this.panel1_login_server.Size = new System.Drawing.Size(984, 550);
+            this.panel1_login_server.Size = new System.Drawing.Size(988, 539);
             this.panel1_login_server.TabIndex = 4;
             this.panel1_login_server.Visible = false;
             // 
@@ -195,7 +200,8 @@
             this.p1_login_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_login_btn.HoverTextColor = System.Drawing.Color.White;
             this.p1_login_btn.IsDerivedStyle = true;
-            this.p1_login_btn.Location = new System.Drawing.Point(580, 435);
+            this.p1_login_btn.Location = new System.Drawing.Point(581, 435);
+            this.p1_login_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_login_btn.Name = "p1_login_btn";
             this.p1_login_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_login_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -203,7 +209,7 @@
             this.p1_login_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_login_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_login_btn.PressTextColor = System.Drawing.Color.White;
-            this.p1_login_btn.Size = new System.Drawing.Size(244, 70);
+            this.p1_login_btn.Size = new System.Drawing.Size(245, 70);
             this.p1_login_btn.Style = MetroSet_UI.Enums.Style.Light;
             this.p1_login_btn.StyleManager = null;
             this.p1_login_btn.TabIndex = 6;
@@ -223,7 +229,8 @@
             this.p1_signUp_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_signUp_btn.HoverTextColor = System.Drawing.Color.White;
             this.p1_signUp_btn.IsDerivedStyle = true;
-            this.p1_signUp_btn.Location = new System.Drawing.Point(300, 435);
+            this.p1_signUp_btn.Location = new System.Drawing.Point(299, 435);
+            this.p1_signUp_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_signUp_btn.Name = "p1_signUp_btn";
             this.p1_signUp_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_signUp_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -231,7 +238,7 @@
             this.p1_signUp_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_signUp_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_signUp_btn.PressTextColor = System.Drawing.Color.White;
-            this.p1_signUp_btn.Size = new System.Drawing.Size(244, 70);
+            this.p1_signUp_btn.Size = new System.Drawing.Size(245, 70);
             this.p1_signUp_btn.Style = MetroSet_UI.Enums.Style.Light;
             this.p1_signUp_btn.StyleManager = null;
             this.p1_signUp_btn.TabIndex = 9;
@@ -252,6 +259,7 @@
             this.p1_gameStart_btn.HoverTextColor = System.Drawing.Color.White;
             this.p1_gameStart_btn.IsDerivedStyle = true;
             this.p1_gameStart_btn.Location = new System.Drawing.Point(418, 435);
+            this.p1_gameStart_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_gameStart_btn.Name = "p1_gameStart_btn";
             this.p1_gameStart_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_gameStart_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -259,7 +267,7 @@
             this.p1_gameStart_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_gameStart_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_gameStart_btn.PressTextColor = System.Drawing.Color.White;
-            this.p1_gameStart_btn.Size = new System.Drawing.Size(244, 70);
+            this.p1_gameStart_btn.Size = new System.Drawing.Size(245, 70);
             this.p1_gameStart_btn.Style = MetroSet_UI.Enums.Style.Light;
             this.p1_gameStart_btn.StyleManager = null;
             this.p1_gameStart_btn.TabIndex = 8;
@@ -277,6 +285,7 @@
             this.p1_1_login_panel.Controls.Add(this.p1_pw_label);
             this.p1_1_login_panel.Controls.Add(this.p1_pw_tbx);
             this.p1_1_login_panel.Location = new System.Drawing.Point(245, 114);
+            this.p1_1_login_panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_1_login_panel.Name = "p1_1_login_panel";
             this.p1_1_login_panel.Size = new System.Drawing.Size(565, 294);
             this.p1_1_login_panel.TabIndex = 5;
@@ -300,7 +309,8 @@
             this.p1_username_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.p1_username_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
             this.p1_username_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p1_username_tbx.Location = new System.Drawing.Point(100, 114);
+            this.p1_username_tbx.Location = new System.Drawing.Point(101, 114);
+            this.p1_username_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_username_tbx.Name = "p1_username_tbx";
             this.p1_username_tbx.Size = new System.Drawing.Size(412, 42);
             this.p1_username_tbx.TabIndex = 4;
@@ -310,7 +320,7 @@
             this.p1_username_label.AutoSize = true;
             this.p1_username_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
             this.p1_username_label.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.p1_username_label.Location = new System.Drawing.Point(100, 74);
+            this.p1_username_label.Location = new System.Drawing.Point(101, 74);
             this.p1_username_label.Name = "p1_username_label";
             this.p1_username_label.Size = new System.Drawing.Size(125, 31);
             this.p1_username_label.TabIndex = 2;
@@ -322,7 +332,7 @@
             this.p1_pw_label.AutoSize = true;
             this.p1_pw_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
             this.p1_pw_label.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.p1_pw_label.Location = new System.Drawing.Point(100, 174);
+            this.p1_pw_label.Location = new System.Drawing.Point(101, 174);
             this.p1_pw_label.Name = "p1_pw_label";
             this.p1_pw_label.Size = new System.Drawing.Size(119, 31);
             this.p1_pw_label.TabIndex = 3;
@@ -334,7 +344,8 @@
             this.p1_pw_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.p1_pw_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
             this.p1_pw_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p1_pw_tbx.Location = new System.Drawing.Point(100, 214);
+            this.p1_pw_tbx.Location = new System.Drawing.Point(101, 214);
+            this.p1_pw_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_pw_tbx.Name = "p1_pw_tbx";
             this.p1_pw_tbx.Size = new System.Drawing.Size(412, 42);
             this.p1_pw_tbx.TabIndex = 5;
@@ -346,6 +357,7 @@
             this.p1_ip_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
             this.p1_ip_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p1_ip_tbx.Location = new System.Drawing.Point(320, 228);
+            this.p1_ip_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_ip_tbx.Name = "p1_ip_tbx";
             this.p1_ip_tbx.Size = new System.Drawing.Size(412, 42);
             this.p1_ip_tbx.TabIndex = 6;
@@ -374,6 +386,7 @@
             this.p1_connect_btn.HoverTextColor = System.Drawing.Color.White;
             this.p1_connect_btn.IsDerivedStyle = true;
             this.p1_connect_btn.Location = new System.Drawing.Point(418, 435);
+            this.p1_connect_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_connect_btn.Name = "p1_connect_btn";
             this.p1_connect_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_connect_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -381,7 +394,7 @@
             this.p1_connect_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_connect_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.p1_connect_btn.PressTextColor = System.Drawing.Color.White;
-            this.p1_connect_btn.Size = new System.Drawing.Size(244, 70);
+            this.p1_connect_btn.Size = new System.Drawing.Size(245, 70);
             this.p1_connect_btn.Style = MetroSet_UI.Enums.Style.Light;
             this.p1_connect_btn.StyleManager = null;
             this.p1_connect_btn.TabIndex = 7;
@@ -409,9 +422,10 @@
             this.panel2_gameStart.Controls.Add(this.p2_welcome__label);
             this.panel2_gameStart.Controls.Add(this.p2_title_label);
             this.panel2_gameStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2_gameStart.Location = new System.Drawing.Point(20, 60);
+            this.panel2_gameStart.Location = new System.Drawing.Point(18, 75);
+            this.panel2_gameStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2_gameStart.Name = "panel2_gameStart";
-            this.panel2_gameStart.Size = new System.Drawing.Size(984, 550);
+            this.panel2_gameStart.Size = new System.Drawing.Size(988, 539);
             this.panel2_gameStart.TabIndex = 5;
             this.panel2_gameStart.Visible = false;
             this.panel2_gameStart.VisibleChanged += new System.EventHandler(this.panel2_gameStart_VisibleChanged);
@@ -427,6 +441,7 @@
             this.p2_logout_btn.HoverTextColor = System.Drawing.Color.White;
             this.p2_logout_btn.IsDerivedStyle = true;
             this.p2_logout_btn.Location = new System.Drawing.Point(323, 306);
+            this.p2_logout_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p2_logout_btn.Name = "p2_logout_btn";
             this.p2_logout_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p2_logout_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -453,6 +468,7 @@
             this.p2_gameStart_btn.HoverTextColor = System.Drawing.Color.White;
             this.p2_gameStart_btn.IsDerivedStyle = true;
             this.p2_gameStart_btn.Location = new System.Drawing.Point(323, 398);
+            this.p2_gameStart_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p2_gameStart_btn.Name = "p2_gameStart_btn";
             this.p2_gameStart_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p2_gameStart_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -496,15 +512,16 @@
             this.panel3_roomList.Controls.Add(this.p3_create_btn);
             this.panel3_roomList.Controls.Add(this.p3_makeRoom_btn);
             this.panel3_roomList.Controls.Add(this.p3_refresh_btn);
-            this.panel3_roomList.Controls.Add(this.p3_Out_btn);
+            this.panel3_roomList.Controls.Add(this.p3_back_btn);
             this.panel3_roomList.Controls.Add(this.p3_people_tbx);
             this.panel3_roomList.Controls.Add(this.p3_people_label);
             this.panel3_roomList.Controls.Add(this.p3_roomname_label);
             this.panel3_roomList.Controls.Add(this.p3_roomname_tbx);
             this.panel3_roomList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3_roomList.Location = new System.Drawing.Point(20, 60);
+            this.panel3_roomList.Location = new System.Drawing.Point(18, 75);
+            this.panel3_roomList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3_roomList.Name = "panel3_roomList";
-            this.panel3_roomList.Size = new System.Drawing.Size(984, 550);
+            this.panel3_roomList.Size = new System.Drawing.Size(988, 539);
             this.panel3_roomList.TabIndex = 6;
             this.panel3_roomList.Visible = false;
             this.panel3_roomList.VisibleChanged += new System.EventHandler(this.panel3_roomList_VisibleChanged);
@@ -512,49 +529,49 @@
             // p3_dataGridView1
             // 
             this.p3_dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.p3_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.p3_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.p3_dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.People,
             this.btn});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle22;
-            this.p3_dataGridView1.Location = new System.Drawing.Point(16, 83);
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
+            this.p3_dataGridView1.Location = new System.Drawing.Point(16, 82);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.p3_dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle24;
-            this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowTemplate.Height = 40;
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
             this.p3_dataGridView1.TabIndex = 4;
@@ -562,8 +579,8 @@
             // 
             // RoomName
             // 
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle11;
             this.RoomName.FillWeight = 150F;
             this.RoomName.HeaderText = "방 이름";
             this.RoomName.MinimumWidth = 6;
@@ -572,8 +589,8 @@
             // 
             // People
             // 
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.People.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.People.DefaultCellStyle = dataGridViewCellStyle12;
             this.People.HeaderText = "접속 인원";
             this.People.MinimumWidth = 6;
             this.People.Name = "People";
@@ -581,9 +598,9 @@
             // 
             // btn
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn.DefaultCellStyle = dataGridViewCellStyle13;
             this.btn.HeaderText = "버튼";
             this.btn.MinimumWidth = 6;
             this.btn.Name = "btn";
@@ -610,7 +627,8 @@
             this.p3_create_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_create_btn.HoverTextColor = System.Drawing.Color.White;
             this.p3_create_btn.IsDerivedStyle = true;
-            this.p3_create_btn.Location = new System.Drawing.Point(772, 327);
+            this.p3_create_btn.Location = new System.Drawing.Point(773, 328);
+            this.p3_create_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_create_btn.Name = "p3_create_btn";
             this.p3_create_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_create_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -639,6 +657,7 @@
             this.p3_makeRoom_btn.HoverTextColor = System.Drawing.Color.White;
             this.p3_makeRoom_btn.IsDerivedStyle = true;
             this.p3_makeRoom_btn.Location = new System.Drawing.Point(773, 81);
+            this.p3_makeRoom_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_makeRoom_btn.Name = "p3_makeRoom_btn";
             this.p3_makeRoom_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_makeRoom_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -666,6 +685,7 @@
             this.p3_refresh_btn.HoverTextColor = System.Drawing.Color.White;
             this.p3_refresh_btn.IsDerivedStyle = true;
             this.p3_refresh_btn.Location = new System.Drawing.Point(16, 26);
+            this.p3_refresh_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_refresh_btn.Name = "p3_refresh_btn";
             this.p3_refresh_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_refresh_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -682,38 +702,40 @@
             this.p3_refresh_btn.ThemeName = "MetroLite";
             this.p3_refresh_btn.Click += new System.EventHandler(this.p3_refresh_btn_Click);
             // 
-            // p3_Out_btn
+            // p3_back_btn
             // 
-            this.p3_Out_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p3_Out_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p3_Out_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p3_Out_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
-            this.p3_Out_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p3_Out_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p3_Out_btn.HoverTextColor = System.Drawing.Color.White;
-            this.p3_Out_btn.IsDerivedStyle = true;
-            this.p3_Out_btn.Location = new System.Drawing.Point(772, 493);
-            this.p3_Out_btn.Name = "p3_Out_btn";
-            this.p3_Out_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p3_Out_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p3_Out_btn.NormalTextColor = System.Drawing.Color.White;
-            this.p3_Out_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p3_Out_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p3_Out_btn.PressTextColor = System.Drawing.Color.White;
-            this.p3_Out_btn.Size = new System.Drawing.Size(184, 40);
-            this.p3_Out_btn.Style = MetroSet_UI.Enums.Style.Light;
-            this.p3_Out_btn.StyleManager = null;
-            this.p3_Out_btn.TabIndex = 15;
-            this.p3_Out_btn.Text = "퇴장하기";
-            this.p3_Out_btn.ThemeAuthor = "Narwin";
-            this.p3_Out_btn.ThemeName = "MetroLite";
-            this.p3_Out_btn.Click += new System.EventHandler(this.p3_Out_btn_Click);
+            this.p3_back_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_back_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_back_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p3_back_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p3_back_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p3_back_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p3_back_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p3_back_btn.IsDerivedStyle = true;
+            this.p3_back_btn.Location = new System.Drawing.Point(773, 492);
+            this.p3_back_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p3_back_btn.Name = "p3_back_btn";
+            this.p3_back_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_back_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_back_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p3_back_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p3_back_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p3_back_btn.PressTextColor = System.Drawing.Color.White;
+            this.p3_back_btn.Size = new System.Drawing.Size(184, 40);
+            this.p3_back_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p3_back_btn.StyleManager = null;
+            this.p3_back_btn.TabIndex = 15;
+            this.p3_back_btn.Text = "뒤로가기";
+            this.p3_back_btn.ThemeAuthor = "Narwin";
+            this.p3_back_btn.ThemeName = "MetroLite";
+            this.p3_back_btn.Click += new System.EventHandler(this.p3_back_btn_Click);
             // 
             // p3_people_tbx
             // 
             this.p3_people_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
             this.p3_people_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p3_people_tbx.Location = new System.Drawing.Point(773, 283);
+            this.p3_people_tbx.Location = new System.Drawing.Point(773, 282);
+            this.p3_people_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_people_tbx.Name = "p3_people_tbx";
             this.p3_people_tbx.Size = new System.Drawing.Size(183, 33);
             this.p3_people_tbx.TabIndex = 12;
@@ -746,6 +768,7 @@
             this.p3_roomname_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
             this.p3_roomname_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p3_roomname_tbx.Location = new System.Drawing.Point(773, 200);
+            this.p3_roomname_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_roomname_tbx.Name = "p3_roomname_tbx";
             this.p3_roomname_tbx.Size = new System.Drawing.Size(183, 33);
             this.p3_roomname_tbx.TabIndex = 8;
@@ -762,9 +785,10 @@
             this.panel4_waitRoom.Controls.Add(this.p4_roomInfo_label);
             this.panel4_waitRoom.Controls.Add(this.p4_chat_tbx);
             this.panel4_waitRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4_waitRoom.Location = new System.Drawing.Point(20, 60);
+            this.panel4_waitRoom.Location = new System.Drawing.Point(18, 75);
+            this.panel4_waitRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4_waitRoom.Name = "panel4_waitRoom";
-            this.panel4_waitRoom.Size = new System.Drawing.Size(984, 550);
+            this.panel4_waitRoom.Size = new System.Drawing.Size(988, 539);
             this.panel4_waitRoom.TabIndex = 20;
             this.panel4_waitRoom.Visible = false;
             this.panel4_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
@@ -782,12 +806,13 @@
             // 
             // p4_playerList
             // 
-            this.p4_playerList.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_playerList.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_playerList.FormattingEnabled = true;
             this.p4_playerList.ItemHeight = 26;
             this.p4_playerList.Location = new System.Drawing.Point(16, 158);
+            this.p4_playerList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_playerList.Name = "p4_playerList";
-            this.p4_playerList.Size = new System.Drawing.Size(224, 368);
+            this.p4_playerList.Size = new System.Drawing.Size(223, 342);
             this.p4_playerList.TabIndex = 24;
             // 
             // p4_Out_btn
@@ -801,6 +826,7 @@
             this.p4_Out_btn.HoverTextColor = System.Drawing.Color.White;
             this.p4_Out_btn.IsDerivedStyle = true;
             this.p4_Out_btn.Location = new System.Drawing.Point(15, 12);
+            this.p4_Out_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_Out_btn.Name = "p4_Out_btn";
             this.p4_Out_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_Out_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -828,6 +854,7 @@
             this.p4_send_btn.HoverTextColor = System.Drawing.Color.White;
             this.p4_send_btn.IsDerivedStyle = true;
             this.p4_send_btn.Location = new System.Drawing.Point(837, 496);
+            this.p4_send_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_send_btn.Name = "p4_send_btn";
             this.p4_send_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_send_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -849,6 +876,7 @@
             this.p4_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
             this.p4_message_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p4_message_tbx.Location = new System.Drawing.Point(261, 496);
+            this.p4_message_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_message_tbx.Multiline = true;
             this.p4_message_tbx.Name = "p4_message_tbx";
             this.p4_message_tbx.Size = new System.Drawing.Size(570, 45);
@@ -865,6 +893,7 @@
             this.p4_ready_btn.HoverTextColor = System.Drawing.Color.White;
             this.p4_ready_btn.IsDerivedStyle = true;
             this.p4_ready_btn.Location = new System.Drawing.Point(351, 12);
+            this.p4_ready_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_ready_btn.Name = "p4_ready_btn";
             this.p4_ready_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_ready_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -881,50 +910,6 @@
             this.p4_ready_btn.ThemeName = "MetroLite";
             this.p4_ready_btn.Click += new System.EventHandler(this.p4_ready_btn_Click);
             // 
-            // p4_roomInfo_label
-            // 
-            this.p4_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
-            this.p4_roomInfo_label.Location = new System.Drawing.Point(706, 12);
-            this.p4_roomInfo_label.Name = "p4_roomInfo_label";
-            this.p4_roomInfo_label.Size = new System.Drawing.Size(258, 54);
-            this.p4_roomInfo_label.TabIndex = 18;
-            this.p4_roomInfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // p4_chat_tbx
-            // 
-            this.p4_chat_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p4_chat_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
-            this.p4_chat_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p4_chat_tbx.Location = new System.Drawing.Point(261, 81);
-            this.p4_chat_tbx.Multiline = true;
-            this.p4_chat_tbx.Name = "p4_chat_tbx";
-            this.p4_chat_tbx.ReadOnly = true;
-            this.p4_chat_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.p4_chat_tbx.Size = new System.Drawing.Size(703, 409);
-            this.p4_chat_tbx.TabIndex = 17;
-            // 
-            // p3_title_label
-            // 
-            this.p3_title_label.AutoSize = true;
-            this.p3_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Bold);
-            this.p3_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.p3_title_label.Location = new System.Drawing.Point(14, 15);
-            this.p3_title_label.Name = "p3_title_label";
-            this.p3_title_label.Size = new System.Drawing.Size(162, 35);
-            this.p3_title_label.TabIndex = 19;
-            this.p3_title_label.Text = "스무고개 게임";
-            this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p3_title_label.Visible = false;
-            // 
-            // panel5_Quest
-            // 
-            this.panel5_Quest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5_Quest.Location = new System.Drawing.Point(20, 60);
-            this.panel5_Quest.Name = "panel5_Quest";
-            this.panel5_Quest.Size = new System.Drawing.Size(984, 550);
-            this.panel5_Quest.TabIndex = 21;
-            this.panel5_Quest.Visible = false;
-            // 
             // p4_gameStart_btn
             // 
             this.p4_gameStart_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -936,6 +921,7 @@
             this.p4_gameStart_btn.HoverTextColor = System.Drawing.Color.White;
             this.p4_gameStart_btn.IsDerivedStyle = true;
             this.p4_gameStart_btn.Location = new System.Drawing.Point(351, 12);
+            this.p4_gameStart_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_gameStart_btn.Name = "p4_gameStart_btn";
             this.p4_gameStart_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_gameStart_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -953,6 +939,57 @@
             this.p4_gameStart_btn.Visible = false;
             this.p4_gameStart_btn.Click += new System.EventHandler(this.p4_gameStart_btn_Click);
             // 
+            // p4_roomInfo_label
+            // 
+            this.p4_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_roomInfo_label.Location = new System.Drawing.Point(706, 12);
+            this.p4_roomInfo_label.Name = "p4_roomInfo_label";
+            this.p4_roomInfo_label.Size = new System.Drawing.Size(258, 54);
+            this.p4_roomInfo_label.TabIndex = 18;
+            this.p4_roomInfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // p4_chat_tbx
+            // 
+            this.p4_chat_tbx.BackColor = System.Drawing.SystemColors.Window;
+            this.p4_chat_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_chat_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.p4_chat_tbx.Location = new System.Drawing.Point(261, 81);
+            this.p4_chat_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p4_chat_tbx.Multiline = true;
+            this.p4_chat_tbx.Name = "p4_chat_tbx";
+            this.p4_chat_tbx.ReadOnly = true;
+            this.p4_chat_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.p4_chat_tbx.Size = new System.Drawing.Size(703, 409);
+            this.p4_chat_tbx.TabIndex = 17;
+            // 
+            // p3_title_label
+            // 
+            this.p3_title_label.AutoSize = true;
+            this.p3_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p3_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.p3_title_label.Location = new System.Drawing.Point(14, 15);
+            this.p3_title_label.Name = "p3_title_label";
+            this.p3_title_label.Size = new System.Drawing.Size(162, 35);
+            this.p3_title_label.TabIndex = 19;
+            this.p3_title_label.Text = "스무고개 게임";
+            this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p3_title_label.Visible = false;
+            // 
+            // panel5_Quest
+            // 
+            this.panel5_Quest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5_Quest.Location = new System.Drawing.Point(18, 75);
+            this.panel5_Quest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5_Quest.Name = "panel5_Quest";
+            this.panel5_Quest.Size = new System.Drawing.Size(988, 539);
+            this.panel5_Quest.TabIndex = 21;
+            this.panel5_Quest.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -969,7 +1006,9 @@
             this.Controls.Add(this.midTitle_label);
             this.Controls.Add(this.metroSetControlBox1);
             this.Controls.Add(this.title_label);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
+            this.Padding = new System.Windows.Forms.Padding(18, 75, 18, 16);
             this.panel1_login_server.ResumeLayout(false);
             this.panel1_login_server.PerformLayout();
             this.p1_1_login_panel.ResumeLayout(false);
@@ -1016,7 +1055,7 @@
         private System.Windows.Forms.TextBox p3_people_tbx;
         private MetroSet_UI.Controls.MetroSetButton p3_makeRoom_btn;
         private MetroSet_UI.Controls.MetroSetButton p3_refresh_btn;
-        private MetroSet_UI.Controls.MetroSetButton p3_Out_btn;
+        private MetroSet_UI.Controls.MetroSetButton p3_back_btn;
         private MetroSet_UI.Controls.MetroSetButton p3_create_btn;
         private System.Windows.Forms.Label p3_comein_label;
         private System.Windows.Forms.Panel panel4_waitRoom;
@@ -1037,5 +1076,6 @@
         private MetroSet_UI.Controls.MetroSetButton p1_signUp_btn;
         private System.Windows.Forms.Panel panel5_Quest;
         private MetroSet_UI.Controls.MetroSetButton p4_gameStart_btn;
+        private System.Windows.Forms.Timer timer1;
     }
 }
