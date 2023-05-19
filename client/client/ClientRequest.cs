@@ -85,5 +85,13 @@ namespace client
         {
             SendRequest("SENDQUESTION", question);
         }
+        public void RequestGuessAnswer(string guess)
+        {
+            SendRequest("GUESSANSWER", guess);
+        }
+        public void RequestBuzzer()
+        {
+            SendRequest("BUZZER","0");
+        }
     }
 }
