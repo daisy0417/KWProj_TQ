@@ -418,8 +418,6 @@ namespace client
                 panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
                 panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
             }
-            
-           
         }
 
         // 새로 고침 버튼 클릭 시 이벤트
@@ -584,6 +582,7 @@ namespace client
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
             //p4_gameStart_btn.Visible = true;
+            panel5.Visible = true;
         }
 
         #endregion
@@ -596,7 +595,7 @@ namespace client
 
         private void buzzer_Click(object sender, EventArgs e)
         {
-            //timer1.Start();
+            timer1.Start();
             client.RequestBuzzer();
         }
 
