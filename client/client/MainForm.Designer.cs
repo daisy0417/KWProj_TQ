@@ -471,6 +471,7 @@
             this.p2_logout_btn.Text = "로그아웃";
             this.p2_logout_btn.ThemeAuthor = "Narwin";
             this.p2_logout_btn.ThemeName = "MetroLite";
+            this.p2_logout_btn.Click += new System.EventHandler(this.p2_logout_btn_Click);
             // 
             // p2_gameStart_btn
             // 
@@ -801,7 +802,6 @@
             this.panel4_player_waitRoom.Size = new System.Drawing.Size(988, 539);
             this.panel4_player_waitRoom.TabIndex = 20;
             this.panel4_player_waitRoom.Visible = false;
-            this.panel4_player_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
             // 
             // p4_refesh
             // 
@@ -1033,7 +1033,6 @@
             this.panel4_1_owner_waitRoom.Size = new System.Drawing.Size(988, 539);
             this.panel4_1_owner_waitRoom.TabIndex = 21;
             this.panel4_1_owner_waitRoom.Visible = false;
-            this.panel4_1_owner_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_1_owner_waitRoom_VisibleChanged);
             // 
             // label1
             // 
