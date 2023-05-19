@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -321,7 +322,8 @@ namespace client
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
         {
-            p3_dataGridView1.Rows.Clear();    //새로 고침시, 셀 추가 문제 해결
+            p3_dataGridView1.Invoke(new MethodInvoker(delegate { p3_dataGridView1.Rows.Clear(); }));
+                //새로 고침시, 셀 추가 문제 해결
             serverRoomInfo = roomList;
 
             foreach (string room in roomList)
@@ -332,7 +334,7 @@ namespace client
                 string roomMax = roomInfo[2];
 
                 // 아무 정보도 없을 때 예외 처리 필요함
-                p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax);
+                p3_dataGridView1.Invoke(new MethodInvoker(delegate { p3_dataGridView1.Rows.Add(roomName, playerCount + '/' + roomMax); }));
             }
         }
 
@@ -397,18 +399,19 @@ namespace client
                 joinRes = 0;
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-                //panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
-                
+                panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = true; }));
+                client.RequestPlayerList(roomName);
             }
         }
 
 
-
+        string roomName;
         //테이블 내 입장하기 버튼 클릭 시
-        void p3_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)    
+        private void p3_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)    
         {
             string rName = p3_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            roomName = rName;
             if (rName != string.Empty)
             {
                 client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
@@ -444,16 +447,41 @@ namespace client
 
         #region panel4_waitRoom: 대기 방(채팅)
 
-        // 접속자 리스트 - 아직 미완(사용자 별로 출력 차이 발생)
+        // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
         public override void PlayerList(List<string> playerList)
         {
-            p4_playerList.Items.Clear();
-            playerList.ForEach(player =>
+            int cnt = playerList.Count;
+            if(cnt > 0)
             {
-                p4_playerList.Items.Add(player);
-            });
+                p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = playerList[0]; }));
+            }
+            if(cnt > 1)
+            {
+                p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = playerList[1]; }));
+                p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.BackColor = Color.LightSkyBlue; })); 
+            }
+            if(cnt > 2)
+            {
+                p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = playerList[2]; }));
+                p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.BackColor = Color.LightSkyBlue; })); 
+            }
+            if(cnt > 3)
+            {
+                p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = playerList[3]; }));
+                p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.BackColor = Color.LightSkyBlue; })); 
+            }
+            if(cnt > 4)
+            {
+                p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = playerList[4]; }));
+                p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.BackColor = Color.LightSkyBlue; })); 
+            }
+            p4_current_player();
         }
-
+        private void p4_refesh_Click(object sender, EventArgs e)
+        {
+            //p4_player_change();
+            client.RequestPlayerList(roomName);
+        }
         public override void RoomChat(List<string> chatList)
         {
        
@@ -485,17 +513,58 @@ namespace client
                     string roomName = roomInfo[0];
                     string playerCount = roomInfo[1];
                     string roomMax = roomInfo[2];
-                    p4_roomInfo_label.Invoke(new MethodInvoker(delegate { string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
-                    //p4_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName);
-                }
-            }
+                    
+                    p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
+                    // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
+                    // p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
+
+                    
+                    switch(playerCount)
+                    {
+                        case "0":
+                            p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "1":
+                            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = p1_username_tbx.Text; }));
+                            break;
+                    }
+                    
+            //client.RequestPlayerList(roomName);
+        }
+    }
             else
             {
-                p4_roomInfo_label.Visible = false;
+                p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Visible = false; }));
             }
 
         }
 
+        private void p4_current_player()
+        {
+            string p_name = p1_username_tbx.Text;
+            if(p_name == p4_player1.Text)
+            {
+                p4_player1.ForeColor = Color.DarkGreen;
+            }else if(p_name == p4_player2.Text)
+                p4_player2.ForeColor = Color.DarkGreen;
+            else if(p_name == p4_player3.Text)
+                p4_player3.ForeColor = Color.DarkGreen;
+            else if( p_name == p4_player4.Text)
+                p4_player4.ForeColor = Color.DarkGreen;
+            else
+                p4_player5.ForeColor = Color.DarkGreen;
+        }
+        private void p4_player_change() // 기본 폼 설정 > 나가기 시 남은 사람들 폼에 적용
+        {
+            p4_player2.BackColor = Color.LightGray;
+            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = ""; }));
+            p4_player3.BackColor = Color.LightGray;
+            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = ""; }));
+            p4_player4.BackColor = Color.LightGray;
+            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = ""; }));
+            p4_player5.BackColor = Color.LightGray;
+            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = ""; }));
+        }
         public override void RoomOut()
         {
             ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -514,7 +583,7 @@ namespace client
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
-            p4_gameStart_btn.Visible = true;
+            //p4_gameStart_btn.Visible = true;
         }
 
         #endregion
@@ -522,12 +591,12 @@ namespace client
         private void p4_gameStart_btn_Click(object sender, EventArgs e)
         {
             panel4_waitRoom.Invoke(new MethodInvoker(delegate { panel4_waitRoom.Visible = false; }));
-            panel5_Quest.Invoke(new MethodInvoker(delegate { panel5_Quest.Visible = true; }));
+            //panel5_Quest.Invoke(new MethodInvoker(delegate { panel5_Quest.Visible = true; }));
         }
 
         private void buzzer_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            //timer1.Start();
             client.RequestBuzzer();
         }
 
@@ -536,7 +605,7 @@ namespace client
             //label1.Text=(int.Parse(label1.text)+1).ToString();
             //if (Label1.text == '5')
             {
-                timer1.Stop();
+                //timer1.Stop();
                // client.RequestGuessAnswer(Textbox.Text);
                //답 읽어오기
             }
