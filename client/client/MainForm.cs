@@ -409,6 +409,8 @@ namespace client
             {
                 ShowMessageBox("방 생성 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 OwnerWait();    // 방장의 게임 시작 전 화면
+                client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
+                client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
             else
             {
