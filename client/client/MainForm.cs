@@ -613,7 +613,7 @@ namespace client
             // 게임 시작시, chatList 내용 삭제 후 게임 내용 넣기
             if(Game_start == 2)
             {   
-                chatList.Clear();
+                //chatList.Clear();
             }
             p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text = ""; }));
             chatList.ForEach(chat =>
@@ -906,7 +906,9 @@ namespace client
         }
 
         #region panel6_Answer: 질문자 화면
-        private void p6_turn()
+
+        // 사용자 턴 나타냄 - 주황색 테두리
+        private void p6_turn()      
         {
             p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; }));
             string p_name = p1_username_tbx.Text;
@@ -922,6 +924,7 @@ namespace client
                 p6_player_turn_label.Location = new Point(34, 384);
         }
 
+        // 현재 사용자 표시 - 뒷 배경 초록색
         private void p6_current_player()
         {
             string p_name = p1_username_tbx.Text;
@@ -955,8 +958,8 @@ namespace client
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
         {   //질의응답 창 test를 위해 주석 처리
-            //p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
-            //p6_answer_tbx.ReadOnly = true;
+            p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
+            p6_answer_tbx.ReadOnly = true;
         }
 
         // 게임 시작 후 질문자가 질문을 작성하는 화면 > 턴o
@@ -972,8 +975,8 @@ namespace client
         private void panel6_Answer_VisibleChanged(object sender, EventArgs e)
         {   //질의응답 창 test를 위해 주석 처리
             p6_solution_label.Invoke(new MethodInvoker(delegate { p6_solution_label.Text = "? ? ?"; }));
-            //p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
-            //p6_answer_tbx.ReadOnly = true;
+            p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
+            p6_answer_tbx.ReadOnly = true;
             Game_start = 1;
         }
 
