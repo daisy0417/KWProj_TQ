@@ -895,22 +895,95 @@ namespace client
             }        
         }
 
+        bool buzzer_on = false;
+        int b_cnt1 = 5, b_cnt2 = 5, b_cnt3 = 5, b_cnt4 = 5, b_cnt5 = 5;
         //정답 버튼
         private void buzzer_Click(object sender, EventArgs e)
         {
             timer1.Start();
             client.RequestBuzzer();
 
-            //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
-            //버저를 누른 유저에게만 해당하도록 설정 필요
+            //if(b_cnt1==0 || b_cnt2 == 0 || b_cnt3 == 0 || b_cnt4 == 0 || b_cnt5 == 0)
+            
+                //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
+                //버저를 누른 유저에게만 해당하도록 설정 필요
             p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = false; }));
             p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.ReadOnly = false; }));
             p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
             p6_answer_tbx.ForeColor = Color.CornflowerBlue;
+            
+            buzzer_on = true;
 
+            if (b_cnt1 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt2 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt3 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt4 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt5 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
             //정답을 맞추는 사람만 라벨 변경 필요 > 출제자가 정답 전송 시 스코어 늘리기
 
+
             //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
+            string p_name = p1_username_tbx.Text;
+            if (p_name == p4_player1.Text)
+            {
+                b_cnt1--;
+                if (b_cnt1 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
+            }
+            else if (p_name == p4_player2.Text)
+            {
+                b_cnt2--;
+                if (b_cnt2 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
+            }
+            else if (p_name == p4_player3.Text)
+            {
+                b_cnt3--;
+                if (b_cnt3 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
+            }
+            else if (p_name == p4_player4.Text)
+            {
+                b_cnt4--;
+                if (b_cnt4 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
+            }
+            else if (p_name == p4_player5.Text)
+            {
+                b_cnt5--;
+                if (b_cnt5 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 (" + b_cnt5 + "/ 5 )";
+            }
         }
 
         #region panel6_Answer: 질문자 화면
@@ -963,21 +1036,33 @@ namespace client
             }
         }
 
+        int turn_cnt = 21;   // 질문 횟수 계산
+
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
         {   //질의응답 창 test를 위해 주석 처리
             p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
             p6_answer_tbx.ReadOnly = true;
+            if(turn_cnt > 20)   // 질문 20번 넘었을 때
+                ShowMessageBox("질문 횟수가 20번이 넘었습니다...", "GameOver", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         // 게임 시작 후 질문자가 질문을 작성하는 화면 > 턴o
         public override void QuestionerQuestion()
         {
             //사용자 턴에 따른 사용자 리스트 라벨 변경 > 사용자 누구? -> 테두리 색 변환
-            p6_turn(); // 질문자 표시
-            p6_answer_tbx.Text = "";
-            p6_answer_tbx.ReadOnly = false; //입력받기 가능
-            p6_answer_tbx.ForeColor = Color.DodgerBlue;
+            if(turn_cnt < 21)
+            {
+                p6_turn(); // 질문자 표시
+                p6_answer_tbx.Text = "";
+                p6_answer_tbx.ReadOnly = false; //입력받기 가능
+                p6_answer_tbx.ForeColor = Color.DodgerBlue;
+                turn_cnt++;
+            }
+            else
+            {   // 질문 20번 넘었을 때
+                ShowMessageBox("질문 횟수가 20번이 넘었습니다...", "GameOver", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void panel6_Answer_VisibleChanged(object sender, EventArgs e)
@@ -990,7 +1075,10 @@ namespace client
 
         private void p6_send_btn_Click(object sender, EventArgs e)
         {
-            client.RequestSendQuestion(p6_answer_tbx.Text);
+            if (buzzer_on)
+                client.RequestSendQuestion("[ ! ]" + p6_answer_tbx.Text);
+            else
+                client.RequestSendQuestion("[ Q" + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
             p6_answer_tbx.Text = "";
         }
         #endregion
