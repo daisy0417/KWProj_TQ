@@ -499,12 +499,6 @@ namespace client
         #region panel4_waitRoom: 대기 방(채팅)
 
 
-        // 게임 시작 후 출제자가 질문을 기다리는 화면
-        public override void PresenterWait()
-        {
-            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
-        }
-
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
         public override void PlayerList(List<string> playerList)
         {
@@ -1015,12 +1009,6 @@ namespace client
 
         }
 
-        public override void PresenterChoice()
-        {
-            // 게임 시작 후 출제자가 제시어 정하는 화면
-            // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
-            panel5_Owner.Visible = true;
-        }
 
         private void p4_readyDone_btn_Click(object sender, EventArgs e)
         {
@@ -1040,6 +1028,51 @@ namespace client
             // presenterchoice 화면과 연결됨 -> panel 5
             p5_input_label.Invoke(new MethodInvoker(delegate { p5_input_label.Text = p5_message_tbx.Text; }));
             client.RequestWordSelect(p5_input_label.Text);
+        }
+
+        // 게임 시작 후 출제자가 제시어 정하는 화면
+        public override void PresenterChoice()
+        {
+            // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
+            //panel5_Owner.Visible = true;
+            panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = true; }));
+
+            // 패널 우선순위에서 5_1, 5_2 가 더 위에 있으므로 숨기기
+            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
+        }
+
+        // 게임 시작 후 출제자가 질문을 기다리는 화면
+        public override void PresenterWait()
+        {
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
+            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
+        }
+
+        // 게임 시작 후 출제자가 질문에 대한 답변을 작성하는 화면
+        public override void PresenterAnswer()
+        {
+            // RequestSendAnswer()를 보낼 수 있는 버튼 필요
+            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = true; }));
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
+
+            // 제시어를 출제자 화면에는 보여줌
+            p5_1_answer_label.Invoke(new MethodInvoker(delegate { p5_1_answer_label.Text = p5_message_tbx.Text; }));
+        }
+
+        private void p5_1_yes_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer("네");
+        }
+
+        private void p5_1_no_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer("아니요");
+        }
+
+        private void p5_1_unknown_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer("잘 모르겠습니다");
         }
     }
 }
