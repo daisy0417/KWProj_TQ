@@ -1036,7 +1036,7 @@ namespace client
             }
         }
 
-        int turn_cnt = 21;   // 질문 횟수 계산
+        int turn_cnt = 0;   // 질문 횟수 계산
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
