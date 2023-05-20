@@ -284,11 +284,6 @@ namespace client
             //panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = false; }));
             p2_gameStart_btn.Invoke(new MethodInvoker(delegate { p2_logout_btn.Visible = false; }));
             //p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
-
-            //panel2_gameStart.Visible = false;
-            //p2_gameStart_btn.Visible = false;
-            //p1_1_login_panel.Visible = true;
-
         }
 
         /// <summary>
@@ -383,7 +378,7 @@ namespace client
                     {
                         client.RequestRoomCreate(roomName, roomMax);
                     }
-                    OwnerWait();
+                    //OwnerWait();
                     //panel3_roomList.Visible = false;
                     //panel4_waitRoom.Visible = true;
                 }
@@ -410,9 +405,6 @@ namespace client
         public override void OwnerWait()
         {
             //방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼
-            //panel3_roomList.Visible = false;
-            //panel4_1_owner_waitRoom.Visible = true;
-
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Text = "";
@@ -428,7 +420,7 @@ namespace client
             {
                 client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
                 //client.RequestRoomCreate(roomName, "5");
-                PlayerWait();
+                //PlayerWait();
             }
         }
 
@@ -482,10 +474,16 @@ namespace client
             p3_create_btn.Visible = false;
             p3_roomname_label.Visible = false;
             p3_roomname_tbx.Visible = false;
-            panel3_roomList.Visible = false;
-            panel2_gameStart.Visible = true;
+            //panel3_roomList.Visible = false;
+            //panel2_gameStart.Visible = true;
+            backPanel();
         }
 
+        private void backPanel()
+        {
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            panel2_gameStart.Invoke(new MethodInvoker(() => { panel2_gameStart.Visible = true; }));
+        }
         #endregion
 
 
@@ -749,6 +747,8 @@ namespace client
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
             p3_roomname_label.Visible = false;
+            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
+            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
             panel4_player_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
         }
@@ -762,6 +762,10 @@ namespace client
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
             p3_roomname_label.Visible = false;
+
+            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
+            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
+            // 수정함
             panel4_1_owner_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
         }
@@ -775,30 +779,24 @@ namespace client
                 // 출제자이면 5번 패널 -> 방장 위임, 게임 시작하기 버튼 들어감
                 // 정답자이면 6번 패널 -> 별도 다른 조치 필요 없음
                 ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //p4_ready_btn.Text = "Ready Done";
             }
-
         }
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
+            // 플레이어의 준비하기 버튼 클릭 후 준비 상태 보냄
             client.RequestGameReady();
-            p4_done_label.Visible = true;
+            p4_readyDone_btn.Visible=true;
         }
 
         private void p4_1_ready_btn_Click(object sender, EventArgs e)
         {
+            // 출제자의 준비하기 버튼 클릭 후 시작하기 버튼이 나옴
             client.RequestGameReady();
-            p4_1_done_label.Visible = true;
+            p4_1_start_btn.Visible = true;
         }
 
         #endregion
-
-        private void p4_gameStart_btn_Click(object sender, EventArgs e)
-        {
-            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
-            //panel5_Quest.Invoke(new MethodInvoker(delegate { panel5_Quest.Visible = true; }));
-        }
 
         private void buzzer_Click(object sender, EventArgs e)
         {
@@ -815,6 +813,37 @@ namespace client
                 // client.RequestGuessAnswer(Textbox.Text);
                 //답 읽어오기
             }
+        }
+
+        public override void GameStartFail()
+        {
+            // 방장 패널에서 시작하기 버튼 안 띄움
+            p4_1_start_btn.Visible = false;
+            ShowMessageBox("준비가 완료되지 않았습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void p4_1_start_btn_Click(object sender, EventArgs e)
+        {
+            // 게임 시작하기 버튼 누르면 게임에 모두 준비되었는 지 확인하는 request 보냄
+            // 전부 준비 안 되어 있으면 GameStartFail() 실행
+            client.RequestGameStart();
+            PresenterChoice();
+        }
+
+        public override void PresenterChoice()
+        {
+            // 게임 시작 후 출제자는 제시어 선택 화면으로 넘어감
+            panel5_ownerChoice.Visible=true;
+            p4_1_start_btn.Visible = false;
+            //panel5_ownerChoice.Invoke(new MethodInvoker(delegate { panel5_ownerChoice.Visible = true; }));
+        }
+
+        private void p4_readyDone_btn_Click(object sender, EventArgs e)
+        {
+            // 플레이어가 준비 완료 버튼을 한 번 더 누르면 준비 상태 해지
+            // 준비 완료 버튼 숨김
+            p4_readyDone_btn.Invoke(new MethodInvoker(delegate { p4_readyDone_btn.Visible = false; }));
+            client.RequestGameReady();
         }
     }
 }
