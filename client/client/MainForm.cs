@@ -438,32 +438,30 @@ namespace client
             }
         }
 
-
         public override void RoomJoin(string result)
         {
             if (result.Equals("-1"))
             {
-
                 ShowMessageBox("존재하지 않는 방입니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (result.Equals("-2"))
             {
-
                 ShowMessageBox("정원이 가득 찼습니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                // 대기 방 패널로 넘어가야 됨.
-                PlayerWait();   // 참가자의 게임 시작 전 화면
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
+                // 플레이어의 대기 방 패널로 넘어가야 됨.
+                PlayerWait();   // 참가자의 게임 시작 전 화면
+                
+                client.RequestSendRoomChat("유저", p1_username_tbx.Text + "이(가) 방에 참가함");
                 client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
         }
         public override void PlayerWait()
         {
-            // 참가자의 게임 시작 전 화면 -> 플레이어용 대기 방 화면
+            // 참가자의 게임 시작 전 화면 -> 플레이어 대기 방 화면
             //panel3_roomList.Visible = false;
             //panel4_player_waitRoom.Visible = true;
             p4_chat_tbx.Text = "";
