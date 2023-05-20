@@ -327,7 +327,7 @@ namespace client
         }
 
 
-        //List<string> serverRoomInfo;    // RoomList 함수가 서버로 부터 받아 온 방 정보를 사용하기 위함.
+        List<string> serverRoomInfo;    // RoomList 함수가 서버로 부터 받아 온 방 정보를 사용하기 위함.
 
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
@@ -335,7 +335,7 @@ namespace client
             p3_dataGridView1.Invoke(new MethodInvoker(delegate { p3_dataGridView1.Rows.Clear(); }));
 
             //새로 고침시, 셀 추가 문제 해결
-            //serverRoomInfo = roomList;
+            serverRoomInfo = roomList;
 
             foreach (string room in roomList)
             {
@@ -359,6 +359,15 @@ namespace client
                     break;
                 case "1":
                     p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = p1_username_tbx.Text; }));
+                    break; ;
+                case "2":
+                    p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.Text = p1_username_tbx.Text; }));
+                    break;
+                case "3":
+                    p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.Text = p1_username_tbx.Text; }));
+                    break;
+                case "4":
+                    p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.Text = p1_username_tbx.Text; }));
                     break;
             }
         }
@@ -410,7 +419,7 @@ namespace client
             //방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼
             //panel3_roomList.Visible = false;
             //panel4_1_owner_waitRoom.Visible = true;
-
+            p4_1_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Text = "";
@@ -457,12 +466,12 @@ namespace client
         public override void PlayerWait()
         {
             // 참가자의 게임 시작 전 화면 -> 플레이어용 대기 방 화면
-            panel3_roomList.Visible = false;
-            panel4_player_waitRoom.Visible = true;
+            //panel3_roomList.Visible = false;
+            //panel4_player_waitRoom.Visible = true;
             p4_chat_tbx.Text = "";
 
-            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
         }
 
         // 새로 고침 버튼 클릭 시 이벤트
@@ -507,6 +516,7 @@ namespace client
             int cnt = playerList.Count;
             if (cnt > 0)
             {
+                p6_player1.Invoke(new MethodInvoker(delegate { p6_player1.Text = playerList[0]; }));
                 p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = playerList[0]; }));    //플레이어
                 p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = playerList[0]; }));    //방장
             }
@@ -515,33 +525,57 @@ namespace client
                 // 플레이어
                 p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = playerList[1]; }));
                 p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.BackColor = Color.LightSkyBlue; }));
+                p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Visible = true; }));
+ 
+                p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.Text = playerList[1]; }));
+                p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.BackColor = Color.LightSkyBlue; }));
+                p6_player2_score.Invoke(new MethodInvoker(delegate { p6_player2_score.Visible = true; }));
                 // 방장
                 p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = playerList[1]; }));
                 p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.BackColor = Color.LightSkyBlue; }));
+                p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Visible = true; }));
             }
             if (cnt > 2)
             {
                 p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = playerList[2]; }));
                 p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.BackColor = Color.LightSkyBlue; }));
+                p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Visible = true; }));
+
+                p6_player3.Invoke(new MethodInvoker(delegate { p6_player3.Text = playerList[2]; }));
+                p6_player3.Invoke(new MethodInvoker(delegate { p6_player3.BackColor = Color.LightSkyBlue; }));
+                p6_player3_score.Invoke(new MethodInvoker(delegate { p6_player3_score.Visible = true; }));
 
                 p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.Text = playerList[2]; }));
                 p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.BackColor = Color.LightSkyBlue; }));
+                p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Visible = true; }));
             }
             if (cnt > 3)
             {
                 p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = playerList[3]; }));
                 p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.BackColor = Color.LightSkyBlue; }));
+                p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Visible = true; }));
+
+                p6_player4.Invoke(new MethodInvoker(delegate { p6_player4.Text = playerList[3]; }));
+                p6_player4.Invoke(new MethodInvoker(delegate { p6_player4.BackColor = Color.LightSkyBlue; }));
+                p6_player4_score.Invoke(new MethodInvoker(delegate { p6_player4_score.Visible = true; }));
 
                 p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.Text = playerList[3]; }));
                 p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.BackColor = Color.LightSkyBlue; }));
+                p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Visible = true; }));
             }
             if (cnt > 4)
             {
                 p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = playerList[4]; }));
                 p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.BackColor = Color.LightSkyBlue; }));
+                p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Visible = true; }));
+
+                p6_player5.Invoke(new MethodInvoker(delegate { p6_player5.Text = playerList[4]; }));
+                p6_player5.Invoke(new MethodInvoker(delegate { p6_player5.BackColor = Color.LightSkyBlue; }));
+                p6_player5_score.Invoke(new MethodInvoker(delegate { p6_player5_score.Visible = true; }));
 
                 p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.Text = playerList[4]; }));
                 p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.BackColor = Color.LightSkyBlue; }));
+                p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Visible = true; }));
             }
             p4_current_player();
             p4_1_current_player();
@@ -596,24 +630,14 @@ namespace client
             }
         }
 
-        /*
+        
         private void panel4_waitRoom_VisibleChanged(object sender, EventArgs e)
         {
             if(panel4_player_waitRoom.Visible == true)
             {
                 client.RequestRoomList();
                 RoomList(serverRoomInfo);
-
-                switch (playerCount)
-                {
-                    case "0":
-                        p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
-                        break;
-                    case "1":
-                        p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = p1_username_tbx.Text; }));
-                        break;
-                }
-                /*
+                
                 foreach (string room in serverRoomInfo)
                 {
                     string[] roomInfo = room.Split(',');
@@ -625,10 +649,24 @@ namespace client
                     // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
                     // p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
 
-                    
-
-                    
-                    //client.RequestPlayerList(roomName);
+                    switch (playerCount)
+                    {
+                        case "0":
+                            p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "1":
+                            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "2":
+                            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "3":
+                            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "4":
+                            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = p1_username_tbx.Text; }));
+                            break;
+                    }
                 }
                 
             }
@@ -642,6 +680,8 @@ namespace client
         
         private void panel4_1_owner_waitRoom_VisibleChanged(object sender, EventArgs e)
         {
+            client.RequestRoomList();
+            RoomList(serverRoomInfo);
 
             if (panel4_1_owner_waitRoom.Visible == true)
             {
@@ -664,17 +704,27 @@ namespace client
                             break;
                         case "1":
                             p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = p1_username_tbx.Text; }));
+                            break; ;
+                        case "2":
+                            p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "3":
+                            p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "4":
+                            p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.Text = p1_username_tbx.Text; }));
                             break;
                     }
                 }
+
             }
             else
             {
                 p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Visible = false; }));
             }
         }
-        */
 
+        //일반 접속자 화면에 현재 자신 표시
         private void p4_current_player()
         {
             string p_name = p1_username_tbx.Text;
@@ -688,10 +738,11 @@ namespace client
                 p4_player3.ForeColor = Color.DarkGreen;
             else if (p_name == p4_player4.Text)
                 p4_player4.ForeColor = Color.DarkGreen;
-            else
+            else if (p_name == p4_player5.Text)
                 p4_player5.ForeColor = Color.DarkGreen;
         }
 
+        //owner화면에 현재 자신 표시
         private void p4_1_current_player()
         {
             string p_name = p1_username_tbx.Text;
@@ -756,13 +807,13 @@ namespace client
         {
             client.RequestRoomOut();
             p4_1_chat_tbx.Text = "";
-            p4_1_ready_btn.Text = "READY";
+            p4_1_start_btn.Text = "READY";
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
             p3_roomname_label.Visible = false;
-            panel4_1_owner_waitRoom.Visible = false;
-            panel3_roomList.Visible = true;
+            panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = false; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
         }
         #endregion
 
@@ -785,7 +836,18 @@ namespace client
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
-            client.RequestGameReady();
+            //p4_gameStart_btn.Visible = true;
+            string player = p1_username_tbx.Text;
+            if (player == p4_player2.Text)
+                p4_state_player2.Text = "준비 완료";
+            else if (player == p4_player3.Text)
+                p4_state_player3.Text = "준비 완료";
+            else if (player == p4_player4.Text)
+                p4_state_player4.Text = "준비 완료";
+            else if (player == p4_player5.Text)
+                p4_state_player5.Text = "준비 완료";
+            panel4_player_waitRoom.Visible=false;
+            panel6_Answer.Visible = true; //p6화면 확인 test
         }
 
         private void p4_1_ready_btn_Click(object sender, EventArgs e)
@@ -795,18 +857,115 @@ namespace client
 
         #endregion
 
+        //owner에서 start클릭 > 아무도 없을 경우 오류 작성 후 작동 x
         private void p4_gameStart_btn_Click(object sender, EventArgs e)
         {
-            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
-            //panel5_Quest.Invoke(new MethodInvoker(delegate { panel5_Quest.Visible = true; }));
+            if(serverRoomInfo == null)
+            {
+                ShowMessageBox("아직 접속자가 없습니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
+                //panel5_Quest.Invoke(new MethodInvoker(delegate { panel5_Quest.Visible = true; }));
+                panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; }));
+            }        
         }
 
+        //정답 버튼
         private void buzzer_Click(object sender, EventArgs e)
         {
             timer1.Start();
             client.RequestBuzzer();
+
+            //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
+            //버저를 누른 유저에게만 해당하도록 설정 필요
+            p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = false; }));
+            p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.ReadOnly = false; }));
+            p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
+            p6_answer_tbx.ForeColor = Color.CornflowerBlue;
+
+            //정답을 맞추는 사람만 라벨 변경 필요
+
+            //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
         }
 
+        #region panel6_Answer: 질문자 화면
+        private void p6_turn()
+        {
+            p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; }));
+            string p_name = p1_username_tbx.Text;
+            if (p_name == p4_player1.Text)
+                p6_player_turn_label.Location = new Point(34, 23);
+            else if (p_name == p4_player2.Text)
+                p6_player_turn_label.Location = new Point(34, 114);
+            else if (p_name == p4_player3.Text)
+                p6_player_turn_label.Location = new Point(34, 204);
+            else if (p_name == p4_player4.Text)
+                p6_player_turn_label.Location = new Point(34, 294);
+            else if (p_name == p4_player5.Text)
+                p6_player_turn_label.Location = new Point(34, 384);
+        }
+
+        private void p6_current_player()
+        {
+            string p_name = p1_username_tbx.Text;
+            if (p_name == p6_player1.Text)
+            {       //테두리 추가시, 사용자 이름이랑 뒷배경색 안 나옴
+                p6_player1.BackColor = Color.MediumSeaGreen;
+                p6_player1_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if (p_name == p6_player2.Text)
+            {
+                p6_player2.BackColor = Color.MediumSeaGreen;
+                p6_player2_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if (p_name == p6_player3.Text)
+            {
+                p6_player3.BackColor = Color.MediumSeaGreen;
+                p6_player3_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if (p_name == p6_player4.Text)
+            {
+                p6_player4.BackColor = Color.MediumSeaGreen;
+                p6_player4_score.BackColor = Color.MediumSeaGreen;
+            }
+            else if (p_name == p6_player5.Text)
+            {
+                p6_player5.BackColor = Color.MediumSeaGreen;
+                p6_player5_score.BackColor = Color.MediumSeaGreen;
+            }
+        }
+
+        // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
+        public override void QuestionerWait()
+        {
+            p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
+            p6_answer_tbx.ReadOnly = true;
+        }
+
+        // 게임 시작 후 질문자가 질문을 작성하는 화면 > 턴o
+        public override void QuestionerQuestion()
+        {
+            //사용자 턴에 따른 사용자 리스트 라벨 변경 > 사용자 누구? -> 테두리 색 변환
+            p6_turn(); // 질문자 표시
+            p6_answer_tbx.Text = "";
+            p6_answer_tbx.ReadOnly = false; //입력받기 가능
+            p6_answer_tbx.ForeColor = Color.DodgerBlue;
+        }
+
+        private void panel6_Answer_VisibleChanged(object sender, EventArgs e)
+        {
+            p6_solution_label.Invoke(new MethodInvoker(delegate { p6_solution_label.Text = "? ? ?"; }));
+            p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
+            p6_answer_tbx.ReadOnly = true;
+        }
+
+        private void p6_send_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer(p6_answer_tbx.Text);
+        }
+        #endregion
         private void timer1_Tick(object sender, EventArgs e)
         {   //시간 표시할 라벨
             //label1.Text=(int.Parse(label1.text)+1).ToString();
