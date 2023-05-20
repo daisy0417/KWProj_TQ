@@ -620,12 +620,12 @@ namespace client
             else if (player == p4_player5.Text)
                 p4_state_player5.Text = "준비 완료";
             panel4_waitRoom.Visible=false;
-            panel6_Answer.Visible = true;
+            panel6_Answer.Visible = true; //panel6화면 확인 test
         }
 
         public override void OwnerWait()
         {
-            //p4_start_btn.Invoke(new MethodInvoker(delegate { p4_start_btn.Visible = true; }));
+           // p4_start_btn.Invoke(new MethodInvoker(delegate { p4_start_btn.Visible = true; }));
             //버튼 안 나타남
         }
 
