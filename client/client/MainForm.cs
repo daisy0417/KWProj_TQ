@@ -499,14 +499,10 @@ namespace client
         #region panel4_waitRoom: 대기 방(채팅)
 
 
+        // 게임 시작 후 출제자가 질문을 기다리는 화면
         public override void PresenterWait()
         {
-            // 방 리스트에서 대기 방으로 이동
-            //panel3_roomList.Visible = false;
-            //panel4_waitRoom.Visible = true;
-
-            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
         }
 
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
@@ -516,6 +512,7 @@ namespace client
             if (cnt > 0)
             {
                 p6_player1.Invoke(new MethodInvoker(delegate { p6_player1.Text = playerList[0]; }));
+                p5_player1.Invoke(new MethodInvoker(delegate { p5_player1.Text = playerList[0]; }));
                 p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = playerList[0]; }));    //플레이어
                 p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = playerList[0]; }));    //방장
             }
@@ -525,10 +522,15 @@ namespace client
                 p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = playerList[1]; }));
                 p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.BackColor = Color.LightSkyBlue; }));
                 p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Visible = true; }));
- 
+
+                p5_player2.Invoke(new MethodInvoker(delegate { p5_player2.Text = playerList[1]; }));
+                p5_player2.Invoke(new MethodInvoker(delegate { p5_player2.BackColor = Color.LightSkyBlue; }));
+                p5_player2_score.Invoke(new MethodInvoker(delegate { p5_player2_score.Visible = true; }));
+
                 p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.Text = playerList[1]; }));
                 p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.BackColor = Color.LightSkyBlue; }));
                 p6_player2_score.Invoke(new MethodInvoker(delegate { p6_player2_score.Visible = true; }));
+                
                 // 방장
                 p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = playerList[1]; }));
                 p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.BackColor = Color.LightSkyBlue; }));
@@ -539,6 +541,10 @@ namespace client
                 p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = playerList[2]; }));
                 p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.BackColor = Color.LightSkyBlue; }));
                 p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Visible = true; }));
+
+                p5_player3.Invoke(new MethodInvoker(delegate { p5_player3.Text = playerList[2]; }));
+                p5_player3.Invoke(new MethodInvoker(delegate { p5_player3.BackColor = Color.LightSkyBlue; }));
+                p5_player3_score.Invoke(new MethodInvoker(delegate { p5_player3_score.Visible = true; }));
 
                 p6_player3.Invoke(new MethodInvoker(delegate { p6_player3.Text = playerList[2]; }));
                 p6_player3.Invoke(new MethodInvoker(delegate { p6_player3.BackColor = Color.LightSkyBlue; }));
@@ -554,6 +560,10 @@ namespace client
                 p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.BackColor = Color.LightSkyBlue; }));
                 p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Visible = true; }));
 
+                p5_player4.Invoke(new MethodInvoker(delegate { p5_player4.Text = playerList[3]; }));
+                p5_player4.Invoke(new MethodInvoker(delegate { p5_player4.BackColor = Color.LightSkyBlue; }));
+                p5_player4_score.Invoke(new MethodInvoker(delegate { p5_player4_score.Visible = true; }));
+
                 p6_player4.Invoke(new MethodInvoker(delegate { p6_player4.Text = playerList[3]; }));
                 p6_player4.Invoke(new MethodInvoker(delegate { p6_player4.BackColor = Color.LightSkyBlue; }));
                 p6_player4_score.Invoke(new MethodInvoker(delegate { p6_player4_score.Visible = true; }));
@@ -567,6 +577,10 @@ namespace client
                 p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = playerList[4]; }));
                 p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.BackColor = Color.LightSkyBlue; }));
                 p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Visible = true; }));
+
+                p5_player5.Invoke(new MethodInvoker(delegate { p5_player5.Text = playerList[4]; }));
+                p5_player5.Invoke(new MethodInvoker(delegate { p5_player5.BackColor = Color.LightSkyBlue; }));
+                p5_player5_score.Invoke(new MethodInvoker(delegate { p5_player5_score.Visible = true; }));
 
                 p6_player5.Invoke(new MethodInvoker(delegate { p6_player5.Text = playerList[4]; }));
                 p6_player5.Invoke(new MethodInvoker(delegate { p6_player5.BackColor = Color.LightSkyBlue; }));
@@ -996,12 +1010,16 @@ namespace client
             PresenterChoice();
         }
 
+        private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         public override void PresenterChoice()
         {
-            // 게임 시작 후 출제자는 제시어 선택 화면으로 넘어감
-            //panel5_ownerChoice.Visible=true;
-            p4_1_start_btn.Visible = false;
-            //panel5_ownerChoice.Invoke(new MethodInvoker(delegate { panel5_ownerChoice.Visible = true; }));
+            // 게임 시작 후 출제자가 제시어 정하는 화면
+            // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
+            panel5_Owner.Visible = true;
         }
 
         private void p4_readyDone_btn_Click(object sender, EventArgs e)
@@ -1017,9 +1035,11 @@ namespace client
 
         }
 
-        private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
+        private void p5_send_btn_Click(object sender, EventArgs e)
         {
-
+            // presenterchoice 화면과 연결됨 -> panel 5
+            p5_input_label.Invoke(new MethodInvoker(delegate { p5_input_label.Text = p5_message_tbx.Text; }));
+            client.RequestWordSelect(p5_input_label.Text);
         }
     }
 }
