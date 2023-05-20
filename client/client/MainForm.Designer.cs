@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -137,23 +137,27 @@
             this.p4_1_player1 = new System.Windows.Forms.Label();
             this.p4_1_chat_tbx = new System.Windows.Forms.TextBox();
             this.panel5_Owner = new System.Windows.Forms.Panel();
-            this.p5_player5_score = new System.Windows.Forms.Label();
-            this.p5_player4_score = new System.Windows.Forms.Label();
+            this.p5_title_label = new System.Windows.Forms.Label();
+            this.p5_출제자_label = new System.Windows.Forms.Label();
             this.p5_input_label = new System.Windows.Forms.Label();
-            this.p5_player3_score = new System.Windows.Forms.Label();
-            this.p5_player5 = new System.Windows.Forms.Label();
-            this.p5_player2_score = new System.Windows.Forms.Label();
-            this.p5_player4 = new System.Windows.Forms.Label();
             this.p5_player1_score = new System.Windows.Forms.Label();
+            this.p5_player2_score = new System.Windows.Forms.Label();
+            this.p5_player3_score = new System.Windows.Forms.Label();
+            this.p5_player4_score = new System.Windows.Forms.Label();
+            this.p5_player5_score = new System.Windows.Forms.Label();
+            this.p5_player5 = new System.Windows.Forms.Label();
+            this.p5_player4 = new System.Windows.Forms.Label();
             this.p5_player3 = new System.Windows.Forms.Label();
             this.p5_player2 = new System.Windows.Forms.Label();
             this.p5_player1 = new System.Windows.Forms.Label();
             this.p5_player_turn_label = new System.Windows.Forms.Label();
             this.p5_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p5_message_tbx = new System.Windows.Forms.TextBox();
-            this.p5_출제자_label = new System.Windows.Forms.Label();
-            this.p5_title_label = new System.Windows.Forms.Label();
             this.panel5_1_Owner_Answer = new System.Windows.Forms.Panel();
+            this.p5_1_unknown_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p5_1_no_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p5_1_yes_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p5_1_QA_tbx = new System.Windows.Forms.TextBox();
             this.p5_1_출제자_label = new System.Windows.Forms.Label();
             this.p5_1_answer_label = new System.Windows.Forms.Label();
             this.p5_1_player1_score = new System.Windows.Forms.Label();
@@ -167,10 +171,6 @@
             this.p5_1_player2 = new System.Windows.Forms.Label();
             this.p5_1_player1 = new System.Windows.Forms.Label();
             this.p5_1_player_turn_label = new System.Windows.Forms.Label();
-            this.p5_1_QA_tbx = new System.Windows.Forms.TextBox();
-            this.p5_1_yes_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p5_1_no_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p5_1_unknown_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel5_2_Owner_Wait = new System.Windows.Forms.Panel();
             this.p5_2_QA_tbx = new System.Windows.Forms.TextBox();
             this.p5_2_출제자_label = new System.Windows.Forms.Label();
@@ -603,49 +603,49 @@
             // p3_dataGridView1
             // 
             this.p3_dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.p3_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.p3_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.p3_dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.People,
             this.btn});
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.p3_dataGridView1.Location = new System.Drawing.Point(16, 83);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle63.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.p3_dataGridView1.RowHeadersVisible = false;
             this.p3_dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle64.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowTemplate.Height = 40;
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
@@ -654,8 +654,8 @@
             // 
             // RoomName
             // 
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle3;
             this.RoomName.FillWeight = 150F;
             this.RoomName.HeaderText = "방 이름";
             this.RoomName.MinimumWidth = 6;
@@ -664,8 +664,8 @@
             // 
             // People
             // 
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.People.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.People.DefaultCellStyle = dataGridViewCellStyle4;
             this.People.HeaderText = "접속 인원";
             this.People.MinimumWidth = 6;
             this.People.Name = "People";
@@ -673,9 +673,9 @@
             // 
             // btn
             // 
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle61.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn.DefaultCellStyle = dataGridViewCellStyle5;
             this.btn.HeaderText = "버튼";
             this.btn.MinimumWidth = 6;
             this.btn.Name = "btn";
@@ -1468,6 +1468,7 @@
             // 
             // panel4_1_owner_waitRoom
             // 
+            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_roomInfo_label);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_state_player5);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_state_player4);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_state_player3);
@@ -1476,15 +1477,14 @@
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_방장_label);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_refresh_btn);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_out_btn);
-            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player5);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_send_btn);
-            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player4);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_message_tbx);
-            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player3);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_start_btn);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_ready_btn);
+            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player5);
+            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player4);
+            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player3);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player2);
-            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_roomInfo_label);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_player1);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_chat_tbx);
             this.panel4_1_owner_waitRoom.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1683,7 +1683,7 @@
             // 
             this.p4_1_player3.BackColor = System.Drawing.Color.LightGray;
             this.p4_1_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_player3.Location = new System.Drawing.Point(16, 246);
+            this.p4_1_player3.Location = new System.Drawing.Point(16, 247);
             this.p4_1_player3.Name = "p4_1_player3";
             this.p4_1_player3.Size = new System.Drawing.Size(171, 76);
             this.p4_1_player3.TabIndex = 31;
@@ -1815,29 +1815,26 @@
             this.panel5_Owner.TabIndex = 23;
             this.panel5_Owner.Visible = false;
             // 
-            // p5_player5_score
+            // p5_title_label
             // 
-            this.p5_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p5_player5_score.Location = new System.Drawing.Point(66, 432);
-            this.p5_player5_score.Name = "p5_player5_score";
-            this.p5_player5_score.Size = new System.Drawing.Size(118, 27);
-            this.p5_player5_score.TabIndex = 44;
-            this.p5_player5_score.Text = "점수 : 0";
-            this.p5_player5_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p5_player5_score.Visible = false;
+            this.p5_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_title_label.Location = new System.Drawing.Point(365, 39);
+            this.p5_title_label.Name = "p5_title_label";
+            this.p5_title_label.Size = new System.Drawing.Size(441, 62);
+            this.p5_title_label.TabIndex = 48;
+            this.p5_title_label.Text = "제시어를 입력하세요";
+            this.p5_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // p5_player4_score
+            // p5_출제자_label
             // 
-            this.p5_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p5_player4_score.Location = new System.Drawing.Point(66, 340);
-            this.p5_player4_score.Name = "p5_player4_score";
-            this.p5_player4_score.Size = new System.Drawing.Size(118, 27);
-            this.p5_player4_score.TabIndex = 43;
-            this.p5_player4_score.Text = "점수 : 0";
-            this.p5_player4_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p5_player4_score.Visible = false;
+            this.p5_출제자_label.BackColor = System.Drawing.Color.Bisque;
+            this.p5_출제자_label.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_출제자_label.Location = new System.Drawing.Point(42, 477);
+            this.p5_출제자_label.Name = "p5_출제자_label";
+            this.p5_출제자_label.Size = new System.Drawing.Size(170, 49);
+            this.p5_출제자_label.TabIndex = 47;
+            this.p5_출제자_label.Text = "출제자";
+            this.p5_출제자_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // p5_input_label
             // 
@@ -1851,27 +1848,16 @@
             this.p5_input_label.Text = "입력 중...";
             this.p5_input_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // p5_player3_score
+            // p5_player1_score
             // 
-            this.p5_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p5_player3_score.Location = new System.Drawing.Point(66, 251);
-            this.p5_player3_score.Name = "p5_player3_score";
-            this.p5_player3_score.Size = new System.Drawing.Size(118, 27);
-            this.p5_player3_score.TabIndex = 42;
-            this.p5_player3_score.Text = "점수 : 0";
-            this.p5_player3_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p5_player3_score.Visible = false;
-            // 
-            // p5_player5
-            // 
-            this.p5_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p5_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p5_player5.Location = new System.Drawing.Point(41, 391);
-            this.p5_player5.Name = "p5_player5";
-            this.p5_player5.Size = new System.Drawing.Size(171, 76);
-            this.p5_player5.TabIndex = 35;
-            this.p5_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.p5_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p5_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player1_score.Location = new System.Drawing.Point(66, 74);
+            this.p5_player1_score.Name = "p5_player1_score";
+            this.p5_player1_score.Size = new System.Drawing.Size(118, 27);
+            this.p5_player1_score.TabIndex = 40;
+            this.p5_player1_score.Text = "점수 : 0";
+            this.p5_player1_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // p5_player2_score
             // 
@@ -1885,6 +1871,52 @@
             this.p5_player2_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p5_player2_score.Visible = false;
             // 
+            // p5_player3_score
+            // 
+            this.p5_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p5_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player3_score.Location = new System.Drawing.Point(66, 251);
+            this.p5_player3_score.Name = "p5_player3_score";
+            this.p5_player3_score.Size = new System.Drawing.Size(118, 27);
+            this.p5_player3_score.TabIndex = 42;
+            this.p5_player3_score.Text = "점수 : 0";
+            this.p5_player3_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p5_player3_score.Visible = false;
+            // 
+            // p5_player4_score
+            // 
+            this.p5_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p5_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player4_score.Location = new System.Drawing.Point(66, 340);
+            this.p5_player4_score.Name = "p5_player4_score";
+            this.p5_player4_score.Size = new System.Drawing.Size(118, 27);
+            this.p5_player4_score.TabIndex = 43;
+            this.p5_player4_score.Text = "점수 : 0";
+            this.p5_player4_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p5_player4_score.Visible = false;
+            // 
+            // p5_player5_score
+            // 
+            this.p5_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p5_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player5_score.Location = new System.Drawing.Point(66, 432);
+            this.p5_player5_score.Name = "p5_player5_score";
+            this.p5_player5_score.Size = new System.Drawing.Size(118, 27);
+            this.p5_player5_score.TabIndex = 44;
+            this.p5_player5_score.Text = "점수 : 0";
+            this.p5_player5_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p5_player5_score.Visible = false;
+            // 
+            // p5_player5
+            // 
+            this.p5_player5.BackColor = System.Drawing.Color.LightGray;
+            this.p5_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player5.Location = new System.Drawing.Point(41, 391);
+            this.p5_player5.Name = "p5_player5";
+            this.p5_player5.Size = new System.Drawing.Size(171, 76);
+            this.p5_player5.TabIndex = 35;
+            this.p5_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // p5_player4
             // 
             this.p5_player4.BackColor = System.Drawing.Color.LightGray;
@@ -1894,17 +1926,6 @@
             this.p5_player4.Size = new System.Drawing.Size(171, 76);
             this.p5_player4.TabIndex = 34;
             this.p5_player4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // p5_player1_score
-            // 
-            this.p5_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p5_player1_score.Location = new System.Drawing.Point(66, 74);
-            this.p5_player1_score.Name = "p5_player1_score";
-            this.p5_player1_score.Size = new System.Drawing.Size(118, 27);
-            this.p5_player1_score.TabIndex = 40;
-            this.p5_player1_score.Text = "점수 : 0";
-            this.p5_player1_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // p5_player3
             // 
@@ -1983,27 +2004,6 @@
             this.p5_message_tbx.Size = new System.Drawing.Size(570, 45);
             this.p5_message_tbx.TabIndex = 29;
             // 
-            // p5_출제자_label
-            // 
-            this.p5_출제자_label.BackColor = System.Drawing.Color.Bisque;
-            this.p5_출제자_label.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p5_출제자_label.Location = new System.Drawing.Point(42, 477);
-            this.p5_출제자_label.Name = "p5_출제자_label";
-            this.p5_출제자_label.Size = new System.Drawing.Size(170, 49);
-            this.p5_출제자_label.TabIndex = 47;
-            this.p5_출제자_label.Text = "출제자";
-            this.p5_출제자_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // p5_title_label
-            // 
-            this.p5_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p5_title_label.Location = new System.Drawing.Point(365, 39);
-            this.p5_title_label.Name = "p5_title_label";
-            this.p5_title_label.Size = new System.Drawing.Size(441, 62);
-            this.p5_title_label.TabIndex = 48;
-            this.p5_title_label.Text = "제시어를 입력하세요";
-            this.p5_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel5_1_Owner_Answer
             // 
             this.panel5_1_Owner_Answer.Controls.Add(this.p5_1_unknown_btn);
@@ -2030,6 +2030,100 @@
             this.panel5_1_Owner_Answer.Size = new System.Drawing.Size(988, 539);
             this.panel5_1_Owner_Answer.TabIndex = 24;
             this.panel5_1_Owner_Answer.Visible = false;
+            // 
+            // p5_1_unknown_btn
+            // 
+            this.p5_1_unknown_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_unknown_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_unknown_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p5_1_unknown_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p5_1_unknown_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p5_1_unknown_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p5_1_unknown_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p5_1_unknown_btn.IsDerivedStyle = true;
+            this.p5_1_unknown_btn.Location = new System.Drawing.Point(669, 481);
+            this.p5_1_unknown_btn.Name = "p5_1_unknown_btn";
+            this.p5_1_unknown_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_unknown_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_unknown_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p5_1_unknown_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p5_1_unknown_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p5_1_unknown_btn.PressTextColor = System.Drawing.Color.White;
+            this.p5_1_unknown_btn.Size = new System.Drawing.Size(247, 45);
+            this.p5_1_unknown_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p5_1_unknown_btn.StyleManager = null;
+            this.p5_1_unknown_btn.TabIndex = 51;
+            this.p5_1_unknown_btn.Text = "잘 모르겠습니다";
+            this.p5_1_unknown_btn.ThemeAuthor = "Narwin";
+            this.p5_1_unknown_btn.ThemeName = "MetroLite";
+            this.p5_1_unknown_btn.Click += new System.EventHandler(this.p5_1_unknown_btn_Click);
+            // 
+            // p5_1_no_btn
+            // 
+            this.p5_1_no_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_no_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_no_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p5_1_no_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p5_1_no_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p5_1_no_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p5_1_no_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p5_1_no_btn.IsDerivedStyle = true;
+            this.p5_1_no_btn.Location = new System.Drawing.Point(496, 481);
+            this.p5_1_no_btn.Name = "p5_1_no_btn";
+            this.p5_1_no_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_no_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_no_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p5_1_no_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p5_1_no_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p5_1_no_btn.PressTextColor = System.Drawing.Color.White;
+            this.p5_1_no_btn.Size = new System.Drawing.Size(127, 45);
+            this.p5_1_no_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p5_1_no_btn.StyleManager = null;
+            this.p5_1_no_btn.TabIndex = 50;
+            this.p5_1_no_btn.Text = "아니요";
+            this.p5_1_no_btn.ThemeAuthor = "Narwin";
+            this.p5_1_no_btn.ThemeName = "MetroLite";
+            this.p5_1_no_btn.Click += new System.EventHandler(this.p5_1_no_btn_Click);
+            // 
+            // p5_1_yes_btn
+            // 
+            this.p5_1_yes_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_yes_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_yes_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p5_1_yes_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p5_1_yes_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p5_1_yes_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p5_1_yes_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p5_1_yes_btn.IsDerivedStyle = true;
+            this.p5_1_yes_btn.Location = new System.Drawing.Point(325, 481);
+            this.p5_1_yes_btn.Name = "p5_1_yes_btn";
+            this.p5_1_yes_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_yes_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p5_1_yes_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p5_1_yes_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p5_1_yes_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p5_1_yes_btn.PressTextColor = System.Drawing.Color.White;
+            this.p5_1_yes_btn.Size = new System.Drawing.Size(127, 45);
+            this.p5_1_yes_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p5_1_yes_btn.StyleManager = null;
+            this.p5_1_yes_btn.TabIndex = 49;
+            this.p5_1_yes_btn.Text = "네";
+            this.p5_1_yes_btn.ThemeAuthor = "Narwin";
+            this.p5_1_yes_btn.ThemeName = "MetroLite";
+            this.p5_1_yes_btn.Click += new System.EventHandler(this.p5_1_yes_btn_Click);
+            // 
+            // p5_1_QA_tbx
+            // 
+            this.p5_1_QA_tbx.BackColor = System.Drawing.SystemColors.Window;
+            this.p5_1_QA_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p5_1_QA_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.p5_1_QA_tbx.Location = new System.Drawing.Point(261, 77);
+            this.p5_1_QA_tbx.Multiline = true;
+            this.p5_1_QA_tbx.Name = "p5_1_QA_tbx";
+            this.p5_1_QA_tbx.ReadOnly = true;
+            this.p5_1_QA_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.p5_1_QA_tbx.Size = new System.Drawing.Size(703, 394);
+            this.p5_1_QA_tbx.TabIndex = 48;
             // 
             // p5_1_출제자_label
             // 
@@ -2171,100 +2265,6 @@
             this.p5_1_player_turn_label.Size = new System.Drawing.Size(186, 89);
             this.p5_1_player_turn_label.TabIndex = 46;
             this.p5_1_player_turn_label.Visible = false;
-            // 
-            // p5_1_QA_tbx
-            // 
-            this.p5_1_QA_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p5_1_QA_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
-            this.p5_1_QA_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p5_1_QA_tbx.Location = new System.Drawing.Point(261, 77);
-            this.p5_1_QA_tbx.Multiline = true;
-            this.p5_1_QA_tbx.Name = "p5_1_QA_tbx";
-            this.p5_1_QA_tbx.ReadOnly = true;
-            this.p5_1_QA_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.p5_1_QA_tbx.Size = new System.Drawing.Size(703, 394);
-            this.p5_1_QA_tbx.TabIndex = 48;
-            // 
-            // p5_1_yes_btn
-            // 
-            this.p5_1_yes_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_yes_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_yes_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p5_1_yes_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
-            this.p5_1_yes_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p5_1_yes_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p5_1_yes_btn.HoverTextColor = System.Drawing.Color.White;
-            this.p5_1_yes_btn.IsDerivedStyle = true;
-            this.p5_1_yes_btn.Location = new System.Drawing.Point(325, 481);
-            this.p5_1_yes_btn.Name = "p5_1_yes_btn";
-            this.p5_1_yes_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_yes_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_yes_btn.NormalTextColor = System.Drawing.Color.White;
-            this.p5_1_yes_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p5_1_yes_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p5_1_yes_btn.PressTextColor = System.Drawing.Color.White;
-            this.p5_1_yes_btn.Size = new System.Drawing.Size(127, 45);
-            this.p5_1_yes_btn.Style = MetroSet_UI.Enums.Style.Light;
-            this.p5_1_yes_btn.StyleManager = null;
-            this.p5_1_yes_btn.TabIndex = 49;
-            this.p5_1_yes_btn.Text = "네";
-            this.p5_1_yes_btn.ThemeAuthor = "Narwin";
-            this.p5_1_yes_btn.ThemeName = "MetroLite";
-            this.p5_1_yes_btn.Click += new System.EventHandler(this.p5_1_yes_btn_Click);
-            // 
-            // p5_1_no_btn
-            // 
-            this.p5_1_no_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_no_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_no_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p5_1_no_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
-            this.p5_1_no_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p5_1_no_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p5_1_no_btn.HoverTextColor = System.Drawing.Color.White;
-            this.p5_1_no_btn.IsDerivedStyle = true;
-            this.p5_1_no_btn.Location = new System.Drawing.Point(496, 481);
-            this.p5_1_no_btn.Name = "p5_1_no_btn";
-            this.p5_1_no_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_no_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_no_btn.NormalTextColor = System.Drawing.Color.White;
-            this.p5_1_no_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p5_1_no_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p5_1_no_btn.PressTextColor = System.Drawing.Color.White;
-            this.p5_1_no_btn.Size = new System.Drawing.Size(127, 45);
-            this.p5_1_no_btn.Style = MetroSet_UI.Enums.Style.Light;
-            this.p5_1_no_btn.StyleManager = null;
-            this.p5_1_no_btn.TabIndex = 50;
-            this.p5_1_no_btn.Text = "아니요";
-            this.p5_1_no_btn.ThemeAuthor = "Narwin";
-            this.p5_1_no_btn.ThemeName = "MetroLite";
-            this.p5_1_no_btn.Click += new System.EventHandler(this.p5_1_no_btn_Click);
-            // 
-            // p5_1_unknown_btn
-            // 
-            this.p5_1_unknown_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_unknown_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_unknown_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p5_1_unknown_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
-            this.p5_1_unknown_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p5_1_unknown_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.p5_1_unknown_btn.HoverTextColor = System.Drawing.Color.White;
-            this.p5_1_unknown_btn.IsDerivedStyle = true;
-            this.p5_1_unknown_btn.Location = new System.Drawing.Point(669, 481);
-            this.p5_1_unknown_btn.Name = "p5_1_unknown_btn";
-            this.p5_1_unknown_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_unknown_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.p5_1_unknown_btn.NormalTextColor = System.Drawing.Color.White;
-            this.p5_1_unknown_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p5_1_unknown_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.p5_1_unknown_btn.PressTextColor = System.Drawing.Color.White;
-            this.p5_1_unknown_btn.Size = new System.Drawing.Size(247, 45);
-            this.p5_1_unknown_btn.Style = MetroSet_UI.Enums.Style.Light;
-            this.p5_1_unknown_btn.StyleManager = null;
-            this.p5_1_unknown_btn.TabIndex = 51;
-            this.p5_1_unknown_btn.Text = "잘 모르겠습니다";
-            this.p5_1_unknown_btn.ThemeAuthor = "Narwin";
-            this.p5_1_unknown_btn.ThemeName = "MetroLite";
-            this.p5_1_unknown_btn.Click += new System.EventHandler(this.p5_1_unknown_btn_Click);
             // 
             // panel5_2_Owner_Wait
             // 
@@ -2451,11 +2451,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
+            this.Controls.Add(this.panel4_1_owner_waitRoom);
             this.Controls.Add(this.panel6_Answer);
             this.Controls.Add(this.panel5_1_Owner_Answer);
             this.Controls.Add(this.panel5_2_Owner_Wait);
             this.Controls.Add(this.panel5_Owner);
-            this.Controls.Add(this.panel4_1_owner_waitRoom);
             this.Controls.Add(this.panel4_player_waitRoom);
             this.Controls.Add(this.p3_title_label);
             this.Controls.Add(this.panel3_roomList);

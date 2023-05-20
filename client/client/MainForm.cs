@@ -305,6 +305,8 @@ namespace client
         #endregion
 
         #region panel3_roomList: 방 리스트 (방 생성, 입장, 퇴장)
+
+
         private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
         {
             p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
@@ -497,7 +499,13 @@ namespace client
 
 
         #region panel4_waitRoom: 대기 방(채팅)
-
+        public override void GameReady(bool ready)
+        {
+            if (ready == true)
+            {
+                ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
         public override void PlayerList(List<string> playerList)
@@ -524,7 +532,7 @@ namespace client
                 p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.Text = playerList[1]; }));
                 p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.BackColor = Color.LightSkyBlue; }));
                 p6_player2_score.Invoke(new MethodInvoker(delegate { p6_player2_score.Visible = true; }));
-                
+
                 // 방장
                 p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = playerList[1]; }));
                 p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.BackColor = Color.LightSkyBlue; }));
@@ -588,42 +596,33 @@ namespace client
             p4_1_current_player();
         }
 
-        private void p4_refesh_Click(object sender, EventArgs e)
+        public override void RoomOut()
         {
-            //p4_player_change();
-            client.RequestPlayerList(roomName);
+            ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void p4_1_refresh_btn_Click(object sender, EventArgs e)
+        #region Owner(방장)
+        private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
         {
-            client.RequestPlayerList(roomName);
+            client.RequestGameReady();  // 현재 준비 상태 보냄
+            p4_1_start_btn.Visible = true;
         }
 
-
-        public override void RoomChat(List<string> chatList)
+        private void p4_1_start_btn_Click(object sender, EventArgs e)
         {
-            p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text = ""; }));
-            chatList.ForEach(chat =>
-            {
-                p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text += chat + "\r\n"; }));
-            });
-
-            p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text = ""; }));
-            chatList.ForEach(chat =>
-            {
-                p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text += chat + "\r\n"; }));
-            });
+            // 게임 시작하기 버튼 누르면 게임에 모두 준비되었는 지 확인하는 request 보냄
+            // 전부 준비 안 되어 있으면 GameStartFail() 실행
+            client.RequestGameStart();
         }
 
-        private void p4_send_btn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 전부 시작되지 않은 상태에서 방장이 start 버튼을 눌렀을 때 호출됨.
+        /// </summary>
+        public override void GameStartFail()
         {
-            string content = p4_message_tbx.Text;
-            client.username = p1_username_tbx.Text;
-            if (content != string.Empty)
-            {
-                client.RequestSendRoomChat(client.username, content);
-                p4_message_tbx.Text = "";
-            }
+            // 방장 패널에서 시작하기 버튼 안 띄움
+            p4_1_start_btn.Visible = false;
+            ShowMessageBox("준비가 완료되지 않았습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void p4_1_send_btn_Click(object sender, EventArgs e)
@@ -637,54 +636,27 @@ namespace client
             }
         }
 
-        
-        private void panel4_waitRoom_VisibleChanged(object sender, EventArgs e)
+        private void p4_1_refresh_btn_Click(object sender, EventArgs e)
         {
-            if(panel4_player_waitRoom.Visible == true)
-            {
-                client.RequestRoomList();
-                RoomList(serverRoomInfo);
-                
-                foreach (string room in serverRoomInfo)
-                {
-                    string[] roomInfo = room.Split(',');
-                    string roomName = roomInfo[0];
-                    string playerCount = roomInfo[1];
-                    string roomMax = roomInfo[2];
-                    
-                    p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
-                    // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
-                    // p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
-
-                    switch (playerCount)
-                    {
-                        case "0":
-                            p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
-                            break;
-                        case "1":
-                            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = p1_username_tbx.Text; }));
-                            break;
-                        case "2":
-                            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = p1_username_tbx.Text; }));
-                            break;
-                        case "3":
-                            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = p1_username_tbx.Text; }));
-                            break;
-                        case "4":
-                            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = p1_username_tbx.Text; }));
-                            break;
-                    }
-                }
-                
-            }
-            else
-            {
-                p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Visible = false; }));
-            }
-
+            client.RequestPlayerList(roomName);
         }
 
-        
+        private void p4_1_out_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestRoomOut();
+            p4_1_chat_tbx.Text = "";
+            p4_1_start_btn.Text = "READY";
+            p3_people_label.Visible = false;
+            p3_people_tbx.Visible = false;
+            p3_create_btn.Visible = false;
+            p3_roomname_label.Visible = false;
+
+            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
+            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
+            panel4_1_owner_waitRoom.Visible = false;
+            panel3_roomList.Visible = true;
+        }
+
         private void panel4_1_owner_waitRoom_VisibleChanged(object sender, EventArgs e)
         {
             client.RequestRoomList();
@@ -731,24 +703,6 @@ namespace client
             }
         }
 
-        //일반 접속자 화면에 현재 자신 표시
-        private void p4_current_player()
-        {
-            string p_name = p1_username_tbx.Text;
-            if (p_name == p4_player1.Text)
-            {
-                p4_player1.ForeColor = Color.DarkGreen;
-            }
-            else if (p_name == p4_player2.Text)
-                p4_player2.ForeColor = Color.DarkGreen;
-            else if (p_name == p4_player3.Text)
-                p4_player3.ForeColor = Color.DarkGreen;
-            else if (p_name == p4_player4.Text)
-                p4_player4.ForeColor = Color.DarkGreen;
-            else if (p_name == p4_player5.Text)
-                p4_player5.ForeColor = Color.DarkGreen;
-        }
-
         //owner화면에 현재 자신 표시
         private void p4_1_current_player()
         {
@@ -767,18 +721,6 @@ namespace client
                 p4_1_player5.ForeColor = Color.DarkGreen;
         }
 
-        private void p4_player_change() // 기본 폼 설정 > 나가기 시 남은 사람들 폼에 적용
-        {
-            p4_player2.BackColor = Color.LightGray;
-            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = ""; }));
-            p4_player3.BackColor = Color.LightGray;
-            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = ""; }));
-            p4_player4.BackColor = Color.LightGray;
-            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = ""; }));
-            p4_player5.BackColor = Color.LightGray;
-            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = ""; }));
-        }
-
         private void p4_1_player_change() // 기본 폼 설정 > 나가기 시 남은 사람들 폼에 적용
         {
             p4_1_player2.BackColor = Color.LightGray;
@@ -790,11 +732,129 @@ namespace client
             p4_1_player5.BackColor = Color.LightGray;
             p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.Text = ""; }));
         }
+        #endregion
 
-        #region RoomOut
-        public override void RoomOut()
+        #region player(플레이어) 
+        private void p4_readyDone_btn_Click(object sender, EventArgs e)
         {
-            ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // 플레이어가 준비 완료 버튼을 한 번 더 누르면 준비 상태 해지
+            // 준비 완료 버튼 숨김
+            //p4_readyDone_btn.Invoke(new MethodInvoker(delegate { p4_readyDone_btn.Visible = false; }));
+            client.RequestGameReady();
+        }
+
+
+       
+
+        private void p4_refesh_Click(object sender, EventArgs e)
+        {
+            //p4_player_change();
+            client.RequestPlayerList(roomName);
+        }
+
+        
+
+
+        public override void RoomChat(List<string> chatList)
+        {
+            p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text = ""; }));
+            chatList.ForEach(chat =>
+            {
+                p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text += chat + "\r\n"; }));
+            });
+
+            p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text = ""; }));
+            chatList.ForEach(chat =>
+            {
+                p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text += chat + "\r\n"; }));
+            });
+        }
+
+        private void p4_send_btn_Click(object sender, EventArgs e)
+        {
+            string content = p4_message_tbx.Text;
+            client.username = p1_username_tbx.Text;
+            if (content != string.Empty)
+            {
+                client.RequestSendRoomChat(client.username, content);
+                p4_message_tbx.Text = "";
+            }
+        }
+        
+        private void panel4_waitRoom_VisibleChanged(object sender, EventArgs e)
+        {
+            if(panel4_player_waitRoom.Visible == true)
+            {
+                client.RequestRoomList();
+                RoomList(serverRoomInfo);
+                
+                foreach (string room in serverRoomInfo)
+                {
+                    string[] roomInfo = room.Split(',');
+                    string roomName = roomInfo[0];
+                    string playerCount = roomInfo[1];
+                    string roomMax = roomInfo[2];
+                    
+                    p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
+                    // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
+                    // p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
+
+                    switch (playerCount)
+                    {
+                        case "0":
+                            p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "1":
+                            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "2":
+                            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "3":
+                            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = p1_username_tbx.Text; }));
+                            break;
+                        case "4":
+                            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = p1_username_tbx.Text; }));
+                            break;
+                    }
+                }
+                
+            }
+            else
+            {
+                p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Visible = false; }));
+            }
+
+        }  
+
+        //일반 접속자 화면에 현재 자신 표시
+        private void p4_current_player()
+        {
+            string p_name = p1_username_tbx.Text;
+            if (p_name == p4_player1.Text)
+            {
+                p4_player1.ForeColor = Color.DarkGreen;
+            }
+            else if (p_name == p4_player2.Text)
+                p4_player2.ForeColor = Color.DarkGreen;
+            else if (p_name == p4_player3.Text)
+                p4_player3.ForeColor = Color.DarkGreen;
+            else if (p_name == p4_player4.Text)
+                p4_player4.ForeColor = Color.DarkGreen;
+            else if (p_name == p4_player5.Text)
+                p4_player5.ForeColor = Color.DarkGreen;
+        }
+
+        private void p4_player_change() // 기본 폼 설정 > 나가기 시 남은 사람들 폼에 적용
+        {
+            p4_player2.BackColor = Color.LightGray;
+            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = ""; }));
+            p4_player3.BackColor = Color.LightGray;
+            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = ""; }));
+            p4_player4.BackColor = Color.LightGray;
+            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = ""; }));
+            p4_player5.BackColor = Color.LightGray;
+            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = ""; }));
         }
 
         private void p4_Out_btn_Click(object sender, EventArgs e)
@@ -810,35 +870,6 @@ namespace client
             //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
             panel4_player_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
-        }
-
-        private void p4_1_out_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestRoomOut();
-            p4_1_chat_tbx.Text = "";
-            p4_1_start_btn.Text = "READY";
-            p3_people_label.Visible = false;
-            p3_people_tbx.Visible = false;
-            p3_create_btn.Visible = false;
-            p3_roomname_label.Visible = false;
-
-            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
-            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
-            // 수정함
-            panel4_1_owner_waitRoom.Visible = false;
-            panel3_roomList.Visible = true;
-        }
-        #endregion
-
-        public override void GameReady(bool ready)
-        {
-            if (ready == true)
-            {
-                // 출제자와 정답자 구분
-                // 출제자이면 5번 패널 -> 방장 위임, 게임 시작하기 버튼 들어감
-                // 정답자이면 6번 패널 -> 별도 다른 조치 필요 없음
-                ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
@@ -860,14 +891,6 @@ namespace client
             //p4_readyDone_btn.Visible=true;
         }
 
-        private void p4_1_ready_btn_Click(object sender, EventArgs e)
-        {
-            // 출제자의 준비하기 버튼 클릭 후 시작하기 버튼이 나옴
-            client.RequestGameReady();
-            p4_1_start_btn.Visible = true;
-        }
-
-        #endregion
 
         //owner에서 start클릭 > 아무도 없을 경우 오류 작성 후 작동 x
         private void p4_gameStart_btn_Click(object sender, EventArgs e)
@@ -883,7 +906,9 @@ namespace client
                 panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; }));
             }        
         }
+        #endregion
 
+        #endregion
         //정답 버튼
         private void buzzer_Click(object sender, EventArgs e)
         {
@@ -914,34 +939,7 @@ namespace client
             }
         }
 
-        public override void GameStartFail()
-        {
-            // 방장 패널에서 시작하기 버튼 안 띄움
-            p4_1_start_btn.Visible = false;
-            ShowMessageBox("준비가 완료되지 않았습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void p4_1_start_btn_Click(object sender, EventArgs e)
-        {
-            // 게임 시작하기 버튼 누르면 게임에 모두 준비되었는 지 확인하는 request 보냄
-            // 전부 준비 안 되어 있으면 GameStartFail() 실행
-            client.RequestGameStart();
-            PresenterChoice();
-        }
-
-        private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void p4_readyDone_btn_Click(object sender, EventArgs e)
-        {
-            // 플레이어가 준비 완료 버튼을 한 번 더 누르면 준비 상태 해지
-            // 준비 완료 버튼 숨김
-            //p4_readyDone_btn.Invoke(new MethodInvoker(delegate { p4_readyDone_btn.Visible = false; }));
-            client.RequestGameReady();
-        }
+        
 
         #region 게임 진행 - panel5_Owner, 5_1_Owner_Answer, 5_2_Owner_Wait : 출제자 화면
         private void p5_send_btn_Click(object sender, EventArgs e)
