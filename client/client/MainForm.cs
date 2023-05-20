@@ -579,11 +579,12 @@ namespace client
             }
             p4_current_player();
             p4_1_current_player();
+            p6_current_player();
         }
 
         private void p4_refesh_Click(object sender, EventArgs e)
         {
-            //p4_player_change();
+            p4_player_change();
             client.RequestPlayerList(roomName);
         }
 
@@ -592,7 +593,9 @@ namespace client
             client.RequestPlayerList(roomName);
         }
 
+        int Game_start = 0; //chatList.Clear를 한번만 하기 위해서 사용
 
+        //대기화면 채팅, 게임 질의응답 
         public override void RoomChat(List<string> chatList)
         {
             p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text = ""; }));
@@ -605,6 +608,17 @@ namespace client
             chatList.ForEach(chat =>
             {
                 p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text += chat + "\r\n"; }));
+            });
+            // 현재 방에 아무도 없다면 대화내용 삭제 > 현재의 
+            // 게임 시작시, chatList 내용 삭제 후 게임 내용 넣기
+            if(Game_start == 2)
+            {   
+                chatList.Clear();
+            }
+            p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text = ""; }));
+            chatList.ForEach(chat =>
+            {
+                p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text += chat + "\r\n"; }));
             });
         }
 
@@ -848,6 +862,7 @@ namespace client
                 p4_state_player5.Text = "준비 완료";
             panel4_player_waitRoom.Visible=false;
             panel6_Answer.Visible = true; //p6화면 확인 test
+            Game_start = 2;
         }
 
         private void p4_1_ready_btn_Click(object sender, EventArgs e)
@@ -885,7 +900,7 @@ namespace client
             p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
             p6_answer_tbx.ForeColor = Color.CornflowerBlue;
 
-            //정답을 맞추는 사람만 라벨 변경 필요
+            //정답을 맞추는 사람만 라벨 변경 필요 > 출제자가 정답 전송 시 스코어 늘리기
 
             //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
         }
@@ -939,9 +954,9 @@ namespace client
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
-        {
-            p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
-            p6_answer_tbx.ReadOnly = true;
+        {   //질의응답 창 test를 위해 주석 처리
+            //p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
+            //p6_answer_tbx.ReadOnly = true;
         }
 
         // 게임 시작 후 질문자가 질문을 작성하는 화면 > 턴o
@@ -955,15 +970,17 @@ namespace client
         }
 
         private void panel6_Answer_VisibleChanged(object sender, EventArgs e)
-        {
+        {   //질의응답 창 test를 위해 주석 처리
             p6_solution_label.Invoke(new MethodInvoker(delegate { p6_solution_label.Text = "? ? ?"; }));
-            p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
-            p6_answer_tbx.ReadOnly = true;
+            //p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
+            //p6_answer_tbx.ReadOnly = true;
+            Game_start = 1;
         }
 
         private void p6_send_btn_Click(object sender, EventArgs e)
         {
-            client.RequestSendAnswer(p6_answer_tbx.Text);
+            client.RequestSendQuestion(p6_answer_tbx.Text);
+            p6_answer_tbx.Text = "";
         }
         #endregion
         private void timer1_Tick(object sender, EventArgs e)
@@ -975,11 +992,6 @@ namespace client
                 // client.RequestGuessAnswer(Textbox.Text);
                 //답 읽어오기
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

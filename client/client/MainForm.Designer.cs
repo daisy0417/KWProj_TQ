@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -74,6 +74,11 @@
             this.p3_roomname_label = new System.Windows.Forms.Label();
             this.p3_roomname_tbx = new System.Windows.Forms.TextBox();
             this.panel4_player_waitRoom = new System.Windows.Forms.Panel();
+            this.p4_w_state_player5 = new System.Windows.Forms.Label();
+            this.p4_w_state_player4 = new System.Windows.Forms.Label();
+            this.p4_w_state_player3 = new System.Windows.Forms.Label();
+            this.p4_w_state_player2 = new System.Windows.Forms.Label();
+            this.p4_w_state_player1 = new System.Windows.Forms.Label();
             this.p4_refesh = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_player5 = new System.Windows.Forms.Label();
@@ -113,6 +118,11 @@
             this.p4_state_player5 = new System.Windows.Forms.Label();
             this.p4_start_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel4_1_owner_waitRoom = new System.Windows.Forms.Panel();
+            this.p4_1_state_player5 = new System.Windows.Forms.Label();
+            this.p4_1_state_player4 = new System.Windows.Forms.Label();
+            this.p4_1_state_player3 = new System.Windows.Forms.Label();
+            this.p4_1_state_player2 = new System.Windows.Forms.Label();
+            this.p4_1_state_player1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.p4_1_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_1_out_btn = new MetroSet_UI.Controls.MetroSetButton();
@@ -126,16 +136,6 @@
             this.p4_1_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_1_player1 = new System.Windows.Forms.Label();
             this.p4_1_chat_tbx = new System.Windows.Forms.TextBox();
-            this.p4_1_state_player5 = new System.Windows.Forms.Label();
-            this.p4_1_state_player4 = new System.Windows.Forms.Label();
-            this.p4_1_state_player3 = new System.Windows.Forms.Label();
-            this.p4_1_state_player2 = new System.Windows.Forms.Label();
-            this.p4_1_state_player1 = new System.Windows.Forms.Label();
-            this.p4_w_state_player5 = new System.Windows.Forms.Label();
-            this.p4_w_state_player4 = new System.Windows.Forms.Label();
-            this.p4_w_state_player3 = new System.Windows.Forms.Label();
-            this.p4_w_state_player2 = new System.Windows.Forms.Label();
-            this.p4_w_state_player1 = new System.Windows.Forms.Label();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -550,49 +550,49 @@
             // p3_dataGridView1
             // 
             this.p3_dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.p3_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.p3_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.p3_dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.People,
             this.btn});
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle22;
             this.p3_dataGridView1.Location = new System.Drawing.Point(16, 83);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.p3_dataGridView1.RowHeadersVisible = false;
             this.p3_dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowTemplate.Height = 40;
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
@@ -601,8 +601,8 @@
             // 
             // RoomName
             // 
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle19;
             this.RoomName.FillWeight = 150F;
             this.RoomName.HeaderText = "방 이름";
             this.RoomName.MinimumWidth = 6;
@@ -611,8 +611,8 @@
             // 
             // People
             // 
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.People.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.People.DefaultCellStyle = dataGridViewCellStyle20;
             this.People.HeaderText = "접속 인원";
             this.People.MinimumWidth = 6;
             this.People.Name = "People";
@@ -620,9 +620,9 @@
             // 
             // btn
             // 
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn.DefaultCellStyle = dataGridViewCellStyle21;
             this.btn.HeaderText = "버튼";
             this.btn.MinimumWidth = 6;
             this.btn.Name = "btn";
@@ -822,6 +822,65 @@
             this.panel4_player_waitRoom.TabIndex = 20;
             this.panel4_player_waitRoom.Visible = false;
             this.panel4_player_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_waitRoom_VisibleChanged);
+            // 
+            // p4_w_state_player5
+            // 
+            this.p4_w_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player5.Location = new System.Drawing.Point(54, 440);
+            this.p4_w_state_player5.Name = "p4_w_state_player5";
+            this.p4_w_state_player5.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player5.TabIndex = 44;
+            this.p4_w_state_player5.Text = "대기 중";
+            this.p4_w_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player5.Visible = false;
+            // 
+            // p4_w_state_player4
+            // 
+            this.p4_w_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player4.Location = new System.Drawing.Point(54, 358);
+            this.p4_w_state_player4.Name = "p4_w_state_player4";
+            this.p4_w_state_player4.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player4.TabIndex = 43;
+            this.p4_w_state_player4.Text = "대기 중";
+            this.p4_w_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player4.Visible = false;
+            // 
+            // p4_w_state_player3
+            // 
+            this.p4_w_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player3.Location = new System.Drawing.Point(54, 276);
+            this.p4_w_state_player3.Name = "p4_w_state_player3";
+            this.p4_w_state_player3.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player3.TabIndex = 42;
+            this.p4_w_state_player3.Text = "대기 중";
+            this.p4_w_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player3.Visible = false;
+            // 
+            // p4_w_state_player2
+            // 
+            this.p4_w_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player2.Location = new System.Drawing.Point(54, 195);
+            this.p4_w_state_player2.Name = "p4_w_state_player2";
+            this.p4_w_state_player2.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player2.TabIndex = 41;
+            this.p4_w_state_player2.Text = "대기 중";
+            this.p4_w_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player2.Visible = false;
+            // 
+            // p4_w_state_player1
+            // 
+            this.p4_w_state_player1.BackColor = System.Drawing.Color.LightCoral;
+            this.p4_w_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player1.Location = new System.Drawing.Point(54, 114);
+            this.p4_w_state_player1.Name = "p4_w_state_player1";
+            this.p4_w_state_player1.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player1.TabIndex = 40;
+            this.p4_w_state_player1.Text = "방장";
+            this.p4_w_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // p4_refesh
             // 
@@ -1220,7 +1279,7 @@
             // p6_player_turn_label
             // 
             this.p6_player_turn_label.BackColor = System.Drawing.Color.LightSalmon;
-            this.p6_player_turn_label.Location = new System.Drawing.Point(33, 23);
+            this.p6_player_turn_label.Location = new System.Drawing.Point(34, 170);
             this.p6_player_turn_label.Name = "p6_player_turn_label";
             this.p6_player_turn_label.Size = new System.Drawing.Size(186, 89);
             this.p6_player_turn_label.TabIndex = 46;
@@ -1392,6 +1451,65 @@
             this.panel4_1_owner_waitRoom.TabIndex = 21;
             this.panel4_1_owner_waitRoom.Visible = false;
             this.panel4_1_owner_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_1_owner_waitRoom_VisibleChanged);
+            // 
+            // p4_1_state_player5
+            // 
+            this.p4_1_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player5.Location = new System.Drawing.Point(54, 450);
+            this.p4_1_state_player5.Name = "p4_1_state_player5";
+            this.p4_1_state_player5.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player5.TabIndex = 44;
+            this.p4_1_state_player5.Text = "대기 중";
+            this.p4_1_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player5.Visible = false;
+            // 
+            // p4_1_state_player4
+            // 
+            this.p4_1_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player4.Location = new System.Drawing.Point(54, 368);
+            this.p4_1_state_player4.Name = "p4_1_state_player4";
+            this.p4_1_state_player4.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player4.TabIndex = 43;
+            this.p4_1_state_player4.Text = "대기 중";
+            this.p4_1_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player4.Visible = false;
+            // 
+            // p4_1_state_player3
+            // 
+            this.p4_1_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player3.Location = new System.Drawing.Point(54, 286);
+            this.p4_1_state_player3.Name = "p4_1_state_player3";
+            this.p4_1_state_player3.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player3.TabIndex = 42;
+            this.p4_1_state_player3.Text = "대기 중";
+            this.p4_1_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player3.Visible = false;
+            // 
+            // p4_1_state_player2
+            // 
+            this.p4_1_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player2.Location = new System.Drawing.Point(54, 205);
+            this.p4_1_state_player2.Name = "p4_1_state_player2";
+            this.p4_1_state_player2.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player2.TabIndex = 41;
+            this.p4_1_state_player2.Text = "대기 중";
+            this.p4_1_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player2.Visible = false;
+            // 
+            // p4_1_state_player1
+            // 
+            this.p4_1_state_player1.BackColor = System.Drawing.Color.LightCoral;
+            this.p4_1_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player1.Location = new System.Drawing.Point(54, 124);
+            this.p4_1_state_player1.Name = "p4_1_state_player1";
+            this.p4_1_state_player1.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player1.TabIndex = 40;
+            this.p4_1_state_player1.Text = "방장";
+            this.p4_1_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -1597,124 +1715,6 @@
             this.p4_1_chat_tbx.ReadOnly = true;
             this.p4_1_chat_tbx.Size = new System.Drawing.Size(703, 409);
             this.p4_1_chat_tbx.TabIndex = 17;
-            // 
-            // p4_1_state_player5
-            // 
-            this.p4_1_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_state_player5.Location = new System.Drawing.Point(54, 450);
-            this.p4_1_state_player5.Name = "p4_1_state_player5";
-            this.p4_1_state_player5.Size = new System.Drawing.Size(118, 27);
-            this.p4_1_state_player5.TabIndex = 44;
-            this.p4_1_state_player5.Text = "대기 중";
-            this.p4_1_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_1_state_player5.Visible = false;
-            // 
-            // p4_1_state_player4
-            // 
-            this.p4_1_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_state_player4.Location = new System.Drawing.Point(54, 368);
-            this.p4_1_state_player4.Name = "p4_1_state_player4";
-            this.p4_1_state_player4.Size = new System.Drawing.Size(118, 27);
-            this.p4_1_state_player4.TabIndex = 43;
-            this.p4_1_state_player4.Text = "대기 중";
-            this.p4_1_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_1_state_player4.Visible = false;
-            // 
-            // p4_1_state_player3
-            // 
-            this.p4_1_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_state_player3.Location = new System.Drawing.Point(54, 286);
-            this.p4_1_state_player3.Name = "p4_1_state_player3";
-            this.p4_1_state_player3.Size = new System.Drawing.Size(118, 27);
-            this.p4_1_state_player3.TabIndex = 42;
-            this.p4_1_state_player3.Text = "대기 중";
-            this.p4_1_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_1_state_player3.Visible = false;
-            // 
-            // p4_1_state_player2
-            // 
-            this.p4_1_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_state_player2.Location = new System.Drawing.Point(54, 205);
-            this.p4_1_state_player2.Name = "p4_1_state_player2";
-            this.p4_1_state_player2.Size = new System.Drawing.Size(118, 27);
-            this.p4_1_state_player2.TabIndex = 41;
-            this.p4_1_state_player2.Text = "대기 중";
-            this.p4_1_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_1_state_player2.Visible = false;
-            // 
-            // p4_1_state_player1
-            // 
-            this.p4_1_state_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_1_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_state_player1.Location = new System.Drawing.Point(54, 124);
-            this.p4_1_state_player1.Name = "p4_1_state_player1";
-            this.p4_1_state_player1.Size = new System.Drawing.Size(118, 27);
-            this.p4_1_state_player1.TabIndex = 40;
-            this.p4_1_state_player1.Text = "방장";
-            this.p4_1_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // p4_w_state_player5
-            // 
-            this.p4_w_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_w_state_player5.Location = new System.Drawing.Point(54, 440);
-            this.p4_w_state_player5.Name = "p4_w_state_player5";
-            this.p4_w_state_player5.Size = new System.Drawing.Size(118, 27);
-            this.p4_w_state_player5.TabIndex = 44;
-            this.p4_w_state_player5.Text = "대기 중";
-            this.p4_w_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_w_state_player5.Visible = false;
-            // 
-            // p4_w_state_player4
-            // 
-            this.p4_w_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_w_state_player4.Location = new System.Drawing.Point(54, 358);
-            this.p4_w_state_player4.Name = "p4_w_state_player4";
-            this.p4_w_state_player4.Size = new System.Drawing.Size(118, 27);
-            this.p4_w_state_player4.TabIndex = 43;
-            this.p4_w_state_player4.Text = "대기 중";
-            this.p4_w_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_w_state_player4.Visible = false;
-            // 
-            // p4_w_state_player3
-            // 
-            this.p4_w_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_w_state_player3.Location = new System.Drawing.Point(54, 276);
-            this.p4_w_state_player3.Name = "p4_w_state_player3";
-            this.p4_w_state_player3.Size = new System.Drawing.Size(118, 27);
-            this.p4_w_state_player3.TabIndex = 42;
-            this.p4_w_state_player3.Text = "대기 중";
-            this.p4_w_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_w_state_player3.Visible = false;
-            // 
-            // p4_w_state_player2
-            // 
-            this.p4_w_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_w_state_player2.Location = new System.Drawing.Point(54, 195);
-            this.p4_w_state_player2.Name = "p4_w_state_player2";
-            this.p4_w_state_player2.Size = new System.Drawing.Size(118, 27);
-            this.p4_w_state_player2.TabIndex = 41;
-            this.p4_w_state_player2.Text = "대기 중";
-            this.p4_w_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p4_w_state_player2.Visible = false;
-            // 
-            // p4_w_state_player1
-            // 
-            this.p4_w_state_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_w_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_w_state_player1.Location = new System.Drawing.Point(54, 114);
-            this.p4_w_state_player1.Name = "p4_w_state_player1";
-            this.p4_w_state_player1.Size = new System.Drawing.Size(118, 27);
-            this.p4_w_state_player1.TabIndex = 40;
-            this.p4_w_state_player1.Text = "방장";
-            this.p4_w_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
