@@ -902,7 +902,102 @@ namespace client
             //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
         }
 
-        #region panel6_Answer: 질문자 화면
+       
+        private void timer1_Tick(object sender, EventArgs e)
+        {   //시간 표시할 라벨
+            //label1.Text=(int.Parse(label1.text)+1).ToString();
+            //if (Label1.text == '5')
+            {
+                //timer1.Stop();
+                // client.RequestGuessAnswer(Textbox.Text);
+                //답 읽어오기
+            }
+        }
+
+        public override void GameStartFail()
+        {
+            // 방장 패널에서 시작하기 버튼 안 띄움
+            p4_1_start_btn.Visible = false;
+            ShowMessageBox("준비가 완료되지 않았습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void p4_1_start_btn_Click(object sender, EventArgs e)
+        {
+            // 게임 시작하기 버튼 누르면 게임에 모두 준비되었는 지 확인하는 request 보냄
+            // 전부 준비 안 되어 있으면 GameStartFail() 실행
+            client.RequestGameStart();
+            PresenterChoice();
+        }
+
+        private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void p4_readyDone_btn_Click(object sender, EventArgs e)
+        {
+            // 플레이어가 준비 완료 버튼을 한 번 더 누르면 준비 상태 해지
+            // 준비 완료 버튼 숨김
+            //p4_readyDone_btn.Invoke(new MethodInvoker(delegate { p4_readyDone_btn.Visible = false; }));
+            client.RequestGameReady();
+        }
+
+        #region 게임 진행 - panel5_Owner, 5_1_Owner_Answer, 5_2_Owner_Wait : 출제자 화면
+        private void p5_send_btn_Click(object sender, EventArgs e)
+        {
+            // presenterchoice 화면과 연결됨 -> panel 5
+            p5_input_label.Invoke(new MethodInvoker(delegate { p5_input_label.Text = p5_message_tbx.Text; }));
+            client.RequestWordSelect(p5_input_label.Text);
+        }
+
+        // 게임 시작 후 출제자가 제시어 정하는 화면
+        public override void PresenterChoice()
+        {
+            // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
+            //panel5_Owner.Visible = true;
+            panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = true; }));
+
+            // 패널 우선순위에서 5_1, 5_2 가 더 위에 있으므로 숨기기
+            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
+        }
+
+        // 게임 시작 후 출제자가 질문을 기다리는 화면
+        public override void PresenterWait()
+        {
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
+            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
+        }
+
+        // 게임 시작 후 출제자가 질문에 대한 답변을 작성하는 화면
+        public override void PresenterAnswer()
+        {
+            // RequestSendAnswer()를 보낼 수 있는 버튼 필요
+            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = true; }));
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
+
+            // 제시어를 출제자 화면에는 보여줌
+            p5_1_answer_label.Invoke(new MethodInvoker(delegate { p5_1_answer_label.Text = p5_message_tbx.Text; }));
+        }
+
+        private void p5_1_yes_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer("네");
+        }
+
+        private void p5_1_no_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer("아니요");
+        }
+
+        private void p5_1_unknown_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestSendAnswer("잘 모르겠습니다");
+        }
+        #endregion
+
+        #region 게임 진행 - panel6_Answer : 플레이어(정답자) 화면
         private void p6_turn()
         {
             p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; }));
@@ -978,101 +1073,5 @@ namespace client
             client.RequestSendAnswer(p6_answer_tbx.Text);
         }
         #endregion
-        private void timer1_Tick(object sender, EventArgs e)
-        {   //시간 표시할 라벨
-            //label1.Text=(int.Parse(label1.text)+1).ToString();
-            //if (Label1.text == '5')
-            {
-                //timer1.Stop();
-                // client.RequestGuessAnswer(Textbox.Text);
-                //답 읽어오기
-            }
-        }
-
-        public override void GameStartFail()
-        {
-            // 방장 패널에서 시작하기 버튼 안 띄움
-            p4_1_start_btn.Visible = false;
-            ShowMessageBox("준비가 완료되지 않았습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void p4_1_start_btn_Click(object sender, EventArgs e)
-        {
-            // 게임 시작하기 버튼 누르면 게임에 모두 준비되었는 지 확인하는 request 보냄
-            // 전부 준비 안 되어 있으면 GameStartFail() 실행
-            client.RequestGameStart();
-            PresenterChoice();
-        }
-
-        private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void p4_readyDone_btn_Click(object sender, EventArgs e)
-        {
-            // 플레이어가 준비 완료 버튼을 한 번 더 누르면 준비 상태 해지
-            // 준비 완료 버튼 숨김
-            //p4_readyDone_btn.Invoke(new MethodInvoker(delegate { p4_readyDone_btn.Visible = false; }));
-            client.RequestGameReady();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void p5_send_btn_Click(object sender, EventArgs e)
-        {
-            // presenterchoice 화면과 연결됨 -> panel 5
-            p5_input_label.Invoke(new MethodInvoker(delegate { p5_input_label.Text = p5_message_tbx.Text; }));
-            client.RequestWordSelect(p5_input_label.Text);
-        }
-
-        // 게임 시작 후 출제자가 제시어 정하는 화면
-        public override void PresenterChoice()
-        {
-            // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
-            //panel5_Owner.Visible = true;
-            panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = true; }));
-
-            // 패널 우선순위에서 5_1, 5_2 가 더 위에 있으므로 숨기기
-            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
-            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
-        }
-
-        // 게임 시작 후 출제자가 질문을 기다리는 화면
-        public override void PresenterWait()
-        {
-            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
-            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
-        }
-
-        // 게임 시작 후 출제자가 질문에 대한 답변을 작성하는 화면
-        public override void PresenterAnswer()
-        {
-            // RequestSendAnswer()를 보낼 수 있는 버튼 필요
-            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = true; }));
-            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
-
-            // 제시어를 출제자 화면에는 보여줌
-            p5_1_answer_label.Invoke(new MethodInvoker(delegate { p5_1_answer_label.Text = p5_message_tbx.Text; }));
-        }
-
-        private void p5_1_yes_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestSendAnswer("네");
-        }
-
-        private void p5_1_no_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestSendAnswer("아니요");
-        }
-
-        private void p5_1_unknown_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestSendAnswer("잘 모르겠습니다");
-        }
     }
 }
