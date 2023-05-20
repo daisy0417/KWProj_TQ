@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -603,49 +603,49 @@
             // p3_dataGridView1
             // 
             this.p3_dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle73.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle73.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle73;
             this.p3_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle74.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle74.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle74.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle74;
             this.p3_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.p3_dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.People,
             this.btn});
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle78.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle78.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle78.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle78;
             this.p3_dataGridView1.Location = new System.Drawing.Point(16, 83);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle63.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle79.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle79.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle79;
             this.p3_dataGridView1.RowHeadersVisible = false;
             this.p3_dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle64.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle80.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle80;
             this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowTemplate.Height = 40;
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
@@ -654,8 +654,8 @@
             // 
             // RoomName
             // 
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle75.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle75;
             this.RoomName.FillWeight = 150F;
             this.RoomName.HeaderText = "방 이름";
             this.RoomName.MinimumWidth = 6;
@@ -664,8 +664,8 @@
             // 
             // People
             // 
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.People.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle76.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.People.DefaultCellStyle = dataGridViewCellStyle76;
             this.People.HeaderText = "접속 인원";
             this.People.MinimumWidth = 6;
             this.People.Name = "People";
@@ -673,9 +673,9 @@
             // 
             // btn
             // 
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle61.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn.DefaultCellStyle = dataGridViewCellStyle77;
             this.btn.HeaderText = "버튼";
             this.btn.MinimumWidth = 6;
             this.btn.Name = "btn";
@@ -834,8 +834,9 @@
             this.p3_roomname_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 11F);
             this.p3_roomname_label.Location = new System.Drawing.Point(767, 172);
             this.p3_roomname_label.Name = "p3_roomname_label";
-            this.p3_roomname_label.Size = new System.Drawing.Size(0, 25);
+            this.p3_roomname_label.Size = new System.Drawing.Size(124, 25);
             this.p3_roomname_label.TabIndex = 9;
+            this.p3_roomname_label.Text = "생성할 방 이름";
             this.p3_roomname_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // p3_roomname_tbx
@@ -2451,14 +2452,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
+            this.Controls.Add(this.panel3_roomList);
+            this.Controls.Add(this.panel4_1_owner_waitRoom);
+            this.Controls.Add(this.panel4_player_waitRoom);
             this.Controls.Add(this.panel6_Answer);
             this.Controls.Add(this.panel5_1_Owner_Answer);
             this.Controls.Add(this.panel5_2_Owner_Wait);
             this.Controls.Add(this.panel5_Owner);
-            this.Controls.Add(this.panel4_1_owner_waitRoom);
-            this.Controls.Add(this.panel4_player_waitRoom);
             this.Controls.Add(this.p3_title_label);
-            this.Controls.Add(this.panel3_roomList);
             this.Controls.Add(this.panel2_gameStart);
             this.Controls.Add(this.panel1_login_server);
             this.Controls.Add(this.main_login_btn);
