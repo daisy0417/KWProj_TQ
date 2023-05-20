@@ -117,6 +117,7 @@
             this.p4_state_player5 = new System.Windows.Forms.Label();
             this.p4_start_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel4_1_owner_waitRoom = new System.Windows.Forms.Panel();
+            this.p4_1_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_1_state_player5 = new System.Windows.Forms.Label();
             this.p4_1_state_player4 = new System.Windows.Forms.Label();
             this.p4_1_state_player3 = new System.Windows.Forms.Label();
@@ -125,15 +126,14 @@
             this.p4_1_방장_label = new System.Windows.Forms.Label();
             this.p4_1_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_1_out_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p4_1_player5 = new System.Windows.Forms.Label();
             this.p4_1_send_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p4_1_player4 = new System.Windows.Forms.Label();
             this.p4_1_message_tbx = new System.Windows.Forms.TextBox();
-            this.p4_1_player3 = new System.Windows.Forms.Label();
             this.p4_1_start_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_1_ready_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p4_1_player5 = new System.Windows.Forms.Label();
+            this.p4_1_player4 = new System.Windows.Forms.Label();
+            this.p4_1_player3 = new System.Windows.Forms.Label();
             this.p4_1_player2 = new System.Windows.Forms.Label();
-            this.p4_1_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_1_player1 = new System.Windows.Forms.Label();
             this.p4_1_chat_tbx = new System.Windows.Forms.TextBox();
             this.panel5_Owner = new System.Windows.Forms.Panel();
@@ -834,8 +834,9 @@
             this.p3_roomname_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 11F);
             this.p3_roomname_label.Location = new System.Drawing.Point(767, 172);
             this.p3_roomname_label.Name = "p3_roomname_label";
-            this.p3_roomname_label.Size = new System.Drawing.Size(0, 25);
+            this.p3_roomname_label.Size = new System.Drawing.Size(124, 25);
             this.p3_roomname_label.TabIndex = 9;
+            this.p3_roomname_label.Text = "생성할 방 이름";
             this.p3_roomname_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // p3_roomname_tbx
@@ -1496,6 +1497,15 @@
             this.panel4_1_owner_waitRoom.Visible = false;
             this.panel4_1_owner_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_1_owner_waitRoom_VisibleChanged);
             // 
+            // p4_1_roomInfo_label
+            // 
+            this.p4_1_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_1_roomInfo_label.Location = new System.Drawing.Point(706, 12);
+            this.p4_1_roomInfo_label.Name = "p4_1_roomInfo_label";
+            this.p4_1_roomInfo_label.Size = new System.Drawing.Size(258, 54);
+            this.p4_1_roomInfo_label.TabIndex = 18;
+            this.p4_1_roomInfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // p4_1_state_player5
             // 
             this.p4_1_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -1620,16 +1630,6 @@
             this.p4_1_out_btn.ThemeName = "MetroLite";
             this.p4_1_out_btn.Click += new System.EventHandler(this.p4_1_out_btn_Click);
             // 
-            // p4_1_player5
-            // 
-            this.p4_1_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_player5.Location = new System.Drawing.Point(16, 409);
-            this.p4_1_player5.Name = "p4_1_player5";
-            this.p4_1_player5.Size = new System.Drawing.Size(171, 76);
-            this.p4_1_player5.TabIndex = 33;
-            this.p4_1_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // p4_1_send_btn
             // 
             this.p4_1_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1658,16 +1658,6 @@
             this.p4_1_send_btn.ThemeName = "MetroLite";
             this.p4_1_send_btn.Click += new System.EventHandler(this.p4_1_send_btn_Click);
             // 
-            // p4_1_player4
-            // 
-            this.p4_1_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_player4.Location = new System.Drawing.Point(16, 328);
-            this.p4_1_player4.Name = "p4_1_player4";
-            this.p4_1_player4.Size = new System.Drawing.Size(171, 76);
-            this.p4_1_player4.TabIndex = 32;
-            this.p4_1_player4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // p4_1_message_tbx
             // 
             this.p4_1_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
@@ -1678,16 +1668,6 @@
             this.p4_1_message_tbx.Name = "p4_1_message_tbx";
             this.p4_1_message_tbx.Size = new System.Drawing.Size(570, 45);
             this.p4_1_message_tbx.TabIndex = 20;
-            // 
-            // p4_1_player3
-            // 
-            this.p4_1_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_player3.Location = new System.Drawing.Point(16, 247);
-            this.p4_1_player3.Name = "p4_1_player3";
-            this.p4_1_player3.Size = new System.Drawing.Size(171, 76);
-            this.p4_1_player3.TabIndex = 31;
-            this.p4_1_player3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // p4_1_start_btn
             // 
@@ -1716,7 +1696,7 @@
             this.p4_1_start_btn.ThemeAuthor = "Narwin";
             this.p4_1_start_btn.ThemeName = "MetroLite";
             this.p4_1_start_btn.Visible = false;
-            this.p4_1_start_btn.Click += new System.EventHandler(this.p4_1_ready_btn_Click);
+            this.p4_1_start_btn.Click += new System.EventHandler(this.p4_1_ready_btn_Click_1);
             // 
             // p4_1_ready_btn
             // 
@@ -1746,6 +1726,36 @@
             this.p4_1_ready_btn.ThemeName = "MetroLite";
             this.p4_1_ready_btn.Click += new System.EventHandler(this.p4_1_ready_btn_Click_1);
             // 
+            // p4_1_player5
+            // 
+            this.p4_1_player5.BackColor = System.Drawing.Color.LightGray;
+            this.p4_1_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player5.Location = new System.Drawing.Point(16, 409);
+            this.p4_1_player5.Name = "p4_1_player5";
+            this.p4_1_player5.Size = new System.Drawing.Size(171, 76);
+            this.p4_1_player5.TabIndex = 33;
+            this.p4_1_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p4_1_player4
+            // 
+            this.p4_1_player4.BackColor = System.Drawing.Color.LightGray;
+            this.p4_1_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player4.Location = new System.Drawing.Point(16, 328);
+            this.p4_1_player4.Name = "p4_1_player4";
+            this.p4_1_player4.Size = new System.Drawing.Size(171, 76);
+            this.p4_1_player4.TabIndex = 32;
+            this.p4_1_player4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p4_1_player3
+            // 
+            this.p4_1_player3.BackColor = System.Drawing.Color.LightGray;
+            this.p4_1_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player3.Location = new System.Drawing.Point(16, 247);
+            this.p4_1_player3.Name = "p4_1_player3";
+            this.p4_1_player3.Size = new System.Drawing.Size(171, 76);
+            this.p4_1_player3.TabIndex = 31;
+            this.p4_1_player3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // p4_1_player2
             // 
             this.p4_1_player2.BackColor = System.Drawing.Color.LightGray;
@@ -1755,15 +1765,6 @@
             this.p4_1_player2.Size = new System.Drawing.Size(171, 76);
             this.p4_1_player2.TabIndex = 30;
             this.p4_1_player2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // p4_1_roomInfo_label
-            // 
-            this.p4_1_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
-            this.p4_1_roomInfo_label.Location = new System.Drawing.Point(706, 12);
-            this.p4_1_roomInfo_label.Name = "p4_1_roomInfo_label";
-            this.p4_1_roomInfo_label.Size = new System.Drawing.Size(258, 54);
-            this.p4_1_roomInfo_label.TabIndex = 18;
-            this.p4_1_roomInfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // p4_1_player1
             // 
@@ -2452,11 +2453,11 @@
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
             this.Controls.Add(this.panel4_1_owner_waitRoom);
+            this.Controls.Add(this.panel4_player_waitRoom);
             this.Controls.Add(this.panel6_Answer);
             this.Controls.Add(this.panel5_1_Owner_Answer);
             this.Controls.Add(this.panel5_2_Owner_Wait);
             this.Controls.Add(this.panel5_Owner);
-            this.Controls.Add(this.panel4_player_waitRoom);
             this.Controls.Add(this.p3_title_label);
             this.Controls.Add(this.panel3_roomList);
             this.Controls.Add(this.panel2_gameStart);

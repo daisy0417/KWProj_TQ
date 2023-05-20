@@ -313,10 +313,10 @@ namespace client
             p3_roomname_tbx.Visible = false;
         }
 
+        // 방 만들기 버튼 클릭 시 이벤트
         private void p3_makeRoom_btn_Click(object sender, EventArgs e)
         {
             p3_roomname_label.Visible = true;
-            p3_roomname_label.Text = "생성 할 방 이름";
             p3_roomname_tbx.Visible = true;
             p3_roomname_tbx.Text = "";
             p3_create_btn.Visible = true;
@@ -380,32 +380,39 @@ namespace client
             string roomName = p3_roomname_tbx.Text;
             string roomMax = p3_people_tbx.Text;
 
-            if (roomName != string.Empty && roomMax != string.Empty)
+            if (string.IsNullOrEmpty(p3_roomname_tbx.Text))
             {
-                int num = 0;
-                try
+                ShowMessageBox("방 이름을 입력해주세요", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(string.IsNullOrEmpty(p3_people_tbx.Text))
+            {
+                ShowMessageBox("최대 정원을 입력해주세요", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                int maxPeople = Int32.Parse(p3_people_tbx.Text);
+                if(maxPeople>5)
                 {
-                    if (int.TryParse(p3_people_tbx.Text, out num))
-                    {
-                        client.RequestRoomCreate(roomName, roomMax);
-                    }
-                    //OwnerWait();
-                    //panel3_roomList.Visible = false;
-                    //panel4_waitRoom.Visible = true;
+                    ShowMessageBox("입장할 수 있는 최대 정원은 5명입니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                catch (NullReferenceException nre)
+                /* 테스트 할 때는 번거로워서 주석 처리함
+                else if(maxPeople<2)
                 {
-                    return;
+                    ShowMessageBox("2명 이상 입장해야 합니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                */
+                client.RequestRoomCreate(roomName, roomMax);
             }
         }
 
         public override void RoomCreate(bool success)
         {
-            if (success)
+            if (success == true)
             {
                 ShowMessageBox("방 생성 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                OwnerWait();
+                OwnerWait();    // 방장의 게임 시작 전 화면
+                client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
+                client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
             else
             {
@@ -413,9 +420,9 @@ namespace client
             }
         }
 
+        //방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼 있어야 됨.
         public override void OwnerWait()
         {
-            //방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Text = "";
@@ -435,32 +442,30 @@ namespace client
             }
         }
 
-
         public override void RoomJoin(string result)
         {
             if (result.Equals("-1"))
             {
-
                 ShowMessageBox("존재하지 않는 방입니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (result.Equals("-2"))
             {
-
                 ShowMessageBox("정원이 가득 찼습니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                // 대기 방 패널로 넘어가야 됨.
-                PlayerWait();   // 참가자의 게임 시작 전 화면
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
+                // 플레이어의 대기 방 패널로 넘어가야 됨.
+                PlayerWait();   // 참가자의 게임 시작 전 화면
+                
+                client.RequestSendRoomChat("유저", p1_username_tbx.Text + "이(가) 방에 참가함");
                 client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
         }
         public override void PlayerWait()
         {
-            // 참가자의 게임 시작 전 화면 -> 플레이어용 대기 방 화면
+            // 참가자의 게임 시작 전 화면 -> 플레이어 대기 방 화면
             //panel3_roomList.Visible = false;
             //panel4_player_waitRoom.Visible = true;
             p4_chat_tbx.Text = "";
