@@ -381,22 +381,30 @@ namespace client
             string roomName = p3_roomname_tbx.Text;
             string roomMax = p3_people_tbx.Text;
 
-            if (roomName != string.Empty && roomMax != string.Empty)
+            //최대 정원 5 이상일 경우 오류 출력
+            if (Convert.ToInt32(roomMax) > 5)    
             {
-                int num = 0;
-                try
+                ShowMessageBox("최대 정원 수를 초과했습니다.\n다시 입력해주세요.\n(최대 정원 수: 5명)", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (roomName != string.Empty && roomMax != string.Empty)
                 {
-                    if (int.TryParse(p3_people_tbx.Text, out num))
+                    int num = 0;
+                    try
                     {
-                        client.RequestRoomCreate(roomName, roomMax);
-                    }
+                        if (int.TryParse(p3_people_tbx.Text, out num))
+                        {
+                            client.RequestRoomCreate(roomName, roomMax);
+                        }
 
-                    //panel3_roomList.Visible = false;
-                    //panel4_waitRoom.Visible = true;
-                }
-                catch (NullReferenceException nre)
-                {
-                    return;
+                        //panel3_roomList.Visible = false;
+                        //panel4_waitRoom.Visible = true;
+                    }
+                    catch (NullReferenceException nre)
+                    {
+                        return;
+                    }
                 }
             }
         }
