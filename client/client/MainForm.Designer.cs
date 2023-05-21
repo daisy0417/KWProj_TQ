@@ -124,7 +124,6 @@
             this.p4_1_state_player3 = new System.Windows.Forms.Label();
             this.p4_1_state_player2 = new System.Windows.Forms.Label();
             this.p4_1_state_player1 = new System.Windows.Forms.Label();
-            this.p4_1_방장_label = new System.Windows.Forms.Label();
             this.p4_1_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_1_out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_1_send_btn = new MetroSet_UI.Controls.MetroSetButton();
@@ -839,6 +838,7 @@
             this.p3_roomname_label.TabIndex = 9;
             this.p3_roomname_label.Text = "생성할 방 이름";
             this.p3_roomname_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p3_roomname_label.Visible = false;
             // 
             // p3_roomname_tbx
             // 
@@ -1506,7 +1506,6 @@
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_state_player3);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_state_player2);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_state_player1);
-            this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_방장_label);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_refresh_btn);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_out_btn);
             this.panel4_1_owner_waitRoom.Controls.Add(this.p4_1_send_btn);
@@ -1595,16 +1594,6 @@
             this.p4_1_state_player1.TabIndex = 40;
             this.p4_1_state_player1.Text = "방장";
             this.p4_1_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // p4_1_방장_label
-            // 
-            this.p4_1_방장_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
-            this.p4_1_방장_label.Location = new System.Drawing.Point(158, 12);
-            this.p4_1_방장_label.Name = "p4_1_방장_label";
-            this.p4_1_방장_label.Size = new System.Drawing.Size(140, 54);
-            this.p4_1_방장_label.TabIndex = 35;
-            this.p4_1_방장_label.Text = "여긴 방장 방";
-            this.p4_1_방장_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // p4_1_refresh_btn
             // 
@@ -1727,7 +1716,6 @@
             this.p4_1_start_btn.ThemeAuthor = "Narwin";
             this.p4_1_start_btn.ThemeName = "MetroLite";
             this.p4_1_start_btn.Visible = false;
-            this.p4_1_start_btn.Click += new System.EventHandler(this.p4_1_ready_btn_Click_1);
             // 
             // p4_1_ready_btn
             // 
@@ -1755,7 +1743,6 @@
             this.p4_1_ready_btn.Text = "READY";
             this.p4_1_ready_btn.ThemeAuthor = "Narwin";
             this.p4_1_ready_btn.ThemeName = "MetroLite";
-            this.p4_1_ready_btn.Click += new System.EventHandler(this.p4_1_ready_btn_Click_1);
             // 
             // p4_1_player5
             // 
@@ -2614,7 +2601,6 @@
         private System.Windows.Forms.Label p4_1_roomInfo_label;
         private System.Windows.Forms.Label p4_1_player1;
         private System.Windows.Forms.TextBox p4_1_chat_tbx;
-        private System.Windows.Forms.Label p4_1_방장_label;
         private System.Windows.Forms.Label p6_player_turn_label;
         private System.Windows.Forms.Label p4_1_state_player5;
         private System.Windows.Forms.Label p4_1_state_player4;

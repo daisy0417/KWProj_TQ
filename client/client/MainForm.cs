@@ -395,13 +395,17 @@ namespace client
                 {
                     ShowMessageBox("입장할 수 있는 최대 정원은 5명입니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                /* 테스트 할 때는 번거로워서 주석 처리함
                 else if(maxPeople<2)
                 {
                     ShowMessageBox("2명 이상 입장해야 합니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                */
-                client.RequestRoomCreate(roomName, roomMax);
+                else
+                {
+                    OwnerWait();
+                    //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                    //panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
+                    client.RequestRoomCreate(roomName, roomMax);
+                }
             }
         }
 
@@ -410,7 +414,8 @@ namespace client
             if (success == true)
             {
                 ShowMessageBox("방 생성 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                OwnerWait();    // 방장의 게임 시작 전 화면
+                //OwnerWait();    // 방장의 게임 시작 전 화면
+                
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
@@ -423,6 +428,9 @@ namespace client
         //방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼 있어야 됨.
         public override void OwnerWait()
         {
+            //panel3_roomList.Visible = false;
+            //panel4_1_owner_waitRoom.Visible = true;
+
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Text = "";
@@ -437,8 +445,10 @@ namespace client
             if (rName != string.Empty)
             {
                 client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
+                //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
                 //client.RequestRoomCreate(roomName, "5");
-                //PlayerWait();
+                PlayerWait();
             }
         }
 
@@ -624,8 +634,9 @@ namespace client
         #region Owner(방장)
         private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
         {
-            client.RequestGameReady();  // 현재 준비 상태 보냄
             p4_1_start_btn.Visible = true;
+            client.RequestGameReady();  // 현재 준비 상태 보냄
+
         }
 
         private void p4_1_start_btn_Click(object sender, EventArgs e)
@@ -647,12 +658,12 @@ namespace client
 
         private void p4_1_send_btn_Click(object sender, EventArgs e)
         {
-            string content = p4_message_tbx.Text;
+            string content = p4_1_message_tbx.Text;
             client.username = p1_username_tbx.Text;
             if (content != string.Empty)
             {
                 client.RequestSendRoomChat(client.username, content);
-                p4_message_tbx.Text = "";
+                p4_1_message_tbx.Text = "";
             }
         }
 
@@ -693,7 +704,9 @@ namespace client
 
                     //p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
                     // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
-                    p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax); }));
+                    //p4_1_roomInfo_label.Text = "방장 방";
+                    p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Text = "방장 방"; }));
+                    //p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax); }));
 
 
                     switch (playerCount)
@@ -768,8 +781,8 @@ namespace client
                 p4_state_player4.Text = "준비 완료";
             else if (player == p4_player5.Text)
                 p4_state_player5.Text = "준비 완료";
-            panel4_player_waitRoom.Visible = false;
-            panel6_Answer.Visible = true; //p6화면 확인 test
+            //panel4_player_waitRoom.Visible = false;
+            //panel6_Answer.Visible = true; //p6화면 확인 test
 
             // 플레이어의 준비하기 버튼 클릭 후 준비 상태 보냄
             client.RequestGameReady();
@@ -815,8 +828,10 @@ namespace client
                     string roomName = roomInfo[0];
                     string playerCount = roomInfo[1];
                     string roomMax = roomInfo[2];
-                    
-                    p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
+
+                    //p4_roomInfo_label.Text = "플레이어 방";
+                    p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = "플레이어 방"; }));
+                    //p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
                     // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
                     // p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax);
 

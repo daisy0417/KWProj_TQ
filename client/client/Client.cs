@@ -200,7 +200,7 @@ namespace client
                 }
                 else if (content.Equals("PLAYERWAIT"))
                 {
-                    parentForm.PresenterWait();
+                    parentForm.PlayerWait();
                 }
                 else if (content.Equals("PRESENTERCHOICE"))
                 {
