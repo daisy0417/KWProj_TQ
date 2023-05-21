@@ -459,6 +459,7 @@ namespace client
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text = ""; }));
 
+            client.RequestGameReady();
             client.RequestPlayerList(roomname);
             p4_1_current_player();
         }
@@ -513,7 +514,7 @@ namespace client
             // 참가자의 게임 시작 전 화면 -> 플레이어 대기 방 화면
             //panel3_roomList.Visible = false;
             //panel4_player_waitRoom.Visible = true;
-            p4_chat_tbx.Text = "";
+            p4_chat_tbx.Invoke(new MethodInvoker(delegate {  p4_chat_tbx.Text = ""; }));
 
             p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = "플레이어 방"; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
@@ -698,6 +699,7 @@ namespace client
         {
             // 게임 시작하기 버튼 누르면 게임에 모두 준비되었는 지 확인하는 request 보냄
             // 전부 준비 안 되어 있으면 GameStartFail() 실행
+            panel4_1_owner_waitRoom.Visible = false;
             client.RequestGameStart();
         }
 
@@ -767,7 +769,7 @@ namespace client
             }
             else
             {
-                p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Visible = false; }));
+                //p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Visible = false; }));
             }
         }
 
@@ -855,7 +857,7 @@ namespace client
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
-            //p3_roomname_label.Visible = false;
+            p3_roomname_label.Visible = false;
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = false; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
         }
@@ -959,7 +961,7 @@ namespace client
             }
             else
             {
-                p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Visible = false; }));
+                //p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Visible = false; }));
             }
 
         }  
@@ -1142,6 +1144,7 @@ namespace client
         // 게임 시작 후 출제자가 질문을 기다리는 화면
         public override void PresenterWait()
         {
+            
             panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
             panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
         }
@@ -1235,6 +1238,8 @@ namespace client
         // 게임 시작 후 질문자가 질문을 작성하는 화면 > 턴o
         public override void QuestionerQuestion()
         {
+            Changing();
+            panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; }));
             //사용자 턴에 따른 사용자 리스트 라벨 변경 > 사용자 누구? -> 테두리 색 변환
             if(turn_cnt < 21)
             {

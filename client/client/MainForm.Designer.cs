@@ -95,6 +95,7 @@
             this.p3_title_label = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel6_Answer = new System.Windows.Forms.Panel();
+            this.p6_timer_label = new System.Windows.Forms.Label();
             this.p6_player5_score = new System.Windows.Forms.Label();
             this.p6_buzzer_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p6_player4_score = new System.Windows.Forms.Label();
@@ -185,7 +186,6 @@
             this.p5_2_player2 = new System.Windows.Forms.Label();
             this.p5_2_player1 = new System.Windows.Forms.Label();
             this.p5_2_player_turn_label = new System.Windows.Forms.Label();
-            this.p6_timer_label = new System.Windows.Forms.Label();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -853,6 +853,7 @@
             // 
             // panel4_player_waitRoom
             // 
+            this.panel4_player_waitRoom.BackColor = System.Drawing.Color.Olive;
             this.panel4_player_waitRoom.Controls.Add(this.p4_readyDone_btn);
             this.panel4_player_waitRoom.Controls.Add(this.p4_w_state_player5);
             this.panel4_player_waitRoom.Controls.Add(this.p4_w_state_player4);
@@ -1209,6 +1210,17 @@
             this.panel6_Answer.TabIndex = 22;
             this.panel6_Answer.Visible = false;
             this.panel6_Answer.VisibleChanged += new System.EventHandler(this.panel6_Answer_VisibleChanged);
+            // 
+            // p6_timer_label
+            // 
+            this.p6_timer_label.BackColor = System.Drawing.Color.LightGreen;
+            this.p6_timer_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_timer_label.Location = new System.Drawing.Point(261, 37);
+            this.p6_timer_label.Name = "p6_timer_label";
+            this.p6_timer_label.Size = new System.Drawing.Size(118, 34);
+            this.p6_timer_label.TabIndex = 47;
+            this.p6_timer_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p6_timer_label.Visible = false;
             // 
             // p6_player5_score
             // 
@@ -1727,7 +1739,6 @@
             this.p4_1_start_btn.Text = "START";
             this.p4_1_start_btn.ThemeAuthor = "Narwin";
             this.p4_1_start_btn.ThemeName = "MetroLite";
-            this.p4_1_start_btn.Visible = false;
             this.p4_1_start_btn.Click += new System.EventHandler(this.p4_1_start_btn_Click);
             // 
             // p4_1_player5
@@ -2456,17 +2467,6 @@
             this.p5_2_player_turn_label.Size = new System.Drawing.Size(186, 89);
             this.p5_2_player_turn_label.TabIndex = 46;
             this.p5_2_player_turn_label.Visible = false;
-            // 
-            // p6_timer_label
-            // 
-            this.p6_timer_label.BackColor = System.Drawing.Color.LightGreen;
-            this.p6_timer_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p6_timer_label.Location = new System.Drawing.Point(261, 37);
-            this.p6_timer_label.Name = "p6_timer_label";
-            this.p6_timer_label.Size = new System.Drawing.Size(118, 34);
-            this.p6_timer_label.TabIndex = 47;
-            this.p6_timer_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p6_timer_label.Visible = false;
             // 
             // MainForm
             // 
