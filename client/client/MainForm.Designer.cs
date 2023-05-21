@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -186,6 +186,24 @@
             this.p5_2_player2 = new System.Windows.Forms.Label();
             this.p5_2_player1 = new System.Windows.Forms.Label();
             this.p5_2_player_turn_label = new System.Windows.Forms.Label();
+            this.panel6_2_Answer_Wait = new System.Windows.Forms.Panel();
+            this.p6_2_timer_label = new System.Windows.Forms.Label();
+            this.p6_2_player5_score = new System.Windows.Forms.Label();
+            this.p6_2_buzzer_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p6_2_player4_score = new System.Windows.Forms.Label();
+            this.p6_2_solution_label = new System.Windows.Forms.Label();
+            this.p6_2_player3_score = new System.Windows.Forms.Label();
+            this.p6_2_player5 = new System.Windows.Forms.Label();
+            this.p6_2_player2_score = new System.Windows.Forms.Label();
+            this.p6_2_player4 = new System.Windows.Forms.Label();
+            this.p6_2_player1_score = new System.Windows.Forms.Label();
+            this.p6_2_player3 = new System.Windows.Forms.Label();
+            this.p6_2_player2 = new System.Windows.Forms.Label();
+            this.p6_2_player1 = new System.Windows.Forms.Label();
+            this.p6_2_player_turn_label = new System.Windows.Forms.Label();
+            this.p6_2_send_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p6_2_answer_tbx = new System.Windows.Forms.TextBox();
+            this.p6_2_QA_tbx = new System.Windows.Forms.TextBox();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -197,6 +215,7 @@
             this.panel5_Owner.SuspendLayout();
             this.panel5_1_Owner_Answer.SuspendLayout();
             this.panel5_2_Owner_Wait.SuspendLayout();
+            this.panel6_2_Answer_Wait.SuspendLayout();
             this.SuspendLayout();
             // 
             // title_label
@@ -236,7 +255,6 @@
             this.metroSetControlBox1.Text = "metroSetControlBox1";
             this.metroSetControlBox1.ThemeAuthor = "Narwin";
             this.metroSetControlBox1.ThemeName = "MetroLite";
-            this.metroSetControlBox1.Click += new System.EventHandler(this.metroSetControlBox1_Click);
             // 
             // midTitle_label
             // 
@@ -605,49 +623,49 @@
             // p3_dataGridView1
             // 
             this.p3_dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.p3_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.p3_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.p3_dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.People,
             this.btn});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle22;
             this.p3_dataGridView1.Location = new System.Drawing.Point(18, 104);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.p3_dataGridView1.RowHeadersVisible = false;
             this.p3_dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowTemplate.Height = 40;
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
@@ -656,8 +674,8 @@
             // 
             // RoomName
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle19;
             this.RoomName.FillWeight = 150F;
             this.RoomName.HeaderText = "방 이름";
             this.RoomName.MinimumWidth = 6;
@@ -666,8 +684,8 @@
             // 
             // People
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.People.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.People.DefaultCellStyle = dataGridViewCellStyle20;
             this.People.HeaderText = "접속 인원";
             this.People.MinimumWidth = 6;
             this.People.Name = "People";
@@ -675,9 +693,9 @@
             // 
             // btn
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn.DefaultCellStyle = dataGridViewCellStyle21;
             this.btn.HeaderText = "버튼";
             this.btn.MinimumWidth = 6;
             this.btn.Name = "btn";
@@ -2469,12 +2487,262 @@
             this.p5_2_player_turn_label.TabIndex = 46;
             this.p5_2_player_turn_label.Visible = false;
             // 
+            // panel6_2_Answer_Wait
+            // 
+            this.panel6_2_Answer_Wait.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_timer_label);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player5_score);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_buzzer_btn);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player4_score);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_solution_label);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player3_score);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player5);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player2_score);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player4);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player1_score);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player3);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player2);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player1);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_player_turn_label);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_send_btn);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_answer_tbx);
+            this.panel6_2_Answer_Wait.Controls.Add(this.p6_2_QA_tbx);
+            this.panel6_2_Answer_Wait.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6_2_Answer_Wait.Location = new System.Drawing.Point(18, 75);
+            this.panel6_2_Answer_Wait.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6_2_Answer_Wait.Name = "panel6_2_Answer_Wait";
+            this.panel6_2_Answer_Wait.Size = new System.Drawing.Size(988, 539);
+            this.panel6_2_Answer_Wait.TabIndex = 26;
+            this.panel6_2_Answer_Wait.Visible = false;
+            // 
+            // p6_2_timer_label
+            // 
+            this.p6_2_timer_label.BackColor = System.Drawing.Color.LightGreen;
+            this.p6_2_timer_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_timer_label.Location = new System.Drawing.Point(261, 37);
+            this.p6_2_timer_label.Name = "p6_2_timer_label";
+            this.p6_2_timer_label.Size = new System.Drawing.Size(118, 34);
+            this.p6_2_timer_label.TabIndex = 47;
+            this.p6_2_timer_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p6_2_timer_label.Visible = false;
+            // 
+            // p6_2_player5_score
+            // 
+            this.p6_2_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p6_2_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player5_score.Location = new System.Drawing.Point(66, 432);
+            this.p6_2_player5_score.Name = "p6_2_player5_score";
+            this.p6_2_player5_score.Size = new System.Drawing.Size(118, 28);
+            this.p6_2_player5_score.TabIndex = 44;
+            this.p6_2_player5_score.Text = "점수 : 0";
+            this.p6_2_player5_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p6_2_player5_score.Visible = false;
+            // 
+            // p6_2_buzzer_btn
+            // 
+            this.p6_2_buzzer_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_buzzer_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_buzzer_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p6_2_buzzer_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p6_2_buzzer_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p6_2_buzzer_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p6_2_buzzer_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p6_2_buzzer_btn.IsDerivedStyle = true;
+            this.p6_2_buzzer_btn.Location = new System.Drawing.Point(42, 482);
+            this.p6_2_buzzer_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p6_2_buzzer_btn.Name = "p6_2_buzzer_btn";
+            this.p6_2_buzzer_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_buzzer_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_buzzer_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p6_2_buzzer_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p6_2_buzzer_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p6_2_buzzer_btn.PressTextColor = System.Drawing.Color.White;
+            this.p6_2_buzzer_btn.Size = new System.Drawing.Size(171, 44);
+            this.p6_2_buzzer_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p6_2_buzzer_btn.StyleManager = null;
+            this.p6_2_buzzer_btn.TabIndex = 37;
+            this.p6_2_buzzer_btn.Text = "정답 ( 5 / 5 )";
+            this.p6_2_buzzer_btn.ThemeAuthor = "Narwin";
+            this.p6_2_buzzer_btn.ThemeName = "MetroLite";
+            // 
+            // p6_2_player4_score
+            // 
+            this.p6_2_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p6_2_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player4_score.Location = new System.Drawing.Point(66, 340);
+            this.p6_2_player4_score.Name = "p6_2_player4_score";
+            this.p6_2_player4_score.Size = new System.Drawing.Size(118, 28);
+            this.p6_2_player4_score.TabIndex = 43;
+            this.p6_2_player4_score.Text = "점수 : 0";
+            this.p6_2_player4_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p6_2_player4_score.Visible = false;
+            // 
+            // p6_2_solution_label
+            // 
+            this.p6_2_solution_label.BackColor = System.Drawing.Color.PapayaWhip;
+            this.p6_2_solution_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_solution_label.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.p6_2_solution_label.Location = new System.Drawing.Point(431, 12);
+            this.p6_2_solution_label.Name = "p6_2_solution_label";
+            this.p6_2_solution_label.Size = new System.Drawing.Size(354, 59);
+            this.p6_2_solution_label.TabIndex = 36;
+            this.p6_2_solution_label.Text = "입력 중...";
+            this.p6_2_solution_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // p6_2_player3_score
+            // 
+            this.p6_2_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p6_2_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player3_score.Location = new System.Drawing.Point(66, 251);
+            this.p6_2_player3_score.Name = "p6_2_player3_score";
+            this.p6_2_player3_score.Size = new System.Drawing.Size(118, 28);
+            this.p6_2_player3_score.TabIndex = 42;
+            this.p6_2_player3_score.Text = "점수 : 0";
+            this.p6_2_player3_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p6_2_player3_score.Visible = false;
+            // 
+            // p6_2_player5
+            // 
+            this.p6_2_player5.BackColor = System.Drawing.Color.LightGray;
+            this.p6_2_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player5.Location = new System.Drawing.Point(41, 391);
+            this.p6_2_player5.Name = "p6_2_player5";
+            this.p6_2_player5.Size = new System.Drawing.Size(171, 76);
+            this.p6_2_player5.TabIndex = 35;
+            this.p6_2_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p6_2_player2_score
+            // 
+            this.p6_2_player2_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p6_2_player2_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player2_score.Location = new System.Drawing.Point(66, 161);
+            this.p6_2_player2_score.Name = "p6_2_player2_score";
+            this.p6_2_player2_score.Size = new System.Drawing.Size(118, 28);
+            this.p6_2_player2_score.TabIndex = 41;
+            this.p6_2_player2_score.Text = "점수 : 0";
+            this.p6_2_player2_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p6_2_player2_score.Visible = false;
+            // 
+            // p6_2_player4
+            // 
+            this.p6_2_player4.BackColor = System.Drawing.Color.LightGray;
+            this.p6_2_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player4.Location = new System.Drawing.Point(41, 300);
+            this.p6_2_player4.Name = "p6_2_player4";
+            this.p6_2_player4.Size = new System.Drawing.Size(171, 76);
+            this.p6_2_player4.TabIndex = 34;
+            this.p6_2_player4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p6_2_player1_score
+            // 
+            this.p6_2_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p6_2_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player1_score.Location = new System.Drawing.Point(66, 74);
+            this.p6_2_player1_score.Name = "p6_2_player1_score";
+            this.p6_2_player1_score.Size = new System.Drawing.Size(118, 28);
+            this.p6_2_player1_score.TabIndex = 40;
+            this.p6_2_player1_score.Text = "점수 : 0";
+            this.p6_2_player1_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // p6_2_player3
+            // 
+            this.p6_2_player3.BackColor = System.Drawing.Color.LightGray;
+            this.p6_2_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player3.Location = new System.Drawing.Point(41, 210);
+            this.p6_2_player3.Name = "p6_2_player3";
+            this.p6_2_player3.Size = new System.Drawing.Size(171, 76);
+            this.p6_2_player3.TabIndex = 33;
+            this.p6_2_player3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p6_2_player2
+            // 
+            this.p6_2_player2.BackColor = System.Drawing.Color.LightGray;
+            this.p6_2_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player2.Location = new System.Drawing.Point(41, 120);
+            this.p6_2_player2.Name = "p6_2_player2";
+            this.p6_2_player2.Size = new System.Drawing.Size(171, 76);
+            this.p6_2_player2.TabIndex = 32;
+            this.p6_2_player2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p6_2_player1
+            // 
+            this.p6_2_player1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p6_2_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.p6_2_player1.Location = new System.Drawing.Point(41, 30);
+            this.p6_2_player1.Name = "p6_2_player1";
+            this.p6_2_player1.Size = new System.Drawing.Size(171, 76);
+            this.p6_2_player1.TabIndex = 31;
+            this.p6_2_player1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p6_2_player_turn_label
+            // 
+            this.p6_2_player_turn_label.BackColor = System.Drawing.Color.LightSalmon;
+            this.p6_2_player_turn_label.Location = new System.Drawing.Point(33, 22);
+            this.p6_2_player_turn_label.Name = "p6_2_player_turn_label";
+            this.p6_2_player_turn_label.Size = new System.Drawing.Size(186, 89);
+            this.p6_2_player_turn_label.TabIndex = 46;
+            this.p6_2_player_turn_label.Visible = false;
+            // 
+            // p6_2_send_btn
+            // 
+            this.p6_2_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_send_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_send_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p6_2_send_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p6_2_send_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p6_2_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p6_2_send_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p6_2_send_btn.IsDerivedStyle = true;
+            this.p6_2_send_btn.Location = new System.Drawing.Point(837, 482);
+            this.p6_2_send_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p6_2_send_btn.Name = "p6_2_send_btn";
+            this.p6_2_send_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_send_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_2_send_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p6_2_send_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p6_2_send_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p6_2_send_btn.PressTextColor = System.Drawing.Color.White;
+            this.p6_2_send_btn.Size = new System.Drawing.Size(127, 45);
+            this.p6_2_send_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p6_2_send_btn.StyleManager = null;
+            this.p6_2_send_btn.TabIndex = 30;
+            this.p6_2_send_btn.Text = "SEND";
+            this.p6_2_send_btn.ThemeAuthor = "Narwin";
+            this.p6_2_send_btn.ThemeName = "MetroLite";
+            // 
+            // p6_2_answer_tbx
+            // 
+            this.p6_2_answer_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p6_2_answer_tbx.ForeColor = System.Drawing.Color.DarkGray;
+            this.p6_2_answer_tbx.Location = new System.Drawing.Point(261, 482);
+            this.p6_2_answer_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p6_2_answer_tbx.Multiline = true;
+            this.p6_2_answer_tbx.Name = "p6_2_answer_tbx";
+            this.p6_2_answer_tbx.Size = new System.Drawing.Size(570, 45);
+            this.p6_2_answer_tbx.TabIndex = 29;
+            // 
+            // p6_2_QA_tbx
+            // 
+            this.p6_2_QA_tbx.BackColor = System.Drawing.SystemColors.Window;
+            this.p6_2_QA_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p6_2_QA_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.p6_2_QA_tbx.Location = new System.Drawing.Point(261, 82);
+            this.p6_2_QA_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p6_2_QA_tbx.Multiline = true;
+            this.p6_2_QA_tbx.Name = "p6_2_QA_tbx";
+            this.p6_2_QA_tbx.ReadOnly = true;
+            this.p6_2_QA_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.p6_2_QA_tbx.Size = new System.Drawing.Size(703, 394);
+            this.p6_2_QA_tbx.TabIndex = 28;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
+            this.Controls.Add(this.panel6_2_Answer_Wait);
             this.Controls.Add(this.panel6_Answer);
             this.Controls.Add(this.panel5_1_Owner_Answer);
             this.Controls.Add(this.panel5_2_Owner_Wait);
@@ -2513,6 +2781,8 @@
             this.panel5_1_Owner_Answer.PerformLayout();
             this.panel5_2_Owner_Wait.ResumeLayout(false);
             this.panel5_2_Owner_Wait.PerformLayout();
+            this.panel6_2_Answer_Wait.ResumeLayout(false);
+            this.panel6_2_Answer_Wait.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2669,5 +2939,23 @@
         private System.Windows.Forms.Label p5_2_player_turn_label;
         private MetroSet_UI.Controls.MetroSetButton p4_readyDone_btn;
         private System.Windows.Forms.Label p6_timer_label;
+        private System.Windows.Forms.Panel panel6_2_Answer_Wait;
+        private System.Windows.Forms.Label p6_2_timer_label;
+        private System.Windows.Forms.Label p6_2_player5_score;
+        private MetroSet_UI.Controls.MetroSetButton p6_2_buzzer_btn;
+        private System.Windows.Forms.Label p6_2_player4_score;
+        private System.Windows.Forms.Label p6_2_solution_label;
+        private System.Windows.Forms.Label p6_2_player3_score;
+        private System.Windows.Forms.Label p6_2_player5;
+        private System.Windows.Forms.Label p6_2_player2_score;
+        private System.Windows.Forms.Label p6_2_player4;
+        private System.Windows.Forms.Label p6_2_player1_score;
+        private System.Windows.Forms.Label p6_2_player3;
+        private System.Windows.Forms.Label p6_2_player2;
+        private System.Windows.Forms.Label p6_2_player1;
+        private System.Windows.Forms.Label p6_2_player_turn_label;
+        private MetroSet_UI.Controls.MetroSetButton p6_2_send_btn;
+        private System.Windows.Forms.TextBox p6_2_answer_tbx;
+        private System.Windows.Forms.TextBox p6_2_QA_tbx;
     }
 }
