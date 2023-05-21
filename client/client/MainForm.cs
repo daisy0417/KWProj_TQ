@@ -1146,7 +1146,7 @@ namespace client
         // 게임 시작 후 출제자가 질문을 기다리는 화면
         public override void PresenterWait()
         {
-            
+            panel5_Owner.Invoke(new MethodInvoker(delegate {  panel5_Owner.Visible = false; }));
             panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
             panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
         }
@@ -1157,6 +1157,7 @@ namespace client
             // RequestSendAnswer()를 보낼 수 있는 버튼 필요
             panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = true; }));
             panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
+            panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = false; }));
 
             // 제시어를 출제자 화면에는 보여줌
             p5_1_answer_label.Invoke(new MethodInvoker(delegate { p5_1_answer_label.Text = p5_message_tbx.Text; }));
