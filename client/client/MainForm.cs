@@ -398,8 +398,8 @@ namespace client
                             client.RequestRoomCreate(roomName, roomMax);
                         }
 
-                        //panel3_roomList.Visible = false;
-                        //panel4_waitRoom.Visible = true;
+                        panel3_roomList.Visible = false;
+                        panel4_1_owner_waitRoom.Visible = true;
                     }
                     catch (NullReferenceException nre)
                     {
@@ -414,7 +414,7 @@ namespace client
             if (success)
             {
                 ShowMessageBox("방 생성 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                OwnerWait();
+                p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
             }
             else
             {
@@ -428,9 +428,12 @@ namespace client
             //panel3_roomList.Visible = false;
             //panel4_1_owner_waitRoom.Visible = true;
             p4_1_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
-            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-            panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
+            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            //panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Text = "";
+
+            client.RequestPlayerList(roomName);
+            p4_1_current_player();
         }
 
         string roomName;
@@ -443,8 +446,7 @@ namespace client
             {
                 client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
                 //client.RequestRoomCreate(roomName, "5");
-                //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-                //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+                
             }
         }
 
@@ -464,7 +466,8 @@ namespace client
             else
             {
                 // 대기 방 패널로 넘어가야 됨.
-                PlayerWait();   // 참가자의 게임 시작 전 화면
+                panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
@@ -478,8 +481,8 @@ namespace client
             //panel4_player_waitRoom.Visible = true;
             p4_chat_tbx.Text = "";
 
-            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
         }
 
         // 새로 고침 버튼 클릭 시 이벤트
@@ -647,12 +650,12 @@ namespace client
 
         private void p4_1_send_btn_Click(object sender, EventArgs e)
         {
-            string content = p4_message_tbx.Text;
+            string content = p4_1_message_tbx.Text;
             client.username = p1_username_tbx.Text;
             if (content != string.Empty)
             {
                 client.RequestSendRoomChat(client.username, content);
-                p4_message_tbx.Text = "";
+                p4_1_message_tbx.Text = "";
             }
         }
 
