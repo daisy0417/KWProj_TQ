@@ -688,14 +688,13 @@ namespace ServerProgram
             {
                 server.win(); //점수추가
                 RoomChat("정답!", server);
-                int questioner = room.NextQuestioner();
                 room.NextPresenter();
                 List<Server> qList = room.GetQuestionerList();
                 if (room.CurrentQuestioner != 0)
                 {//출제자 한바퀴만
                     for (int i = 0; i < qList.Count; i++)
                     {
-                        if (i == questioner)//다음 문제
+                        if (qList[i].username.CompareTo(room.GetPresenter().username) == 0)//다음 문제
                         {
                             qList[i].SendResponse("GAMESCREEN", "PRESENTERCHOICE");
                         }
@@ -752,17 +751,37 @@ namespace ServerProgram
             }
             if (tok == q) // 모든 플레이어가 도전 기회를 소모해서 게임 종료하는 조건 
             {
-                RoomChat("게임 종료!", server);
-                room.starting = false;
-                for (int i = 0; i < ql.Count; i++)
-                {
-                    if (server.username.CompareTo(room.GetOwner().username) == 0)
+                RoomChat("실패! 정답은 "+room.word, server);
+                room.NextPresenter();
+                List<Server> qList = room.GetQuestionerList();
+                if (room.CurrentQuestioner != 0)
+                {//출제자 한바퀴만
+                    for (int i = 0; i < qList.Count; i++)
                     {
-                        ql[i].SendResponse("GAMESCREEN", "OWNERWAIT");
+                        if (qList[i].username.CompareTo(room.GetPresenter().username)==0)//다음 문제
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "PRESENTERCHOICE");
+                        }
+                        else
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                        }
                     }
-                    else
+                }
+                else //대기방으로
+                {
+                    RoomChat("게임 종료!", server);
+                    room.starting = false;
+                    for (int i = 0; i < qList.Count; i++)
                     {
-                        ql[i].SendResponse("GAMESCREEN", "PLAYERWAIT");
+                        if (server.username.CompareTo(room.GetOwner().username) == 0)
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "OWNERWAIT");
+                        }
+                        else
+                        {
+                            qList[i].SendResponse("GAMESCREEN", "PLAYERWAIT");
+                        }
                     }
                 }
             }
