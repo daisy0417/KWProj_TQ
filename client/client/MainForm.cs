@@ -298,7 +298,7 @@ namespace client
 
         private void p2_gameStart_btn_Click(object sender, EventArgs e)
         {
-            client.RequestRoomList();
+
             panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = false; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
             p3_title_label.Visible = true;
@@ -310,6 +310,7 @@ namespace client
 
         private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
         {
+            client.RequestRoomList();
             p3_comein_label.Text = String.Format("{0} 님 접속 중", p1_username_tbx.Text);
             p3_roomname_tbx.Visible = false;
         }
