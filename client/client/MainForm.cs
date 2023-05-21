@@ -868,6 +868,7 @@ namespace client
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
             client.RequestGameReady();
+            p4_Out_btn.Invoke(new MethodInvoker(delegate { p4_Out_btn.Visible = false; }));
 
             //p4_gameStart_btn.Visible = true;
             string player = p1_username_tbx.Text;
@@ -899,6 +900,7 @@ namespace client
             p4_readyDone_btn.Invoke(new MethodInvoker(delegate { p4_readyDone_btn.Visible = false; }));
             client.RequestGameReady();
             */
+            
         }
 
         private void p4_refesh_btn_Click(object sender, EventArgs e)
