@@ -600,7 +600,7 @@ namespace client
         // 뒤로 가기 버튼 클릭 시 이벤트
         private void p3_back_btn_Click(object sender, EventArgs e)
         {
-            client.RequestRoomOut();
+            client.RequestRoomOut("0");
             p3_title_label.Visible = false;
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
@@ -917,7 +917,7 @@ namespace client
 
         private void p4_Out_btn_Click(object sender, EventArgs e)
         {
-            client.RequestRoomOut();
+            client.RequestRoomOut("0");
             p4_chat_tbx.Text = "";
             p4_ready_btn.Text = "READY";
             p3_people_label.Visible = false;
@@ -956,7 +956,7 @@ namespace client
 
         private void p4_1_out_btn_Click(object sender, EventArgs e)
         {
-            client.RequestRoomOut();
+            client.RequestRoomOut("0");
             p4_1_chat_tbx.Text = "";
             p4_1_start_btn.Text = "READY";
             p3_people_label.Visible = false;
@@ -1332,6 +1332,11 @@ namespace client
         }
 
         int turn_cnt = 0;   // 질문 횟수 계산
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            client.RequestRoomOut("0");
+        }
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
