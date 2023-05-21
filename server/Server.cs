@@ -95,6 +95,7 @@ namespace ServerProgram
         public void set_winpoint(int winpoint) { win_point = winpoint; }
         public void minus_chance() { remain_qs--; }
         public int get_remain_chance() { return remain_qs; }
+        public void set_remain_chance() { remain_qs = 5; }
     }
 
     public class MainServer
@@ -830,6 +831,7 @@ namespace ServerProgram
                     {
                         ownerPlayer.SendResponse("GAMESTART", "0");
                     }
+                    players[i].set_remain_chance();
                 }
                 starting = true;
 
