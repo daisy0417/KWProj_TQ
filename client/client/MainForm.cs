@@ -375,10 +375,13 @@ namespace client
         /// 방 생성하기 버튼 클릭 시 이벤트
         /// 방 이름과 최대 정원이 모두 입력되면 방 생성함
         /// </summary>
+        /// 
+        string roomname; // 현재 방 이름
         private void p3_create_btn_Click(object sender, EventArgs e)
         {
             string roomName = p3_roomname_tbx.Text;
             string roomMax = p3_people_tbx.Text;
+            roomname = roomName;
 
             if (string.IsNullOrEmpty(p3_roomname_tbx.Text))
             {
@@ -417,7 +420,7 @@ namespace client
                 //OwnerWait();    // 방장의 게임 시작 전 화면
                 
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
-                client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
+                client.RequestPlayerList(roomname); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
             else
             {
@@ -430,18 +433,23 @@ namespace client
         {
             //panel3_roomList.Visible = false;
             //panel4_1_owner_waitRoom.Visible = true;
+            p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
+            p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = p1_username_tbx.Text; }));
 
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Text = "";
+
+            client.RequestPlayerList(roomname);
+            p4_1_current_player();
         }
 
-        string roomName;
+        
         //테이블 내 입장하기 버튼 클릭 시
         private void p3_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string rName = p3_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            roomName = rName;
+            roomname = rName;
             if (rName != string.Empty)
             {
                 client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
@@ -470,7 +478,7 @@ namespace client
                 PlayerWait();   // 참가자의 게임 시작 전 화면
                 
                 client.RequestSendRoomChat("유저", p1_username_tbx.Text + "이(가) 방에 참가함");
-                client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
+                client.RequestPlayerList(roomname); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
         }
         public override void PlayerWait()
@@ -480,8 +488,8 @@ namespace client
             //panel4_player_waitRoom.Visible = true;
             p4_chat_tbx.Text = "";
 
-            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
         }
 
         // 새로 고침 버튼 클릭 시 이벤트
@@ -609,12 +617,21 @@ namespace client
             }
             p4_current_player();
             p4_1_current_player();
+            p6_current_player();
         }
 
-        public override void RoomOut()
+
+        private void p4_1_refresh_btn_Click(object sender, EventArgs e)
         {
-            ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            p4_1_player_change();
+            client.RequestPlayerList(roomname);
         }
+
+        int Game_start = 0; //chatList.Clear를 한번만 하기 위해서 사용
+        List<string> Q_AList; //chatList.Clear를 한번만 하기 위해서 사용2
+
+        //대기화면 채팅, 게임 질의응답 
+            
 
         public override void RoomChat(List<string> chatList)
         {
@@ -629,7 +646,21 @@ namespace client
             {
                 p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text += chat + "\r\n"; }));
             });
+            // 현재 방에 아무도 없다면 대화내용 삭제 > 현재의 
+            // 게임 시작시, chatList 내용 삭제 후 게임 내용 넣기
+            Q_AList = chatList; 
+            if( panel6_Answer.Visible == true) //판넬5 포함
+            {
+                //chatList.Clear();
+                chatList = Q_AList;
+            }
+            p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text = ""; }));
+            chatList.ForEach(chat =>
+            {
+                p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text += chat + "\r\n"; }));
+            });
         }
+        #endregion
 
         #region Owner(방장)
         private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
@@ -665,27 +696,6 @@ namespace client
                 client.RequestSendRoomChat(client.username, content);
                 p4_1_message_tbx.Text = "";
             }
-        }
-
-        private void p4_1_refresh_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestPlayerList(roomName);
-        }
-
-        private void p4_1_out_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestRoomOut();
-            p4_1_chat_tbx.Text = "";
-            p4_1_start_btn.Text = "READY";
-            p3_people_label.Visible = false;
-            p3_people_tbx.Visible = false;
-            p3_create_btn.Visible = false;
-            p3_roomname_label.Visible = false;
-
-            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
-            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
-            panel4_1_owner_waitRoom.Visible = false;
-            panel3_roomList.Visible = true;
         }
 
         private void panel4_1_owner_waitRoom_VisibleChanged(object sender, EventArgs e)
@@ -767,6 +777,65 @@ namespace client
         }
         #endregion
 
+        #region RoomOut
+        public override void RoomOut()
+        {
+            ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void p4_Out_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestRoomOut();
+            p4_chat_tbx.Text = "";
+            p4_ready_btn.Text = "READY";
+            p3_people_label.Visible = false;
+            p3_people_tbx.Visible = false;
+            p3_create_btn.Visible = false;
+            p3_roomname_label.Visible = false;
+            panel4_player_waitRoom.Visible = false;
+            panel3_roomList.Visible = true;
+
+            // 일반 - 접속자 목록 비우기
+            p4_player1.Text = "";
+            p4_w_state_player1.Visible = false;
+            p4_player2.Text = "";
+            p4_w_state_player2.Visible = false;
+            p4_player3.Text = "";
+            p4_w_state_player3.Visible = false;
+            p4_player4.Text = "";
+            p4_w_state_player4.Visible = false;
+            p4_player5.Text = "";
+            p4_w_state_player5.Visible = false;
+
+            // owner - 접속자 목록 비우기
+            p4_1_player1.Text = "";
+            p4_1_player2.Text = "";
+            p4_1_state_player2.Visible = false;
+            p4_1_player3.Text = "";
+            p4_1_state_player3.Visible = false;
+            p4_1_player4.Text = "";
+            p4_1_state_player4.Visible = false;
+            p4_1_player5.Text = "";
+            p4_1_state_player5.Visible = false;
+
+            p4_player_change();
+            p4_1_player_change();
+        }
+
+        private void p4_1_out_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestRoomOut();
+            p4_1_chat_tbx.Text = "";
+            p4_1_start_btn.Text = "READY";
+            p3_people_label.Visible = false;
+            p3_people_tbx.Visible = false;
+            p3_create_btn.Visible = false;
+            p3_roomname_label.Visible = false;
+            panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = false; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
+        }
+        #endregion
+
         #region player(플레이어)
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
@@ -774,20 +843,24 @@ namespace client
             //p4_gameStart_btn.Visible = true;
             string player = p1_username_tbx.Text;
             if (player == p4_player2.Text)
-                p4_state_player2.Text = "준비 완료";
-            else if (player == p4_player3.Text)
-                p4_state_player3.Text = "준비 완료";
-            else if (player == p4_player4.Text)
-                p4_state_player4.Text = "준비 완료";
-            else if (player == p4_player5.Text)
-                p4_state_player5.Text = "준비 완료";
-            //panel4_player_waitRoom.Visible = false;
-            //panel6_Answer.Visible = true; //p6화면 확인 test
-
+                p4_w_state_player2.Text = "준비 완료";
+            if (player == p4_player3.Text)
+                p4_w_state_player3.Text = "준비 완료";
+            if (player == p4_player4.Text)
+                p4_w_state_player4.Text = "준비 완료";
+            if (player == p4_player5.Text)
+                p4_w_state_player5.Text = "준비 완료";
+            //Game_start = 2;
+            Q_AList.Clear();
+        }
+        /*
             // 플레이어의 준비하기 버튼 클릭 후 준비 상태 보냄
             client.RequestGameReady();
-        }
 
+            panel4_player_waitRoom.Visible = false;
+            panel6_Answer.Visible = true; //p6화면 확인 test
+        }
+        */
         private void p4_readyDone_btn_Click(object sender, EventArgs e)
         {
             
@@ -801,7 +874,7 @@ namespace client
 
         private void p4_refesh_btn_Click(object sender, EventArgs e)
         {
-            client.RequestPlayerList(roomName);
+            client.RequestPlayerList(roomname);
         }
 
         private void p4_send_btn_Click(object sender, EventArgs e)
@@ -893,20 +966,7 @@ namespace client
             p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = ""; }));
         }
 
-        private void p4_Out_btn_Click(object sender, EventArgs e)
-        {
-            client.RequestRoomOut();
-            p4_chat_tbx.Text = "";
-            p4_ready_btn.Text = "READY";
-            p3_people_label.Visible = false;
-            p3_people_tbx.Visible = false;
-            p3_create_btn.Visible = false;
-            p3_roomname_label.Visible = false;
-            //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
-            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
-            panel4_player_waitRoom.Visible = false;
-            panel3_roomList.Visible = true;
-        }
+        
 
         //owner에서 start클릭 > 아무도 없을 경우 오류 작성 후 작동 x   -->   gameStart 함수에서 처리함.
         /*
@@ -926,23 +986,95 @@ namespace client
         */
         #endregion
 
-        #endregion
+        bool buzzer_on = false;
+        int b_cnt1 = 5, b_cnt2 = 5, b_cnt3 = 5, b_cnt4 = 5, b_cnt5 = 5;
         //정답 버튼
         private void buzzer_Click(object sender, EventArgs e)
         {
             timer1.Start();
             client.RequestBuzzer();
 
-            //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
-            //버저를 누른 유저에게만 해당하도록 설정 필요
+            //if(b_cnt1==0 || b_cnt2 == 0 || b_cnt3 == 0 || b_cnt4 == 0 || b_cnt5 == 0)
+            
+                //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
+                //버저를 누른 유저에게만 해당하도록 설정 필요
             p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = false; }));
             p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.ReadOnly = false; }));
             p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
             p6_answer_tbx.ForeColor = Color.CornflowerBlue;
+            
+            buzzer_on = true;
 
-            //정답을 맞추는 사람만 라벨 변경 필요
+            if (b_cnt1 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt2 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt3 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt4 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            if (b_cnt5 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+            }
+            //정답을 맞추는 사람만 라벨 변경 필요 > 출제자가 정답 전송 시 스코어 늘리기
+
 
             //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
+            string p_name = p1_username_tbx.Text;
+            if (p_name == p4_player1.Text)
+            {
+                b_cnt1--;
+                if (b_cnt1 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
+            }
+            else if (p_name == p4_player2.Text)
+            {
+                b_cnt2--;
+                if (b_cnt2 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
+            }
+            else if (p_name == p4_player3.Text)
+            {
+                b_cnt3--;
+                if (b_cnt3 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
+            }
+            else if (p_name == p4_player4.Text)
+            {
+                b_cnt4--;
+                if (b_cnt4 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
+            }
+            else if (p_name == p4_player5.Text)
+            {
+                b_cnt5--;
+                if (b_cnt5 <= 0)
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                else
+                    p6_buzzer_btn.Text = "정답 (" + b_cnt5 + "/ 5 )";
+            }
         }
 
        
@@ -1030,6 +1162,7 @@ namespace client
                 p6_player_turn_label.Location = new Point(34, 384);
         }
 
+        // 현재 사용자 표시 - 뒷 배경 초록색
         private void p6_current_player()
         {
             string p_name = p1_username_tbx.Text;
@@ -1060,37 +1193,50 @@ namespace client
             }
         }
 
+        int turn_cnt = 0;   // 질문 횟수 계산
+
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
-        {
-            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
-            //panel5_Quest.Invoke(new MethodInvoker(delegate { panel5_Quest.Visible = true; }));
-            panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; }));
-
+        {   //질의응답 창 test를 위해 주석 처리
             p6_answer_tbx.Text = "( 질문 순서가 아닙니다. )";
             p6_answer_tbx.ReadOnly = true;
+            if(turn_cnt > 20)   // 질문 20번 넘었을 때
+                ShowMessageBox("질문 횟수가 20번이 넘었습니다...", "GameOver", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         // 게임 시작 후 질문자가 질문을 작성하는 화면 > 턴o
         public override void QuestionerQuestion()
         {
             //사용자 턴에 따른 사용자 리스트 라벨 변경 > 사용자 누구? -> 테두리 색 변환
-            p6_turn(); // 질문자 표시
-            p6_answer_tbx.Text = "";
-            p6_answer_tbx.ReadOnly = false; //입력받기 가능
-            p6_answer_tbx.ForeColor = Color.DodgerBlue;
+            if(turn_cnt < 21)
+            {
+                p6_turn(); // 질문자 표시
+                p6_answer_tbx.Text = "";
+                p6_answer_tbx.ReadOnly = false; //입력받기 가능
+                p6_answer_tbx.ForeColor = Color.DodgerBlue;
+                turn_cnt++;
+            }
+            else
+            {   // 질문 20번 넘었을 때
+                ShowMessageBox("질문 횟수가 20번이 넘었습니다...", "GameOver", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void panel6_Answer_VisibleChanged(object sender, EventArgs e)
-        {
+        {   //질의응답 창 test를 위해 주석 처리
             p6_solution_label.Invoke(new MethodInvoker(delegate { p6_solution_label.Text = "? ? ?"; }));
             p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
             p6_answer_tbx.ReadOnly = true;
+            Game_start = 1;
         }
 
         private void p6_send_btn_Click(object sender, EventArgs e)
         {
-            client.RequestSendAnswer(p6_answer_tbx.Text);
+            if (buzzer_on)  // 부저 -> 정답 입력
+                client.RequestSendQuestion("[ ! ]" + p6_answer_tbx.Text);
+            else            // 일반 질문 입력
+                client.RequestSendQuestion("[ Q" + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
+            p6_answer_tbx.Text = "";
         }
         #endregion
 

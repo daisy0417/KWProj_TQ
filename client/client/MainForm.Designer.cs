@@ -96,7 +96,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel6_Answer = new System.Windows.Forms.Panel();
             this.p6_player5_score = new System.Windows.Forms.Label();
-            this.metroSetButton2 = new MetroSet_UI.Controls.MetroSetButton();
+            this.p6_buzzer_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p6_player4_score = new System.Windows.Forms.Label();
             this.p6_solution_label = new System.Windows.Forms.Label();
             this.p6_player3_score = new System.Windows.Forms.Label();
@@ -879,7 +879,66 @@
             this.panel4_player_waitRoom.Visible = false;
             this.panel4_player_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_player_waitRoom_VisibleChanged);
             // 
-            // p4_readyDone_btn
+            // p4_w_state_player5
+            // 
+            this.p4_w_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player5.Location = new System.Drawing.Point(54, 440);
+            this.p4_w_state_player5.Name = "p4_w_state_player5";
+            this.p4_w_state_player5.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player5.TabIndex = 44;
+            this.p4_w_state_player5.Text = "대기 중";
+            this.p4_w_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player5.Visible = false;
+            // 
+            // p4_w_state_player4
+            // 
+            this.p4_w_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player4.Location = new System.Drawing.Point(54, 358);
+            this.p4_w_state_player4.Name = "p4_w_state_player4";
+            this.p4_w_state_player4.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player4.TabIndex = 43;
+            this.p4_w_state_player4.Text = "대기 중";
+            this.p4_w_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player4.Visible = false;
+            // 
+            // p4_w_state_player3
+            // 
+            this.p4_w_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player3.Location = new System.Drawing.Point(54, 276);
+            this.p4_w_state_player3.Name = "p4_w_state_player3";
+            this.p4_w_state_player3.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player3.TabIndex = 42;
+            this.p4_w_state_player3.Text = "대기 중";
+            this.p4_w_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player3.Visible = false;
+            // 
+            // p4_w_state_player2
+            // 
+            this.p4_w_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_w_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player2.Location = new System.Drawing.Point(54, 195);
+            this.p4_w_state_player2.Name = "p4_w_state_player2";
+            this.p4_w_state_player2.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player2.TabIndex = 41;
+            this.p4_w_state_player2.Text = "대기 중";
+            this.p4_w_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_w_state_player2.Visible = false;
+            // 
+            // p4_w_state_player1
+            // 
+            this.p4_w_state_player1.BackColor = System.Drawing.Color.LightCoral;
+            this.p4_w_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player1.Location = new System.Drawing.Point(54, 114);
+            this.p4_w_state_player1.Name = "p4_w_state_player1";
+            this.p4_w_state_player1.Size = new System.Drawing.Size(118, 27);
+            this.p4_w_state_player1.TabIndex = 40;
+            this.p4_w_state_player1.Text = "방장";
+            this.p4_w_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // p4_refesh
             // 
             this.p4_readyDone_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_readyDone_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1179,7 +1238,7 @@
             // panel6_Answer
             // 
             this.panel6_Answer.Controls.Add(this.p6_player5_score);
-            this.panel6_Answer.Controls.Add(this.metroSetButton2);
+            this.panel6_Answer.Controls.Add(this.p6_buzzer_btn);
             this.panel6_Answer.Controls.Add(this.p6_player4_score);
             this.panel6_Answer.Controls.Add(this.p6_solution_label);
             this.panel6_Answer.Controls.Add(this.p6_player3_score);
@@ -1215,32 +1274,32 @@
             this.p6_player5_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p6_player5_score.Visible = false;
             // 
-            // metroSetButton2
+            // p6_buzzer_btn
             // 
-            this.metroSetButton2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroSetButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroSetButton2.DisabledForeColor = System.Drawing.Color.Gray;
-            this.metroSetButton2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
-            this.metroSetButton2.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.metroSetButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.metroSetButton2.HoverTextColor = System.Drawing.Color.White;
-            this.metroSetButton2.IsDerivedStyle = true;
-            this.metroSetButton2.Location = new System.Drawing.Point(42, 483);
-            this.metroSetButton2.Name = "metroSetButton2";
-            this.metroSetButton2.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroSetButton2.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroSetButton2.NormalTextColor = System.Drawing.Color.White;
-            this.metroSetButton2.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.metroSetButton2.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.metroSetButton2.PressTextColor = System.Drawing.Color.White;
-            this.metroSetButton2.Size = new System.Drawing.Size(171, 44);
-            this.metroSetButton2.Style = MetroSet_UI.Enums.Style.Light;
-            this.metroSetButton2.StyleManager = null;
-            this.metroSetButton2.TabIndex = 37;
-            this.metroSetButton2.Text = "정답 (5/5)";
-            this.metroSetButton2.ThemeAuthor = "Narwin";
-            this.metroSetButton2.ThemeName = "MetroLite";
-            this.metroSetButton2.Click += new System.EventHandler(this.buzzer_Click);
+            this.p6_buzzer_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_buzzer_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_buzzer_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p6_buzzer_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p6_buzzer_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p6_buzzer_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p6_buzzer_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p6_buzzer_btn.IsDerivedStyle = true;
+            this.p6_buzzer_btn.Location = new System.Drawing.Point(42, 483);
+            this.p6_buzzer_btn.Name = "p6_buzzer_btn";
+            this.p6_buzzer_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_buzzer_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p6_buzzer_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p6_buzzer_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p6_buzzer_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p6_buzzer_btn.PressTextColor = System.Drawing.Color.White;
+            this.p6_buzzer_btn.Size = new System.Drawing.Size(171, 44);
+            this.p6_buzzer_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p6_buzzer_btn.StyleManager = null;
+            this.p6_buzzer_btn.TabIndex = 37;
+            this.p6_buzzer_btn.Text = "정답 ( 5 / 5 )";
+            this.p6_buzzer_btn.ThemeAuthor = "Narwin";
+            this.p6_buzzer_btn.ThemeName = "MetroLite";
+            this.p6_buzzer_btn.Click += new System.EventHandler(this.buzzer_Click);
             // 
             // p6_player4_score
             // 
@@ -1527,7 +1586,66 @@
             this.panel4_1_owner_waitRoom.Visible = false;
             this.panel4_1_owner_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_1_owner_waitRoom_VisibleChanged);
             // 
-            // p4_1_roomInfo_label
+            // p4_1_state_player5
+            // 
+            this.p4_1_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player5.Location = new System.Drawing.Point(54, 450);
+            this.p4_1_state_player5.Name = "p4_1_state_player5";
+            this.p4_1_state_player5.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player5.TabIndex = 44;
+            this.p4_1_state_player5.Text = "대기 중";
+            this.p4_1_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player5.Visible = false;
+            // 
+            // p4_1_state_player4
+            // 
+            this.p4_1_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player4.Location = new System.Drawing.Point(54, 368);
+            this.p4_1_state_player4.Name = "p4_1_state_player4";
+            this.p4_1_state_player4.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player4.TabIndex = 43;
+            this.p4_1_state_player4.Text = "대기 중";
+            this.p4_1_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player4.Visible = false;
+            // 
+            // p4_1_state_player3
+            // 
+            this.p4_1_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player3.Location = new System.Drawing.Point(54, 286);
+            this.p4_1_state_player3.Name = "p4_1_state_player3";
+            this.p4_1_state_player3.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player3.TabIndex = 42;
+            this.p4_1_state_player3.Text = "대기 중";
+            this.p4_1_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player3.Visible = false;
+            // 
+            // p4_1_state_player2
+            // 
+            this.p4_1_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.p4_1_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player2.Location = new System.Drawing.Point(54, 205);
+            this.p4_1_state_player2.Name = "p4_1_state_player2";
+            this.p4_1_state_player2.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player2.TabIndex = 41;
+            this.p4_1_state_player2.Text = "대기 중";
+            this.p4_1_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4_1_state_player2.Visible = false;
+            // 
+            // p4_1_state_player1
+            // 
+            this.p4_1_state_player1.BackColor = System.Drawing.Color.LightCoral;
+            this.p4_1_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player1.Location = new System.Drawing.Point(54, 124);
+            this.p4_1_state_player1.Name = "p4_1_state_player1";
+            this.p4_1_state_player1.Size = new System.Drawing.Size(118, 27);
+            this.p4_1_state_player1.TabIndex = 40;
+            this.p4_1_state_player1.Text = "방장";
+            this.p4_1_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
             // 
             this.p4_1_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
             this.p4_1_roomInfo_label.Location = new System.Drawing.Point(706, 12);
@@ -1650,6 +1768,16 @@
             this.p4_1_out_btn.ThemeName = "MetroLite";
             this.p4_1_out_btn.Click += new System.EventHandler(this.p4_1_out_btn_Click);
             // 
+            // p4_1_player5
+            // 
+            this.p4_1_player5.BackColor = System.Drawing.Color.LightGray;
+            this.p4_1_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player5.Location = new System.Drawing.Point(28, 409);
+            this.p4_1_player5.Name = "p4_1_player5";
+            this.p4_1_player5.Size = new System.Drawing.Size(171, 76);
+            this.p4_1_player5.TabIndex = 33;
+            this.p4_1_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // p4_1_send_btn
             // 
             this.p4_1_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1678,6 +1806,16 @@
             this.p4_1_send_btn.ThemeName = "MetroLite";
             this.p4_1_send_btn.Click += new System.EventHandler(this.p4_1_send_btn_Click);
             // 
+            // p4_1_player4
+            // 
+            this.p4_1_player4.BackColor = System.Drawing.Color.LightGray;
+            this.p4_1_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player4.Location = new System.Drawing.Point(28, 328);
+            this.p4_1_player4.Name = "p4_1_player4";
+            this.p4_1_player4.Size = new System.Drawing.Size(171, 76);
+            this.p4_1_player4.TabIndex = 32;
+            this.p4_1_player4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // p4_1_message_tbx
             // 
             this.p4_1_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
@@ -1688,6 +1826,16 @@
             this.p4_1_message_tbx.Name = "p4_1_message_tbx";
             this.p4_1_message_tbx.Size = new System.Drawing.Size(570, 45);
             this.p4_1_message_tbx.TabIndex = 20;
+            // 
+            // p4_1_player3
+            // 
+            this.p4_1_player3.BackColor = System.Drawing.Color.LightGray;
+            this.p4_1_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player3.Location = new System.Drawing.Point(28, 246);
+            this.p4_1_player3.Name = "p4_1_player3";
+            this.p4_1_player3.Size = new System.Drawing.Size(171, 76);
+            this.p4_1_player3.TabIndex = 31;
+            this.p4_1_player3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // p4_1_start_btn
             // 
@@ -1777,8 +1925,8 @@
             // p4_1_player2
             // 
             this.p4_1_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_player2.Location = new System.Drawing.Point(16, 165);
+            this.p4_1_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player2.Location = new System.Drawing.Point(28, 165);
             this.p4_1_player2.Name = "p4_1_player2";
             this.p4_1_player2.Size = new System.Drawing.Size(171, 76);
             this.p4_1_player2.TabIndex = 30;
@@ -1787,7 +1935,7 @@
             // p4_1_player1
             // 
             this.p4_1_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_1_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p4_1_player1.Location = new System.Drawing.Point(16, 83);
             this.p4_1_player1.Name = "p4_1_player1";
@@ -2572,7 +2720,7 @@
         private System.Windows.Forms.Label p4_state_player3;
         private System.Windows.Forms.Label p4_state_player2;
         private System.Windows.Forms.Label p4_state_player1;
-        private MetroSet_UI.Controls.MetroSetButton metroSetButton2;
+        private MetroSet_UI.Controls.MetroSetButton p6_buzzer_btn;
         private System.Windows.Forms.Label p6_solution_label;
         private System.Windows.Forms.Label p6_player5;
         private System.Windows.Forms.Label p6_player4;
