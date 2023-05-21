@@ -439,7 +439,7 @@ namespace client
                 }
                 //OwnerWait();    // 방장의 게임 시작 전 화면
                 */
-                OwnerWait();
+                //OwnerWait();
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 client.RequestPlayerList(roomname); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
@@ -448,10 +448,37 @@ namespace client
                 ShowMessageBox("방 생성 실패", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        public void Changing()
+        {
+            /*
+            p4_1_chat_tbx.Visible = false;
+            p4_1_message_tbx.Visible = false;
+            p4_1_out_btn.Visible = false;
+            p4_1_player1.Visible=false;
+            p4_1_player2.Visible=false;
+            p4_1_player3.Visible=false;
+            p4_1_player4.Visible=false;
+            p4_1_player5.Visible=false;
+            p4_1_ready_btn.Visible=false;
+            p4_1_refresh_btn.Visible=false;
+            p4_1_roomInfo_label.Visible=false;
+            p4_1_send_btn.Visible=false;
+            p4_1_start_btn.Visible=false;
+            p4_1_state_player1.Visible=false;
+            p4_1_state_player2.Visible=false;
+            p4_1_state_player3.Visible=false;
+            */
+            panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
+            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible=false; }));
+            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
+            panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = false; }));
+            panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = false; }));
 
+        }
         //방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼 있어야 됨.
         public override void OwnerWait()
         {
+            Changing();
             //panel3_roomList.Visible = false;
             //panel4_1_owner_waitRoom.Visible = true;
             p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Text = "방장 방"; }));
@@ -549,6 +576,7 @@ namespace client
         }
         public override void PlayerWait()
         {
+            Changing();
             // 참가자의 게임 시작 전 화면 -> 플레이어 대기 방 화면
             //panel3_roomList.Visible = false;
             //panel4_player_waitRoom.Visible = true;
