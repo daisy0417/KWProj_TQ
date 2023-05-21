@@ -10,6 +10,7 @@ using System.Threading;
 using System.Media;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Collections;
 
 namespace ServerProgram
 {
@@ -24,13 +25,14 @@ namespace ServerProgram
         public IPAddress clientIP;
         private int port;
         private int win_point;
-        
+        private int remain_qs=5;
+
         public int Port { get { return port; } }
 
         public string username = "NONE";
         public bool ready = false;
-
-        public Server(IPAddress serverIP, IPAddress clientIP, int port, int room)
+        
+        public Server(IPAddress serverIP, IPAddress clientIP, int port, int room) 
         { //서버 생성자. 클라스 생성과 함께 서버연결
             this.port = port;
             this.room = room;
@@ -91,6 +93,8 @@ namespace ServerProgram
         public void win() { win_point++; } //이겼을 때 호출, 점수 부여
         public void win(int n) { win_point += n; }
         public void set_winpoint(int winpoint) { win_point = winpoint; }
+        public void minus_chance() { remain_qs--; }
+        public int get_remain_chance() { return remain_qs; }
     }
 
     public class MainServer
@@ -599,7 +603,7 @@ namespace ServerProgram
         private void SendAnswer(string answer, Server server)
         {
             RoomChat(answer, server);
-
+            
             GameRoom room = null;
             for (int i = 0; i < gameRooms.Count; i++)
             {
@@ -611,19 +615,28 @@ namespace ServerProgram
             }
 
             if (room == null) return;
-
+  
             room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWAIT");
             int questioner = room.NextQuestioner();
 
             List<Server> qList = room.GetQuestionerList();
-
-            for(int i=0; i < qList.Count; i++)
+            if (room.Get_total_q() != 20)
             {
-                if(i == questioner)
+                for (int i = 0; i < qList.Count; i++)
                 {
-                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
+                    if (i == questioner)
+                    {
+                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
+                    }
+                    else
+                    {
+                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                    }
                 }
-                else
+            }
+            else
+            {
+                for (int i = 0; i < qList.Count; i++)
                 {
                     qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
                 }
@@ -632,8 +645,6 @@ namespace ServerProgram
 
         private void SendQuestion(string question, Server server)
         {
-            RoomChat(question, server);
-
             GameRoom room = null;
             for (int i = 0; i < gameRooms.Count; i++)
             {
@@ -643,9 +654,9 @@ namespace ServerProgram
                     break;
                 }
             }
-
             if (room == null) return;
-
+            room.Plus_total_q();
+            RoomChat(room.Get_total_q().ToString() + "번째 질문 : " + question, server);
             //출제자만 채팅 활성화
             room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWANSWER");
             int questioner = room.CurrentQuestioner;
@@ -729,9 +740,36 @@ namespace ServerProgram
                     }
                 }
             }
+            int q = room.CurrentQuestioner;
+            int tok;
+            List<Server> ql = room.GetQuestionerList();
+
+            for (tok = 0; tok < q; tok++)
+            {
+                if (ql[tok].get_remain_chance() != 0)
+                    break;
+            }
+            if (tok == q) // 모든 플레이어가 도전 기회를 소모해서 게임 종료하는 조건 
+            {
+                RoomChat("게임 종료!", server);
+                room.starting = false;
+                for (int i = 0; i < ql.Count; i++)
+                {
+                    if (server.username.CompareTo(room.GetOwner().username) == 0)
+                    {
+                        ql[i].SendResponse("GAMESCREEN", "OWNERWAIT");
+                    }
+                    else
+                    {
+                        ql[i].SendResponse("GAMESCREEN", "PLAYERWAIT");
+                    }
+                }
+            }
+
         }
         private void Buzzer(Server server)
         {
+            server.minus_chance();
             RoomChat(server.username + " 정답 시도중", server);
             GameRoom room = null;
             for (int i = 0; i < gameRooms.Count; i++)
@@ -777,6 +815,7 @@ namespace ServerProgram
         public List<string> chats;
         private int presenter = 0;
         private int currentQuestioner = 1;
+        private int total_questions = 0;
         public int CurrentQuestioner { get { return currentQuestioner; } }
         public string word;
 
@@ -882,7 +921,8 @@ namespace ServerProgram
             }
             return questionerList;
         }
-
+        public int Get_total_q() { return total_questions; }
+        public void Plus_total_q() { total_questions++; }
         private static int roomCount = 1;
         private static int NextRoom() { return roomCount++; }
     }
