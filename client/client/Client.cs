@@ -196,11 +196,11 @@ namespace client
             {
                 if (content.Equals("OWNERWAIT"))
                 {
-                    parentForm.PresenterWait();
+                    parentForm.OwnerWait();
                 }
                 else if (content.Equals("PLAYERWAIT"))
                 {
-                    parentForm.PresenterWait();
+                    parentForm.PlayerWait();
                 }
                 else if (content.Equals("PRESENTERCHOICE"))
                 {
