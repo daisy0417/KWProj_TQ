@@ -74,20 +74,13 @@
             this.p3_roomname_label = new System.Windows.Forms.Label();
             this.p3_roomname_tbx = new System.Windows.Forms.TextBox();
             this.panel4_player_waitRoom = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
-=======
             this.p4_readyDone_btn = new MetroSet_UI.Controls.MetroSetButton();
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             this.p4_w_state_player5 = new System.Windows.Forms.Label();
             this.p4_w_state_player4 = new System.Windows.Forms.Label();
             this.p4_w_state_player3 = new System.Windows.Forms.Label();
             this.p4_w_state_player2 = new System.Windows.Forms.Label();
             this.p4_w_state_player1 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.p4_refesh = new MetroSet_UI.Controls.MetroSetButton();
-=======
             this.p4_refesh_btn = new MetroSet_UI.Controls.MetroSetButton();
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_player5 = new System.Windows.Forms.Label();
             this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
@@ -125,26 +118,6 @@
             this.p4_state_player5 = new System.Windows.Forms.Label();
             this.p4_start_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel4_1_owner_waitRoom = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
-            this.p4_1_state_player5 = new System.Windows.Forms.Label();
-            this.p4_1_state_player4 = new System.Windows.Forms.Label();
-            this.p4_1_state_player3 = new System.Windows.Forms.Label();
-            this.p4_1_state_player2 = new System.Windows.Forms.Label();
-            this.p4_1_state_player1 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.p4_1_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p4_1_out_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p4_1_player5 = new System.Windows.Forms.Label();
-            this.p4_1_send_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p4_1_player4 = new System.Windows.Forms.Label();
-            this.p4_1_message_tbx = new System.Windows.Forms.TextBox();
-            this.p4_1_player3 = new System.Windows.Forms.Label();
-            this.p4_1_start_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p4_1_player2 = new System.Windows.Forms.Label();
-            this.p4_1_roomInfo_label = new System.Windows.Forms.Label();
-            this.p4_1_player1 = new System.Windows.Forms.Label();
-            this.p4_1_chat_tbx = new System.Windows.Forms.TextBox();
-=======
             this.p4_1_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_1_state_player5 = new System.Windows.Forms.Label();
             this.p4_1_state_player4 = new System.Windows.Forms.Label();
@@ -213,7 +186,6 @@
             this.p5_2_player2 = new System.Windows.Forms.Label();
             this.p5_2_player1 = new System.Windows.Forms.Label();
             this.p5_2_player_turn_label = new System.Windows.Forms.Label();
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -907,7 +879,6 @@
             this.panel4_player_waitRoom.Visible = false;
             this.panel4_player_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_player_waitRoom_VisibleChanged);
             // 
-<<<<<<< HEAD
             // p4_w_state_player5
             // 
             this.p4_w_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -968,9 +939,6 @@
             this.p4_w_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // p4_refesh
-=======
-            // p4_readyDone_btn
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             // 
             this.p4_readyDone_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_readyDone_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1618,7 +1586,6 @@
             this.panel4_1_owner_waitRoom.Visible = false;
             this.panel4_1_owner_waitRoom.VisibleChanged += new System.EventHandler(this.panel4_1_owner_waitRoom_VisibleChanged);
             // 
-<<<<<<< HEAD
             // p4_1_state_player5
             // 
             this.p4_1_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -1679,9 +1646,6 @@
             this.p4_1_state_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
-=======
-            // p4_1_roomInfo_label
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             // 
             this.p4_1_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
             this.p4_1_roomInfo_label.Location = new System.Drawing.Point(706, 12);
@@ -1804,7 +1768,6 @@
             this.p4_1_out_btn.ThemeName = "MetroLite";
             this.p4_1_out_btn.Click += new System.EventHandler(this.p4_1_out_btn_Click);
             // 
-<<<<<<< HEAD
             // p4_1_player5
             // 
             this.p4_1_player5.BackColor = System.Drawing.Color.LightGray;
@@ -1815,8 +1778,6 @@
             this.p4_1_player5.TabIndex = 33;
             this.p4_1_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-=======
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             // p4_1_send_btn
             // 
             this.p4_1_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1845,7 +1806,6 @@
             this.p4_1_send_btn.ThemeName = "MetroLite";
             this.p4_1_send_btn.Click += new System.EventHandler(this.p4_1_send_btn_Click);
             // 
-<<<<<<< HEAD
             // p4_1_player4
             // 
             this.p4_1_player4.BackColor = System.Drawing.Color.LightGray;
@@ -1856,8 +1816,6 @@
             this.p4_1_player4.TabIndex = 32;
             this.p4_1_player4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-=======
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             // p4_1_message_tbx
             // 
             this.p4_1_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
@@ -1869,7 +1827,6 @@
             this.p4_1_message_tbx.Size = new System.Drawing.Size(570, 45);
             this.p4_1_message_tbx.TabIndex = 20;
             // 
-<<<<<<< HEAD
             // p4_1_player3
             // 
             this.p4_1_player3.BackColor = System.Drawing.Color.LightGray;
@@ -1880,8 +1837,6 @@
             this.p4_1_player3.TabIndex = 31;
             this.p4_1_player3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-=======
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             // p4_1_start_btn
             // 
             this.p4_1_start_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1970,13 +1925,8 @@
             // p4_1_player2
             // 
             this.p4_1_player2.BackColor = System.Drawing.Color.LightGray;
-<<<<<<< HEAD
             this.p4_1_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player2.Location = new System.Drawing.Point(28, 165);
-=======
-            this.p4_1_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_player2.Location = new System.Drawing.Point(16, 165);
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             this.p4_1_player2.Name = "p4_1_player2";
             this.p4_1_player2.Size = new System.Drawing.Size(171, 76);
             this.p4_1_player2.TabIndex = 30;
@@ -2006,8 +1956,6 @@
             this.p4_1_chat_tbx.Size = new System.Drawing.Size(703, 409);
             this.p4_1_chat_tbx.TabIndex = 17;
             // 
-<<<<<<< HEAD
-=======
             // panel5_Owner
             // 
             this.panel5_Owner.Controls.Add(this.p5_title_label);
@@ -2664,7 +2612,6 @@
             this.p5_2_player_turn_label.TabIndex = 46;
             this.p5_2_player_turn_label.Visible = false;
             // 
->>>>>>> d2cf6d0bb94edd9d8cd9d9c7ed03e50a6119deb0
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
