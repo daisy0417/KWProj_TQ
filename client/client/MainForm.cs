@@ -758,12 +758,6 @@ namespace client
         #endregion
 
         #region Owner(방장)
-        private void p4_1_ready_btn_Click_1(object sender, EventArgs e)
-        {
-            p4_1_start_btn.Visible = true;
-            client.RequestGameReady();  // 현재 준비 상태 보냄
-
-        }
 
         private void p4_1_start_btn_Click(object sender, EventArgs e)
         {
@@ -778,7 +772,7 @@ namespace client
         public override void GameStartFail()
         {
             // 방장 패널에서 시작하기 버튼 안 띄움
-            p4_1_start_btn.Visible = false;
+            //p4_1_start_btn.Visible = false;
             ShowMessageBox("준비가 완료되지 않았습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -936,6 +930,8 @@ namespace client
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
+            client.RequestGameReady();
+
             //p4_gameStart_btn.Visible = true;
             string player = p1_username_tbx.Text;
             if (player == p4_player2.Text)
