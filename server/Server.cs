@@ -407,7 +407,7 @@ namespace ServerProgram
             gameRooms.Add(newGameRoom);
 
             PlayerList(roomName, roomOwner);
-
+            
             return true;
         }
 
@@ -444,7 +444,6 @@ namespace ServerProgram
             {
                 server.ready = false;
                 //기존에 방에 있던 플레이어들에게 해당 플레이어가 들어와서 생긴 방의 변동을 자동으로 전달
-                
                 gameRooms[index].AddPlayer(server);
                 gameRooms[index].players.ForEach(p => PlayerList(gameRooms[index].name, p));
                 server.SendClient("ROOMJOIN|" + gameRooms[index].name);

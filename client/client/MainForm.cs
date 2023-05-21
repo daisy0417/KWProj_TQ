@@ -890,7 +890,7 @@ namespace client
             p4_1_player_change();
         }
 
-        private void p4_1_btn_Click(object sender, EventArgs e)
+        private void p4_1_out_btn_Click(object sender, EventArgs e)
         {
             client.RequestRoomOut();
             p4_1_chat_tbx.Text = "";
