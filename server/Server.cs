@@ -284,6 +284,10 @@ namespace ServerProgram
                     {
                         GameReady(server);
                     }
+                    else if (header.Equals("READYLIST"))
+                    {
+                        ReadyList(content, server);
+                    }
                     else if (header.Equals("GUESSANSWER"))
                     {
                         GuessAnswer(content,server);
@@ -407,7 +411,7 @@ namespace ServerProgram
                 if (gameRooms[i].name == roomName) return false;
             }
 
-            roomOwner.ready = false;
+            roomOwner.ready = true;
             GameRoom newGameRoom = new GameRoom(roomName, max);
             newGameRoom.AddPlayer(roomOwner);
             newGameRoom.ownerPlayer = roomOwner;
@@ -517,6 +521,23 @@ namespace ServerProgram
 
             server.SendClient("PLAYERLIST|" + playerListString);
         }
+
+        private void ReadyList(string roomName, Server server)
+        {
+            GameRoom room = gameRooms.Find(r => r.name == roomName);
+            string readyListString = string.Empty;
+            if (room != null)
+            {
+                room.players.ForEach(p =>
+                {
+                    if (p.ready) readyListString += p.username + ",";
+                });
+
+                if (readyListString.Length > 0) readyListString = readyListString.Substring(0, readyListString.Length - 1);
+            }
+
+            server.SendClient("READYLIST|" + readyListString);
+        }
         #endregion
 
         #region 채팅 기능
@@ -564,6 +585,15 @@ namespace ServerProgram
         {
             server.ready = !server.ready;
             server.SendResponse("GAMEREADY", server.ready ? "1" : "0");
+
+            gameRooms.ForEach(r =>
+            {
+                if (r.ContainPlayer(server))
+                {
+                    r.players.ForEach(p => ReadyList(r.name, p));
+                    return;
+                }
+            });
         }
 
         private void WordSelect(string word, Server server)
@@ -854,6 +884,9 @@ namespace ServerProgram
                 }
                 starting = true;
 
+                //채팅 초기화
+                ClearChat();
+
                 //첫번째 사람에게 가장 첫 출제자 권한 부여
                 players[0].SendResponse("GAMESCREEN", "PRESENTERCHOICE");
                 presenter = 0;
@@ -894,6 +927,11 @@ namespace ServerProgram
         public void ClearChat()
         {
             chats.Clear();
+
+            players.ForEach(p =>
+            {
+                p.SendResponse("ROOMCHAT|", string.Empty);
+            });
         }
 
         public void AddChat(string name, string content)
