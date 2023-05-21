@@ -401,10 +401,19 @@ namespace client
                 }
                 else
                 {
-                    OwnerWait();
-                    //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-                    //panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
-                    client.RequestRoomCreate(roomName, roomMax);
+                    try
+                    {
+                        //OwnerWait();
+                        //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                        //panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
+                        client.RequestRoomCreate(roomName, roomMax);
+                    }
+                     catch (NullReferenceException nre)
+                    {
+                        ShowMessageBox("create room error","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    
                 }
             }
         }
@@ -414,10 +423,19 @@ namespace client
             if (success == true)
             {
                 ShowMessageBox("방 생성 성공", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    OwnerWait();
+                    client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
+                    client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
+                }
+                catch(NullReferenceException n)
+                {
+                    ShowMessageBox("room create error","Error",MessageBoxButtons.OK,MessageBoxIcon.Error); 
+                }
                 //OwnerWait();    // 방장의 게임 시작 전 화면
                 
-                client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
-                client.RequestPlayerList(roomName); // 현재 방에 접속된 접속 인원 이름을 받아옴.
+               
             }
             else
             {
