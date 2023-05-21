@@ -440,6 +440,10 @@ namespace client
                 //OwnerWait();    // 방장의 게임 시작 전 화면
                 */
                 //OwnerWait();
+
+                p4_1_ready_btn.Visible = false;
+                p4_1_start_btn.Visible = true;
+
                 client.RequestSendRoomChat("시스템", p1_username_tbx.Text + "이(가) 방에 참가함");
                 client.RequestPlayerList(roomname); // 현재 방에 접속된 접속 인원 이름을 받아옴.
             }
@@ -619,9 +623,34 @@ namespace client
         #region panel4_waitRoom: 대기 방(채팅)
         public override void GameReady(bool ready)
         {
+            string player = p1_username_tbx.Text;
             if (ready == true)
             {
-                ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (player == p4_player2.Text)
+                    p4_w_state_player2.Text = "준비 완료";
+                if (player == p4_player3.Text)
+                    p4_w_state_player3.Text = "준비 완료";
+                if (player == p4_player4.Text)
+                    p4_w_state_player4.Text = "준비 완료";
+                if (player == p4_player5.Text)
+                    p4_w_state_player5.Text = "준비 완료";
+
+                p4_ready_btn.Text = "Cancel";
+
+                //ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (player == p4_player2.Text)
+                    p4_w_state_player2.Text = "대기중";
+                if (player == p4_player3.Text)
+                    p4_w_state_player3.Text = "대기중";
+                if (player == p4_player4.Text)
+                    p4_w_state_player4.Text = "대기중";
+                if (player == p4_player5.Text)
+                    p4_w_state_player5.Text = "대기중";
+
+                p4_ready_btn.Text = "Ready";
             }
         }
 
@@ -722,9 +751,6 @@ namespace client
             client.RequestPlayerList(roomname);
         }
 
-        int Game_start = 0; //chatList.Clear를 한번만 하기 위해서 사용
-        List<string> Q_AList; //chatList.Clear를 한번만 하기 위해서 사용2
-
         //대기화면 채팅, 게임 질의응답 
             
 
@@ -743,11 +769,10 @@ namespace client
             });
             // 현재 방에 아무도 없다면 대화내용 삭제 > 현재의 
             // 게임 시작시, chatList 내용 삭제 후 게임 내용 넣기
-            Q_AList = chatList; 
             if( panel6_Answer.Visible == true) //판넬5 포함
             {
                 //chatList.Clear();
-                chatList = Q_AList;
+                //chatList = Q_AList;
             }
             p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text = ""; }));
             chatList.ForEach(chat =>
@@ -936,6 +961,9 @@ namespace client
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
+            client.RequestGameReady();
+
+            /*
             //p4_gameStart_btn.Visible = true;
             string player = p1_username_tbx.Text;
             if (player == p4_player2.Text)
@@ -946,8 +974,10 @@ namespace client
                 p4_w_state_player4.Text = "준비 완료";
             if (player == p4_player5.Text)
                 p4_w_state_player5.Text = "준비 완료";
+            */
+
             //Game_start = 2;
-            Q_AList.Clear();
+            //Q_AList.Clear();
         }
         /*
             // 플레이어의 준비하기 버튼 클릭 후 준비 상태 보냄
@@ -1324,7 +1354,6 @@ namespace client
             p6_solution_label.Invoke(new MethodInvoker(delegate { p6_solution_label.Text = "? ? ?"; }));
             p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
             p6_answer_tbx.ReadOnly = true;
-            Game_start = 1;
         }
 
         private void p6_send_btn_Click(object sender, EventArgs e)

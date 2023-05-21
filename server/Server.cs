@@ -401,7 +401,7 @@ namespace ServerProgram
                 if (gameRooms[i].name == roomName) return false;
             }
 
-            roomOwner.ready = false;
+            roomOwner.ready = true;
             GameRoom newGameRoom = new GameRoom(roomName, max);
             newGameRoom.AddPlayer(roomOwner);
             newGameRoom.ownerPlayer = roomOwner;
@@ -792,6 +792,9 @@ namespace ServerProgram
                 }
                 starting = true;
 
+                //채팅 초기화
+                ClearChat();
+
                 //첫번째 사람에게 가장 첫 출제자 권한 부여
                 players[0].SendResponse("GAMESCREEN", "PRESENTERCHOICE");
                 presenter = 0;
@@ -832,6 +835,11 @@ namespace ServerProgram
         public void ClearChat()
         {
             chats.Clear();
+
+            players.ForEach(p =>
+            {
+                p.SendResponse("ROOMCHAT|", string.Empty);
+            });
         }
 
         public void AddChat(string name, string content)
