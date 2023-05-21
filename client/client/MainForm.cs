@@ -626,32 +626,43 @@ namespace client
             string player = p1_username_tbx.Text;
             if (ready == true)
             {
-                if (player == p4_player2.Text)
-                    p4_w_state_player2.Text = "준비 완료";
-                if (player == p4_player3.Text)
-                    p4_w_state_player3.Text = "준비 완료";
-                if (player == p4_player4.Text)
-                    p4_w_state_player4.Text = "준비 완료";
-                if (player == p4_player5.Text)
-                    p4_w_state_player5.Text = "준비 완료";
-
                 p4_ready_btn.Text = "Cancel";
 
                 //ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                if (player == p4_player2.Text)
-                    p4_w_state_player2.Text = "대기중";
-                if (player == p4_player3.Text)
-                    p4_w_state_player3.Text = "대기중";
-                if (player == p4_player4.Text)
-                    p4_w_state_player4.Text = "대기중";
-                if (player == p4_player5.Text)
-                    p4_w_state_player5.Text = "대기중";
-
                 p4_ready_btn.Text = "Ready";
             }
+        }
+
+        public override void ReadyList(List<string> readyList)
+        {
+            //플레이어 화면
+            if (readyList.Contains(p4_player2.Text)) p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "준비완료"; }));
+            else { if (p4_player2.Text != string.Empty) p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "대기중"; })); }
+
+            if (readyList.Contains(p4_player3.Text)) p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "준비완료"; }));
+            else { if (p4_player3.Text != string.Empty) p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "대기중"; })); }
+
+            if (readyList.Contains(p4_player4.Text)) p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Text = "준비완료"; }));
+            else { if (p4_player4.Text != string.Empty) p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Text = "대기중"; })); }
+
+            if (readyList.Contains(p4_player5.Text)) p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Text = "준비완료"; }));
+            else { if (p4_player5.Text != string.Empty) p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Text = "대기중"; })); }
+
+            //방장 화면
+            if (readyList.Contains(p4_1_player2.Text)) p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "준비완료"; }));
+            else { if (p4_1_player2.Text != string.Empty) p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기중"; })); }
+
+            if (readyList.Contains(p4_1_player3.Text)) p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Text = "준비완료"; }));
+            else { if (p4_1_player3.Text != string.Empty) p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Text = "대기중"; })); }
+
+            if (readyList.Contains(p4_1_player4.Text)) p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Text = "준비완료"; }));
+            else { if (p4_1_player4.Text != string.Empty) p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Text = "대기중"; })); }
+
+            if (readyList.Contains(p4_1_player5.Text)) p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Text = "준비완료"; }));
+            else { if (p4_1_player5.Text != string.Empty) p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Text = "대기중"; })); }
         }
 
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)

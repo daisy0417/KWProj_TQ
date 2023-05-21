@@ -66,6 +66,11 @@ namespace client
             SendRequest("GAMEREADY", "0");
         }
 
+        public void RequestReadyList()
+        {
+            SendRequest("READYLIST", "0");
+        }
+
         public void RequestGameStart()
         {
             SendRequest("GAMESTART", "0");

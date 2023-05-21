@@ -278,6 +278,10 @@ namespace ServerProgram
                     {
                         GameReady(server);
                     }
+                    else if (header.Equals("READYLIST"))
+                    {
+                        ReadyList(content, server);
+                    }
                     else if (header.Equals("GUESSANSWER"))
                     {
                         GuessAnswer(content,server);
@@ -510,6 +514,23 @@ namespace ServerProgram
 
             server.SendClient("PLAYERLIST|" + playerListString);
         }
+
+        private void ReadyList(string roomName, Server server)
+        {
+            GameRoom room = gameRooms.Find(r => r.name == roomName);
+            string readyListString = string.Empty;
+            if (room != null)
+            {
+                room.players.ForEach(p =>
+                {
+                    if (p.ready) readyListString += p.username + ",";
+                });
+
+                if (readyListString.Length > 0) readyListString = readyListString.Substring(0, readyListString.Length - 1);
+            }
+
+            server.SendClient("READYLIST|" + readyListString);
+        }
         #endregion
 
         #region 채팅 기능
@@ -557,6 +578,15 @@ namespace ServerProgram
         {
             server.ready = !server.ready;
             server.SendResponse("GAMEREADY", server.ready ? "1" : "0");
+
+            gameRooms.ForEach(r =>
+            {
+                if (r.ContainPlayer(server))
+                {
+                    r.players.ForEach(p => ReadyList(r.name, p));
+                    return;
+                }
+            });
         }
 
         private void WordSelect(string word, Server server)
