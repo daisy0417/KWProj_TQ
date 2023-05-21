@@ -658,22 +658,24 @@ namespace client
         int Game_start = 0; //chatList.Clear를 한번만 하기 위해서 사용
         List<string> Q_AList; //chatList.Clear를 한번만 하기 위해서 사용2
 
-        //대기화면 채팅, 게임 질의응답 
-            
 
+        //대기화면 채팅, 게임 질의응답 
         public override void RoomChat(List<string> chatList)
         {
+            // 플레이어 채팅
             p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text = ""; }));
             chatList.ForEach(chat =>
             {
                 p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text += chat + "\r\n"; }));
             });
 
+            // 방장 채팅
             p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text = ""; }));
             chatList.ForEach(chat =>
             {
                 p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text += chat + "\r\n"; }));
             });
+
             // 현재 방에 아무도 없다면 대화내용 삭제 > 현재의 
             // 게임 시작시, chatList 내용 삭제 후 게임 내용 넣기
             Q_AList = chatList; 
@@ -688,7 +690,7 @@ namespace client
                 p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text += chat + "\r\n"; }));
             });
         }
-        #endregion
+
 
         #region Owner(방장)
 
@@ -992,7 +994,7 @@ namespace client
             p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = ""; }));
         }
 
-        
+
 
         //owner에서 start클릭 > 아무도 없을 경우 오류 작성 후 작동 x   -->   gameStart 함수에서 처리함.
         /*
@@ -1011,7 +1013,7 @@ namespace client
         }
         */
         #endregion
-
+    #endregion
         bool buzzer_on = false;
         int b_cnt1 = 5, b_cnt2 = 5, b_cnt3 = 5, b_cnt4 = 5, b_cnt5 = 5;
         //정답 버튼
@@ -1106,11 +1108,11 @@ namespace client
        
         private void timer1_Tick(object sender, EventArgs e)
         {   //시간 표시할 라벨
-            //label1.Text=(int.Parse(label1.text)+1).ToString();
-            //if (Label1.text == '5')
-            {
-                //timer1.Stop();
-                // client.RequestGuessAnswer(Textbox.Text);
+            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (int.Parse(p6_timer_label.Text) + 1).ToString(); }));
+            if (p6_timer_label.Text == "5")
+            { 
+                timer1.Stop();
+                client.RequestGuessAnswer(p6_answer_tbx.Text);
                 //답 읽어오기
             }
         }

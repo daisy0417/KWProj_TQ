@@ -185,6 +185,7 @@
             this.p5_2_player2 = new System.Windows.Forms.Label();
             this.p5_2_player1 = new System.Windows.Forms.Label();
             this.p5_2_player_turn_label = new System.Windows.Forms.Label();
+            this.p6_timer_label = new System.Windows.Forms.Label();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -1177,8 +1178,13 @@
             this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p3_title_label.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // panel6_Answer
             // 
+            this.panel6_Answer.Controls.Add(this.p6_timer_label);
             this.panel6_Answer.Controls.Add(this.p6_player5_score);
             this.panel6_Answer.Controls.Add(this.p6_buzzer_btn);
             this.panel6_Answer.Controls.Add(this.p6_player4_score);
@@ -2451,6 +2457,17 @@
             this.p5_2_player_turn_label.TabIndex = 46;
             this.p5_2_player_turn_label.Visible = false;
             // 
+            // p6_timer_label
+            // 
+            this.p6_timer_label.BackColor = System.Drawing.Color.LightGreen;
+            this.p6_timer_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_timer_label.Location = new System.Drawing.Point(261, 37);
+            this.p6_timer_label.Name = "p6_timer_label";
+            this.p6_timer_label.Size = new System.Drawing.Size(118, 34);
+            this.p6_timer_label.TabIndex = 47;
+            this.p6_timer_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p6_timer_label.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -2650,5 +2667,6 @@
         private System.Windows.Forms.Label p5_2_player1;
         private System.Windows.Forms.Label p5_2_player_turn_label;
         private MetroSet_UI.Controls.MetroSetButton p4_readyDone_btn;
+        private System.Windows.Forms.Label p6_timer_label;
     }
 }
