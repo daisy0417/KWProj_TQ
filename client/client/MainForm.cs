@@ -298,6 +298,7 @@ namespace client
 
         private void p2_gameStart_btn_Click(object sender, EventArgs e)
         {
+            client.RequestRoomList();
             panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = false; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
             p3_title_label.Visible = true;
@@ -479,46 +480,8 @@ namespace client
         public override void OwnerWait()
         {
             Changing();
-            //panel3_roomList.Visible = false;
-            //panel4_1_owner_waitRoom.Visible = true;
             p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Text = "방장 방"; }));
-            /*
-                        if (serverRoomInfo != null)
-                            foreach (string room in serverRoomInfo)
-                            {
-                                string[] roomInfo = room.Split(',');
-                                string roomName = roomInfo[0];
-                                string playerCount = roomInfo[1];
-                                string roomMax = roomInfo[2];
-
-                                //p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
-                                // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
-                                //p4_1_roomInfo_label.Text = "방장 방";
-
-                                //p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax); }));
-
-            /                    switch (playerCount)
-                                {
-                                    case "0":
-                                        p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = p1_username_tbx.Text; }));
-                                        break;
-                                    case "1":
-                                        p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = p1_username_tbx.Text; }));
-                                        break; ;
-                                    case "2":
-                                        p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.Text = p1_username_tbx.Text; }));
-                                        break;
-                                    case "3":
-                                        p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.Text = p1_username_tbx.Text; }));
-                                        break;
-                                    case "4":
-                                        p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.Text = p1_username_tbx.Text; }));
-                                        break;
-                                }
-            
-        }
-
-            */
+           
             p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = p1_username_tbx.Text; }));
             p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = p1_username_tbx.Text; }));
 
