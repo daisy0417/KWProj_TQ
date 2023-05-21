@@ -115,6 +115,14 @@ namespace client
 
         }
 
+        /// <summary>
+        ///  RequestReadyList 호출 후 도착하는 응답. 현재 준비 완료된 플레이어들의 username 리스트를 전달한다.
+        /// </summary>
+        public virtual void ReadyList(List<string> readyList)
+        {
+
+        }
+
         #region 게임 진행에 따른 화면들
         /// <summary>
         /// 방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼 등 방장의 고유한 권한이 있는 화면

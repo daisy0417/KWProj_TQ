@@ -46,9 +46,9 @@ namespace client
             SendRequest("ROOMJOIN", roomName);
         }
 
-        public void RequestRoomOut()
+        public void RequestRoomOut(string win)
         {
-            SendRequest("ROOMOUT", "0");
+            SendRequest("ROOMOUT", win);
         }
 
         public void RequestSendRoomChat(string username, string content)
@@ -64,6 +64,11 @@ namespace client
         public void RequestGameReady()
         {
             SendRequest("GAMEREADY", "0");
+        }
+
+        public void RequestReadyList()
+        {
+            SendRequest("READYLIST", "0");
         }
 
         public void RequestGameStart()

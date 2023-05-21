@@ -191,6 +191,10 @@ namespace client
             }else if (header.Equals("GAMEREADY"))
             {
                 parentForm.GameReady(content.Equals("1"));
+            }else if (header.Equals("READYLIST"))
+            {
+                string[] readyArr = content.Split(',');
+                parentForm.ReadyList(readyArr.ToList());
             }
             else if (header.Equals("GAMESCREEN"))
             {
