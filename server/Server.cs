@@ -46,6 +46,7 @@ namespace ServerProgram
             string query = "update idpw set wins = "+win_point+" where ID= '"+username+"'";
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
             int result = cmd.ExecuteNonQuery();
+            
         }
 
         public void change_room(int newRoom)
@@ -473,6 +474,7 @@ namespace ServerProgram
                         //남아있는 플레이어들에게 해당 플레이어가 나가서 생긴 방의 변동을 자동으로 전달
                         gameRooms[i].players.ForEach(p => PlayerList(gameRooms[i].name, p));
                     }
+
                     server.change_room(0);
                     server.SendClient("ROOMOUT|0");
 
@@ -854,6 +856,7 @@ namespace ServerProgram
                 if(ownerPlayer == player)
                 {
                     ownerPlayer = players[0];
+                   
                     ownerPlayer.SendResponse("GAMESCREEN", "OWNERWAIT");
                 }
             }
