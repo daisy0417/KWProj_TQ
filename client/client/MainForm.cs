@@ -598,10 +598,12 @@ namespace client
 
         private void p4_1_refresh_btn_Click(object sender, EventArgs e)
         {
+            p4_1_player_change();
             client.RequestPlayerList(roomName);
         }
 
         int Game_start = 0; //chatList.Clear를 한번만 하기 위해서 사용
+        List<string> Q_AList; //chatList.Clear를 한번만 하기 위해서 사용2
 
         //대기화면 채팅, 게임 질의응답 
         public override void RoomChat(List<string> chatList)
@@ -619,9 +621,11 @@ namespace client
             });
             // 현재 방에 아무도 없다면 대화내용 삭제 > 현재의 
             // 게임 시작시, chatList 내용 삭제 후 게임 내용 넣기
-            if(Game_start == 2)
-            {   
+            Q_AList = chatList; 
+            if(panel5.Visible == true || panel6_Answer.Visible == true)
+            {
                 //chatList.Clear();
+                chatList = Q_AList;
             }
             p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text = ""; }));
             chatList.ForEach(chat =>
@@ -870,7 +874,8 @@ namespace client
                 p4_state_player5.Text = "준비 완료";
             panel4_player_waitRoom.Visible=false;
             panel6_Answer.Visible = true; //p6화면 확인 test
-            Game_start = 2;
+            //Game_start = 2;
+            Q_AList.Clear();
         }
 
         private void p4_1_ready_btn_Click(object sender, EventArgs e)
@@ -989,7 +994,7 @@ namespace client
         #region panel6_Answer: 질문자 화면
 
         // 사용자 턴 나타냄 - 주황색 테두리
-        private void p6_turn()      
+        private void p6_turn()    
         {
             p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; }));
             string p_name = p1_username_tbx.Text;
@@ -1075,9 +1080,9 @@ namespace client
 
         private void p6_send_btn_Click(object sender, EventArgs e)
         {
-            if (buzzer_on)
+            if (buzzer_on)  // 부저 -> 정답 입력
                 client.RequestSendQuestion("[ ! ]" + p6_answer_tbx.Text);
-            else
+            else            // 일반 질문 입력
                 client.RequestSendQuestion("[ Q" + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
             p6_answer_tbx.Text = "";
         }
