@@ -328,7 +328,7 @@ namespace client
         }
 
 
-        List<string> serverRoomInfo;    // RoomList 함수가 서버로 부터 받아 온 방 정보를 사용하기 위함.
+        //List<string> serverRoomInfo;    // RoomList 함수가 서버로 부터 받아 온 방 정보를 사용하기 위함.
 
         // 서버에 존재하는 방 정보를 가져와서 방 리스트에 출력
         public override void RoomList(List<string> roomList)
@@ -336,7 +336,7 @@ namespace client
             p3_dataGridView1.Invoke(new MethodInvoker(delegate { p3_dataGridView1.Rows.Clear(); }));
 
             //새로 고침시, 셀 추가 문제 해결
-            serverRoomInfo = roomList;
+            //serverRoomInfo = roomList;
 
             foreach (string room in roomList)
             {
@@ -413,7 +413,7 @@ namespace client
                         //panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
                         client.RequestRoomCreate(roomName, roomMax);
                     }
-                     catch (NullReferenceException nre)
+                     catch (NullReferenceException n)
                     {
                         ShowMessageBox("create room error","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
