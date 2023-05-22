@@ -634,6 +634,8 @@ namespace ServerProgram
                     questionerList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
                 }
             }
+
+            room.SendCurrentQuestioner();
         }
 
         private void SendAnswer(string answer, Server server)
@@ -950,7 +952,16 @@ namespace ServerProgram
             currentQuestioner++;
             if (questionerList.Count == currentQuestioner) currentQuestioner = 0;
 
+            SendCurrentQuestioner();
+
             return currentQuestioner;
+        }
+
+        public void SendCurrentQuestioner()
+        {
+            List<Server> questionerList = GetQuestionerList();
+            if (questionerList.Count == 0) return;
+            players.ForEach(p => p.SendResponse("CURRENTQUESTIONER", questionerList[currentQuestioner].username));
         }
 
         public bool Max() => players.Count == max;
