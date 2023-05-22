@@ -200,6 +200,10 @@ namespace client
             {
                 parentForm.CurrentQuestioner(content);
             }
+            else if (header.Equals("SETBCOUNT"))
+            {
+                parentForm.SetBcount(Convert.ToInt32(content));
+            }
             else if (header.Equals("GAMESCREEN"))
             {
                 if (content.Equals("OWNERWAIT"))

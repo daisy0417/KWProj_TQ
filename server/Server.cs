@@ -298,6 +298,9 @@ namespace ServerProgram
                     }else if (header.Equals("EXITGAME"))
                     {
                         ExitGame(server);
+                    }else if (header.Equals("SETBCOUNT"))
+                    {
+                        SetBcount(server);
                     }
                     //알 수 없는 header일때
                     else
@@ -872,6 +875,10 @@ namespace ServerProgram
                 }
             }
             */
+        }
+        private void SetBcount(Server server)
+        {
+            server.SendResponse("SETBCOUNT", server.get_remain_chance().ToString());
         }
 
         private void ExitGame(Server server)

@@ -1298,8 +1298,13 @@ namespace client
         }
 
         bool buzzer_on = false;
+        
         int b_cnt1 = 5, b_cnt2 = 5, b_cnt3 = 5, b_cnt4 = 5, b_cnt5 = 5;
         //정답 버튼
+        public override void SetBcount(int count)
+        {
+            b_cnt1 = b_cnt2 = b_cnt3 = b_cnt4 = b_cnt5 = count;
+        }
         private void buzzer_Click(object sender, EventArgs e)
         {    
             if (b_cnt1 <= 0)
@@ -1636,6 +1641,7 @@ namespace client
         public override void QuestionerWait()
         {
             Changing();
+            
             panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
             panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = false; }));
             panel6_2_Answer_Wait.Invoke(new MethodInvoker(delegate { panel6_2_Answer_Wait.Visible = true; }));
