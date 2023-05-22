@@ -1292,10 +1292,11 @@ namespace client
         {
             p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Visible = true; }));
             p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Visible = true; }));
+            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = "0"; }));
             timer1.Start();
             client.RequestBuzzer();
             //>>>>> 정답 출력 test
-            client.RequestGuessAnswer(p6_answer_tbx.Text);  // 정답인지 확인
+            // 정답인지 확인
 
             //if(b_cnt1==0 || b_cnt2 == 0 || b_cnt3 == 0 || b_cnt4 == 0 || b_cnt5 == 0)
 
@@ -1312,7 +1313,7 @@ namespace client
             p6_2_answer_tbx.ForeColor = Color.CornflowerBlue;
 
             buzzer_on = true;
-
+            
             if (b_cnt1 <= 0)
             {
                 ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1414,16 +1415,18 @@ namespace client
                     p6_2_buzzer_btn.Text = "정답 ( " + b_cnt5 + "/ 5 )";
                 }
             }
+            
         }
 
        
         private void timer1_Tick(object sender, EventArgs e)
         {   //시간 표시할 라벨
-            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = "0"; }));
+            
             
             p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (Convert.ToInt16(p6_timer_label.Text) + 1).ToString(); }));
             if (p6_timer_label.Text == "5")
             { 
+                buzzer_on=false;
                 timer1.Stop();
                 client.RequestGuessAnswer(p6_answer_tbx.Text);  // 정답인지 확인
                 //답 읽어오기
@@ -1667,8 +1670,13 @@ namespace client
 
         private void p6_send_btn_Click(object sender, EventArgs e)
         {
-            if (buzzer_on)  // 부저 -> 정답 입력
+            if (buzzer_on)
+            {  // 부저 -> 정답 입력
                 client.RequestSendQuestion("[ ! ]" + p6_answer_tbx.Text);
+                client.RequestGuessAnswer(p6_answer_tbx.Text);
+                buzzer_on=false;
+                timer1.Stop();
+            }
             else            // 일반 질문 입력
                 client.RequestSendQuestion("[ Q" + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
             p6_answer_tbx.Text = "";
