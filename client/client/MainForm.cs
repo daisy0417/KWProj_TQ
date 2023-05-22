@@ -1477,7 +1477,7 @@ namespace client
         }
 
         
-
+        
         #region 게임 진행 - panel5_Owner, 5_1_Owner_Answer, 5_2_Owner_Wait : 출제자 화면
         private void p5_send_btn_Click(object sender, EventArgs e)
         {
@@ -1665,6 +1665,36 @@ namespace client
                 client.RequestGuessAnswer(p6_2_answer_tbx.Text);
                 buzzer_on = false;
                 timer1.Stop();
+            }
+        }
+
+        private void p6_answer_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 엔터 입력 시 send 버튼 클릭과 같은 이벤트
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                if (buzzer_on)
+                {  // 부저 -> 정답 입력
+                    client.RequestSendQuestion("[ ! ]" + p6_answer_tbx.Text);
+                    client.RequestGuessAnswer(p6_answer_tbx.Text);
+                    buzzer_on = false;
+                    timer1.Stop();
+                }
+                else            // 일반 질문 입력
+                    client.RequestSendQuestion("[ Q" + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
+                p6_answer_tbx.Text = "";
+            }
+
+        }
+
+        private void p5_message_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                p5_input_label.Invoke(new MethodInvoker(delegate { p5_input_label.Text = p5_message_tbx.Text; }));
+                client.RequestWordSelect(p5_input_label.Text);
             }
         }
 

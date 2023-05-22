@@ -241,6 +241,7 @@ namespace ServerProgram
                         string[] roomInfo = content.Split(',');
                         if (RoomCreate(roomInfo[0], int.Parse(roomInfo[1]), server))
                         {
+                            RefreshRoom();
                             server.SendClient("ROOMCREATE|1");
                             //방장 화면으로 세팅
                             server.SendResponse("GAMESCREEN", "OWNERWAIT");
@@ -430,6 +431,18 @@ namespace ServerProgram
             return true;
         }
 
+        private void RefreshRoom()
+        {
+            //현재 로비에 있는 모든 플레이어에게 방의 변동을 전달
+            for (int i = 0; i < servers.Count; i++)
+            {
+                if (servers[i].roomnum() == 0)
+                {
+                    servers[i].SendClient("ROOMLIST|" + GetRoomListString());
+                }
+            }
+        }
+
         private void RoomJoin(string roomName, Server server)
         {
             int index = -1;
@@ -469,6 +482,8 @@ namespace ServerProgram
 
                 //일반 플레이어 화면으로 세팅 이거 근데 순서 꼬이면 어떡하지? 한번 해보고 문제 있으면 ROOMJOIN시 인자로 보내서 그때 같이 처리하는걸로
                 server.SendResponse("GAMESCREEN", "PLAYERWAIT");
+
+                RefreshRoom();
             }
         }
 
@@ -495,6 +510,8 @@ namespace ServerProgram
 
                     server.change_room(0);
                     server.SendClient("ROOMOUT|0");
+
+                    RefreshRoom();
 
                     return;
                 }
