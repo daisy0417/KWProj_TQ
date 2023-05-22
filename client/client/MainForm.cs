@@ -570,37 +570,81 @@ namespace client
 
         public override void ReadyList(List<string> readyList)
         {
+            // 재입장시. 준비 완료 -> 대기중으로 바뀌지 않아 대기 중은 패널 시작시 넣음.
             //플레이어 화면
             if (readyList.Contains(p4_player2.Text)) p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "준비완료"; }));
-            else { if (p4_player2.Text != string.Empty) p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "대기중"; })); }
 
             if (readyList.Contains(p4_player3.Text)) p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "준비완료"; }));
-            else { if (p4_player3.Text != string.Empty) p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "대기중"; })); }
 
             if (readyList.Contains(p4_player4.Text)) p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Text = "준비완료"; }));
-            else { if (p4_player4.Text != string.Empty) p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Text = "대기중"; })); }
 
             if (readyList.Contains(p4_player5.Text)) p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Text = "준비완료"; }));
-            else { if (p4_player5.Text != string.Empty) p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Text = "대기중"; })); }
 
             //방장 화면
             if (readyList.Contains(p4_1_player2.Text)) p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "준비완료"; }));
-            else { if (p4_1_player2.Text != string.Empty) p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기중"; })); }
 
             if (readyList.Contains(p4_1_player3.Text)) p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Text = "준비완료"; }));
-            else { if (p4_1_player3.Text != string.Empty) p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Text = "대기중"; })); }
 
             if (readyList.Contains(p4_1_player4.Text)) p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Text = "준비완료"; }));
-            else { if (p4_1_player4.Text != string.Empty) p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Text = "대기중"; })); }
 
             if (readyList.Contains(p4_1_player5.Text)) p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Text = "준비완료"; }));
-            else { if (p4_1_player5.Text != string.Empty) p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Text = "대기중"; })); }
+        }
+
+        // 목록 클리어 > owner화면 & 접속자 화면
+        private void PlayerList_clear()
+        {
+            // 방장 = player1 > 방장이라 state label 설정 x
+            p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = ""; }));   // 이름 초기화
+            p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.ForeColor = Color.Black; })); // 글자색 초기화
+            p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = ""; }));
+            p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.ForeColor = Color.Black; }));
+
+            // player2  
+            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.Text = ""; }));
+            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.ForeColor = Color.Black; }));
+            p4_player2.Invoke(new MethodInvoker(delegate { p4_player2.BackColor = Color.LightGray; }));   // 배경 색 초기화
+            p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Visible = false; }));
+            p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = ""; }));
+            p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.ForeColor = Color.Black; }));
+            p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.BackColor = Color.LightGray; }));
+            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Visible = false; }));
+
+            // player3
+            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.Text = ""; }));
+            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.ForeColor = Color.Black; }));
+            p4_player3.Invoke(new MethodInvoker(delegate { p4_player3.BackColor = Color.LightGray; }));
+            p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Visible = false; }));
+            p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.Text = ""; }));
+            p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.ForeColor = Color.Black; }));
+            p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.BackColor = Color.LightGray; }));
+            p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Visible = false; }));
+
+            // player4
+            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.Text = ""; }));
+            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.ForeColor = Color.Black; }));
+            p4_player4.Invoke(new MethodInvoker(delegate { p4_player4.BackColor = Color.LightGray; }));
+            p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Visible = false; }));
+            p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.Text = ""; }));
+            p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.ForeColor = Color.Black; }));
+            p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.BackColor = Color.LightGray; }));
+            p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Visible = false; }));
+
+            // player5
+            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.Text = ""; }));
+            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.ForeColor = Color.Black; }));
+            p4_player5.Invoke(new MethodInvoker(delegate { p4_player5.BackColor = Color.LightGray; }));
+            p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Visible = false; }));
+            p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.Text = ""; }));
+            p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.ForeColor = Color.Black; }));
+            p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.BackColor = Color.LightGray; }));
+            p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Visible = false; }));
         }
 
         // 접속자 리스트 - 문제: 방장만 제대로 출력x(only 자기 이름)
         public override void PlayerList(List<string> playerList)
         {
             int cnt = playerList.Count;
+            PlayerList_clear();
             if (cnt > 0)
             {
                 p4_player1.Invoke(new MethodInvoker(delegate { p4_player1.Text = playerList[0]; }));        //플레이어
@@ -804,9 +848,15 @@ namespace client
         {
             //client.RequestRoomList();
             //RoomList(serverRoomInfo);
+            client.RequestPlayerList(roomname);
 
             if (panel4_1_owner_waitRoom.Visible == true)
-            {/*
+            {
+                p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
+                p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Text = "대기 중"; }));
+                p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Text = "대기 중"; }));
+                p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Text = "대기 중"; }));
+                /*
                 if(serverRoomInfo!=null)
                     foreach (string room in serverRoomInfo)
                     {
@@ -898,29 +948,6 @@ namespace client
             panel4_player_waitRoom.Visible = false;
             panel3_roomList.Visible = true;
 
-            // 일반 - 접속자 목록 비우기
-            p4_player1.Text = "";
-            p4_w_state_player1.Visible = false;
-            p4_player2.Text = "";
-            p4_w_state_player2.Visible = false;
-            p4_player3.Text = "";
-            p4_w_state_player3.Visible = false;
-            p4_player4.Text = "";
-            p4_w_state_player4.Visible = false;
-            p4_player5.Text = "";
-            p4_w_state_player5.Visible = false;
-
-            // owner - 접속자 목록 비우기
-            p4_1_player1.Text = "";
-            p4_1_player2.Text = "";
-            p4_1_state_player2.Visible = false;
-            p4_1_player3.Text = "";
-            p4_1_state_player3.Visible = false;
-            p4_1_player4.Text = "";
-            p4_1_state_player4.Visible = false;
-            p4_1_player5.Text = "";
-            p4_1_state_player5.Visible = false;
-
             p4_player_change();
             p4_1_player_change();
         }
@@ -1003,6 +1030,11 @@ namespace client
         {
             if(panel4_player_waitRoom.Visible == true)
             {
+                p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "대기 중"; }));
+                p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "대기 중"; }));
+                p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Text = "대기 중"; }));
+                p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Text = "대기 중"; }));
+
                 //client.RequestRoomList();
                 //RoomList(serverRoomInfo);
                 /*
