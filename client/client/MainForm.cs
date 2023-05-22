@@ -581,9 +581,9 @@ namespace client
             p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Text = "대기 중"; }));
 
             p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
-            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
-            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
-            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
+            p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Text = "대기 중"; }));
+            p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Text = "대기 중"; }));
+            p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Text = "대기 중"; }));
 
             if (readyList.Contains(p4_player2.Text)) p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "준비완료"; }));
 
@@ -1255,47 +1255,60 @@ namespace client
 
         public override void CurrentQuestioner(string username)
         {
-            //임시로 해놓은거
-            //각 화면 이름이 뭔지 잘 뭘라서 그냥 p5부터 순서대로 다 넣어보긴 했는데
-            //아마 제대로 작동이 될 것 같긴 한데 아직 QuesionerQuestion 화면에서만 보여지네요.
-            //각 화면마다 다 적용되도록 수정해주시면 감사하겠습니다.
-            p5_player1.Invoke(new MethodInvoker(delegate { p5_player1.ForeColor = Color.Black; }));
-            p5_player1.Invoke(new MethodInvoker(delegate { p5_player2.ForeColor = Color.Black; }));
-            p5_player3.Invoke(new MethodInvoker(delegate { p5_player3.ForeColor = Color.Black; }));
-            p5_player4.Invoke(new MethodInvoker(delegate { p5_player4.ForeColor = Color.Black; }));
-            p5_player5.Invoke(new MethodInvoker(delegate { p5_player5.ForeColor = Color.Black; }));
+            // 상태 라벨 true로 하기
+            p5_player_turn_label.Invoke(new MethodInvoker(delegate { p5_player_turn_label.Visible = true; }));
 
-            if (p5_player1.Text == username) p5_player1.Invoke(new MethodInvoker(delegate { p5_player1.ForeColor = Color.Yellow; }));
-            else if (p5_player2.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player2.ForeColor = Color.Yellow; }));
-            else if (p5_player3.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player3.ForeColor = Color.Yellow; }));
-            else if (p5_player4.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player4.ForeColor = Color.Yellow; }));
-            else if (p5_player5.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player5.ForeColor = Color.Yellow; }));
+            // 패널 안이라 위치에 차이가 있음 > player 라벨과 차이로 계산하여 다시 위치 설정
+            int x = p5_1_player1.Location.X - 7;
+            int y1 = p5_1_player1.Location.Y - 7;
+            int y2 = p5_1_player2.Location.Y - 6;
+            int y3 = p5_1_player3.Location.Y - 6;
+            int y4 = p5_1_player4.Location.Y - 6;
+            int y5 = p5_1_player5.Location.Y - 6;
 
-            p5_1_player1.Invoke(new MethodInvoker(delegate { p5_1_player1.ForeColor = Color.Black; }));
-            p5_1_player1.Invoke(new MethodInvoker(delegate { p5_1_player2.ForeColor = Color.Black; }));
-            p5_1_player3.Invoke(new MethodInvoker(delegate { p5_1_player3.ForeColor = Color.Black; }));
-            p5_1_player4.Invoke(new MethodInvoker(delegate { p5_1_player4.ForeColor = Color.Black; }));
-            p5_1_player5.Invoke(new MethodInvoker(delegate { p5_1_player5.ForeColor = Color.Black; }));
+            // turn 위치로 이동
+            // p5 
+            if (p5_player1.Text == username) p5_player_turn_label.Invoke(new MethodInvoker(delegate { p5_player_turn_label.Location = new Point(x, y1); }));
+            else if (p5_player2.Text == username) p5_player_turn_label.Invoke(new MethodInvoker(delegate { p5_player_turn_label.Location = new Point(x, y2); }));
+            else if (p5_player3.Text == username) p5_player_turn_label.Invoke(new MethodInvoker(delegate { p5_player_turn_label.Location = new Point(x, y3); }));
+            else if (p5_player4.Text == username) p5_player_turn_label.Invoke(new MethodInvoker(delegate { p5_player_turn_label.Location = new Point(x, y4); }));
+            else if (p5_player5.Text == username) p5_player_turn_label.Invoke(new MethodInvoker(delegate { p5_player_turn_label.Location = new Point(x, y5); }));
 
+            // p5_1
+            p5_1_player_turn_label.Invoke(new MethodInvoker(delegate { p5_1_player_turn_label.Visible = true; }));
 
-            if (p5_1_player1.Text == username) p5_1_player1.Invoke(new MethodInvoker(delegate { p5_1_player1.ForeColor = Color.Yellow; }));
-            else if (p5_1_player2.Text == username) p5_1_player2.Invoke(new MethodInvoker(delegate { p5_1_player2.ForeColor = Color.Yellow; }));
-            else if (p5_1_player3.Text == username) p5_1_player3.Invoke(new MethodInvoker(delegate { p5_1_player3.ForeColor = Color.Yellow; }));
-            else if (p5_1_player4.Text == username) p5_1_player4.Invoke(new MethodInvoker(delegate { p5_1_player4.ForeColor = Color.Yellow; }));
-            else if (p5_1_player5.Text == username) p5_1_player5.Invoke(new MethodInvoker(delegate { p5_1_player5.ForeColor = Color.Yellow; }));
+            if (p5_1_player1.Text == username) p5_1_player_turn_label.Invoke(new MethodInvoker(delegate { p5_1_player_turn_label.Location = new Point(x, y1); }));
+            else if (p5_1_player2.Text == username) p5_1_player_turn_label.Invoke(new MethodInvoker(delegate { p5_1_player_turn_label.Location = new Point(x, y2); }));
+            else if (p5_1_player3.Text == username) p5_1_player_turn_label.Invoke(new MethodInvoker(delegate { p5_1_player_turn_label.Location = new Point(x, y3); }));
+            else if (p5_1_player4.Text == username) p5_1_player_turn_label.Invoke(new MethodInvoker(delegate { p5_1_player_turn_label.Location = new Point(x, y4); }));
+            else if (p5_1_player5.Text == username) p5_1_player_turn_label.Invoke(new MethodInvoker(delegate { p5_1_player_turn_label.Location = new Point(x, y5); }));
 
-            p6_player1.Invoke(new MethodInvoker(delegate { p6_player1.ForeColor = Color.Black; }));
-            p6_player1.Invoke(new MethodInvoker(delegate { p6_player2.ForeColor = Color.Black; }));
-            p6_player3.Invoke(new MethodInvoker(delegate { p6_player3.ForeColor = Color.Black; }));
-            p6_player4.Invoke(new MethodInvoker(delegate { p6_player4.ForeColor = Color.Black; }));
-            p6_player5.Invoke(new MethodInvoker(delegate { p6_player5.ForeColor = Color.Black; }));
+            // p5_2
+            p5_2_player_turn_label.Invoke(new MethodInvoker(delegate { p5_2_player_turn_label.Visible = true; }));
 
+            if (p5_player1.Text == username) p5_2_player_turn_label.Invoke(new MethodInvoker(delegate { p5_2_player_turn_label.Location = new Point(x, y1); }));
+            else if (p5_2_player2.Text == username) p5_2_player_turn_label.Invoke(new MethodInvoker(delegate { p5_2_player_turn_label.Location = new Point(x, y2); }));
+            else if (p5_2_player3.Text == username) p5_2_player_turn_label.Invoke(new MethodInvoker(delegate { p5_2_player_turn_label.Location = new Point(x, y3); }));
+            else if (p5_2_player4.Text == username) p5_2_player_turn_label.Invoke(new MethodInvoker(delegate { p5_2_player_turn_label.Location = new Point(x, y4); }));
+            else if (p5_2_player5.Text == username) p5_2_player_turn_label.Invoke(new MethodInvoker(delegate { p5_2_player_turn_label.Location = new Point(x, y5); }));
 
-            if (p6_player1.Text == username) p6_player1.Invoke(new MethodInvoker(delegate { p6_player1.ForeColor = Color.Yellow; }));
-            else if (p6_player2.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.ForeColor = Color.Yellow; }));
-            else if (p6_player3.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player3.ForeColor = Color.Yellow; }));
-            else if (p6_player4.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player4.ForeColor = Color.Yellow; }));
-            else if (p6_player5.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player5.ForeColor = Color.Yellow; }));
+            // p6
+            p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; }));
+
+            if (p6_player1.Text == username) p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Location = new Point(x, y1); }));
+            else if (p6_player2.Text == username) p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Location = new Point(x, y2); }));
+            else if (p6_player3.Text == username) p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Location = new Point(x, y3); }));
+            else if (p6_player4.Text == username) p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Location = new Point(x, y4); }));
+            else if (p6_player5.Text == username) p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Location = new Point(x, y5); }));
+
+            // p6_2
+            p6_2_player_turn_label.Invoke(new MethodInvoker(delegate { p6_2_player_turn_label.Visible = true; }));
+
+            if (p6_2_player1.Text == username) p6_2_player_turn_label.Invoke(new MethodInvoker(delegate { p6_2_player_turn_label.Location = new Point(x, y1); }));
+            else if (p6_2_player2.Text == username) p6_2_player_turn_label.Invoke(new MethodInvoker(delegate { p6_2_player_turn_label.Location = new Point(x, y2); }));
+            else if (p6_2_player3.Text == username) p6_2_player_turn_label.Invoke(new MethodInvoker(delegate { p6_2_player_turn_label.Location = new Point(x, y3); }));
+            else if (p6_2_player4.Text == username) p6_2_player_turn_label.Invoke(new MethodInvoker(delegate { p6_2_player_turn_label.Location = new Point(x, y4); }));
+            else if (p6_2_player5.Text == username) p6_2_player_turn_label.Invoke(new MethodInvoker(delegate { p6_2_player_turn_label.Location = new Point(x, y5); }));
         }
 
         bool buzzer_on = false;
@@ -1493,6 +1506,7 @@ namespace client
             // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
             //panel5_Owner.Visible = true;
             panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = true; }));
+            p6_2_solution_label.Invoke(new MethodInvoker(delegate { p6_2_solution_label.Text = "입력 중..."; }));
         }
 
         // 게임 시작 후 출제자가 질문을 기다리는 화면
@@ -1501,6 +1515,7 @@ namespace client
             Changing();
 
             panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
+            p5_2_word_label.Invoke(new MethodInvoker(delegate { p5_2_word_label.Text = "정답 : " + p5_message_tbx.Text; }));
         }
 
         // 게임 시작 후 출제자가 질문에 대한 답변을 작성하는 화면
@@ -1533,25 +1548,6 @@ namespace client
         #region 게임 진행 - panel6_Answer : 플레이어(정답자) 화면
 
         public delegate void Delegateplus();
-
-        private void p6_turn()
-        {
-            p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; }));
-            string p_name = p1_username_tbx.Text;
-            p6_player_turn_label.Invoke((Delegateplus)(delegate ()
-            {
-                if (p_name == p4_player1.Text)
-                    p6_player_turn_label.Location = new Point(34, 23);
-                else if (p_name == p4_player2.Text)
-                    p6_player_turn_label.Location = new Point(34, 114);
-                else if (p_name == p4_player3.Text)
-                    p6_player_turn_label.Location = new Point(34, 204);
-                else if (p_name == p4_player4.Text)
-                    p6_player_turn_label.Location = new Point(34, 294);
-                else if (p_name == p4_player5.Text)
-                    p6_player_turn_label.Location = new Point(34, 384);
-            }),new object[] { } );
-        }
 
         private void p6_2_turn()
         {
@@ -1682,7 +1678,7 @@ namespace client
                     timer1.Stop();
                 }
                 else            // 일반 질문 입력
-                    client.RequestSendQuestion("[ Q" + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
+                    client.RequestSendQuestion("[ " + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
                 p6_answer_tbx.Text = "";
             }
 
@@ -1713,7 +1709,7 @@ namespace client
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.Text = "( 질문 순서가 아닙니다. )"; }));
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.ReadOnly = true; }));
 
-            if(turn_cnt > 20)   // 질문 20번 넘었을 때
+            if(turn_cnt >= 21)   // 질문 20번 넘었을 때
                 ShowMessageBox("질문 횟수가 20번이 넘었습니다...", "GameOver", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
@@ -1726,9 +1722,8 @@ namespace client
             panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; }));
 
             //사용자 턴에 따른 사용자 리스트 라벨 변경 > 사용자 누구? -> 테두리 색 변환
-            if(turn_cnt < 21)
+            if(turn_cnt < 20)
             {
-                p6_turn(); // 질문자 표시
                 p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
                 p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.ReadOnly = false; }));  // 입력 받기 가능
 
@@ -1758,7 +1753,7 @@ namespace client
                 timer1.Stop();
             }
             else            // 일반 질문 입력
-                client.RequestSendQuestion("[ Q" + turn_cnt + " ] " + p1_username_tbx.Text + " : " + p6_answer_tbx.Text);
+                client.RequestSendQuestion("[ " + p1_username_tbx.Text + " ] " + p6_answer_tbx.Text);
             p6_answer_tbx.Text = "";
         }
         #endregion
