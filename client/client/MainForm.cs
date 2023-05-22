@@ -1452,7 +1452,7 @@ namespace client
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            client.RequestRoomOut("0");
+            client.RequestExitGame();
         }
 
     }
