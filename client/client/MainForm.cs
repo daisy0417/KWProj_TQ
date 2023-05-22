@@ -443,6 +443,7 @@ namespace client
         }
         public void Changing()
         {
+            panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = false; }));
             panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = false; }));
             panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible=false; }));
             panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
@@ -935,7 +936,7 @@ namespace client
         {
             // 게임 시작하기 버튼 누르면 게임에 모두 준비되었는 지 확인하는 request 보냄
             // 전부 준비 안 되어 있으면 GameStartFail() 실행
-            panel4_1_owner_waitRoom.Visible = false;
+            //panel4_1_owner_waitRoom.Visible = false;
 
             // 화면 지저분하게 전환되어서 일단 보류
             // ShowMessageBox("게임을 시작합니다.","Start!",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -1455,30 +1456,26 @@ namespace client
         // 게임 시작 후 출제자가 제시어 정하는 화면
         public override void PresenterChoice()
         {
+            Changing();
             // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
             //panel5_Owner.Visible = true;
             panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = true; }));
-
-            // 패널 우선순위에서 5_1, 5_2 가 더 위에 있으므로 숨기기
-            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
-            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
         }
 
         // 게임 시작 후 출제자가 질문을 기다리는 화면
         public override void PresenterWait()
         {
-            panel5_Owner.Invoke(new MethodInvoker(delegate {  panel5_Owner.Visible = false; }));
+            Changing();
+
             panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = true; }));
-            panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = false; }));
         }
 
         // 게임 시작 후 출제자가 질문에 대한 답변을 작성하는 화면
         public override void PresenterAnswer()
         {
+            Changing();
             // RequestSendAnswer()를 보낼 수 있는 버튼 필요
             panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = true; }));
-            panel5_2_Owner_Wait.Invoke(new MethodInvoker(delegate { panel5_2_Owner_Wait.Visible = false; }));
-            panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = false; }));
 
             // 제시어를 출제자 화면에는 보여줌
             p5_1_answer_label.Invoke(new MethodInvoker(delegate { p5_1_answer_label.Text = p5_message_tbx.Text; }));
