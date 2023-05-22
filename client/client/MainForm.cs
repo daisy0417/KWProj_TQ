@@ -572,6 +572,17 @@ namespace client
         {
             // 재입장시. 준비 완료 -> 대기중으로 바뀌지 않아 대기 중은 패널 시작시 넣음.
             //플레이어 화면
+
+            p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "대기 중"; }));
+            p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "대기 중"; }));
+            p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Text = "대기 중"; }));
+            p4_w_state_player5.Invoke(new MethodInvoker(delegate { p4_w_state_player5.Text = "대기 중"; }));
+
+            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
+            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
+            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
+            p4_1_state_player2.Invoke(new MethodInvoker(delegate { p4_1_state_player2.Text = "대기 중"; }));
+
             if (readyList.Contains(p4_player2.Text)) p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "준비완료"; }));
 
             if (readyList.Contains(p4_player3.Text)) p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "준비완료"; }));
