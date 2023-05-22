@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -131,6 +132,8 @@ namespace client
 
         }
 
+        public virtual void SetBcount(int count) { }
+
         #region 게임 진행에 따른 화면들
         /// <summary>
         /// 방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼 등 방장의 고유한 권한이 있는 화면
@@ -189,6 +192,9 @@ namespace client
         {
 
         }
+
+        public virtual void LockByBuzzer() { }
+        public virtual void UnlockByBuzzer() { }
         #endregion
 
         /// <summary>

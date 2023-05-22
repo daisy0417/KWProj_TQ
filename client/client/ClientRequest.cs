@@ -103,5 +103,9 @@ namespace client
         {
             SendRequest("BUZZER","0");
         }
+        public void RequestSetBcount()
+        {
+            SendRequest("SETBCOUNT", "0");
+        }
     }
 }
