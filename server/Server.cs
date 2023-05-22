@@ -796,22 +796,40 @@ namespace ServerProgram
             {
                 RoomChat("땡", server);
             }
-            int q = room.CurrentQuestioner+1;
+
             int tok;
             List<Server> ql = room.GetQuestionerList();
-
-            for (tok = 0; tok < q; tok++)
+            for (tok = 0; tok < ql.Count(); tok++)
             {
                 if (ql[tok].get_remain_chance() != 0)
                     break;
             }
-            if (tok == q) // 모든 플레이어가 도전 기회를 소모해서 게임 종료하는 조건 
+            if (tok == ql.Count()) // 모든 플레이어가 도전 기회를 소모해서 게임 종료하는 조건 
             {
                 RoomChat("실패! 정답은 "+room.word, server);
+                Set_nextround(server);
+            }
+        }
+        private void Set_nextround(Server server)
+        {
+            GameRoom room = null;
+            for (int i = 0; i < gameRooms.Count; i++)
+            {
+                if (gameRooms[i].ContainPlayer(server))
+                {
+                    room = gameRooms[i];
+                    break;
+                }
+            }
+            if (room == null) return;
+            List<Server> qList;
                 room.NextPresenter();
                 qList = room.GetQuestionerList();
-                if (room.CurrentQuestioner != 0)
+            if (room.GetPresenterNum() != 0)
                 {//출제자 한바퀴만
+                RoomChat("다음 라운드!", server);
+                room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERCHOICE");
+                room.Set_round();
                     for (int i = 0; i < qList.Count; i++)
                     {
                         if (qList[i].username.CompareTo(room.GetPresenter().username)==0)//다음 문제
