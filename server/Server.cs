@@ -906,6 +906,8 @@ namespace ServerProgram
                     if (players[i].ready == false)
                     {
                         ownerPlayer.SendResponse("GAMESTART", "0");
+                        ownerPlayer.SendResponse("GAMESCREEN", "OWNERWAIT");
+                        return;
                     }
                     players[i].set_remain_chance();
                 }

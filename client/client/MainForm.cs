@@ -1297,20 +1297,26 @@ namespace client
         #endregion
 
         #region 게임 진행 - panel6_Answer : 플레이어(정답자) 화면
+
+        public delegate void Delegateplus();
+
         private void p6_turn()
         {
             p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = true; }));
             string p_name = p1_username_tbx.Text;
-            if (p_name == p4_player1.Text)
-                p6_player_turn_label.Location = new Point(34, 23);
-            else if (p_name == p4_player2.Text)
-                p6_player_turn_label.Location = new Point(34, 114);
-            else if (p_name == p4_player3.Text)
-                p6_player_turn_label.Location = new Point(34, 204);
-            else if (p_name == p4_player4.Text)
-                p6_player_turn_label.Location = new Point(34, 294);
-            else if (p_name == p4_player5.Text)
-                p6_player_turn_label.Location = new Point(34, 384);
+            p6_player_turn_label.Invoke((Delegateplus)(delegate ()
+            {
+                if (p_name == p4_player1.Text)
+                    p6_player_turn_label.Location = new Point(34, 23);
+                else if (p_name == p4_player2.Text)
+                    p6_player_turn_label.Location = new Point(34, 114);
+                else if (p_name == p4_player3.Text)
+                    p6_player_turn_label.Location = new Point(34, 204);
+                else if (p_name == p4_player4.Text)
+                    p6_player_turn_label.Location = new Point(34, 294);
+                else if (p_name == p4_player5.Text)
+                    p6_player_turn_label.Location = new Point(34, 384);
+            }),new object[] { } );
         }
 
         private void p6_2_turn()
@@ -1392,7 +1398,7 @@ namespace client
 
         int turn_cnt = 0;   // 질문 횟수 계산
 
-
+     
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
         {

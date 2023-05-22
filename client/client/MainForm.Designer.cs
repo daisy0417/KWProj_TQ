@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -221,11 +221,11 @@
             // title_label
             // 
             this.title_label.AutoSize = true;
-            this.title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.title_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.title_label.ForeColor = System.Drawing.SystemColors.Highlight;
             this.title_label.Location = new System.Drawing.Point(357, 114);
             this.title_label.Name = "title_label";
-            this.title_label.Size = new System.Drawing.Size(400, 87);
+            this.title_label.Size = new System.Drawing.Size(386, 76);
             this.title_label.TabIndex = 0;
             this.title_label.Text = "스무고개 게임";
             // 
@@ -259,10 +259,10 @@
             // midTitle_label
             // 
             this.midTitle_label.AutoSize = true;
-            this.midTitle_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.midTitle_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.midTitle_label.Location = new System.Drawing.Point(321, 265);
             this.midTitle_label.Name = "midTitle_label";
-            this.midTitle_label.Size = new System.Drawing.Size(482, 38);
+            this.midTitle_label.Size = new System.Drawing.Size(464, 36);
             this.midTitle_label.TabIndex = 2;
             this.midTitle_label.Text = "게임을 시작하려면 먼저 로그인해주세요";
             this.midTitle_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -272,7 +272,7 @@
             this.main_login_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.main_login_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.main_login_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.main_login_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.main_login_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.main_login_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.main_login_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.main_login_btn.HoverTextColor = System.Drawing.Color.White;
@@ -317,7 +317,7 @@
             this.p1_login_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_login_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_login_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p1_login_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p1_login_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.p1_login_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_login_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_login_btn.HoverTextColor = System.Drawing.Color.White;
@@ -346,7 +346,7 @@
             this.p1_signUp_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_signUp_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_signUp_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p1_signUp_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p1_signUp_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.p1_signUp_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_signUp_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_signUp_btn.HoverTextColor = System.Drawing.Color.White;
@@ -388,11 +388,11 @@
             // p1_midTitle_label
             // 
             this.p1_midTitle_label.AutoSize = true;
-            this.p1_midTitle_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p1_midTitle_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p1_midTitle_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p1_midTitle_label.Location = new System.Drawing.Point(125, 30);
             this.p1_midTitle_label.Name = "p1_midTitle_label";
-            this.p1_midTitle_label.Size = new System.Drawing.Size(358, 35);
+            this.p1_midTitle_label.Size = new System.Drawing.Size(322, 31);
             this.p1_midTitle_label.TabIndex = 1;
             this.p1_midTitle_label.Text = "이름과 비밀번호를 입력해주세요";
             this.p1_midTitle_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -400,22 +400,22 @@
             // p1_username_tbx
             // 
             this.p1_username_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.p1_username_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p1_username_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p1_username_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p1_username_tbx.Location = new System.Drawing.Point(101, 114);
             this.p1_username_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_username_tbx.Name = "p1_username_tbx";
-            this.p1_username_tbx.Size = new System.Drawing.Size(412, 42);
+            this.p1_username_tbx.Size = new System.Drawing.Size(412, 38);
             this.p1_username_tbx.TabIndex = 4;
             // 
             // p1_username_label
             // 
             this.p1_username_label.AutoSize = true;
-            this.p1_username_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p1_username_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p1_username_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p1_username_label.Location = new System.Drawing.Point(101, 74);
             this.p1_username_label.Name = "p1_username_label";
-            this.p1_username_label.Size = new System.Drawing.Size(125, 31);
+            this.p1_username_label.Size = new System.Drawing.Size(124, 29);
             this.p1_username_label.TabIndex = 2;
             this.p1_username_label.Text = "Username";
             this.p1_username_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -423,11 +423,11 @@
             // p1_pw_label
             // 
             this.p1_pw_label.AutoSize = true;
-            this.p1_pw_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p1_pw_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p1_pw_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p1_pw_label.Location = new System.Drawing.Point(101, 174);
             this.p1_pw_label.Name = "p1_pw_label";
-            this.p1_pw_label.Size = new System.Drawing.Size(119, 31);
+            this.p1_pw_label.Size = new System.Drawing.Size(120, 29);
             this.p1_pw_label.TabIndex = 3;
             this.p1_pw_label.Text = "Password";
             this.p1_pw_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,35 +435,35 @@
             // p1_pw_tbx
             // 
             this.p1_pw_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.p1_pw_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p1_pw_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p1_pw_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p1_pw_tbx.Location = new System.Drawing.Point(101, 214);
             this.p1_pw_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_pw_tbx.Name = "p1_pw_tbx";
-            this.p1_pw_tbx.Size = new System.Drawing.Size(412, 42);
+            this.p1_pw_tbx.Size = new System.Drawing.Size(412, 38);
             this.p1_pw_tbx.TabIndex = 5;
             this.p1_pw_tbx.UseSystemPasswordChar = true;
             // 
             // p1_ip_tbx
             // 
             this.p1_ip_tbx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.p1_ip_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p1_ip_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p1_ip_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p1_ip_tbx.Location = new System.Drawing.Point(320, 228);
             this.p1_ip_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p1_ip_tbx.Name = "p1_ip_tbx";
-            this.p1_ip_tbx.Size = new System.Drawing.Size(412, 42);
+            this.p1_ip_tbx.Size = new System.Drawing.Size(412, 38);
             this.p1_ip_tbx.TabIndex = 6;
             this.p1_ip_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p1_ip_tbx_KeyPress);
             // 
             // p1_ip_label
             // 
             this.p1_ip_label.AutoSize = true;
-            this.p1_ip_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p1_ip_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p1_ip_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p1_ip_label.Location = new System.Drawing.Point(320, 180);
             this.p1_ip_label.Name = "p1_ip_label";
-            this.p1_ip_label.Size = new System.Drawing.Size(42, 35);
+            this.p1_ip_label.Size = new System.Drawing.Size(40, 31);
             this.p1_ip_label.TabIndex = 3;
             this.p1_ip_label.Text = "IP";
             this.p1_ip_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -473,7 +473,7 @@
             this.p1_connect_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_connect_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p1_connect_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p1_connect_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p1_connect_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.p1_connect_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_connect_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p1_connect_btn.HoverTextColor = System.Drawing.Color.White;
@@ -499,11 +499,11 @@
             // p1_title_label
             // 
             this.p1_title_label.AutoSize = true;
-            this.p1_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p1_title_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p1_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
             this.p1_title_label.Location = new System.Drawing.Point(403, 22);
             this.p1_title_label.Name = "p1_title_label";
-            this.p1_title_label.Size = new System.Drawing.Size(259, 87);
+            this.p1_title_label.Size = new System.Drawing.Size(245, 76);
             this.p1_title_label.TabIndex = 0;
             this.p1_title_label.Text = "LOGIN";
             this.p1_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -528,7 +528,7 @@
             this.p2_logout_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p2_logout_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p2_logout_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p2_logout_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p2_logout_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.p2_logout_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p2_logout_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p2_logout_btn.HoverTextColor = System.Drawing.Color.White;
@@ -556,7 +556,7 @@
             this.p2_gameStart_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p2_gameStart_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p2_gameStart_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p2_gameStart_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 20F);
+            this.p2_gameStart_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.p2_gameStart_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p2_gameStart_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p2_gameStart_btn.HoverTextColor = System.Drawing.Color.White;
@@ -581,7 +581,7 @@
             // 
             // p2_welcome__label
             // 
-            this.p2_welcome__label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p2_welcome__label.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p2_welcome__label.Location = new System.Drawing.Point(267, 141);
             this.p2_welcome__label.Name = "p2_welcome__label";
             this.p2_welcome__label.Size = new System.Drawing.Size(482, 74);
@@ -591,11 +591,11 @@
             // p2_title_label
             // 
             this.p2_title_label.AutoSize = true;
-            this.p2_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p2_title_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p2_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
             this.p2_title_label.Location = new System.Drawing.Point(343, 24);
             this.p2_title_label.Name = "p2_title_label";
-            this.p2_title_label.Size = new System.Drawing.Size(400, 87);
+            this.p2_title_label.Size = new System.Drawing.Size(386, 76);
             this.p2_title_label.TabIndex = 1;
             this.p2_title_label.Text = "스무고개 게임";
             // 
@@ -623,50 +623,50 @@
             // p3_dataGridView1
             // 
             this.p3_dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.p3_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.p3_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.p3_dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RoomName,
             this.People,
             this.btn});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.p3_dataGridView1.Location = new System.Drawing.Point(18, 104);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";
             this.p3_dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.p3_dataGridView1.RowHeadersVisible = false;
             this.p3_dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle24;
-            this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.p3_dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p3_dataGridView1.RowTemplate.Height = 40;
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
             this.p3_dataGridView1.TabIndex = 4;
@@ -674,8 +674,8 @@
             // 
             // RoomName
             // 
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle3;
             this.RoomName.FillWeight = 150F;
             this.RoomName.HeaderText = "방 이름";
             this.RoomName.MinimumWidth = 6;
@@ -684,8 +684,8 @@
             // 
             // People
             // 
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.People.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.People.DefaultCellStyle = dataGridViewCellStyle4;
             this.People.HeaderText = "접속 인원";
             this.People.MinimumWidth = 6;
             this.People.Name = "People";
@@ -693,9 +693,9 @@
             // 
             // btn
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn.DefaultCellStyle = dataGridViewCellStyle5;
             this.btn.HeaderText = "버튼";
             this.btn.MinimumWidth = 6;
             this.btn.Name = "btn";
@@ -705,7 +705,7 @@
             // 
             // p3_comein_label
             // 
-            this.p3_comein_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13F);
+            this.p3_comein_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.p3_comein_label.Location = new System.Drawing.Point(274, 26);
             this.p3_comein_label.Name = "p3_comein_label";
             this.p3_comein_label.Size = new System.Drawing.Size(682, 40);
@@ -717,7 +717,7 @@
             this.p3_create_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_create_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_create_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p3_create_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p3_create_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p3_create_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_create_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_create_btn.HoverTextColor = System.Drawing.Color.White;
@@ -746,7 +746,7 @@
             this.p3_makeRoom_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_makeRoom_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_makeRoom_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p3_makeRoom_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p3_makeRoom_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p3_makeRoom_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_makeRoom_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_makeRoom_btn.HoverTextColor = System.Drawing.Color.White;
@@ -774,7 +774,7 @@
             this.p3_refresh_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_refresh_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_refresh_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p3_refresh_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p3_refresh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p3_refresh_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_refresh_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_refresh_btn.HoverTextColor = System.Drawing.Color.White;
@@ -802,7 +802,7 @@
             this.p3_back_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_back_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p3_back_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p3_back_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p3_back_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p3_back_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_back_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p3_back_btn.HoverTextColor = System.Drawing.Color.White;
@@ -827,22 +827,22 @@
             // 
             // p3_people_tbx
             // 
-            this.p3_people_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p3_people_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p3_people_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p3_people_tbx.Location = new System.Drawing.Point(773, 282);
             this.p3_people_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_people_tbx.Name = "p3_people_tbx";
-            this.p3_people_tbx.Size = new System.Drawing.Size(183, 33);
+            this.p3_people_tbx.Size = new System.Drawing.Size(183, 30);
             this.p3_people_tbx.TabIndex = 12;
             this.p3_people_tbx.Visible = false;
             // 
             // p3_people_label
             // 
             this.p3_people_label.AutoSize = true;
-            this.p3_people_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 11F);
+            this.p3_people_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.p3_people_label.Location = new System.Drawing.Point(767, 255);
             this.p3_people_label.Name = "p3_people_label";
-            this.p3_people_label.Size = new System.Drawing.Size(85, 25);
+            this.p3_people_label.Size = new System.Drawing.Size(75, 24);
             this.p3_people_label.TabIndex = 10;
             this.p3_people_label.Text = "최대 정원";
             this.p3_people_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -851,10 +851,10 @@
             // p3_roomname_label
             // 
             this.p3_roomname_label.AutoSize = true;
-            this.p3_roomname_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 11F);
+            this.p3_roomname_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.p3_roomname_label.Location = new System.Drawing.Point(767, 172);
             this.p3_roomname_label.Name = "p3_roomname_label";
-            this.p3_roomname_label.Size = new System.Drawing.Size(124, 25);
+            this.p3_roomname_label.Size = new System.Drawing.Size(110, 24);
             this.p3_roomname_label.TabIndex = 9;
             this.p3_roomname_label.Text = "생성할 방 이름";
             this.p3_roomname_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -862,12 +862,12 @@
             // 
             // p3_roomname_tbx
             // 
-            this.p3_roomname_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p3_roomname_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p3_roomname_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p3_roomname_tbx.Location = new System.Drawing.Point(773, 200);
             this.p3_roomname_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_roomname_tbx.Name = "p3_roomname_tbx";
-            this.p3_roomname_tbx.Size = new System.Drawing.Size(183, 33);
+            this.p3_roomname_tbx.Size = new System.Drawing.Size(183, 30);
             this.p3_roomname_tbx.TabIndex = 8;
             // 
             // panel4_player_waitRoom
@@ -905,7 +905,7 @@
             this.p4_readyDone_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_readyDone_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_readyDone_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_readyDone_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_readyDone_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p4_readyDone_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_readyDone_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_readyDone_btn.HoverTextColor = System.Drawing.Color.White;
@@ -932,7 +932,7 @@
             // p4_w_state_player5
             // 
             this.p4_w_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_w_state_player5.Location = new System.Drawing.Point(43, 440);
             this.p4_w_state_player5.Name = "p4_w_state_player5";
             this.p4_w_state_player5.Size = new System.Drawing.Size(118, 28);
@@ -944,7 +944,7 @@
             // p4_w_state_player4
             // 
             this.p4_w_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_w_state_player4.Location = new System.Drawing.Point(43, 358);
             this.p4_w_state_player4.Name = "p4_w_state_player4";
             this.p4_w_state_player4.Size = new System.Drawing.Size(118, 28);
@@ -956,7 +956,7 @@
             // p4_w_state_player3
             // 
             this.p4_w_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_w_state_player3.Location = new System.Drawing.Point(43, 276);
             this.p4_w_state_player3.Name = "p4_w_state_player3";
             this.p4_w_state_player3.Size = new System.Drawing.Size(118, 28);
@@ -968,7 +968,7 @@
             // p4_w_state_player2
             // 
             this.p4_w_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_w_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_w_state_player2.Location = new System.Drawing.Point(43, 195);
             this.p4_w_state_player2.Name = "p4_w_state_player2";
             this.p4_w_state_player2.Size = new System.Drawing.Size(118, 28);
@@ -980,7 +980,7 @@
             // p4_w_state_player1
             // 
             this.p4_w_state_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_w_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_w_state_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_w_state_player1.Location = new System.Drawing.Point(43, 114);
             this.p4_w_state_player1.Name = "p4_w_state_player1";
             this.p4_w_state_player1.Size = new System.Drawing.Size(118, 28);
@@ -993,7 +993,7 @@
             this.p4_refesh_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_refesh_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_refesh_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_refesh_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p4_refesh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p4_refesh_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_refesh_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_refesh_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1021,7 +1021,7 @@
             this.p4_Out_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_Out_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_Out_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_Out_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p4_Out_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p4_Out_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_Out_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_Out_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1047,7 +1047,7 @@
             // p4_player5
             // 
             this.p4_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p4_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player5.Location = new System.Drawing.Point(17, 399);
             this.p4_player5.Name = "p4_player5";
             this.p4_player5.Size = new System.Drawing.Size(171, 76);
@@ -1059,7 +1059,7 @@
             this.p4_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_send_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_send_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_send_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_send_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p4_send_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_send_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1085,7 +1085,7 @@
             // p4_player4
             // 
             this.p4_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p4_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player4.Location = new System.Drawing.Point(17, 318);
             this.p4_player4.Name = "p4_player4";
             this.p4_player4.Size = new System.Drawing.Size(171, 76);
@@ -1094,7 +1094,7 @@
             // 
             // p4_message_tbx
             // 
-            this.p4_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_message_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_message_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p4_message_tbx.Location = new System.Drawing.Point(261, 489);
             this.p4_message_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1106,7 +1106,7 @@
             // p4_player3
             // 
             this.p4_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p4_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player3.Location = new System.Drawing.Point(17, 236);
             this.p4_player3.Name = "p4_player3";
             this.p4_player3.Size = new System.Drawing.Size(171, 76);
@@ -1118,7 +1118,7 @@
             this.p4_ready_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_ready_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_ready_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_ready_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_ready_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p4_ready_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_ready_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_ready_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1144,7 +1144,7 @@
             // p4_player2
             // 
             this.p4_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p4_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player2.Location = new System.Drawing.Point(17, 155);
             this.p4_player2.Name = "p4_player2";
             this.p4_player2.Size = new System.Drawing.Size(171, 76);
@@ -1153,7 +1153,7 @@
             // 
             // p4_roomInfo_label
             // 
-            this.p4_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_roomInfo_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_roomInfo_label.Location = new System.Drawing.Point(706, 12);
             this.p4_roomInfo_label.Name = "p4_roomInfo_label";
             this.p4_roomInfo_label.Size = new System.Drawing.Size(258, 54);
@@ -1163,7 +1163,7 @@
             // p4_player1
             // 
             this.p4_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p4_player1.Location = new System.Drawing.Point(17, 72);
             this.p4_player1.Name = "p4_player1";
@@ -1174,7 +1174,7 @@
             // p4_chat_tbx
             // 
             this.p4_chat_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p4_chat_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_chat_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_chat_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p4_chat_tbx.Location = new System.Drawing.Point(261, 74);
             this.p4_chat_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1188,11 +1188,11 @@
             // p3_title_label
             // 
             this.p3_title_label.AutoSize = true;
-            this.p3_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p3_title_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p3_title_label.ForeColor = System.Drawing.SystemColors.Highlight;
             this.p3_title_label.Location = new System.Drawing.Point(14, 15);
             this.p3_title_label.Name = "p3_title_label";
-            this.p3_title_label.Size = new System.Drawing.Size(162, 35);
+            this.p3_title_label.Size = new System.Drawing.Size(147, 31);
             this.p3_title_label.TabIndex = 19;
             this.p3_title_label.Text = "스무고개 게임";
             this.p3_title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1233,7 +1233,7 @@
             // p6_timer_label
             // 
             this.p6_timer_label.BackColor = System.Drawing.Color.LightGreen;
-            this.p6_timer_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_timer_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_timer_label.Location = new System.Drawing.Point(261, 37);
             this.p6_timer_label.Name = "p6_timer_label";
             this.p6_timer_label.Size = new System.Drawing.Size(118, 34);
@@ -1244,7 +1244,7 @@
             // p6_player5_score
             // 
             this.p6_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player5_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player5_score.Location = new System.Drawing.Point(66, 432);
             this.p6_player5_score.Name = "p6_player5_score";
             this.p6_player5_score.Size = new System.Drawing.Size(118, 28);
@@ -1258,7 +1258,7 @@
             this.p6_buzzer_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_buzzer_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_buzzer_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p6_buzzer_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p6_buzzer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p6_buzzer_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_buzzer_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_buzzer_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1284,7 +1284,7 @@
             // p6_player4_score
             // 
             this.p6_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player4_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player4_score.Location = new System.Drawing.Point(66, 340);
             this.p6_player4_score.Name = "p6_player4_score";
             this.p6_player4_score.Size = new System.Drawing.Size(118, 28);
@@ -1296,7 +1296,7 @@
             // p6_solution_label
             // 
             this.p6_solution_label.BackColor = System.Drawing.Color.PapayaWhip;
-            this.p6_solution_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_solution_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_solution_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p6_solution_label.Location = new System.Drawing.Point(431, 12);
             this.p6_solution_label.Name = "p6_solution_label";
@@ -1308,7 +1308,7 @@
             // p6_player3_score
             // 
             this.p6_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player3_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player3_score.Location = new System.Drawing.Point(66, 251);
             this.p6_player3_score.Name = "p6_player3_score";
             this.p6_player3_score.Size = new System.Drawing.Size(118, 28);
@@ -1320,7 +1320,7 @@
             // p6_player5
             // 
             this.p6_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p6_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player5.Location = new System.Drawing.Point(41, 391);
             this.p6_player5.Name = "p6_player5";
             this.p6_player5.Size = new System.Drawing.Size(171, 76);
@@ -1330,7 +1330,7 @@
             // p6_player2_score
             // 
             this.p6_player2_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_player2_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player2_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player2_score.Location = new System.Drawing.Point(66, 161);
             this.p6_player2_score.Name = "p6_player2_score";
             this.p6_player2_score.Size = new System.Drawing.Size(118, 28);
@@ -1342,7 +1342,7 @@
             // p6_player4
             // 
             this.p6_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p6_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player4.Location = new System.Drawing.Point(41, 300);
             this.p6_player4.Name = "p6_player4";
             this.p6_player4.Size = new System.Drawing.Size(171, 76);
@@ -1352,7 +1352,7 @@
             // p6_player1_score
             // 
             this.p6_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player1_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player1_score.Location = new System.Drawing.Point(66, 74);
             this.p6_player1_score.Name = "p6_player1_score";
             this.p6_player1_score.Size = new System.Drawing.Size(118, 28);
@@ -1363,7 +1363,7 @@
             // p6_player3
             // 
             this.p6_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p6_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player3.Location = new System.Drawing.Point(41, 210);
             this.p6_player3.Name = "p6_player3";
             this.p6_player3.Size = new System.Drawing.Size(171, 76);
@@ -1373,7 +1373,7 @@
             // p6_player2
             // 
             this.p6_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p6_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player2.Location = new System.Drawing.Point(41, 120);
             this.p6_player2.Name = "p6_player2";
             this.p6_player2.Size = new System.Drawing.Size(171, 76);
@@ -1383,7 +1383,7 @@
             // p6_player1
             // 
             this.p6_player1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p6_player1.Location = new System.Drawing.Point(41, 30);
             this.p6_player1.Name = "p6_player1";
@@ -1405,7 +1405,7 @@
             this.p6_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_send_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_send_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p6_send_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p6_send_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p6_send_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_send_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1430,7 +1430,7 @@
             // 
             // p6_answer_tbx
             // 
-            this.p6_answer_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p6_answer_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p6_answer_tbx.ForeColor = System.Drawing.Color.DarkGray;
             this.p6_answer_tbx.Location = new System.Drawing.Point(261, 482);
             this.p6_answer_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1442,7 +1442,7 @@
             // p6_QA_tbx
             // 
             this.p6_QA_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p6_QA_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p6_QA_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p6_QA_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p6_QA_tbx.Location = new System.Drawing.Point(261, 82);
             this.p6_QA_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1456,7 +1456,7 @@
             // p4_state_player1
             // 
             this.p4_state_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_state_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_state_player1.Location = new System.Drawing.Point(53, 114);
             this.p4_state_player1.Name = "p4_state_player1";
             this.p4_state_player1.Size = new System.Drawing.Size(118, 27);
@@ -1467,7 +1467,7 @@
             // p4_state_player2
             // 
             this.p4_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_state_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_state_player2.Location = new System.Drawing.Point(53, 195);
             this.p4_state_player2.Name = "p4_state_player2";
             this.p4_state_player2.Size = new System.Drawing.Size(118, 27);
@@ -1479,7 +1479,7 @@
             // p4_state_player3
             // 
             this.p4_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_state_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_state_player3.Location = new System.Drawing.Point(53, 276);
             this.p4_state_player3.Name = "p4_state_player3";
             this.p4_state_player3.Size = new System.Drawing.Size(118, 27);
@@ -1491,7 +1491,7 @@
             // p4_state_player4
             // 
             this.p4_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_state_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_state_player4.Location = new System.Drawing.Point(53, 358);
             this.p4_state_player4.Name = "p4_state_player4";
             this.p4_state_player4.Size = new System.Drawing.Size(118, 27);
@@ -1503,7 +1503,7 @@
             // p4_state_player5
             // 
             this.p4_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_state_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_state_player5.Location = new System.Drawing.Point(53, 440);
             this.p4_state_player5.Name = "p4_state_player5";
             this.p4_state_player5.Size = new System.Drawing.Size(118, 27);
@@ -1517,7 +1517,7 @@
             this.p4_start_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_start_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_start_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_start_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_start_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p4_start_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_start_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_start_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1571,7 +1571,7 @@
             // 
             // p4_1_roomInfo_label
             // 
-            this.p4_1_roomInfo_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_1_roomInfo_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_1_roomInfo_label.Location = new System.Drawing.Point(706, 12);
             this.p4_1_roomInfo_label.Name = "p4_1_roomInfo_label";
             this.p4_1_roomInfo_label.Size = new System.Drawing.Size(258, 54);
@@ -1581,7 +1581,7 @@
             // p4_1_state_player5
             // 
             this.p4_1_state_player5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_state_player5.Location = new System.Drawing.Point(42, 450);
             this.p4_1_state_player5.Name = "p4_1_state_player5";
             this.p4_1_state_player5.Size = new System.Drawing.Size(118, 28);
@@ -1593,7 +1593,7 @@
             // p4_1_state_player4
             // 
             this.p4_1_state_player4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_state_player4.Location = new System.Drawing.Point(42, 368);
             this.p4_1_state_player4.Name = "p4_1_state_player4";
             this.p4_1_state_player4.Size = new System.Drawing.Size(118, 28);
@@ -1605,7 +1605,7 @@
             // p4_1_state_player3
             // 
             this.p4_1_state_player3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_state_player3.Location = new System.Drawing.Point(42, 286);
             this.p4_1_state_player3.Name = "p4_1_state_player3";
             this.p4_1_state_player3.Size = new System.Drawing.Size(118, 28);
@@ -1617,7 +1617,7 @@
             // p4_1_state_player2
             // 
             this.p4_1_state_player2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p4_1_state_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_state_player2.Location = new System.Drawing.Point(42, 205);
             this.p4_1_state_player2.Name = "p4_1_state_player2";
             this.p4_1_state_player2.Size = new System.Drawing.Size(118, 28);
@@ -1629,7 +1629,7 @@
             // p4_1_state_player1
             // 
             this.p4_1_state_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_1_state_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_state_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_state_player1.Location = new System.Drawing.Point(42, 124);
             this.p4_1_state_player1.Name = "p4_1_state_player1";
             this.p4_1_state_player1.Size = new System.Drawing.Size(118, 28);
@@ -1642,7 +1642,7 @@
             this.p4_1_refresh_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_refresh_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_refresh_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_1_refresh_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p4_1_refresh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p4_1_refresh_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_refresh_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_refresh_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1670,7 +1670,7 @@
             this.p4_1_out_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_out_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_out_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_1_out_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p4_1_out_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p4_1_out_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_out_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_out_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1698,7 +1698,7 @@
             this.p4_1_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_send_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_send_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_1_send_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_1_send_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p4_1_send_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_send_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1723,7 +1723,7 @@
             // 
             // p4_1_message_tbx
             // 
-            this.p4_1_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_1_message_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_1_message_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p4_1_message_tbx.Location = new System.Drawing.Point(261, 496);
             this.p4_1_message_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1737,7 +1737,7 @@
             this.p4_1_start_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_start_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p4_1_start_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p4_1_start_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p4_1_start_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p4_1_start_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_start_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_start_btn.HoverTextColor = System.Drawing.Color.White;
@@ -1763,7 +1763,7 @@
             // p4_1_player5
             // 
             this.p4_1_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player5.Location = new System.Drawing.Point(16, 409);
             this.p4_1_player5.Name = "p4_1_player5";
             this.p4_1_player5.Size = new System.Drawing.Size(171, 76);
@@ -1773,7 +1773,7 @@
             // p4_1_player4
             // 
             this.p4_1_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player4.Location = new System.Drawing.Point(16, 328);
             this.p4_1_player4.Name = "p4_1_player4";
             this.p4_1_player4.Size = new System.Drawing.Size(171, 76);
@@ -1783,7 +1783,7 @@
             // p4_1_player3
             // 
             this.p4_1_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player3.Location = new System.Drawing.Point(16, 248);
             this.p4_1_player3.Name = "p4_1_player3";
             this.p4_1_player3.Size = new System.Drawing.Size(171, 76);
@@ -1793,7 +1793,7 @@
             // p4_1_player2
             // 
             this.p4_1_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player2.Location = new System.Drawing.Point(16, 165);
             this.p4_1_player2.Name = "p4_1_player2";
             this.p4_1_player2.Size = new System.Drawing.Size(171, 76);
@@ -1803,7 +1803,7 @@
             // p4_1_player1
             // 
             this.p4_1_player1.BackColor = System.Drawing.Color.LightCoral;
-            this.p4_1_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p4_1_player1.Location = new System.Drawing.Point(16, 82);
             this.p4_1_player1.Name = "p4_1_player1";
@@ -1814,7 +1814,7 @@
             // p4_1_chat_tbx
             // 
             this.p4_1_chat_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p4_1_chat_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p4_1_chat_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_1_chat_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p4_1_chat_tbx.Location = new System.Drawing.Point(261, 81);
             this.p4_1_chat_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1852,7 +1852,7 @@
             // 
             // p5_title_label
             // 
-            this.p5_title_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_title_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_title_label.Location = new System.Drawing.Point(365, 39);
             this.p5_title_label.Name = "p5_title_label";
             this.p5_title_label.Size = new System.Drawing.Size(441, 62);
@@ -1863,7 +1863,7 @@
             // p5_출제자_label
             // 
             this.p5_출제자_label.BackColor = System.Drawing.Color.Bisque;
-            this.p5_출제자_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_출제자_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_출제자_label.Location = new System.Drawing.Point(42, 478);
             this.p5_출제자_label.Name = "p5_출제자_label";
             this.p5_출제자_label.Size = new System.Drawing.Size(170, 49);
@@ -1874,7 +1874,7 @@
             // p5_input_label
             // 
             this.p5_input_label.BackColor = System.Drawing.Color.PapayaWhip;
-            this.p5_input_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_input_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_input_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p5_input_label.Location = new System.Drawing.Point(413, 120);
             this.p5_input_label.Name = "p5_input_label";
@@ -1886,7 +1886,7 @@
             // p5_player1_score
             // 
             this.p5_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player1_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player1_score.Location = new System.Drawing.Point(66, 74);
             this.p5_player1_score.Name = "p5_player1_score";
             this.p5_player1_score.Size = new System.Drawing.Size(118, 28);
@@ -1897,7 +1897,7 @@
             // p5_player2_score
             // 
             this.p5_player2_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player2_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player2_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player2_score.Location = new System.Drawing.Point(66, 161);
             this.p5_player2_score.Name = "p5_player2_score";
             this.p5_player2_score.Size = new System.Drawing.Size(118, 28);
@@ -1909,7 +1909,7 @@
             // p5_player3_score
             // 
             this.p5_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player3_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player3_score.Location = new System.Drawing.Point(66, 251);
             this.p5_player3_score.Name = "p5_player3_score";
             this.p5_player3_score.Size = new System.Drawing.Size(118, 28);
@@ -1921,7 +1921,7 @@
             // p5_player4_score
             // 
             this.p5_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player4_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player4_score.Location = new System.Drawing.Point(66, 340);
             this.p5_player4_score.Name = "p5_player4_score";
             this.p5_player4_score.Size = new System.Drawing.Size(118, 28);
@@ -1933,7 +1933,7 @@
             // p5_player5_score
             // 
             this.p5_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player5_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player5_score.Location = new System.Drawing.Point(66, 432);
             this.p5_player5_score.Name = "p5_player5_score";
             this.p5_player5_score.Size = new System.Drawing.Size(118, 28);
@@ -1945,7 +1945,7 @@
             // p5_player5
             // 
             this.p5_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p5_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player5.Location = new System.Drawing.Point(41, 391);
             this.p5_player5.Name = "p5_player5";
             this.p5_player5.Size = new System.Drawing.Size(171, 76);
@@ -1955,7 +1955,7 @@
             // p5_player4
             // 
             this.p5_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p5_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player4.Location = new System.Drawing.Point(41, 300);
             this.p5_player4.Name = "p5_player4";
             this.p5_player4.Size = new System.Drawing.Size(171, 76);
@@ -1965,7 +1965,7 @@
             // p5_player3
             // 
             this.p5_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p5_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player3.Location = new System.Drawing.Point(41, 210);
             this.p5_player3.Name = "p5_player3";
             this.p5_player3.Size = new System.Drawing.Size(171, 76);
@@ -1975,7 +1975,7 @@
             // p5_player2
             // 
             this.p5_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p5_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player2.Location = new System.Drawing.Point(41, 120);
             this.p5_player2.Name = "p5_player2";
             this.p5_player2.Size = new System.Drawing.Size(171, 76);
@@ -1985,7 +1985,7 @@
             // p5_player1
             // 
             this.p5_player1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p5_player1.Location = new System.Drawing.Point(41, 30);
             this.p5_player1.Name = "p5_player1";
@@ -2007,7 +2007,7 @@
             this.p5_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_send_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_send_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p5_send_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p5_send_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p5_send_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_send_btn.HoverTextColor = System.Drawing.Color.White;
@@ -2032,7 +2032,7 @@
             // 
             // p5_message_tbx
             // 
-            this.p5_message_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p5_message_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p5_message_tbx.ForeColor = System.Drawing.Color.DarkGray;
             this.p5_message_tbx.Location = new System.Drawing.Point(261, 482);
             this.p5_message_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2073,7 +2073,7 @@
             this.p5_1_unknown_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_1_unknown_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_1_unknown_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p5_1_unknown_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p5_1_unknown_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p5_1_unknown_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_1_unknown_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_1_unknown_btn.HoverTextColor = System.Drawing.Color.White;
@@ -2101,7 +2101,7 @@
             this.p5_1_no_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_1_no_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_1_no_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p5_1_no_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p5_1_no_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p5_1_no_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_1_no_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_1_no_btn.HoverTextColor = System.Drawing.Color.White;
@@ -2129,7 +2129,7 @@
             this.p5_1_yes_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_1_yes_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p5_1_yes_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p5_1_yes_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p5_1_yes_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p5_1_yes_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_1_yes_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p5_1_yes_btn.HoverTextColor = System.Drawing.Color.White;
@@ -2155,7 +2155,7 @@
             // p5_1_QA_tbx
             // 
             this.p5_1_QA_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p5_1_QA_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p5_1_QA_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p5_1_QA_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p5_1_QA_tbx.Location = new System.Drawing.Point(261, 78);
             this.p5_1_QA_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2169,7 +2169,7 @@
             // p5_1_출제자_label
             // 
             this.p5_1_출제자_label.BackColor = System.Drawing.Color.Bisque;
-            this.p5_1_출제자_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_출제자_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_출제자_label.Location = new System.Drawing.Point(42, 478);
             this.p5_1_출제자_label.Name = "p5_1_출제자_label";
             this.p5_1_출제자_label.Size = new System.Drawing.Size(170, 49);
@@ -2180,7 +2180,7 @@
             // p5_1_answer_label
             // 
             this.p5_1_answer_label.BackColor = System.Drawing.Color.PapayaWhip;
-            this.p5_1_answer_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_answer_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_answer_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p5_1_answer_label.Location = new System.Drawing.Point(413, 8);
             this.p5_1_answer_label.Name = "p5_1_answer_label";
@@ -2191,7 +2191,7 @@
             // p5_1_player1_score
             // 
             this.p5_1_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_1_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player1_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player1_score.Location = new System.Drawing.Point(66, 74);
             this.p5_1_player1_score.Name = "p5_1_player1_score";
             this.p5_1_player1_score.Size = new System.Drawing.Size(118, 28);
@@ -2202,7 +2202,7 @@
             // p5_1_player2_score
             // 
             this.p5_1_player2_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_1_player2_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player2_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player2_score.Location = new System.Drawing.Point(66, 161);
             this.p5_1_player2_score.Name = "p5_1_player2_score";
             this.p5_1_player2_score.Size = new System.Drawing.Size(118, 28);
@@ -2214,7 +2214,7 @@
             // p5_1_player3_score
             // 
             this.p5_1_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_1_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player3_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player3_score.Location = new System.Drawing.Point(66, 251);
             this.p5_1_player3_score.Name = "p5_1_player3_score";
             this.p5_1_player3_score.Size = new System.Drawing.Size(118, 28);
@@ -2226,7 +2226,7 @@
             // p5_1_player4_score
             // 
             this.p5_1_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_1_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player4_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player4_score.Location = new System.Drawing.Point(66, 340);
             this.p5_1_player4_score.Name = "p5_1_player4_score";
             this.p5_1_player4_score.Size = new System.Drawing.Size(118, 28);
@@ -2238,7 +2238,7 @@
             // p5_1_player5_score
             // 
             this.p5_1_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_1_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player5_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player5_score.Location = new System.Drawing.Point(66, 432);
             this.p5_1_player5_score.Name = "p5_1_player5_score";
             this.p5_1_player5_score.Size = new System.Drawing.Size(118, 28);
@@ -2250,7 +2250,7 @@
             // p5_1_player5
             // 
             this.p5_1_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p5_1_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player5.Location = new System.Drawing.Point(41, 391);
             this.p5_1_player5.Name = "p5_1_player5";
             this.p5_1_player5.Size = new System.Drawing.Size(171, 76);
@@ -2260,7 +2260,7 @@
             // p5_1_player4
             // 
             this.p5_1_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p5_1_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player4.Location = new System.Drawing.Point(41, 300);
             this.p5_1_player4.Name = "p5_1_player4";
             this.p5_1_player4.Size = new System.Drawing.Size(171, 76);
@@ -2270,7 +2270,7 @@
             // p5_1_player3
             // 
             this.p5_1_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p5_1_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player3.Location = new System.Drawing.Point(41, 210);
             this.p5_1_player3.Name = "p5_1_player3";
             this.p5_1_player3.Size = new System.Drawing.Size(171, 76);
@@ -2280,7 +2280,7 @@
             // p5_1_player2
             // 
             this.p5_1_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p5_1_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player2.Location = new System.Drawing.Point(41, 120);
             this.p5_1_player2.Name = "p5_1_player2";
             this.p5_1_player2.Size = new System.Drawing.Size(171, 76);
@@ -2290,7 +2290,7 @@
             // p5_1_player1
             // 
             this.p5_1_player1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_1_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_1_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_1_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p5_1_player1.Location = new System.Drawing.Point(41, 30);
             this.p5_1_player1.Name = "p5_1_player1";
@@ -2334,7 +2334,7 @@
             // p5_2_QA_tbx
             // 
             this.p5_2_QA_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p5_2_QA_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p5_2_QA_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p5_2_QA_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p5_2_QA_tbx.Location = new System.Drawing.Point(261, 78);
             this.p5_2_QA_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2348,7 +2348,7 @@
             // p5_2_출제자_label
             // 
             this.p5_2_출제자_label.BackColor = System.Drawing.Color.Bisque;
-            this.p5_2_출제자_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_출제자_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_출제자_label.Location = new System.Drawing.Point(42, 478);
             this.p5_2_출제자_label.Name = "p5_2_출제자_label";
             this.p5_2_출제자_label.Size = new System.Drawing.Size(170, 49);
@@ -2359,7 +2359,7 @@
             // p5_2_word_label
             // 
             this.p5_2_word_label.BackColor = System.Drawing.Color.PapayaWhip;
-            this.p5_2_word_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_word_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_word_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p5_2_word_label.Location = new System.Drawing.Point(413, 8);
             this.p5_2_word_label.Name = "p5_2_word_label";
@@ -2371,7 +2371,7 @@
             // p5_2_player1_score
             // 
             this.p5_2_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_2_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player1_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player1_score.Location = new System.Drawing.Point(66, 74);
             this.p5_2_player1_score.Name = "p5_2_player1_score";
             this.p5_2_player1_score.Size = new System.Drawing.Size(118, 28);
@@ -2382,7 +2382,7 @@
             // p5_2_player2_score
             // 
             this.p5_2_player2_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_2_player2_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player2_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player2_score.Location = new System.Drawing.Point(66, 161);
             this.p5_2_player2_score.Name = "p5_2_player2_score";
             this.p5_2_player2_score.Size = new System.Drawing.Size(118, 28);
@@ -2394,7 +2394,7 @@
             // p5_2_player3_score
             // 
             this.p5_2_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_2_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player3_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player3_score.Location = new System.Drawing.Point(66, 251);
             this.p5_2_player3_score.Name = "p5_2_player3_score";
             this.p5_2_player3_score.Size = new System.Drawing.Size(118, 28);
@@ -2406,7 +2406,7 @@
             // p5_2_player4_score
             // 
             this.p5_2_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_2_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player4_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player4_score.Location = new System.Drawing.Point(66, 340);
             this.p5_2_player4_score.Name = "p5_2_player4_score";
             this.p5_2_player4_score.Size = new System.Drawing.Size(118, 28);
@@ -2418,7 +2418,7 @@
             // p5_2_player5_score
             // 
             this.p5_2_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_2_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player5_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player5_score.Location = new System.Drawing.Point(66, 432);
             this.p5_2_player5_score.Name = "p5_2_player5_score";
             this.p5_2_player5_score.Size = new System.Drawing.Size(118, 28);
@@ -2430,7 +2430,7 @@
             // p5_2_player5
             // 
             this.p5_2_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p5_2_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player5.Location = new System.Drawing.Point(41, 391);
             this.p5_2_player5.Name = "p5_2_player5";
             this.p5_2_player5.Size = new System.Drawing.Size(171, 76);
@@ -2440,7 +2440,7 @@
             // p5_2_player4
             // 
             this.p5_2_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p5_2_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player4.Location = new System.Drawing.Point(41, 300);
             this.p5_2_player4.Name = "p5_2_player4";
             this.p5_2_player4.Size = new System.Drawing.Size(171, 76);
@@ -2450,7 +2450,7 @@
             // p5_2_player3
             // 
             this.p5_2_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p5_2_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player3.Location = new System.Drawing.Point(41, 210);
             this.p5_2_player3.Name = "p5_2_player3";
             this.p5_2_player3.Size = new System.Drawing.Size(171, 76);
@@ -2460,7 +2460,7 @@
             // p5_2_player2
             // 
             this.p5_2_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p5_2_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player2.Location = new System.Drawing.Point(41, 120);
             this.p5_2_player2.Name = "p5_2_player2";
             this.p5_2_player2.Size = new System.Drawing.Size(171, 76);
@@ -2470,7 +2470,7 @@
             // p5_2_player1
             // 
             this.p5_2_player1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p5_2_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p5_2_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p5_2_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p5_2_player1.Location = new System.Drawing.Point(41, 30);
             this.p5_2_player1.Name = "p5_2_player1";
@@ -2518,7 +2518,7 @@
             // p6_2_timer_label
             // 
             this.p6_2_timer_label.BackColor = System.Drawing.Color.LightGreen;
-            this.p6_2_timer_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_timer_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_timer_label.Location = new System.Drawing.Point(261, 37);
             this.p6_2_timer_label.Name = "p6_2_timer_label";
             this.p6_2_timer_label.Size = new System.Drawing.Size(118, 34);
@@ -2529,7 +2529,7 @@
             // p6_2_player5_score
             // 
             this.p6_2_player5_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_2_player5_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player5_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player5_score.Location = new System.Drawing.Point(66, 432);
             this.p6_2_player5_score.Name = "p6_2_player5_score";
             this.p6_2_player5_score.Size = new System.Drawing.Size(118, 28);
@@ -2543,7 +2543,7 @@
             this.p6_2_buzzer_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_2_buzzer_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_2_buzzer_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p6_2_buzzer_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14F);
+            this.p6_2_buzzer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.p6_2_buzzer_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_2_buzzer_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_2_buzzer_btn.HoverTextColor = System.Drawing.Color.White;
@@ -2568,7 +2568,7 @@
             // p6_2_player4_score
             // 
             this.p6_2_player4_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_2_player4_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player4_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player4_score.Location = new System.Drawing.Point(66, 340);
             this.p6_2_player4_score.Name = "p6_2_player4_score";
             this.p6_2_player4_score.Size = new System.Drawing.Size(118, 28);
@@ -2580,7 +2580,7 @@
             // p6_2_solution_label
             // 
             this.p6_2_solution_label.BackColor = System.Drawing.Color.PapayaWhip;
-            this.p6_2_solution_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_solution_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_solution_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p6_2_solution_label.Location = new System.Drawing.Point(431, 12);
             this.p6_2_solution_label.Name = "p6_2_solution_label";
@@ -2592,7 +2592,7 @@
             // p6_2_player3_score
             // 
             this.p6_2_player3_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_2_player3_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player3_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player3_score.Location = new System.Drawing.Point(66, 251);
             this.p6_2_player3_score.Name = "p6_2_player3_score";
             this.p6_2_player3_score.Size = new System.Drawing.Size(118, 28);
@@ -2604,7 +2604,7 @@
             // p6_2_player5
             // 
             this.p6_2_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p6_2_player5.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player5.Location = new System.Drawing.Point(41, 391);
             this.p6_2_player5.Name = "p6_2_player5";
             this.p6_2_player5.Size = new System.Drawing.Size(171, 76);
@@ -2614,7 +2614,7 @@
             // p6_2_player2_score
             // 
             this.p6_2_player2_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_2_player2_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player2_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player2_score.Location = new System.Drawing.Point(66, 161);
             this.p6_2_player2_score.Name = "p6_2_player2_score";
             this.p6_2_player2_score.Size = new System.Drawing.Size(118, 28);
@@ -2626,7 +2626,7 @@
             // p6_2_player4
             // 
             this.p6_2_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p6_2_player4.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player4.Location = new System.Drawing.Point(41, 300);
             this.p6_2_player4.Name = "p6_2_player4";
             this.p6_2_player4.Size = new System.Drawing.Size(171, 76);
@@ -2636,7 +2636,7 @@
             // p6_2_player1_score
             // 
             this.p6_2_player1_score.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_2_player1_score.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player1_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player1_score.Location = new System.Drawing.Point(66, 74);
             this.p6_2_player1_score.Name = "p6_2_player1_score";
             this.p6_2_player1_score.Size = new System.Drawing.Size(118, 28);
@@ -2647,7 +2647,7 @@
             // p6_2_player3
             // 
             this.p6_2_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p6_2_player3.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player3.Location = new System.Drawing.Point(41, 210);
             this.p6_2_player3.Name = "p6_2_player3";
             this.p6_2_player3.Size = new System.Drawing.Size(171, 76);
@@ -2657,7 +2657,7 @@
             // p6_2_player2
             // 
             this.p6_2_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p6_2_player2.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player2.Location = new System.Drawing.Point(41, 120);
             this.p6_2_player2.Name = "p6_2_player2";
             this.p6_2_player2.Size = new System.Drawing.Size(171, 76);
@@ -2667,7 +2667,7 @@
             // p6_2_player1
             // 
             this.p6_2_player1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.p6_2_player1.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p6_2_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p6_2_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p6_2_player1.Location = new System.Drawing.Point(41, 30);
             this.p6_2_player1.Name = "p6_2_player1";
@@ -2689,7 +2689,7 @@
             this.p6_2_send_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_2_send_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p6_2_send_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p6_2_send_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16F);
+            this.p6_2_send_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.p6_2_send_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_2_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p6_2_send_btn.HoverTextColor = System.Drawing.Color.White;
@@ -2713,7 +2713,7 @@
             // 
             // p6_2_answer_tbx
             // 
-            this.p6_2_answer_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p6_2_answer_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p6_2_answer_tbx.ForeColor = System.Drawing.Color.DarkGray;
             this.p6_2_answer_tbx.Location = new System.Drawing.Point(261, 482);
             this.p6_2_answer_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -2725,7 +2725,7 @@
             // p6_2_QA_tbx
             // 
             this.p6_2_QA_tbx.BackColor = System.Drawing.SystemColors.Window;
-            this.p6_2_QA_tbx.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 12F);
+            this.p6_2_QA_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p6_2_QA_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.p6_2_QA_tbx.Location = new System.Drawing.Point(261, 82);
             this.p6_2_QA_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
