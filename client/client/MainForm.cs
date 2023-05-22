@@ -1238,7 +1238,53 @@ namespace client
         }
         */
         #endregion
-    #endregion
+        #endregion
+
+        public override void CurrentQuestioner(string username)
+        {
+            //임시로 해놓은거
+            //각 화면 이름이 뭔지 잘 뭘라서 그냥 p5부터 순서대로 다 넣어보긴 했는데
+            //아마 제대로 작동이 될 것 같긴 한데 아직 QuesionerQuestion 화면에서만 보여지네요.
+            //각 화면마다 다 적용되도록 수정해주시면 감사하겠습니다.
+            p5_player1.Invoke(new MethodInvoker(delegate { p5_player1.ForeColor = Color.Black; }));
+            p5_player1.Invoke(new MethodInvoker(delegate { p5_player2.ForeColor = Color.Black; }));
+            p5_player3.Invoke(new MethodInvoker(delegate { p5_player3.ForeColor = Color.Black; }));
+            p5_player4.Invoke(new MethodInvoker(delegate { p5_player4.ForeColor = Color.Black; }));
+            p5_player5.Invoke(new MethodInvoker(delegate { p5_player5.ForeColor = Color.Black; }));
+
+            if (p5_player1.Text == username) p5_player1.Invoke(new MethodInvoker(delegate { p5_player1.ForeColor = Color.Yellow; }));
+            else if (p5_player2.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player2.ForeColor = Color.Yellow; }));
+            else if (p5_player3.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player3.ForeColor = Color.Yellow; }));
+            else if (p5_player4.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player4.ForeColor = Color.Yellow; }));
+            else if (p5_player5.Text == username) p5_player2.Invoke(new MethodInvoker(delegate { p5_player5.ForeColor = Color.Yellow; }));
+
+            p5_1_player1.Invoke(new MethodInvoker(delegate { p5_1_player1.ForeColor = Color.Black; }));
+            p5_1_player1.Invoke(new MethodInvoker(delegate { p5_1_player2.ForeColor = Color.Black; }));
+            p5_1_player3.Invoke(new MethodInvoker(delegate { p5_1_player3.ForeColor = Color.Black; }));
+            p5_1_player4.Invoke(new MethodInvoker(delegate { p5_1_player4.ForeColor = Color.Black; }));
+            p5_1_player5.Invoke(new MethodInvoker(delegate { p5_1_player5.ForeColor = Color.Black; }));
+
+
+            if (p5_1_player1.Text == username) p5_1_player1.Invoke(new MethodInvoker(delegate { p5_1_player1.ForeColor = Color.Yellow; }));
+            else if (p5_1_player2.Text == username) p5_1_player2.Invoke(new MethodInvoker(delegate { p5_1_player2.ForeColor = Color.Yellow; }));
+            else if (p5_1_player3.Text == username) p5_1_player3.Invoke(new MethodInvoker(delegate { p5_1_player3.ForeColor = Color.Yellow; }));
+            else if (p5_1_player4.Text == username) p5_1_player4.Invoke(new MethodInvoker(delegate { p5_1_player4.ForeColor = Color.Yellow; }));
+            else if (p5_1_player5.Text == username) p5_1_player5.Invoke(new MethodInvoker(delegate { p5_1_player5.ForeColor = Color.Yellow; }));
+
+            p6_player1.Invoke(new MethodInvoker(delegate { p6_player1.ForeColor = Color.Black; }));
+            p6_player1.Invoke(new MethodInvoker(delegate { p6_player2.ForeColor = Color.Black; }));
+            p6_player3.Invoke(new MethodInvoker(delegate { p6_player3.ForeColor = Color.Black; }));
+            p6_player4.Invoke(new MethodInvoker(delegate { p6_player4.ForeColor = Color.Black; }));
+            p6_player5.Invoke(new MethodInvoker(delegate { p6_player5.ForeColor = Color.Black; }));
+
+
+            if (p6_player1.Text == username) p6_player1.Invoke(new MethodInvoker(delegate { p6_player1.ForeColor = Color.Yellow; }));
+            else if (p6_player2.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player2.ForeColor = Color.Yellow; }));
+            else if (p6_player3.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player3.ForeColor = Color.Yellow; }));
+            else if (p6_player4.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player4.ForeColor = Color.Yellow; }));
+            else if (p6_player5.Text == username) p6_player2.Invoke(new MethodInvoker(delegate { p6_player5.ForeColor = Color.Yellow; }));
+        }
+
         bool buzzer_on = false;
         int b_cnt1 = 5, b_cnt2 = 5, b_cnt3 = 5, b_cnt4 = 5, b_cnt5 = 5;
         //정답 버튼

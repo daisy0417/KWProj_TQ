@@ -196,6 +196,10 @@ namespace client
                 string[] readyArr = content.Split(',');
                 parentForm.ReadyList(readyArr.ToList());
             }
+            else if (header.Equals("CURRENTQUESTIONER"))
+            {
+                parentForm.CurrentQuestioner(content);
+            }
             else if (header.Equals("GAMESCREEN"))
             {
                 if (content.Equals("OWNERWAIT"))
