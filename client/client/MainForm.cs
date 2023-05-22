@@ -1475,10 +1475,9 @@ namespace client
 
        
         private void timer1_Tick(object sender, EventArgs e)
-        {   //시간 표시할 라벨
-            
-            
-            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (Convert.ToInt16(p6_timer_label.Text) + 1).ToString(); }));
+        {   //시간 표시할 라벨     
+
+        p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (Convert.ToInt16(p6_timer_label.Text) + 1).ToString(); }));
             if (p6_timer_label.Text == "5")
             { 
                 buzzer_on=false;

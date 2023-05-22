@@ -844,7 +844,7 @@ namespace ServerProgram
                 room.starting = false;
                 for (int i = 0; i < qList.Count; i++)
                 {
-                    if (server.username.CompareTo(room.GetOwner().username) == 0)
+                    if (qList[i].username.CompareTo(room.GetOwner().username) == 0)
                     {
                         qList[i].SendResponse("GAMESCREEN", "OWNERWAIT");
                     }
@@ -1049,7 +1049,10 @@ namespace ServerProgram
         {
             return players[presenter];
         }
-        public void NextPresenter() { presenter++; }
+        public void NextPresenter() { presenter++;
+            if (players.Count() == presenter)
+                presenter = 0;
+        }
         public int GetPresenterNum() { return presenter; }
         public void Set_round()
         {
