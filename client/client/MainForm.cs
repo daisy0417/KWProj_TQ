@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace client
 {
@@ -19,10 +20,10 @@ namespace client
         {
             InitializeComponent();
         }
-
+        
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //TryConnectServer();
+            
         }
 
         /// <summary>
@@ -1298,15 +1299,36 @@ namespace client
         }
 
         bool buzzer_on = false;
-        
         int b_cnt1 = 5, b_cnt2 = 5, b_cnt3 = 5, b_cnt4 = 5, b_cnt5 = 5;
         //정답 버튼
+   
         public override void SetBcount(int count)
         {
             b_cnt1 = b_cnt2 = b_cnt3 = b_cnt4 = b_cnt5 = count;
         }
+        static int btnstatus = 0;
+        public override void LockByBuzzer()
+        {
+            p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.Enabled = false; }));
+            p6_2_buzzer_btn.Invoke(new MethodInvoker(delegate { p6_2_buzzer_btn.Enabled = false; }));
+            p6_2_send_btn.Invoke(new MethodInvoker(delegate { p6_2_send_btn.Enabled = false; }));
+            p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Enabled = false; }));
+            p6_buzzer_btn.Invoke(new MethodInvoker(delegate { p6_buzzer_btn.Enabled = false; }));
+            p6_send_btn.Invoke(new MethodInvoker(delegate { p6_send_btn.Enabled = false; }));
+        }
+        public override void UnlockByBuzzer()
+        {
+            p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.Enabled = true; }));
+            p6_2_buzzer_btn.Invoke(new MethodInvoker(delegate { p6_2_buzzer_btn.Enabled = true; }));
+            p6_2_send_btn.Invoke(new MethodInvoker(delegate { p6_2_send_btn.Enabled = true; }));
+            p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Enabled = true; }));
+            p6_buzzer_btn.Invoke(new MethodInvoker(delegate { p6_buzzer_btn.Enabled = true; }));
+            p6_send_btn.Invoke(new MethodInvoker(delegate { p6_send_btn.Enabled = true; }));
+        }
+
         private void buzzer_Click(object sender, EventArgs e)
-        {    
+        {
+            buzzer_on = true;
             if (b_cnt1 <= 0)
             {
                 ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1357,7 +1379,7 @@ namespace client
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.Text = ""; }));
             p6_2_answer_tbx.ForeColor = Color.CornflowerBlue;
 
-            buzzer_on = true;
+           
             
 
 
@@ -1633,6 +1655,17 @@ namespace client
                 p6_QA_tbx.Select(p6_QA_tbx.Text.Length, 0); p6_QA_tbx.ScrollToCaret();
             }));
    
+        }
+
+        private void p6_2_send_btn_Click(object sender, EventArgs e)
+        {
+            if (buzzer_on)
+            {  // 부저 -> 정답 입력
+                client.RequestSendQuestion("[ ! ]" + p6_2_answer_tbx.Text);
+                client.RequestGuessAnswer(p6_2_answer_tbx.Text);
+                buzzer_on = false;
+                timer1.Stop();
+            }
         }
 
 

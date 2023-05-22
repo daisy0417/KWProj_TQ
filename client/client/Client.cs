@@ -28,6 +28,7 @@ namespace client
         {
             this.serverIP = IPAddress.Parse(serverIPString);
             this.parentForm = parentForm;
+
         }
 
         //실행하는 컴퓨터의 ip 주소를 반환
@@ -233,6 +234,13 @@ namespace client
                 else if (content.Equals("QUESTIONERQUESTION"))
                 {
                     parentForm.QuestionerQuestion();
+                }
+                else if (content.Equals("LOCKBYBUZZER"))
+                {
+                    parentForm.LockByBuzzer();
+                }
+                else if (content.Equals("UNLOCKBUZZER")){
+                    parentForm.UnlockByBuzzer();
                 }
                 
             }

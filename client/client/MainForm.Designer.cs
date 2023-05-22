@@ -2706,6 +2706,7 @@
             this.p6_2_send_btn.Text = "SEND";
             this.p6_2_send_btn.ThemeAuthor = "Narwin";
             this.p6_2_send_btn.ThemeName = "MetroLite";
+            this.p6_2_send_btn.Click += new System.EventHandler(this.p6_2_send_btn_Click);
             // 
             // p6_2_answer_tbx
             // 

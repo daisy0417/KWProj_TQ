@@ -640,7 +640,7 @@ namespace ServerProgram
 
             room.SendCurrentQuestioner();
         }
-
+        private bool isbuzzercalled = false;
         private void SendAnswer(string answer, Server server)
         {
             RoomChat(answer, server);
@@ -656,9 +656,17 @@ namespace ServerProgram
             }
 
             if (room == null) return;
-  
+            int questioner;
             room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWAIT");
-            int questioner = room.NextQuestioner();
+            if (!isbuzzercalled)
+            {
+                questioner=room.NextQuestioner();
+            }
+            else
+            {
+                questioner = room.CurrentQuestioner;
+                isbuzzercalled = false;
+            }
 
             List<Server> qList = room.GetQuestionerList();
             if (room.Get_total_q() != 20)
@@ -713,6 +721,7 @@ namespace ServerProgram
 
         private void GuessAnswer(string guess,Server server)
         {
+            isbuzzercalled = true;
             RoomChat(guess, server);
             GameRoom room = null;
             for (int i = 0; i < gameRooms.Count; i++)
@@ -724,12 +733,17 @@ namespace ServerProgram
                 }
             }
             if (room == null) return;
+            List<Server> qList = room.GetQuestionerList();
+            for (int i = 0; i < qList.Count; i++)
+            {
+                qList[i].SendResponse("GAMESCREEN", "UNLOCKBUZZER");
+            }
             if (room.word.CompareTo(guess) == 0)
             {
                 server.win(); //점수추가
                 RoomChat("정답!", server);
                 room.NextPresenter();
-                List<Server> qList = room.GetQuestionerList();
+                qList = room.GetQuestionerList();
                 if (room.CurrentQuestioner != 0)
                 {//출제자 한바퀴만
                     for (int i = 0; i < qList.Count; i++)
@@ -763,29 +777,7 @@ namespace ServerProgram
             }
             else
             {
-                room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWAIT");
-                int questioner = room.CurrentQuestioner;
-
-                List<Server> qList = room.GetQuestionerList();
-                server.SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
-
-                for (int i = 0; i < qList.Count; i++){
-                    if (qList[i].username != server.username)
-                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
-                }
-                /*
-                for (int i = 0; i < qList.Count; i++)
-                {
-                    if (server.username.CompareTo(room.GetOwner().username) == 0)
-                    {
-                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
-                    }
-                    else
-                    {
-                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
-                    }
-                }
-                */
+                RoomChat("땡", server);
             }
             int q = room.CurrentQuestioner+1;
             int tok;
@@ -800,7 +792,7 @@ namespace ServerProgram
             {
                 RoomChat("실패! 정답은 "+room.word, server);
                 room.NextPresenter();
-                List<Server> qList = room.GetQuestionerList();
+                qList = room.GetQuestionerList();
                 if (room.CurrentQuestioner != 0)
                 {//출제자 한바퀴만
                     for (int i = 0; i < qList.Count; i++)
@@ -850,17 +842,17 @@ namespace ServerProgram
 
             if (room == null) return;
 
-            room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWAIT");
+            //room.GetPresenter().SendResponse("GAMESCREEN", "LOCKBYBUZZER");
             int questioner = room.CurrentQuestioner;
 
             List<Server> qList = room.GetQuestionerList();
 
-            server.SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
+            //server.SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
 
             for (int i = 0; i < qList.Count; i++)
             {
                 if (qList[i].username != server.username)
-                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                    qList[i].SendResponse("GAMESCREEN", "LOCKBYBUZZER");
             }
             /*
             for (int i = 0; i < qList.Count; i++)
