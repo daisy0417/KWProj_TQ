@@ -726,7 +726,7 @@ namespace client
                 p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = playerList[0]; }));    //방장
                 p5_player1.Invoke(new MethodInvoker(delegate { p5_player1.Text = playerList[0]; }));
                 p5_1_player1.Invoke(new MethodInvoker(delegate { p5_1_player1.Text = playerList[0]; }));
-                p5_2_player1.Invoke(new MethodInvoker(delegate { p5_1_player1.Text = playerList[0]; }));
+                p5_2_player1.Invoke(new MethodInvoker(delegate { p5_2_player1.Text = playerList[0]; }));
                 p6_player1.Invoke(new MethodInvoker(delegate { p6_player1.Text = playerList[0]; }));
                 p6_2_player1.Invoke(new MethodInvoker(delegate { p6_2_player1.Text = playerList[0]; }));
             }
