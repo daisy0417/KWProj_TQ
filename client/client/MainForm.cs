@@ -1301,7 +1301,35 @@ namespace client
         int b_cnt1 = 5, b_cnt2 = 5, b_cnt3 = 5, b_cnt4 = 5, b_cnt5 = 5;
         //정답 버튼
         private void buzzer_Click(object sender, EventArgs e)
-        {
+        {    
+            if (b_cnt1 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+                return;
+            }
+            if (b_cnt2 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false;
+                return;
+            }
+            if (b_cnt3 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false; return;
+            }
+            if (b_cnt4 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false; return;
+            }
+            if (b_cnt5 <= 0)
+            {
+                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buzzer_on = false; return;
+            }
+            //정답을 맞추는 사람만 라벨 변경 필요 > 출제자가 정답 전송 시 스코어 늘리기
             p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Visible = true; }));
             p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Visible = true; }));
             p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = "0"; }));
@@ -1326,32 +1354,7 @@ namespace client
 
             buzzer_on = true;
             
-            if (b_cnt1 <= 0)
-            {
-                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                buzzer_on = false;
-            }
-            if (b_cnt2 <= 0)
-            {
-                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                buzzer_on = false;
-            }
-            if (b_cnt3 <= 0)
-            {
-                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                buzzer_on = false;
-            }
-            if (b_cnt4 <= 0)
-            {
-                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                buzzer_on = false;
-            }
-            if (b_cnt5 <= 0)
-            {
-                ShowMessageBox("부저 횟수 초과", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                buzzer_on = false;
-            }
-            //정답을 맞추는 사람만 라벨 변경 필요 > 출제자가 정답 전송 시 스코어 늘리기
+
 
 
             //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산

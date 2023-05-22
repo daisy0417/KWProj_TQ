@@ -784,7 +784,7 @@ namespace ServerProgram
                 }
                 */
             }
-            int q = room.CurrentQuestioner;
+            int q = room.CurrentQuestioner+1;
             int tok;
             List<Server> ql = room.GetQuestionerList();
 
