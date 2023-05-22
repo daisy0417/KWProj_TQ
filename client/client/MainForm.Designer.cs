@@ -649,7 +649,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.p3_dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.p3_dataGridView1.Location = new System.Drawing.Point(18, 104);
+            this.p3_dataGridView1.Location = new System.Drawing.Point(18, 82);
             this.p3_dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p3_dataGridView1.MultiSelect = false;
             this.p3_dataGridView1.Name = "p3_dataGridView1";

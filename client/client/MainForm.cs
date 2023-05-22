@@ -18,6 +18,178 @@ namespace client
         public MainForm()
         {
             InitializeComponent();
+
+            #region font 설정
+            Font font_40 = new Font(FontLibrary.Families[0], 40f);
+            Font font_20 = new Font(FontLibrary.Families[0], 20f);
+            Font font_18 = new Font(FontLibrary.Families[0], 18f);
+            Font font_16 = new Font(FontLibrary.Families[0], 16f);
+            Font font_14 = new Font(FontLibrary.Families[0], 14f);
+            Font font_12 = new Font(FontLibrary.Families[0], 12f);
+            // main form
+            title_label.Font = font_40;
+            midTitle_label.Font = font_18;
+            main_login_btn.Font = font_20;
+
+            // panel1_login_server
+            p1_login_btn.Font = font_20;
+            p1_signUp_btn.Font = font_20;
+            p1_ip_tbx.Font = font_16;
+            p1_ip_label.Font = font_16;
+            p1_connect_btn.Font = font_20;
+            p1_title_label.Font = font_40;
+
+            // p1_1_login
+            p1_midTitle_label.Font = font_16;
+            p1_username_tbx.Font = font_16;
+            p1_username_label.Font = font_14;
+            p1_pw_label.Font = font_14;
+            p1_pw_tbx.Font = font_16;
+
+            // panel2
+            p2_logout_btn.Font = font_20;
+            p2_gameStart_btn.Font = font_20;
+            p2_welcome__label.Font = font_18;
+            p2_title_label.Font = font_40;
+
+            // panel3
+            // datagridView 안에 있는 버튼은 따로 이름을 모르겠어서, 혹시 찾으시면 추가 부탁 드립니다.
+            p3_title_label.Font = font_14;
+            p3_dataGridView1.Font = font_14;
+            p3_create_btn.Font = font_14;
+            p3_comein_label.Font = font_14;
+            p3_back_btn.Font = font_14;
+            p3_makeRoom_btn.Font = font_16;
+            p3_refresh_btn.Font = font_12;
+            p3_people_tbx.Font = font_12;
+            p3_roomname_tbx.Font = font_12;
+            p3_people_label.Font = new Font(FontLibrary.Families[0], 11f);
+            p3_roomname_label.Font = new Font(FontLibrary.Families[0], 11f);
+
+            // panel4
+            p4_roomInfo_label.Font = font_12;
+            p4_w_state_player1.Font = font_12;
+            p4_w_state_player2.Font = font_12;
+            p4_w_state_player3.Font = font_12;
+            p4_w_state_player4.Font = font_12;
+            p4_w_state_player5.Font = font_12;
+            p4_player1.Font = font_12;
+            p4_player2.Font = font_12;
+            p4_player3.Font = font_12;
+            p4_player4.Font = font_12;
+            p4_player5.Font = font_12;
+            p4_send_btn.Font = font_16;
+            p4_Out_btn.Font = font_14;
+            p4_refesh_btn.Font = font_14;
+            p4_message_tbx.Font = font_12;
+            p4_ready_btn.Font = font_16;
+            p4_chat_tbx.Font = font_12;
+
+            // panel4_1
+            p4_1_roomInfo_label.Font = font_12;
+            p4_1_state_player1.Font= font_12;
+            p4_1_state_player2.Font = font_12;
+            p4_1_state_player3.Font = font_12;
+            p4_1_state_player4.Font = font_12;
+            p4_1_state_player5.Font = font_12;
+            p4_1_player1.Font = font_12;
+            p4_1_player2.Font = font_12;
+            p4_1_player3.Font = font_12;
+            p4_1_player4.Font = font_12;
+            p4_1_player5.Font = font_12;
+            p4_1_refresh_btn.Font = font_14;
+            p4_1_send_btn.Font = font_16;
+            p4_1_out_btn.Font = font_14;
+            p4_1_message_tbx.Font = font_12;
+            p4_1_start_btn.Font = font_16;
+            p4_1_chat_tbx.Font = font_12;
+
+            // panel5
+            p5_title_label.Font = font_18;
+            p5_출제자_label.Font = font_14;
+            p5_input_label.Font = font_14;
+            p5_send_btn.Font = font_16;
+            p5_message_tbx.Font = font_12;
+            p5_player1.Font = font_14;
+            p5_player2.Font = font_14;
+            p5_player3.Font = font_14;
+            p5_player4.Font = font_14;
+            p5_player5.Font = font_14;
+            p5_player1_score.Font = font_12;
+            p5_player2_score.Font = font_12;
+            p5_player3_score.Font = font_12;
+            p5_player4_score.Font = font_12;
+            p5_player5_score.Font = font_12;
+
+            // panel5_1
+            p5_1_unknown_btn.Font = font_16;
+            p5_1_yes_btn.Font = font_16;
+            p5_1_no_btn.Font = font_16;
+            p5_1_QA_tbx.Font = font_12;
+            p5_1_answer_label.Font = font_14;
+            p5_1_출제자_label.Font = font_14;
+            p5_1_player1.Font = font_14;
+            p5_1_player2.Font = font_14;
+            p5_1_player3.Font = font_14;
+            p5_1_player4.Font = font_14;
+            p5_1_player5.Font = font_14;
+            p5_1_player1_score.Font = font_12;
+            p5_1_player2_score.Font = font_12;
+            p5_1_player3_score.Font = font_12;
+            p5_1_player4_score.Font = font_12;
+            p5_1_player5_score.Font = font_12;
+
+            // panel5_2
+            p5_2_QA_tbx.Font = font_12;
+            p5_2_word_label.Font = font_14;
+            p5_2_출제자_label.Font = font_14;
+            p5_2_player1.Font = font_14;
+            p5_2_player2.Font = font_14;
+            p5_2_player3.Font = font_14;
+            p5_2_player4.Font = font_14;
+            p5_2_player5.Font = font_14;
+            p5_2_player1_score.Font = font_12;
+            p5_2_player2_score.Font = font_12;
+            p5_2_player3_score.Font = font_12;
+            p5_2_player4_score.Font = font_12;
+            p5_2_player5_score.Font = font_12;
+
+            // panel6
+            p6_timer_label.Font = font_12;
+            p6_player1.Font = font_14;
+            p6_player2.Font = font_14;
+            p6_player3.Font = font_14;
+            p6_player4.Font = font_14;
+            p6_player5.Font = font_14;
+            p6_player1_score.Font = font_12;
+            p6_player2_score.Font = font_12;
+            p6_player3_score.Font = font_12;
+            p6_player4_score.Font = font_12;
+            p6_player5_score.Font = font_12;
+            p6_buzzer_btn.Font = font_14;
+            p6_solution_label.Font = font_14;
+            p6_send_btn.Font = font_16;
+            p6_answer_tbx.Font = font_12;
+            p6_QA_tbx.Font = font_12;
+            
+            // panel6_2
+            p6_2_timer_label.Font = font_12;
+            p6_2_player1.Font = font_14;
+            p6_2_player2.Font = font_14;
+            p6_2_player3.Font = font_14;
+            p6_2_player4.Font = font_14;
+            p6_2_player5.Font = font_14;
+            p6_2_player1_score.Font = font_12;
+            p6_2_player2_score.Font = font_12;
+            p6_2_player3_score.Font = font_12;
+            p6_2_player4_score.Font = font_12;
+            p6_2_player5_score.Font = font_12;
+            p6_2_buzzer_btn.Font = font_14;
+            p6_2_solution_label.Font = font_14;
+            p6_2_send_btn.Font = font_16;
+            p6_2_answer_tbx.Font = font_12;
+            p6_2_QA_tbx.Font = font_12;
+            #endregion
         }
 
         private void MainForm_Load(object sender, EventArgs e)
