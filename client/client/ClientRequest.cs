@@ -51,6 +51,11 @@ namespace client
             SendRequest("ROOMOUT", win);
         }
 
+        public void RequestExitGame()
+        {
+            SendRequest("EXITGAME", "0");
+        }
+
         public void RequestSendRoomChat(string username, string content)
         {
             SendRequest("ROOMCHAT", username + ":" + content);

@@ -295,6 +295,9 @@ namespace ServerProgram
                     else if (header.Equals("BUZZER"))
                     {
                         Buzzer(server);
+                    }else if (header.Equals("EXITGAME"))
+                    {
+                        ExitGame(server);
                     }
                     //알 수 없는 header일때
                     else
@@ -305,6 +308,8 @@ namespace ServerProgram
             }
             catch
             {
+                ExitGame(server);
+
                 parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() + 
                     " | port : " + server.Port.ToString() + " | room : " + server.roomnum().ToString());
                 servers.Remove(server);
@@ -850,6 +855,28 @@ namespace ServerProgram
                 }
             }
         }
+
+        private void ExitGame(Server server)
+        {
+            for (int i = 0; i < gameRooms.Count; i++)
+            {
+                if (gameRooms[i].ContainPlayer(server))
+                {
+                    gameRooms[i].RemovePlayer(server);
+                    if (gameRooms[i].players.Count == 0)
+                    {
+                        gameRooms.RemoveAt(i);
+                    }
+                    else
+                    {
+                        //게임중에 한명이 나가면 그냥 게임오버 시켜버려야 할 것 같아요. 이거 수정은 나중에
+                        //남아있는 플레이어들에게 해당 플레이어가 나가서 생긴 방의 변동을 자동으로 전달
+                        gameRooms[i].players.ForEach(p => PlayerList(gameRooms[i].name, p));
+                    }
+                    return;
+                }
+            }
+        }
         #endregion
     }
 
@@ -864,7 +891,7 @@ namespace ServerProgram
         public bool starting = false;
         public List<string> chats;
         private int presenter = 0;
-        private int currentQuestioner = 1;
+        private int currentQuestioner = 0;
         private int total_questions = 0;
         public int CurrentQuestioner { get { return currentQuestioner; } }
         public string word;

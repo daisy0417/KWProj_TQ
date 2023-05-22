@@ -1450,10 +1450,14 @@ namespace client
         }
         #endregion
 
+        //클라이언트에서 리퀘스트를 보내도 해당 요청을 처리하기 전에 서버에서 소켓 연결이 끊겨서 예외 처리로 넘어가게 됨.
+        //그래서 여기서 처리하는 대신 서버 예외처리 하는 부분에서 처리하도록 바꿨어요
+        /*
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            client.RequestRoomOut("0");
+            client.RequestExitGame();
         }
+        */
 
     }
 }
