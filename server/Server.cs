@@ -764,10 +764,10 @@ namespace ServerProgram
                 if (room.CurrentQuestioner != 0)
                 {//출제자 한바퀴만
                     for (int i = 0; i < qList.Count; i++)
-                    {
+                    { 
                         if (qList[i].username.CompareTo(room.GetPresenter().username) == 0)//다음 문제
                         {
-                            qList[i].SendResponse("GAMESCREEN", "PRESENTERCHOICE");
+                            qList[i].SendResponse("GAMESCREEN", "PRESENTERCHOICE"); 
                         }
                         else
                         {
@@ -823,43 +823,37 @@ namespace ServerProgram
             }
             if (room == null) return;
             List<Server> qList;
-                room.NextPresenter();
-                qList = room.GetQuestionerList();
+            room.NextPresenter();
+            qList = room.GetQuestionerList();
             if (room.GetPresenterNum() != 0)
-                {//출제자 한바퀴만
+            {//출제자 한바퀴만
                 RoomChat("다음 라운드!", server);
                 room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERCHOICE");
                 room.Set_round();
-                    for (int i = 0; i < qList.Count; i++)
-                    {
-                        if (qList[i].username.CompareTo(room.GetPresenter().username)==0)//다음 문제
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "PRESENTERCHOICE");
-                        }
-                        else
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
-                        }
-                    }
-                }
-                else //대기방으로
+                for (int i = 0; i < qList.Count; i++)
                 {
-                    RoomChat("게임 종료!", server);
-                    room.starting = false;
-                    for (int i = 0; i < qList.Count; i++)
+                    qList[i].set_remain_chance();
+                    qList[i].SendResponse("SETBCOUNT", "5");
+                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT"); 
+                }
+            }
+            else //대기방으로
+            {
+                qList = room.GetPlayerList();
+                RoomChat("게임 종료!", server);
+                room.starting = false;
+                for (int i = 0; i < qList.Count; i++)
+                {
+                    if (server.username.CompareTo(room.GetOwner().username) == 0)
                     {
-                        if (server.username.CompareTo(room.GetOwner().username) == 0)
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "OWNERWAIT");
-                        }
-                        else
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "PLAYERWAIT");
-                        }
+                        qList[i].SendResponse("GAMESCREEN", "OWNERWAIT");
+                    }
+                    else
+                    {
+                        qList[i].SendResponse("GAMESCREEN", "PLAYERWAIT");
                     }
                 }
             }
-
         }
         private void Buzzer(Server server)
         {
@@ -1056,6 +1050,13 @@ namespace ServerProgram
             return players[presenter];
         }
         public void NextPresenter() { presenter++; }
+        public int GetPresenterNum() { return presenter; }
+        public void Set_round()
+        {
+            currentQuestioner = 0;
+            total_questions = 0;
+            word = null;
+        }
         public Server GetOwner()
         {
             return ownerPlayer;
@@ -1069,6 +1070,10 @@ namespace ServerProgram
                 if(i != presenter) questionerList.Add(players[i]);
             }
             return questionerList;
+        }
+        public List<Server> GetPlayerList()
+        {
+            return players;
         }
         public int Get_total_q() { return total_questions; }
         public void Plus_total_q() { total_questions++; }
