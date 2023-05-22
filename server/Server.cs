@@ -864,7 +864,7 @@ namespace ServerProgram
         public bool starting = false;
         public List<string> chats;
         private int presenter = 0;
-        private int currentQuestioner = 1;
+        private int currentQuestioner = 0;
         private int total_questions = 0;
         public int CurrentQuestioner { get { return currentQuestioner; } }
         public string word;
