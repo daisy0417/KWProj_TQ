@@ -720,14 +720,14 @@ namespace client
             p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text = ""; }));
             chatList.ForEach(chat =>
             {
-                p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.Text += chat + "\r\n"; }));
+                p4_chat_tbx.Invoke(new MethodInvoker(delegate { p4_chat_tbx.AppendText( chat + "\r\n"); p4_chat_tbx.ScrollToCaret(); }));
             });
 
             // 방장 채팅
             p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text = ""; }));
             chatList.ForEach(chat =>
             {
-                p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text += chat + "\r\n"; }));
+                p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.AppendText( chat + "\r\n");p4_1_chat_tbx.ScrollToCaret(); }));
             });
 
             // 현재 방에 아무도 없다면 대화내용 삭제 > 현재의 
@@ -740,7 +740,8 @@ namespace client
             p5_1_QA_tbx.Invoke(new MethodInvoker(delegate { p5_1_QA_tbx.Text = ""; }));
             chatList.ForEach(chat =>
             {
-                p5_1_QA_tbx.Invoke(new MethodInvoker(delegate { p5_1_QA_tbx.Text += chat + "\r\n"; }));
+                p5_1_QA_tbx.Invoke(new MethodInvoker(delegate { p5_1_QA_tbx.AppendText( chat + "\r\n");
+                    p5_1_QA_tbx.Select(p5_1_QA_tbx.Text.Length, 0); p5_1_QA_tbx.ScrollToCaret(); }));
             });
 
             if ( panel6_Answer.Visible == true) //판넬5 포함
@@ -748,16 +749,18 @@ namespace client
                 //chatList.Clear();
                 //chatList = Q_AList;
             }
-            p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text = ""; }));
+            p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text = ""; p6_QA_tbx.ScrollToCaret(); }));
             chatList.ForEach(chat =>
             {
-                p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.Text += chat + "\r\n"; }));
+                p6_QA_tbx.Invoke(new MethodInvoker(delegate { p6_QA_tbx.AppendText(chat + "\r\n");
+                    p6_QA_tbx.Select(p6_QA_tbx.Text.Length, 0); p6_QA_tbx.ScrollToCaret(); }));
             });
 
-            p6_2_QA_tbx.Invoke(new MethodInvoker(delegate { p6_2_QA_tbx.Text = ""; }));
+            p6_2_QA_tbx.Invoke(new MethodInvoker(delegate { p6_2_QA_tbx.Text = ""; p6_2_QA_tbx.ScrollToCaret();}));
             chatList.ForEach(chat =>
             {
-                p6_2_QA_tbx.Invoke(new MethodInvoker(delegate { p6_2_QA_tbx.Text += chat + "\r\n"; }));
+                p6_2_QA_tbx.Invoke(new MethodInvoker(delegate { p6_2_QA_tbx.AppendText(chat + "\r\n");p6_2_QA_tbx.Select(p6_2_QA_tbx.Text.Length, 0);
+                    p6_2_QA_tbx.ScrollToCaret();}));
             });
         }
 
@@ -1398,7 +1401,33 @@ namespace client
 
         int turn_cnt = 0;   // 질문 횟수 계산
 
-     
+        private void p6_2_QA_tbx_VisibleChanged(object sender, EventArgs e)
+        {
+            p6_2_QA_tbx.Invoke(new MethodInvoker(delegate {
+                p6_2_QA_tbx.AppendText(""); p6_2_QA_tbx.Select(p6_2_QA_tbx.Text.Length, 0);
+                p6_2_QA_tbx.ScrollToCaret();
+            }));
+        }
+
+        private void p5_2_QA_tbx_VisibleChanged(object sender, EventArgs e)
+        {
+            p5_1_QA_tbx.Invoke(new MethodInvoker(delegate {
+                p5_1_QA_tbx.AppendText("");
+                p5_1_QA_tbx.Select(p5_1_QA_tbx.Text.Length, 0); p5_1_QA_tbx.ScrollToCaret();
+            }));
+        }
+
+        private void p6_QA_tbx_VisibleChanged(object sender, EventArgs e)
+        {
+            p6_QA_tbx.Invoke(new MethodInvoker(delegate {
+                p6_QA_tbx.AppendText("");
+                p6_QA_tbx.Select(p6_QA_tbx.Text.Length, 0); p6_QA_tbx.ScrollToCaret();
+            }));
+   
+        }
+
+
+
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
         {
