@@ -937,7 +937,6 @@
             this.p4_w_state_player5.Name = "p4_w_state_player5";
             this.p4_w_state_player5.Size = new System.Drawing.Size(118, 28);
             this.p4_w_state_player5.TabIndex = 44;
-            this.p4_w_state_player5.Text = "대기 중";
             this.p4_w_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_w_state_player5.Visible = false;
             // 
@@ -949,7 +948,6 @@
             this.p4_w_state_player4.Name = "p4_w_state_player4";
             this.p4_w_state_player4.Size = new System.Drawing.Size(118, 28);
             this.p4_w_state_player4.TabIndex = 43;
-            this.p4_w_state_player4.Text = "대기 중";
             this.p4_w_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_w_state_player4.Visible = false;
             // 
@@ -961,7 +959,6 @@
             this.p4_w_state_player3.Name = "p4_w_state_player3";
             this.p4_w_state_player3.Size = new System.Drawing.Size(118, 28);
             this.p4_w_state_player3.TabIndex = 42;
-            this.p4_w_state_player3.Text = "대기 중";
             this.p4_w_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_w_state_player3.Visible = false;
             // 
@@ -973,7 +970,6 @@
             this.p4_w_state_player2.Name = "p4_w_state_player2";
             this.p4_w_state_player2.Size = new System.Drawing.Size(118, 28);
             this.p4_w_state_player2.TabIndex = 41;
-            this.p4_w_state_player2.Text = "대기 중";
             this.p4_w_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_w_state_player2.Visible = false;
             // 
@@ -1452,6 +1448,7 @@
             this.p6_QA_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.p6_QA_tbx.Size = new System.Drawing.Size(703, 394);
             this.p6_QA_tbx.TabIndex = 28;
+            this.p6_QA_tbx.VisibleChanged += new System.EventHandler(this.p6_QA_tbx_VisibleChanged);
             // 
             // p4_state_player1
             // 
@@ -1586,7 +1583,6 @@
             this.p4_1_state_player5.Name = "p4_1_state_player5";
             this.p4_1_state_player5.Size = new System.Drawing.Size(118, 28);
             this.p4_1_state_player5.TabIndex = 44;
-            this.p4_1_state_player5.Text = "대기 중";
             this.p4_1_state_player5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_1_state_player5.Visible = false;
             // 
@@ -1598,7 +1594,6 @@
             this.p4_1_state_player4.Name = "p4_1_state_player4";
             this.p4_1_state_player4.Size = new System.Drawing.Size(118, 28);
             this.p4_1_state_player4.TabIndex = 43;
-            this.p4_1_state_player4.Text = "대기 중";
             this.p4_1_state_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_1_state_player4.Visible = false;
             // 
@@ -1610,7 +1605,6 @@
             this.p4_1_state_player3.Name = "p4_1_state_player3";
             this.p4_1_state_player3.Size = new System.Drawing.Size(118, 28);
             this.p4_1_state_player3.TabIndex = 42;
-            this.p4_1_state_player3.Text = "대기 중";
             this.p4_1_state_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_1_state_player3.Visible = false;
             // 
@@ -1622,7 +1616,6 @@
             this.p4_1_state_player2.Name = "p4_1_state_player2";
             this.p4_1_state_player2.Size = new System.Drawing.Size(118, 28);
             this.p4_1_state_player2.TabIndex = 41;
-            this.p4_1_state_player2.Text = "대기 중";
             this.p4_1_state_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p4_1_state_player2.Visible = false;
             // 
@@ -2344,6 +2337,7 @@
             this.p5_2_QA_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.p5_2_QA_tbx.Size = new System.Drawing.Size(703, 394);
             this.p5_2_QA_tbx.TabIndex = 48;
+            this.p5_2_QA_tbx.VisibleChanged += new System.EventHandler(this.p5_2_QA_tbx_VisibleChanged);
             // 
             // p5_2_출제자_label
             // 
@@ -2735,6 +2729,7 @@
             this.p6_2_QA_tbx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.p6_2_QA_tbx.Size = new System.Drawing.Size(703, 394);
             this.p6_2_QA_tbx.TabIndex = 28;
+            this.p6_2_QA_tbx.VisibleChanged += new System.EventHandler(this.p6_2_QA_tbx_VisibleChanged);
             // 
             // MainForm
             // 
