@@ -123,6 +123,14 @@ namespace client
 
         }
 
+        /// <summary>
+        /// 질문자가 바뀔때 자동으로 호출되는 응답. 현재 질문자의 username을 전달한다.
+        /// </summary>
+        public virtual void CurrentQuestioner(string username)
+        {
+
+        }
+
         #region 게임 진행에 따른 화면들
         /// <summary>
         /// 방장의 게임 시작 전 화면. 게임 시작 버튼, 강퇴 버튼 등 방장의 고유한 권한이 있는 화면
