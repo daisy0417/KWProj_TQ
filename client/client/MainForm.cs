@@ -463,8 +463,8 @@ namespace client
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
             p4_1_chat_tbx.Invoke(new MethodInvoker(delegate { p4_1_chat_tbx.Text = ""; }));
 
-            client.RequestGameReady();
-            client.RequestPlayerList(roomname);
+            //client.RequestGameReady();
+            //client.RequestPlayerList(roomname);
             p4_1_current_player();
         }
 
@@ -560,9 +560,7 @@ namespace client
             string player = p1_username_tbx.Text;
             if (ready == true)
             {
-                //p4_ready_btn.Invoke(new MethodInvoker(delegate { p4_ready_btn.Text = "Cancel"; }));
-
-                ShowMessageBox("준비 완료", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                p4_ready_btn.Invoke(new MethodInvoker(delegate { p4_ready_btn.Text = "Cancel"; }));
             }
             else
             {
@@ -774,7 +772,7 @@ namespace client
 
             // 화면 지저분하게 전환되어서 일단 보류
             // ShowMessageBox("게임을 시작합니다.","Start!",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            client.RequestReadyList();
+            //client.RequestReadyList();
             client.RequestGameStart();
         }
 
@@ -943,6 +941,7 @@ namespace client
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
             client.RequestGameReady();
+            /*
             client.RequestReadyList();
             p4_Out_btn.Invoke(new MethodInvoker(delegate { p4_Out_btn.Visible = false; }));
 
@@ -957,7 +956,7 @@ namespace client
             if (player == p4_player5.Text)
                 p4_w_state_player5.Text = "준비 완료";
             
-
+            */
             //Game_start = 2;
             //Q_AList.Clear();
         }
