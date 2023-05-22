@@ -759,38 +759,7 @@ namespace ServerProgram
             {
                 server.win(); //점수추가
                 RoomChat("정답!", server);
-                room.NextPresenter();
-                qList = room.GetQuestionerList();
-                if (room.CurrentQuestioner != 0)
-                {//출제자 한바퀴만
-                    for (int i = 0; i < qList.Count; i++)
-                    { 
-                        if (qList[i].username.CompareTo(room.GetPresenter().username) == 0)//다음 문제
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "PRESENTERCHOICE"); 
-                        }
-                        else
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
-                        }
-                    }
-                }
-                else //대기방으로
-                {
-                    RoomChat("게임 종료!", server);
-                    room.starting = false; 
-                    for (int i = 0; i < qList.Count; i++)
-                    {
-                        if (server.username.CompareTo(room.GetOwner().username)==0)
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "OWNERWAIT");
-                        }
-                        else
-                        {
-                            qList[i].SendResponse("GAMESCREEN", "PLAYERWAIT");
-                        }
-                    }
-                }
+                Set_nextround(server);
             }
             else
             {
@@ -956,6 +925,7 @@ namespace ServerProgram
                         return;
                     }
                     players[i].set_remain_chance();
+                    players[i].SendResponse("SETBCOUNT","5");
                 }
                 starting = true;
 
