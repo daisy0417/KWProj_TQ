@@ -1104,11 +1104,13 @@ namespace client
             p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Visible = true; }));
             timer1.Start();
             client.RequestBuzzer();
+            //>>>>> 정답 출력 test
+            client.RequestGuessAnswer(p6_answer_tbx.Text);  // 정답인지 확인
 
             //if(b_cnt1==0 || b_cnt2 == 0 || b_cnt3 == 0 || b_cnt4 == 0 || b_cnt5 == 0)
-            
-                //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
-                //버저를 누른 유저에게만 해당하도록 설정 필요
+
+            //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
+            //버저를 누른 유저에게만 해당하도록 설정 필요
             p6_player_turn_label.Invoke(new MethodInvoker(delegate { p6_player_turn_label.Visible = false; }));
             p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.ReadOnly = false; }));
             p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
@@ -1227,15 +1229,16 @@ namespace client
        
         private void timer1_Tick(object sender, EventArgs e)
         {   //시간 표시할 라벨
-            /*
-            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (int.Parse(p6_timer_label.Text) + 1).ToString(); }));
+
+            p6_timer_label.Text = "0";
+            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (Convert.ToInt16(p6_timer_label.Text) + 1).ToString(); }));
             if (p6_timer_label.Text == "5")
             { 
                 timer1.Stop();
-                client.RequestGuessAnswer(p6_answer_tbx.Text);
+                client.RequestGuessAnswer(p6_answer_tbx.Text);  // 정답인지 확인
                 //답 읽어오기
             }
-            */
+            
         }
 
         

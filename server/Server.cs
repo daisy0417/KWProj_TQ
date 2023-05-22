@@ -762,7 +762,13 @@ namespace ServerProgram
                 int questioner = room.CurrentQuestioner;
 
                 List<Server> qList = room.GetQuestionerList();
+                server.SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
 
+                for (int i = 0; i < qList.Count; i++){
+                    if (qList[i].username != server.username)
+                        qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                }
+                /*
                 for (int i = 0; i < qList.Count; i++)
                 {
                     if (server.username.CompareTo(room.GetOwner().username) == 0)
@@ -774,6 +780,7 @@ namespace ServerProgram
                         qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
                     }
                 }
+                */
             }
             int q = room.CurrentQuestioner;
             int tok;
@@ -843,6 +850,14 @@ namespace ServerProgram
 
             List<Server> qList = room.GetQuestionerList();
 
+            server.SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
+
+            for (int i = 0; i < qList.Count; i++)
+            {
+                if (qList[i].username != server.username)
+                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+            }
+            /*
             for (int i = 0; i < qList.Count; i++)
             {
                 if (server.username.CompareTo(room.GetOwner().username) == 0)
@@ -854,6 +869,7 @@ namespace ServerProgram
                     qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
                 }
             }
+            */
         }
 
         private void ExitGame(Server server)
