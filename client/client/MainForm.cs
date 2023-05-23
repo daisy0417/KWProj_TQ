@@ -1769,8 +1769,54 @@ namespace client
             
         }
 
-        
-        
+        public override void RefreshWins(string wins_arr)
+        {
+            string[] strings = wins_arr.Split(',');
+            int[] score=new int[strings.Length];
+            for(int i=0;i<strings.Length; i++)
+            {
+                score[i] = Convert.ToInt32(strings[i]);
+            }
+            switch (score.Length)
+            {
+                case 4:
+                    p5_1_player5_score.Invoke(new MethodInvoker(delegate { p5_1_player5_score.Text = score[4].ToString(); }));
+                    p5_2_player5_score.Invoke(new MethodInvoker(delegate { p5_2_player5_score.Text = score[4].ToString(); }));
+                    p6_2_player5_score.Invoke(new MethodInvoker(delegate { p6_2_player5_score.Text = score[4].ToString(); }));
+                    p6_player5_score.Invoke(new MethodInvoker(delegate { p6_player5_score.Text = score[4].ToString(); }));
+                    goto case 0;
+                case 3:
+                    p5_1_player4_score.Invoke(new MethodInvoker(delegate { p5_1_player4_score.Text = score[3].ToString(); }));
+                    p5_2_player4_score.Invoke(new MethodInvoker(delegate { p5_2_player4_score.Text = score[3].ToString(); }));
+                    p6_2_player4_score.Invoke(new MethodInvoker(delegate { p6_2_player4_score.Text = score[3].ToString(); }));
+                    p6_player4_score.Invoke(new MethodInvoker(delegate { p6_player4_score.Text = score[3].ToString(); }));
+                    goto case 2;
+                case 2:
+                    p5_1_player3_score.Invoke(new MethodInvoker(delegate { p5_1_player3_score.Text = score[2].ToString(); }));
+                    p5_2_player3_score.Invoke(new MethodInvoker(delegate { p5_2_player3_score.Text = score[2].ToString(); }));
+                    p6_2_player3_score.Invoke(new MethodInvoker(delegate { p6_2_player3_score.Text = score[2].ToString(); }));
+                    p6_player3_score.Invoke(new MethodInvoker(delegate { p6_player3_score.Text = score[2].ToString(); }));
+                    goto case 1;
+                case 1:
+                    p5_1_player2_score.Invoke(new MethodInvoker(delegate { p5_1_player2_score.Text = score[1].ToString(); }));
+                    p5_2_player2_score.Invoke(new MethodInvoker(delegate { p5_2_player2_score.Text = score[1].ToString(); }));
+                    p6_2_player2_score.Invoke(new MethodInvoker(delegate { p6_2_player2_score.Text = score[1].ToString(); }));
+                    p6_player2_score.Invoke(new MethodInvoker(delegate { p6_player2_score.Text = score[1].ToString(); }));
+                    goto case 0;
+                case 0:
+                    p5_1_player1_score.Invoke(new MethodInvoker(delegate { p5_1_player1_score.Text = score[0].ToString(); }));
+                    p5_2_player1_score.Invoke(new MethodInvoker(delegate { p5_2_player1_score.Text = score[0].ToString(); }));
+                    p6_2_player1_score.Invoke(new MethodInvoker(delegate { p6_2_player1_score.Text = score[0].ToString(); }));
+                    p6_player1_score.Invoke(new MethodInvoker(delegate { p6_player1_score.Text = score[0].ToString();}));
+                    break;
+            }
+            
+
+
+        }
+
+
+
         #region 게임 진행 - panel5_Owner, 5_1_Owner_Answer, 5_2_Owner_Wait : 출제자 화면
         private void p5_send_btn_Click(object sender, EventArgs e)
         {

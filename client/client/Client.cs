@@ -62,14 +62,11 @@ namespace client
                 client.Connect(serverIP, 5000);
                 swriter = new StreamWriter(client.GetStream());
                 swriter.WriteLine(clientIP); 
-                swriter.Close();
-                client.Close();
+               
 
                 //서버-클라이언트 연결 시작
-                client = new TcpClient();
-                client.Connect(serverIP, 5000);
+                
                 sreader = new StreamReader(client.GetStream());
-                swriter = new StreamWriter(client.GetStream());
                 swriter.AutoFlush = true;
 
                 Thread thread = new Thread(Connecting);
@@ -206,6 +203,10 @@ namespace client
             else if (header.Equals("SETBCOUNT"))
             {
                 parentForm.SetBcount(Convert.ToInt32(content));
+            }
+            else if (header.Equals("GETWINS"))
+            {
+                parentForm.RefreshWins(content);
             }
             else if (header.Equals("GAMESCREEN"))
             {
