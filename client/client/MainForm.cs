@@ -430,6 +430,13 @@ namespace client
 
         private void p1_pw_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // ( , : \ | ) 괄호 안의 문자 입력 시 비번 생성 안됨  
+            if ((e.KeyChar == 44 || e.KeyChar == 58 || e.KeyChar == 92 || e.KeyChar == 124))
+            {
+                ShowMessageBox(", : '\' | 는 특수문자로 사용할 수 없습니다.", "Sign Up Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+            }
+
             // 엔터 입력 시 send 버튼 클릭과 같은 이벤트
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
