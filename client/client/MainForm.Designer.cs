@@ -69,7 +69,6 @@
             this.p3_makeRoom_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_refresh_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_back_btn = new MetroSet_UI.Controls.MetroSetButton();
-            this.p_3_rank_btn = new MetroFramework.Controls.MetroButton();
             this.p3_people_tbx = new System.Windows.Forms.TextBox();
             this.p3_people_label = new System.Windows.Forms.Label();
             this.p3_roomname_label = new System.Windows.Forms.Label();
@@ -616,7 +615,6 @@
             this.panel3_roomList.Controls.Add(this.p3_makeRoom_btn);
             this.panel3_roomList.Controls.Add(this.p3_refresh_btn);
             this.panel3_roomList.Controls.Add(this.p3_back_btn);
-            this.panel3_roomList.Controls.Add(this.p_3_rank_btn);
             this.panel3_roomList.Controls.Add(this.p3_people_tbx);
             this.panel3_roomList.Controls.Add(this.p3_people_label);
             this.panel3_roomList.Controls.Add(this.p3_roomname_label);
@@ -656,6 +654,7 @@
             this.p3_rank_btn.Text = "랭킹";
             this.p3_rank_btn.ThemeAuthor = "Narwin";
             this.p3_rank_btn.ThemeName = "MetroLite";
+            this.p3_rank_btn.Click += new System.EventHandler(this.p3_rank_btn_Click);
             // 
             // p3_dataGridView1
             // 
@@ -853,15 +852,6 @@
             this.p3_back_btn.ThemeAuthor = "Narwin";
             this.p3_back_btn.ThemeName = "MetroLite";
             this.p3_back_btn.Click += new System.EventHandler(this.p3_back_btn_Click);
-            // 
-            // p_3_rank_btn
-            // 
-            this.p_3_rank_btn.Location = new System.Drawing.Point(786, 336);
-            this.p_3_rank_btn.Name = "p_3_rank_btn";
-            this.p_3_rank_btn.Size = new System.Drawing.Size(75, 23);
-            this.p_3_rank_btn.TabIndex = 2;
-            this.p_3_rank_btn.Text = "Rank";
-            this.p_3_rank_btn.Click += new System.EventHandler(this.p3_rank_btn_Click);
             // 
             // p3_people_tbx
             // 
@@ -3033,6 +3023,5 @@
         private System.Windows.Forms.Panel panel_rank;
         private MetroFramework.Controls.MetroTextBox p_rank_tbx;
         private MetroFramework.Controls.MetroButton p_rank_btn;
-        private MetroFramework.Controls.MetroButton p_3_rank_btn;
     }
 }
