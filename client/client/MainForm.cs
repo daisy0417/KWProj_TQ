@@ -1598,7 +1598,8 @@ namespace client
    
         public override void SetBcount(int count)
         {
-            b_cnt1 = b_cnt2 = b_cnt3 = b_cnt4 = b_cnt5 = count;
+            b_cnt1 = b_cnt2 = b_cnt3 = b_cnt4 = b_cnt5 = count+1;
+            buzzer_label_set();
         }
         static int btnstatus = 0;
         public override void LockByBuzzer()
@@ -1619,7 +1620,81 @@ namespace client
             p6_buzzer_btn.Invoke(new MethodInvoker(delegate { p6_buzzer_btn.Enabled = true; }));
             p6_send_btn.Invoke(new MethodInvoker(delegate { p6_send_btn.Enabled = true; }));
         }
+        private void buzzer_label_set()
+        {
+            string p_name = p1_username_tbx.Text;
+            if (p_name == p4_player1.Text)
+            {
+                b_cnt1--;
+                if (b_cnt1 <= 0)
+                {
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                }
 
+                else
+                {
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
+                }
+            }
+            else if (p_name == p4_player2.Text)
+            {
+                b_cnt2--;
+                if (b_cnt2 <= 0)
+                {
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                }
+                else
+                {
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
+                }
+            }
+            else if (p_name == p4_player3.Text)
+            {
+                b_cnt3--;
+                if (b_cnt3 <= 0)
+                {
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                }
+                else
+                {
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
+                }
+            }
+            else if (p_name == p4_player4.Text)
+            {
+                b_cnt4--;
+                if (b_cnt4 <= 0)
+                {
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                }
+                else
+                {
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
+                }
+            }
+            else if (p_name == p4_player5.Text)
+            {
+                b_cnt5--;
+                if (b_cnt5 <= 0)
+                {
+                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
+                }
+                else
+                {
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt5 + "/ 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt5 + "/ 5 )";
+                }
+            }
+        }
         private void buzzer_Click(object sender, EventArgs e)
         {
             buzzer_on = true;
@@ -1673,85 +1748,14 @@ namespace client
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.Text = ""; }));
             p6_2_answer_tbx.ForeColor = Color.CornflowerBlue;
 
-           
-            
+
+
 
 
 
             //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
-            string p_name = p1_username_tbx.Text;
-            if (p_name == p4_player1.Text)
-            {
-                b_cnt1--;
-                if (b_cnt1 <= 0)
-                {
-                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                }
-                   
-                else
-                {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
-                }
-            }
-            else if (p_name == p4_player2.Text)
-            {
-                b_cnt2--;
-                if (b_cnt2 <= 0)
-                {
-                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                }
-                else
-                {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
-                }
-            }
-            else if (p_name == p4_player3.Text)
-            {
-                b_cnt3--;
-                if (b_cnt3 <= 0)
-                {
-                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                }
-                else
-                {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
-                }   
-            }
-            else if (p_name == p4_player4.Text)
-            {
-                b_cnt4--;
-                if (b_cnt4 <= 0)
-                {
-                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                }
-                else
-                {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
-                }
-            }
-            else if (p_name == p4_player5.Text)
-            {
-                b_cnt5--;
-                if (b_cnt5 <= 0)
-                {
-                    p6_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( 0 / 5 )";
-                }
-                else
-                {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt5 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt5 + "/ 5 )";
-                }
-            }
-            
+
+            buzzer_label_set();
         }
 
        
