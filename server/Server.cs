@@ -45,10 +45,12 @@ namespace ServerProgram
             SQLiteConnection conn;
             conn = new SQLiteConnection("Data Source=login_info.db");
             conn.Open();
-            string query = "update idpw set wins = "+win_point+" where ID= '"+username+"'";
+            string query = "select wins from idpw where ID= '" + username + "'";
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            int result = cmd.ExecuteNonQuery();
-            
+            int result=cmd.ExecuteNonQuery();
+            query = "update idpw set wins = "+(win_point+result)+" where ID= '"+username+"'";
+            cmd = new SQLiteCommand(query, conn);
+            result = cmd.ExecuteNonQuery();
         }
 
         public void change_room(int newRoom)
@@ -92,6 +94,7 @@ namespace ServerProgram
         public int roomnum() { return this.room; }
         public void win() { win_point++; } //이겼을 때 호출, 점수 부여
         public void win(int n) { win_point += n; }
+        public int get_win() { return win_point; }
         public void set_winpoint(int winpoint) { win_point = winpoint; }
         public void minus_chance() { remain_qs--; }
         public int get_remain_chance() { return remain_qs; }
@@ -332,7 +335,6 @@ namespace ServerProgram
         #region 로그인 기능
 
         private Dictionary<string, string> loginData = new Dictionary<string, string>();
-        private Dictionary<string, int> win_points= new Dictionary<string, int>();
         private SQLiteConnection conn;
         private void LoadLoginData()
         {
@@ -352,7 +354,6 @@ namespace ServerProgram
             while (reader.Read())
             {
                 loginData.Add(reader["ID"].ToString(), reader["pw"].ToString());
-                win_points.Add(reader["ID"].ToString(),Convert.ToInt32(reader["wins"]));
             }
             reader.Close();
 
@@ -368,8 +369,7 @@ namespace ServerProgram
                     server.SendClient("SIGNIN|" + username);
                     server.username = username;
                     int win;
-                    win_points.TryGetValue(username, out win);
-                    server.set_winpoint(win);
+                    server.set_winpoint(0);
                     return;
                 }
             }
@@ -387,7 +387,6 @@ namespace ServerProgram
             {
                 parentForm.PrintLog("create new account : " + username + ", " + password);
                 loginData.Add(username, password);
-                win_points.Add(username, 0);
 
                 conn = new SQLiteConnection("Data Source=login_info.db");
                 conn.Open();
@@ -769,8 +768,35 @@ namespace ServerProgram
                 Set_nextround(server);
             }
         }
+        private void Get_scores(Server server)
+        {
+            GameRoom room = null;
+            for (int i = 0; i < gameRooms.Count; i++)
+            {
+                if (gameRooms[i].ContainPlayer(server))
+                {
+                    room = gameRooms[i];
+                    break;
+                }
+            }
+            if (room == null) return;
+            List<Server> players = room.players;
+            string win_arr="";
+            for(int i=0; i < players.Count; i++)
+            {
+                win_arr+=players[i].get_win().ToString()+",";
+            }
+            if (win_arr.Length != 0)
+                win_arr += '\b';
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].SendResponse("GETWINS", win_arr);
+            }
+
+        }
         private void Set_nextround(Server server)
         {
+            Get_scores(server);
             GameRoom room = null;
             for (int i = 0; i < gameRooms.Count; i++)
             {

@@ -133,6 +133,7 @@ namespace client
         }
 
         public virtual void SetBcount(int count) { }
+        public virtual void RefreshWins(string wins_arr) { }
 
         #region 게임 진행에 따른 화면들
         /// <summary>

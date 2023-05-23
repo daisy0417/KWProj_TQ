@@ -197,6 +197,10 @@ namespace client
             {
                 parentForm.SetBcount(Convert.ToInt32(content));
             }
+            else if (header.Equals("GETWINS"))
+            {
+                parentForm.RefreshWins(content);
+            }
             else if (header.Equals("GAMESCREEN"))
             {
                 if (content.Equals("OWNERWAIT"))
