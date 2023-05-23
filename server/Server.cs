@@ -844,6 +844,7 @@ namespace ServerProgram
             qList = room.GetQuestionerList();
             if (room.GetPresenterNum() != 0)
             {//출제자 한바퀴만
+                room.ClearChat();
                 RoomChat("다음 라운드!", server);
                 room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERCHOICE");
                 room.Set_round();
