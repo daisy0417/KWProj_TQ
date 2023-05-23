@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace client
 {
-    public partial class ClientForm : MetroFramework.Forms.MetroForm
+    public partial class ClientForm : FontForm3
     {
         
         public ClientForm()
