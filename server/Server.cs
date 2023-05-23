@@ -1037,7 +1037,7 @@ namespace ServerProgram
 
             players.ForEach(p =>
             {
-                p.SendResponse("ROOMCHAT|", string.Empty);
+                p.SendResponse("ROOMCHAT", string.Empty);
             });
         }
 
