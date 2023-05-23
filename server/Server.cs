@@ -221,6 +221,9 @@ namespace ServerProgram
                     {
                         string[] idpw = content.Split(':');
                         SignUp(idpw[0], idpw[1], server);
+                    }else if (header.Equals("SIGNOUT"))
+                    {
+                        SignOut(server);
                     }
                     //방 관련
                     else if (header.Equals("ROOMLIST"))
@@ -364,22 +367,25 @@ namespace ServerProgram
             {
                 if (loginData[username].Equals(password))
                 {
-                    parentForm.PrintLog("login user : " + username + ", " + password);
-                    server.SendClient("SIGNIN|" + username);
-                    server.username = username;
-                    int win;
-                    win_points.TryGetValue(username, out win);
-                    server.set_winpoint(win);
-                    return;
+                    if(servers.Find(s => s.username.Equals(username)) == null)
+                    {
+                        parentForm.PrintLog("login user : " + username + ", " + password);
+                        server.SendClient("SIGNIN|" + username);
+                        server.username = username;
+                        int win;
+                        win_points.TryGetValue(username, out win);
+                        server.set_winpoint(win);
+                        return;
+                    }
                 }
             }
 
-            server.SendClient("SIGNIN|");
+            server.SendResponse("SIGNIN", string.Empty);
         }
 
         private void SignUp(string username, string password, Server server)
         {
-            if (loginData.ContainsKey(username))
+            if (loginData.ContainsKey(username) || username.Equals("NONE"))
             {
                 server.SendClient("SIGNUP|0");
             }
@@ -398,6 +404,19 @@ namespace ServerProgram
 
                 server.SendClient("SIGNUP|1");
             }
+        }
+
+        private void SignOut(Server server)
+        {
+            servers.ForEach(s =>
+            {
+                if (s.username.Equals(server.username))
+                {
+                    s.username = "NONE";
+                    s.SendResponse("SIGNOUT", "1");
+                    return;
+                }
+            });
         }
         #endregion
 

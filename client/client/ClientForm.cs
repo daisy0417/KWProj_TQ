@@ -49,6 +49,14 @@ namespace client
         }
 
         /// <summary>
+        ///  RequestSignOut 호출 후 도착하는 응답. 다시 로그인 화면으로 돌아가도록 해주면 됨. override 필요
+        /// </summary>
+        public virtual void SignOut()
+        {
+
+        }
+
+        /// <summary>
         ///  RequestRoomList 호출 후 도착하는 응답. 현재 서버에 존재하는 방의 정보를 roomList로 전달한다. 
         ///  ','로 구분되어 방 이름, 현재 방 인원, 방의 최대 인원이 담겨있다. override 필요
         /// </summary>
