@@ -1211,9 +1211,19 @@ namespace client
             client.RequestGameStart();
         }
 
-        /// <summary>
-        /// 전부 시작되지 않은 상태에서 방장이 start 버튼을 눌렀을 때 호출됨.
-        /// </summary>
+        public override void ForceGameOver(int flag)
+        {
+            if(flag == 1)
+            {
+                ShowMessageBox("플레이어가 탈주함", "게임 무효", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ShowMessageBox("알 수 없는 이유", "게임 무효", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // 전부 시작되지 않은 상태에서 방장이 start 버튼을 눌렀을 때 호출됨.
         public override void GameStartFail()
         {
             // 방장 패널에서 시작하기 버튼 안 띄움

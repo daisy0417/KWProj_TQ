@@ -109,6 +109,14 @@ namespace client
         }
 
         /// <summary>
+        /// 강제로 게임이 종료되면 도착하는 응답.
+        /// </summary>
+        public virtual void ForceGameOver(int flag)
+        {
+
+        }
+
+        /// <summary>
         ///  RequestGameReady 호출 후 도착하는 응답. 현재 준비 여부를 전달한다.
         /// </summary>
         public virtual void GameReady(bool ready)

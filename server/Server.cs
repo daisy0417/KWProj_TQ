@@ -471,6 +471,7 @@ namespace ServerProgram
 
                 //일반 플레이어 화면으로 세팅 이거 근데 순서 꼬이면 어떡하지? 한번 해보고 문제 있으면 ROOMJOIN시 인자로 보내서 그때 같이 처리하는걸로
                 server.SendResponse("GAMESCREEN", "PLAYERWAIT");
+                ReadyList(roomName, server);
 
                 RefreshRoom();
             }
@@ -483,9 +484,6 @@ namespace ServerProgram
             {
                 if (gameRooms[i].ContainPlayer(server))
                 {
-                    //게임중엔 못 나감
-                    if (gameRooms[i].starting) return;
-
                     gameRooms[i].RemovePlayer(server);
                     if (gameRooms[i].players.Count == 0)
                     {
@@ -493,8 +491,16 @@ namespace ServerProgram
                     }
                     else
                     {
-                        //남아있는 플레이어들에게 해당 플레이어가 나가서 생긴 방의 변동을 자동으로 전달
-                        gameRooms[i].players.ForEach(p => PlayerList(gameRooms[i].name, p));
+                        //게임중에 나가면 게임 강제 종료
+                        if (gameRooms[i].starting)
+                        {
+                            ForceGameOver(gameRooms[i]);
+                        }
+                        else
+                        {
+                            //남아있는 플레이어들에게 해당 플레이어가 나가서 생긴 방의 변동을 자동으로 전달
+                            gameRooms[i].players.ForEach(p => PlayerList(gameRooms[i].name, p));
+                        }
                     }
 
                     server.change_room(0);
@@ -589,6 +595,32 @@ namespace ServerProgram
         #endregion
 
         #region 게임 진행
+
+        private void ForceGameOver(GameRoom room)
+        {
+            room.starting = false;
+            room.players.ForEach(p =>
+            {
+                if (p == room.GetOwner())
+                {
+                    p.SendResponse("GAMESCREEN", "OWNERWAIT");
+                }
+                else
+                {
+                    GameReady(p); //다시 대기 중 상태로 바꾸기 위해
+                    p.SendResponse("GAMESCREEN", "PLAYERWAIT");
+                }
+            });
+
+            room.players.ForEach(p =>
+            {
+                PlayerList(room.name, p);
+                ReadyList(room.name, p);
+
+                p.SendResponse("FORCEGAMEOVER", "1");
+            });
+        }
+
         private void GameStart(Server server)
         {
             GameRoom room = gameRooms.Find(r => r.ContainPlayer(server));
@@ -900,9 +932,8 @@ namespace ServerProgram
                     }
                     else
                     {
-                        //게임중에 한명이 나가면 그냥 게임오버 시켜버려야 할 것 같아요. 이거 수정은 나중에
-                        //남아있는 플레이어들에게 해당 플레이어가 나가서 생긴 방의 변동을 자동으로 전달
-                        gameRooms[i].players.ForEach(p => PlayerList(gameRooms[i].name, p));
+                        if (gameRooms[i].starting) ForceGameOver(gameRooms[i]);
+                        else gameRooms[i].players.ForEach(p => PlayerList(gameRooms[i].name, p));
                     }
                     return;
                 }
@@ -928,11 +959,12 @@ namespace ServerProgram
         public string word;
 
         //owner가 시작 요청을 보낼 경우 보내게 될 응답. 게임 시작 신호를 모든 플레이어에게 보낸다.
+
         public void GameStart()
         {
             if(players.Count > 1)
             {
-                for(int i=0; i < players.Count; i++)
+                for (int i=0; i < players.Count; i++)
                 {
                     if (players[i].ready == false)
                     {
@@ -944,6 +976,10 @@ namespace ServerProgram
                     players[i].SendResponse("SETBCOUNT","5");
                 }
                 starting = true;
+
+                presenter = 0;
+                currentQuestioner = 0;
+                total_questions = 0;
 
                 //채팅 초기화
                 ClearChat();
