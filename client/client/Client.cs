@@ -184,7 +184,14 @@ namespace client
             }else if (header.Equals("GAMEREADY"))
             {
                 parentForm.GameReady(content.Equals("1"));
-            }else if (header.Equals("READYLIST"))
+            }
+            else if (header.Equals("FORCEGAMEOVER"))
+            {
+                int flag = 0;
+                if (int.TryParse(content, out flag)) parentForm.ForceGameOver(int.Parse(content));
+                else parentForm.ForceGameOver(0);
+            }
+            else if (header.Equals("READYLIST"))
             {
                 string[] readyArr = content.Split(',');
                 parentForm.ReadyList(readyArr.ToList());
@@ -234,7 +241,6 @@ namespace client
                 else if (content.Equals("UNLOCKBUZZER")){
                     parentForm.UnlockByBuzzer();
                 }
-                
             }
         }
 
