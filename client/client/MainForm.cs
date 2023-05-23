@@ -210,6 +210,12 @@ namespace client
         }
 
         #region panel1_login: 서버 연결 panel
+
+        private void panel1_login_server_VisibleChanged(object sender, EventArgs e)
+        {
+            this.ActiveControl = p1_ip_tbx; // 커서 위치 설정
+        }
+
         /// <summary>
         /// 서버 연결하기 버튼 클릭 시 이벤트
         /// 아무것도 입력하지 않으면 팝업 띄움.
@@ -284,6 +290,7 @@ namespace client
         /// </summary>
         private void p1_1_login_panel_VisibleChanged(object sender, EventArgs e)
         {
+            this.ActiveControl = p1_username_tbx;   // 커서 위치 설정
             p1_signUp_btn.Invoke(new MethodInvoker(delegate { p1_signUp_btn.Visible = true; }));
             p1_login_btn.Invoke(new MethodInvoker(delegate { p1_login_btn.Visible = true; }));
             p2_gameStart_btn.Invoke(new MethodInvoker(delegate { p2_gameStart_btn.Visible = false; }));
@@ -510,6 +517,8 @@ namespace client
             // 팝업에 Yes, No 버튼이 있음. No가 입력되면 다시 입력 창으로 되돌아감 
             else
             {
+                result = DialogResult.Yes;
+                /*
                 string nameCheck = string.Format("당신은 {0} 님이 맞습니까?", p1_username_tbx.Text);
                 var name_messageRes = MessageBox.Show(nameCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (name_messageRes == DialogResult.No)
@@ -531,11 +540,12 @@ namespace client
                 {
                     pw_messageRes = DialogResult.Yes;
                 }
-
+                
                 if (pw_messageRes == DialogResult.Yes && name_messageRes == DialogResult.Yes)
                 {
                     result = DialogResult.Yes;
                 }
+                */
             }
 
             // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감

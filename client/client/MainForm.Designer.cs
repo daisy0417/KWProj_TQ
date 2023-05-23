@@ -311,6 +311,7 @@
             this.panel1_login_server.Size = new System.Drawing.Size(988, 539);
             this.panel1_login_server.TabIndex = 4;
             this.panel1_login_server.Visible = false;
+            this.panel1_login_server.VisibleChanged += new System.EventHandler(this.panel1_login_server_VisibleChanged);
             // 
             // p1_login_btn
             // 
