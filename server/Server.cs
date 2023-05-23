@@ -11,6 +11,7 @@ using System.Media;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Collections;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ServerProgram
 {
@@ -119,6 +120,7 @@ namespace ServerProgram
             thread1.Start();
 
             LoadLoginData();
+            LoadFriendData();
         }
 
         void lobby_server()//스레드 내에서 새로운 클라이언트를 대기, 클라이언트가 접속하면 새 포트와 방 번호를 할당
@@ -232,6 +234,35 @@ namespace ServerProgram
                     {
                         RoomOut(content, server);
                     }
+                    //친구
+                    else if (header.Equals("JOINFRIENDROOM"))
+                    {
+                        JoinUserGameRoom(content, server);
+                    }
+                    else if (header.Equals("ACCEPTFRIEND"))
+                    {
+                        Server server1 = FindServer(server.username);
+                        Server server2 = FindServer(content);
+                        if(AddFriendShip(server1, server2))
+                        {
+                            server1.SendResponse("FRIENDSLIST", GetFriendListString(server1.username));
+                            server2.SendResponse("FRIENDSLIST", GetFriendListString(server2.username));
+                        }
+                        else
+                        {
+                            //잘못된 친구 요청입니다.
+                            server.SendResponse("ACCEPTFRIEND", -1);
+                        }
+                    }else if (header.Equals("SENDFRIENDREQUEST"))
+                    {
+                        Server targetServer = FindServer(content);
+                        if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
+                        else targetServer.SendResponse("FRIENDREQUEST", server.username);
+                    }
+                    else if (header.Equals("FRIENDSLIST"))
+                    {
+                        server.SendResponse("FRIENDSLIST", GetFriendListString(server.username));
+                    }
                     //방 채팅
                     else if (header.Equals("ROOMCHAT"))
                     {
@@ -310,6 +341,16 @@ namespace ServerProgram
             }
 
             return myIP;
+        }
+
+        private Server FindServer(string username)
+        {
+            for(int i=0; i< servers.Count; i++)
+            {
+                if (servers[i].username == username) return servers[i];
+            }
+
+            return null;
         }
 
         #endregion
@@ -399,6 +440,117 @@ namespace ServerProgram
                     return;
                 }
             });
+        }
+        #endregion
+
+        #region 친구 관리
+        private List<Tuple<string, string>> friendshipList;
+
+        private void JoinUserGameRoom(string username, Server server)
+        {
+            GameRoom room = FindUserGameRoom(username);
+            if (room == null)
+            {
+                //친구가 참가중인 방이 없습니다.
+                server.SendResponse("JOINFRIENDROOM", "-1");
+            }
+            else if (room.starting) {
+                //친구의 방이 이미 게임중입니다.
+                server.SendResponse("JOINFRIENDROOM", "-2");
+            }
+            else if (room.Max())
+            {
+                //친구의 방이 가득 찼습니다.
+                server.SendResponse("JOINFRIENDROOM", "-3");
+            }
+            else
+            {
+                RoomJoin(room.name, server);
+            }
+        }
+
+        private string GetFriendListString(string username)
+        {
+            List<string> friendList = new List<string>();
+            friendshipList.ForEach(f =>
+            {
+                if (f.Item1 == username) friendList.Add(f.Item2);
+                else if (f.Item2 == username) friendList.Add(f.Item1);
+            });
+
+            string friendString = string.Empty;
+
+            friendList.ForEach(f =>
+            {
+                friendString += string.Format("{0},", f);
+            });
+
+            if(friendString.Length > 0)
+            {
+                friendString = friendString.Substring(0, friendString.Length - 1);
+            }
+
+            return friendString;
+        }
+
+        private GameRoom FindUserGameRoom(string username)
+        {
+            for(int i=0; i<gameRooms.Count; i++)
+            {
+                if (gameRooms[i].players.Find(p => p.username == username) != null) return gameRooms[i];
+            }
+
+            return null;
+        }
+
+        private bool AddFriendShip(Server server1, Server server2)
+        {
+            if (server1 == null || server2 == null) return false;
+            if (ContainFriendship(server1.username, server2.username)) return false;
+            else
+            {
+                friendshipList.Add(new Tuple<string, string>(server1.username, server2.username));
+
+                conn = new SQLiteConnection("Data Source=friend_info.db");
+                conn.Open();
+                string query = "insert into friendship (username1,username2) values ('" +
+                    server1.username + "','" + server2.username + "')";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                int result = cmd.ExecuteNonQuery();
+
+                return true;
+            }
+        }
+
+        private bool ContainFriendship(string username1, string username2)
+        {
+            return friendshipList.Contains(new Tuple<string, string>(username1, username2)) 
+                || friendshipList.Contains(new Tuple<string, string>(username2, username1));
+        }
+
+        private void LoadFriendData()
+        {
+            friendshipList = new List<Tuple<string, string>>();
+
+            //파일에서 아이디-패스워드 데이터 읽어오기. 
+            if (!System.IO.File.Exists("friend_info.db"))
+                SQLiteConnection.CreateFile("friend_info.db");
+            conn = new SQLiteConnection("Data Source=friend_info.db");
+            conn.Open();
+            string query = "create table if not exists friendship (username1 varchar(20), username2 varchar(20)" +
+                ", primary key (username1,username2))";
+
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+            query = "select * from friendship";
+            cmd = new SQLiteCommand(query, conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                friendshipList.Add(new Tuple<string, string>(reader["username1"].ToString(), reader["username2"].ToString()));
+            }
+            reader.Close();
         }
         #endregion
 
