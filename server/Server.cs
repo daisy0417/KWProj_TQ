@@ -364,17 +364,20 @@ namespace ServerProgram
             {
                 if (loginData[username].Equals(password))
                 {
-                    parentForm.PrintLog("login user : " + username + ", " + password);
-                    server.SendClient("SIGNIN|" + username);
-                    server.username = username;
-                    int win;
-                    win_points.TryGetValue(username, out win);
-                    server.set_winpoint(win);
-                    return;
+                    if(servers.Find(s => s.username.Equals(username)) == null)
+                    {
+                        parentForm.PrintLog("login user : " + username + ", " + password);
+                        server.SendClient("SIGNIN|" + username);
+                        server.username = username;
+                        int win;
+                        win_points.TryGetValue(username, out win);
+                        server.set_winpoint(win);
+                        return;
+                    }
                 }
             }
 
-            server.SendClient("SIGNIN|");
+            server.SendResponse("SIGNIN", string.Empty);
         }
 
         private void SignUp(string username, string password, Server server)
