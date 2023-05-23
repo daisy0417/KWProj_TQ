@@ -1433,7 +1433,7 @@ namespace client
         {
             client.RequestRoomOut("0");
             p4_1_chat_tbx.Text = "";
-            p4_1_start_btn.Text = "READY";
+            //p4_1_start_btn.Text = "READY";
             p3_people_label.Visible = false;
             p3_people_tbx.Visible = false;
             p3_create_btn.Visible = false;
@@ -1521,6 +1521,7 @@ namespace client
         {
             if(panel4_player_waitRoom.Visible == true)
             {
+                p4_ready_btn.Invoke(new MethodInvoker(delegate { p4_ready_btn.Visible = true; }));
                 p4_w_state_player2.Invoke(new MethodInvoker(delegate { p4_w_state_player2.Text = "대기 중"; }));
                 p4_w_state_player3.Invoke(new MethodInvoker(delegate { p4_w_state_player3.Text = "대기 중"; }));
                 p4_w_state_player4.Invoke(new MethodInvoker(delegate { p4_w_state_player4.Text = "대기 중"; }));
