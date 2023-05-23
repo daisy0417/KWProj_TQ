@@ -2114,7 +2114,6 @@ namespace client
         {
             if (buzzer_on)
             {  // 부저 -> 정답 입력
-                client.RequestSendQuestion("[ ! ]" + p6_2_answer_tbx.Text);
                 client.RequestGuessAnswer(p6_2_answer_tbx.Text);
                 buzzer_on = false;
                 timer1.Stop();
@@ -2129,7 +2128,6 @@ namespace client
                 e.Handled = true;
                 if (buzzer_on)
                 {  // 부저 -> 정답 입력
-                    client.RequestSendQuestion("[ ! ]" + p6_answer_tbx.Text);
                     client.RequestGuessAnswer(p6_answer_tbx.Text);
                     buzzer_on = false;
                     timer1.Stop();
@@ -2210,7 +2208,6 @@ namespace client
         {
             if (buzzer_on)
             {  // 부저 -> 정답 입력
-                client.RequestSendQuestion("[ ! ]" + p6_answer_tbx.Text);
                 client.RequestGuessAnswer(p6_answer_tbx.Text);
                 buzzer_on=false;
                 timer1.Stop();
