@@ -193,11 +193,6 @@ namespace client
             p6_2_QA_tbx.Font = font_12;
             #endregion
         }
-        
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         /// <summary>
         /// 메인 화면에서 로그인 화면으로 넘어가는 이벤트
@@ -213,7 +208,7 @@ namespace client
 
         private void panel1_login_server_VisibleChanged(object sender, EventArgs e)
         {
-            this.ActiveControl = p1_ip_tbx; // 커서 위치 설정
+            this.ActiveControl = p1_ip_tbx; // 커서 포커스 설정
         }
 
         /// <summary>
@@ -290,7 +285,7 @@ namespace client
         /// </summary>
         private void p1_1_login_panel_VisibleChanged(object sender, EventArgs e)
         {
-            this.ActiveControl = p1_username_tbx;   // 커서 위치 설정
+            this.ActiveControl = p1_username_tbx;   // 커서 포커스 설정
             p1_signUp_btn.Invoke(new MethodInvoker(delegate { p1_signUp_btn.Visible = true; }));
             p1_login_btn.Invoke(new MethodInvoker(delegate { p1_login_btn.Visible = true; }));
             p2_gameStart_btn.Invoke(new MethodInvoker(delegate { p2_gameStart_btn.Visible = false; }));
@@ -431,7 +426,7 @@ namespace client
                     }
                     else
                     {
-                        MessageBox.Show("Failed", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("로그인 정보가 없습니다.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -613,6 +608,10 @@ namespace client
 
         #region panel3_roomList: 방 리스트 (방 생성, 입장, 퇴장)
 
+        private void p3_roomname_tbx_VisibleChanged(object sender, EventArgs e)
+        {
+            this.ActiveControl = p3_roomname_tbx;   // 커서 포커스 설정
+        }
 
         private void panel3_roomList_VisibleChanged(object sender, EventArgs e)
         {
@@ -747,6 +746,56 @@ namespace client
                 ShowMessageBox("방 생성 실패", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void p3_people_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                string roomName = p3_roomname_tbx.Text;
+                string roomMax = p3_people_tbx.Text;
+                roomname = roomName;
+
+                if (string.IsNullOrEmpty(p3_roomname_tbx.Text))
+                {
+                    ShowMessageBox("방 이름을 입력해주세요", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (string.IsNullOrEmpty(p3_people_tbx.Text))
+                {
+                    ShowMessageBox("최대 정원을 입력해주세요", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    int maxPeople = Int32.Parse(p3_people_tbx.Text);
+                    if (maxPeople > 5)
+                    {
+                        ShowMessageBox("입장할 수 있는 최대 정원은 5명입니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (maxPeople < 2)
+                    {
+                        ShowMessageBox("2명 이상 입장해야 합니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            //OwnerWait();
+                            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                            //panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
+                            client.RequestRoomCreate(roomName, roomMax);
+                        }
+                        catch (NullReferenceException n)
+                        {
+                            ShowMessageBox("create room error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                    }
+                }
+            }
+        }
+
+
         public void Changing()
         {
             panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = false; }));
@@ -1279,6 +1328,22 @@ namespace client
             ShowMessageBox("준비가 완료되지 않았습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void p4_1_message_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                string content = p4_1_message_tbx.Text;
+                client.username = p1_username_tbx.Text;
+                if (content != string.Empty)
+                {
+                    client.RequestSendRoomChat(client.username, content);
+                    p4_1_message_tbx.Text = "";
+                }
+            }
+
+        }
+
         private void p4_1_send_btn_Click(object sender, EventArgs e)
         {
             string content = p4_1_message_tbx.Text;
@@ -1373,6 +1438,20 @@ namespace client
         #endregion
 
         #region player(플레이어)
+        private void p4_message_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                string content = p4_1_message_tbx.Text;
+                client.username = p1_username_tbx.Text;
+                if (content != string.Empty)
+                {
+                    client.RequestSendRoomChat(client.username, content);
+                    p4_1_message_tbx.Text = "";
+                }
+            }
+        }
 
         private void p4_ready_btn_Click(object sender, EventArgs e)
         {
@@ -2035,7 +2114,6 @@ namespace client
                 client.RequestWordSelect(p5_input_label.Text);
             }
         }
-
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()

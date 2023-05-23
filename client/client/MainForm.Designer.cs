@@ -858,6 +858,7 @@
             this.p3_people_tbx.Size = new System.Drawing.Size(183, 30);
             this.p3_people_tbx.TabIndex = 12;
             this.p3_people_tbx.Visible = false;
+            this.p3_people_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p3_people_tbx_KeyPress);
             // 
             // p3_people_label
             // 
@@ -892,6 +893,7 @@
             this.p3_roomname_tbx.Name = "p3_roomname_tbx";
             this.p3_roomname_tbx.Size = new System.Drawing.Size(183, 30);
             this.p3_roomname_tbx.TabIndex = 8;
+            this.p3_roomname_tbx.VisibleChanged += new System.EventHandler(this.p3_roomname_tbx_VisibleChanged);
             // 
             // panel4_player_waitRoom
             // 
@@ -1083,7 +1085,7 @@
             this.p4_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_send_btn.HoverTextColor = System.Drawing.Color.White;
             this.p4_send_btn.IsDerivedStyle = true;
-            this.p4_send_btn.Location = new System.Drawing.Point(837, 489);
+            this.p4_send_btn.Location = new System.Drawing.Point(837, 488);
             this.p4_send_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_send_btn.Name = "p4_send_btn";
             this.p4_send_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1115,12 +1117,13 @@
             // 
             this.p4_message_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_message_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p4_message_tbx.Location = new System.Drawing.Point(261, 489);
+            this.p4_message_tbx.Location = new System.Drawing.Point(261, 487);
             this.p4_message_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_message_tbx.Multiline = true;
             this.p4_message_tbx.Name = "p4_message_tbx";
             this.p4_message_tbx.Size = new System.Drawing.Size(570, 45);
             this.p4_message_tbx.TabIndex = 20;
+            this.p4_message_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p4_message_tbx_KeyPress);
             // 
             // p4_player3
             // 
@@ -1721,7 +1724,7 @@
             this.p4_1_send_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p4_1_send_btn.HoverTextColor = System.Drawing.Color.White;
             this.p4_1_send_btn.IsDerivedStyle = true;
-            this.p4_1_send_btn.Location = new System.Drawing.Point(837, 496);
+            this.p4_1_send_btn.Location = new System.Drawing.Point(837, 498);
             this.p4_1_send_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_1_send_btn.Name = "p4_1_send_btn";
             this.p4_1_send_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -1743,12 +1746,13 @@
             // 
             this.p4_1_message_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.p4_1_message_tbx.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.p4_1_message_tbx.Location = new System.Drawing.Point(261, 496);
+            this.p4_1_message_tbx.Location = new System.Drawing.Point(261, 498);
             this.p4_1_message_tbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p4_1_message_tbx.Multiline = true;
             this.p4_1_message_tbx.Name = "p4_1_message_tbx";
             this.p4_1_message_tbx.Size = new System.Drawing.Size(570, 45);
             this.p4_1_message_tbx.TabIndex = 20;
+            this.p4_1_message_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.p4_1_message_tbx_KeyPress);
             // 
             // p4_1_start_btn
             // 
