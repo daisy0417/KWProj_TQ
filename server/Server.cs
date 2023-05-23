@@ -95,6 +95,7 @@ namespace ServerProgram
         public void win() { win_point++; } //이겼을 때 호출, 점수 부여
         public void win(int n) { win_point += n; }
         public void set_winpoint(int winpoint) { win_point = winpoint; }
+        public int get_winpoint() { return win_point; }
         public void minus_chance() { remain_qs--; }
         public int get_remain_chance() { return remain_qs; }
         public void set_remain_chance() { remain_qs = 5; }
@@ -776,7 +777,31 @@ namespace ServerProgram
                 qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
             }
         }
-
+        private void Get_scores(Server server)
+        {
+            GameRoom room = null;
+            for (int i = 0; i < gameRooms.Count; i++)
+            {
+                if (gameRooms[i].ContainPlayer(server))
+                {
+                    room = gameRooms[i];
+                    break;
+                }
+            }
+            if (room == null) return;
+            List<Server> pList = room.GetPlayerList();
+            string warr=null;
+            for(int i=0; i < pList.Count; i++)
+            {
+               warr+= pList[i].get_winpoint().ToString()+",";
+            }
+            if (warr != null)
+                warr=warr.Remove(warr.Length - 1);
+            for (int i = 0; i < pList.Count; i++)
+            {
+                pList[i].SendResponse("GETWINS", warr);
+            }
+        }
         private void GuessAnswer(string guess,Server server)
         {
             isbuzzercalled = true;
@@ -822,6 +847,7 @@ namespace ServerProgram
         }
         private void Set_nextround(Server server)
         {
+            Get_scores(server);
             GameRoom room = null;
             for (int i = 0; i < gameRooms.Count; i++)
             {

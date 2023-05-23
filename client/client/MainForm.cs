@@ -1772,7 +1772,7 @@ namespace client
             {
                 score[i] = Convert.ToInt32(strings[i]);
             }
-            switch (score.Length)
+            switch (score.Length-1)
             {
                 case 4:
                     p5_1_player5_score.Invoke(new MethodInvoker(delegate { p5_1_player5_score.Text = score[4].ToString(); }));
