@@ -1811,6 +1811,7 @@ namespace client
             p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Visible = true; }));
             p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Visible = true; }));
             p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = "0"; }));
+            p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Text = "0"; }));
             timer1.Start();
             client.RequestBuzzer();
             
@@ -1836,7 +1837,8 @@ namespace client
         private void timer1_Tick(object sender, EventArgs e)
         {   //시간 표시할 라벨     
 
-        p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (Convert.ToInt16(p6_timer_label.Text) + 1).ToString(); }));
+            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = (Convert.ToInt32(p6_timer_label.Text) + 1).ToString(); }));
+            p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Text = (Convert.ToInt32(p6_timer_label.Text) + 1).ToString(); }));
             if (p6_timer_label.Text == "5")
             { 
                 buzzer_on=false;
@@ -2124,6 +2126,10 @@ namespace client
             panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = false; }));
             panel6_2_Answer_Wait.Invoke(new MethodInvoker(delegate { panel6_2_Answer_Wait.Visible = true; }));
 
+            // 타이머 안 보이게
+            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Visible = false; }));
+            p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Visible = false; }));
+
             //질의응답 창 test를 위해 주석 처리
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.Text = "( 질문 순서가 아닙니다. )"; }));
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.ReadOnly = true; }));
@@ -2140,8 +2146,12 @@ namespace client
             panel6_2_Answer_Wait.Invoke(new MethodInvoker(delegate { panel6_2_Answer_Wait.Visible = false; }));
             panel6_Answer.Invoke(new MethodInvoker(delegate { panel6_Answer.Visible = true; }));
 
+            // 타이머 안 보이게
+            p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Visible = false; }));
+            p6_2_timer_label.Invoke(new MethodInvoker(delegate { p6_2_timer_label.Visible = false; }));
+
             //사용자 턴에 따른 사용자 리스트 라벨 변경 > 사용자 누구? -> 테두리 색 변환
-            if(turn_cnt < 20)
+            if (turn_cnt < 20)
             {
                 p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.Text = ""; }));
                 p6_answer_tbx.Invoke(new MethodInvoker(delegate { p6_answer_tbx.ReadOnly = false; }));  // 입력 받기 가능
