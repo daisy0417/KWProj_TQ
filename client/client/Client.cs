@@ -125,6 +125,9 @@ namespace client
             else if (header.Equals("SIGNUP"))
             {
                 parentForm.SignUp(content.Equals("1"));
+            }else if (header.Equals("SIGNOUT"))
+            {
+                parentForm.SignOut();
             }
             else if (header.Equals("ROOMLIST"))
             {

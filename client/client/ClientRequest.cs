@@ -31,6 +31,11 @@ namespace client
             SendRequest("SIGNUP", username + ":" + password);
         }
 
+        public void RequestSignOut()
+        {
+            SendRequest("SIGNOUT", "0");
+        }
+
         public void RequestRoomList()
         {
             SendRequest("ROOMLIST", "0");
