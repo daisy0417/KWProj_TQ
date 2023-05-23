@@ -225,10 +225,6 @@ namespace client
             else
             {
                 TryConnectServer(p1_ip_tbx.Text);
-                p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
-                p1_login_btn.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
-                //                p1_1_login_panel.Visible = true;
-                //                p1_login_btn.Visible = true;
             }
         }
 
@@ -251,20 +247,18 @@ namespace client
                 else
                 {
                     TryConnectServer(p1_ip_tbx.Text);
-                    p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
-                    p1_login_btn.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
-                    //                p1_1_login_panel.Visible = true;
-                    //                p1_login_btn.Visible = true;
                 }
             }
         }
 
         public override void ConnectServerResult(bool success)
         {
-            if (success)
+            if (success == true)
             {
                 //연결 성공
                 p1_connect_btn.Invoke(new MethodInvoker(delegate { p1_connect_btn.Visible = false; }));
+                p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
+                p1_signUp_btn.Invoke(new MethodInvoker(delegate { p1_signUp_btn.Visible = true; }));
                 p1_login_btn.Invoke(new MethodInvoker(delegate { p1_login_btn.Visible = true; }));
                 /*
                 p1_connect_btn.Visible = false;
