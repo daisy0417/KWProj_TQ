@@ -21,7 +21,6 @@ namespace ServerProgram
         private StreamReader reader;
         private StreamWriter writer;
         private int room;
-        private IPAddress serverIP;
         public IPAddress clientIP;
         private int port;
         private int win_point;
@@ -32,11 +31,9 @@ namespace ServerProgram
         public string username = "NONE";
         public bool ready = false;
         
-        public Server(IPAddress serverIP, IPAddress clientIP, TcpListener l, int room,TcpClient client, StreamReader reader) 
+        public Server(IPAddress clientIP, TcpListener l, int room,TcpClient client, StreamReader reader) 
         { //서버 생성자. 클라스 생성과 함께 서버연결
-            this.port = port;
             this.room = room;
-            this.serverIP = serverIP;
             this.clientIP = clientIP;
             this.listener = l;
             this.reader = reader;
@@ -49,8 +46,7 @@ namespace ServerProgram
             conn.Open();
             string query = "update idpw set wins = "+win_point+" where ID= '"+username+"'";
             SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            int result = cmd.ExecuteNonQuery();
-            
+            cmd.ExecuteNonQuery();
         }
 
         public void change_room(int newRoom)
@@ -72,25 +68,17 @@ namespace ServerProgram
             return msg;
         }
 
-        // room 번호와 관계없이 클라이언트에 메세지 전송.
-        public void SendClient(string msg)
-        {
-            writer.WriteLine(msg);
-        }
-
-        //SendClient 대신에 이걸 앞으로 써야할듯. | 붙이기 귀찮으니까
+        //클라이언트에 메세지 전송
         public void SendResponse(string header, string content)
         {
             writer.WriteLine(header + "|" + content);
         }
 
-        public void write_client(int room, string msg) // room 번호가 같으면 클라이언트에 메세지 전송 
+        public void SendResponse(string header, int value)
         {
-            if (this.room == room)
-            {
-                this.writer.WriteLine(msg);
-            }
+            writer.WriteLine(header + "|" + value.ToString());
         }
+
         public int roomnum() { return this.room; }
         public void win() { win_point++; } //이겼을 때 호출, 점수 부여
         public void win(int n) { win_point += n; }
@@ -131,13 +119,6 @@ namespace ServerProgram
 
             LoadLoginData();
         }
-        void msg_return(int room, string msg) // 보유한 서버에 대해 메세지 전달(방 번호 다르면 잘림)
-        {
-            for (int i = 0; i < servers.Count; i++)
-            {
-                servers[i].write_client(room, msg);
-            }
-        }
 
         void lobby_server()//스레드 내에서 새로운 클라이언트를 대기, 클라이언트가 접속하면 새 포트와 방 번호를 할당
         {
@@ -155,7 +136,7 @@ namespace ServerProgram
 
                     IPAddress clientIP = IPAddress.Parse("127.0.0.1");
 
-                    servers.Add(new Server(msg.Equals("127.0.0.1") ? clientIP : serverIP, clientIP, listener, 0,client, sread));
+                    servers.Add(new Server(clientIP, listener, 0,client, sread));
                     Thread thread1 = new Thread(chat_server);
                     thread1.IsBackground = true;
                     thread1.Start();
@@ -195,12 +176,12 @@ namespace ServerProgram
                     //일반 메세지
                     if (header.Equals("NONE"))
                     {
-                        msg_return(server.roomnum(), header + "|" + content);
+                        server.SendResponse(header, content);
                     }
                     //방 번호 관련
                     else if (header.Equals("GETROOM"))
                     {
-                        server.SendClient("GETROOM|" + server.roomnum());
+                        server.SendResponse("GETROOM", server.roomnum());
                     } else if (header.Equals("SETROOM")) {
                         int newRoom = 0;
 
@@ -208,7 +189,7 @@ namespace ServerProgram
                         {
                             server.change_room(newRoom);
                             parentForm.PrintLog("changed room | port : " + server.Port + " | " + content);
-                            server.SendClient("GETROOM|" + server.roomnum());
+                            server.SendResponse("GETROOM", server.roomnum());
                         }
                     }
                     //로그인 관련
@@ -228,19 +209,19 @@ namespace ServerProgram
                     //방 관련
                     else if (header.Equals("ROOMLIST"))
                     {
-                        server.SendClient("ROOMLIST|" + GetRoomListString());
+                        server.SendResponse("ROOMLIST", GetRoomListString());
                     } else if (header.Equals("ROOMCREATE"))
                     {
                         string[] roomInfo = content.Split(',');
                         if (RoomCreate(roomInfo[0], int.Parse(roomInfo[1]), server))
                         {
                             RefreshRoom();
-                            server.SendClient("ROOMCREATE|1");
+                            server.SendResponse("ROOMCREATE", 1);
                             //방장 화면으로 세팅
                             server.SendResponse("GAMESCREEN", "OWNERWAIT");
                         } else
                         {
-                            server.SendClient("ROOMCREATE|0");
+                            server.SendResponse("ROOMCREATE", 0);
                         }
                     }
                     else if (header.Equals("ROOMJOIN"))
@@ -299,7 +280,7 @@ namespace ServerProgram
                     //알 수 없는 header일때
                     else
                     {
-                        msg_return(server.roomnum(), header + "|" + content);
+                        server.SendResponse(header, content);
                     }
                 }
             }
@@ -370,7 +351,7 @@ namespace ServerProgram
                     if(servers.Find(s => s.username.Equals(username)) == null)
                     {
                         parentForm.PrintLog("login user : " + username + ", " + password);
-                        server.SendClient("SIGNIN|" + username);
+                        server.SendResponse("SIGNIN", username);
                         server.username = username;
                         int win;
                         win_points.TryGetValue(username, out win);
@@ -387,7 +368,7 @@ namespace ServerProgram
         {
             if (loginData.ContainsKey(username) || username.Equals("NONE"))
             {
-                server.SendClient("SIGNUP|0");
+                server.SendResponse("SIGNUP", 0);
             }
             else
             {
@@ -402,7 +383,7 @@ namespace ServerProgram
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 int result = cmd.ExecuteNonQuery();
 
-                server.SendClient("SIGNUP|1");
+                server.SendResponse("SIGNUP", 1);
             }
         }
 
@@ -447,7 +428,7 @@ namespace ServerProgram
             {
                 if (servers[i].roomnum() == 0)
                 {
-                    servers[i].SendClient("ROOMLIST|" + GetRoomListString());
+                    servers[i].SendResponse("ROOMLIST", GetRoomListString());
                 }
             }
         }
@@ -475,11 +456,11 @@ namespace ServerProgram
 
             if (index == -1)
             {
-                server.SendClient("ROOMJOIN|-1");
+                server.SendResponse("ROOMJOIN", -1);
             }
             else if (index == -2)
             {
-                server.SendClient("ROOMJOIN|-2");
+                server.SendResponse("ROOMJOIN", -2);
             }
             else
             {
@@ -487,7 +468,7 @@ namespace ServerProgram
                 //기존에 방에 있던 플레이어들에게 해당 플레이어가 들어와서 생긴 방의 변동을 자동으로 전달
                 gameRooms[index].AddPlayer(server);
                 gameRooms[index].players.ForEach(p => PlayerList(gameRooms[index].name, p));
-                server.SendClient("ROOMJOIN|" + gameRooms[index].name);
+                server.SendResponse("ROOMJOIN", gameRooms[index].name);
 
                 //일반 플레이어 화면으로 세팅 이거 근데 순서 꼬이면 어떡하지? 한번 해보고 문제 있으면 ROOMJOIN시 인자로 보내서 그때 같이 처리하는걸로
                 server.SendResponse("GAMESCREEN", "PLAYERWAIT");
@@ -524,7 +505,7 @@ namespace ServerProgram
                     }
 
                     server.change_room(0);
-                    server.SendClient("ROOMOUT|0");
+                    server.SendResponse("ROOMOUT", 0);
 
                     RefreshRoom();
 
@@ -559,7 +540,7 @@ namespace ServerProgram
                 if (playerListString.Length > 0) playerListString = playerListString.Substring(0, playerListString.Length - 1);
             }
 
-            server.SendClient("PLAYERLIST|" + playerListString);
+            server.SendResponse("PLAYERLIST", playerListString);
         }
 
         private void ReadyList(string roomName, Server server)
@@ -576,7 +557,7 @@ namespace ServerProgram
                 if (readyListString.Length > 0) readyListString = readyListString.Substring(0, readyListString.Length - 1);
             }
 
-            server.SendClient("READYLIST|" + readyListString);
+            server.SendResponse("READYLIST", readyListString);
         }
         #endregion
 
@@ -607,7 +588,7 @@ namespace ServerProgram
 
             gameRoom.players.ForEach(p =>
             {
-                p.SendClient("ROOMCHAT|" + chatListString);
+                p.SendResponse("ROOMCHAT", chatListString);
             });
         }
 
