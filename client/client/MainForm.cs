@@ -1910,10 +1910,10 @@ namespace client
             for (int i = 0; i < id_and_wins.Length - 1; i++)
             {
                 row = "";
-                row += "[[["+(i/2+1) +"위]]]"+"ID : " + id_and_wins[i] + "\t승리: " + id_and_wins[i + 1]
-                    + "회\r\n";
-                p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText( row); }));
-              
+                row += "ID : " + id_and_wins[i] + "\t승리: " + id_and_wins[i + 1]
+                    + "회\n";
+                p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText("\n" + row); }));
+                p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText("\n"); }));
                 i++;
             }
         }
