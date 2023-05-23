@@ -670,11 +670,13 @@ namespace ServerProgram
                 {
                     //첫번째 질문자
                     questionerList[i].SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
+                    questionerList[i].SendResponse("GAMESCREEN", "UNLOCKBUZZER");
                 }
                 else
                 {
                     //나머지는 대기
                     questionerList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                    questionerList[i].SendResponse("GAMESCREEN", "UNLOCKBUZZER");
                 }
             }
 
@@ -852,7 +854,8 @@ namespace ServerProgram
                 {
                     qList[i].set_remain_chance();
                     qList[i].SendResponse("SETBCOUNT", "5");
-                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT"); 
+                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                    qList[i].SendResponse("GAMESCREEN", "LOCKBYBUZZER");
                 }
             }
             else //대기방으로
@@ -993,6 +996,7 @@ namespace ServerProgram
                 for(int i=1; i<players.Count; i++)
                 {
                     players[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
+                    players[i].SendResponse("GAMESCREEN", "LOCKBYBUZZER");
                 }
             }
         }
