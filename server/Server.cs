@@ -32,13 +32,15 @@ namespace ServerProgram
         public string username = "NONE";
         public bool ready = false;
         
-        public Server(IPAddress serverIP, IPAddress clientIP, TcpListener l, int room) 
+        public Server(IPAddress serverIP, IPAddress clientIP, TcpListener l, int room,TcpClient client, StreamReader reader) 
         { //서버 생성자. 클라스 생성과 함께 서버연결
             this.port = port;
             this.room = room;
             this.serverIP = serverIP;
             this.clientIP = clientIP;
             this.listener = l;
+            this.reader = reader;
+            this.client = client;
         }
         ~Server()
         {
@@ -58,8 +60,8 @@ namespace ServerProgram
         public void run_server() //서버 스트림 생성(스레드 내에서 실행)
         {
             listener.Start();
-            this.client = listener.AcceptTcpClient();
-            this.reader = new StreamReader(this.client.GetStream());
+         
+           
             this.writer = new StreamWriter(this.client.GetStream());
             this.writer.AutoFlush = true;
         }
@@ -150,12 +152,10 @@ namespace ServerProgram
                     StreamReader sread = new StreamReader(client.GetStream());
                     string msg = sread.ReadLine();
                     //int room = int.Parse(msg); //방번호 받고 포트번호 주기 -> 이재 방 번호는 필요없음. 0으로 고정
-                    sread.Close();
-                    client.Close();
 
                     IPAddress clientIP = IPAddress.Parse("127.0.0.1");
 
-                    servers.Add(new Server(msg.Equals("127.0.0.1") ? clientIP : serverIP, clientIP, listener, 0));
+                    servers.Add(new Server(msg.Equals("127.0.0.1") ? clientIP : serverIP, clientIP, listener, 0,client, sread));
                     Thread thread1 = new Thread(chat_server);
                     thread1.IsBackground = true;
                     thread1.Start();
