@@ -20,6 +20,8 @@ namespace client
         {
             InitializeComponent();
 
+            this.title_label.Font = new Font("한컴 말랑말랑 Bold", 40f, FontStyle.Bold);
+
             #region font 설정
             Font font_40 = new Font(FontLibrary.Families[0], 40f);
             Font font_20 = new Font(FontLibrary.Families[0], 20f);
@@ -28,7 +30,7 @@ namespace client
             Font font_14 = new Font(FontLibrary.Families[0], 14f);
             Font font_12 = new Font(FontLibrary.Families[0], 12f);
             // main form
-            title_label.Font = font_40;
+            //title_label.Font = font_40;
             midTitle_label.Font = font_18;
             main_login_btn.Font = font_20;
 
