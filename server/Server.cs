@@ -32,13 +32,13 @@ namespace ServerProgram
         public string username = "NONE";
         public bool ready = false;
         
-        public Server(IPAddress serverIP, IPAddress clientIP, int port, int room) 
+        public Server(IPAddress serverIP, IPAddress clientIP, TcpListener l, int room) 
         { //서버 생성자. 클라스 생성과 함께 서버연결
             this.port = port;
             this.room = room;
             this.serverIP = serverIP;
             this.clientIP = clientIP;
-            this.listener = new TcpListener(serverIP, port);
+            this.listener = l;
         }
         ~Server()
         {
@@ -141,11 +141,10 @@ namespace ServerProgram
         {
             try
             {
+                TcpListener listener = new TcpListener(IPAddress.Any, portmain);
+                listener.Start();
                 while (true)
                 {
-                    TcpListener listener = new TcpListener(IPAddress.Any, portmain);
-                    listener.Start();
-
                     //클라이언트의 IP 주소를 받음. 딱히 사용하지는 않고 로그 출력할 때만 사용됨
                     TcpClient client = listener.AcceptTcpClient();
                     StreamReader sread = new StreamReader(client.GetStream());
@@ -154,23 +153,14 @@ namespace ServerProgram
                     sread.Close();
                     client.Close();
 
-                    int newPort = NewPort();
-
-                    TcpClient client2 = listener.AcceptTcpClient();
-                    StreamWriter swrite = new StreamWriter(client2.GetStream());
-                    swrite.WriteLine(newPort);
-                    swrite.Close();
-                    client2.Close();
-                    listener.Stop();
-
                     IPAddress clientIP = IPAddress.Parse("127.0.0.1");
 
-                    servers.Add(new Server(msg.Equals("127.0.0.1") ? clientIP : serverIP, clientIP, newPort, 0));
+                    servers.Add(new Server(msg.Equals("127.0.0.1") ? clientIP : serverIP, clientIP, listener, 0));
                     Thread thread1 = new Thread(chat_server);
                     thread1.IsBackground = true;
                     thread1.Start();
 
-                    parentForm.PrintLog("new clent connected ip : " + msg + " | port : " + newPort + " | room : " + 0);
+                    parentForm.PrintLog("new clent connected ip : " + msg + " | port : " + portmain + " | room : " + 0);
                 }
             }catch(Exception e)
             {
