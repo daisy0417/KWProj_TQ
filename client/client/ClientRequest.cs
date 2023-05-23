@@ -36,6 +36,26 @@ namespace client
             SendRequest("SIGNOUT", "0");
         }
 
+        public void RequestJoinFriendRoom(string friendUsername)
+        {
+            SendRequest("JOINFRIENDROOM", friendUsername);
+        }
+
+        public void RequestAcceptFriend(string friendUsername)
+        {
+            SendRequest("ACCEPTFRIEND", friendUsername);
+        }
+
+        public void RequestSendFriendRequest(string friendUsername)
+        {
+            SendRequest("SENDFRIENDREQUEST", friendUsername);
+        }
+
+        public void RequestFirendsList()
+        {
+            SendRequest("FRIENDSLIST", "0");
+        }
+
         public void RequestRoomList()
         {
             SendRequest("ROOMLIST", "0");

@@ -32,6 +32,62 @@ namespace client
         }
 
         /// <summary>
+        /// RequestSendFriendRequest 호출 후 도착하는 응답. 친구 요청의 성공 여부를 전달한다. 
+        /// success가 false인 경우 사용자가 오프라인이거나, 아예 없는 사용자라는 것 override 필요
+        /// </summary>
+        public virtual void SendFriendRequest(bool success)
+        {
+            /*
+             * if(success == false) 사용자를 찾을 수 없습니다.
+             */
+        }
+
+        /// <summary>
+        /// RequestSendFriendRequest 호출 후 상대에게 도착하는 응답. username(상대)가 보낸 친구 요청을 수락할 것인지 묻는다.
+        /// 수락을 선택한다면 RequestAcceptFriend 호출해야함 override 필요
+        /// </summary>
+        public virtual void FriendRequest(string username)
+        {
+            /*
+             * 다이얼로그로 물어본 후 OK 선택하면 RequestAcceptFriend(username)
+             */
+        }
+
+        /// <summary>
+        /// RequestAcceptFriend 호출 후 도착하는 응답. 친구 요청의 성공 여부를 전달한다. 
+        /// success가 false인 경우 사용자가 오프라인이거나, 아예 없는 사용자라는 것 override 필요
+        /// </summary>
+        public virtual void AcceptFriend(bool success)
+        {
+            /*
+             * if(success == false) 사용자를 찾을 수 없습니다.
+             */
+        }
+
+        /// <summary>
+        /// RequestFriendList 호출 후 도착하는 응답. 친구들의 username을 담은 List를 전달한다. 없으면 빈 리스트 override 필요
+        /// </summary>
+        public virtual void FriendList(List<string> friendList)
+        {
+
+        }
+
+        /// <summary>
+        /// RequestSendFriendRequest 호출 후 상대에게 도착하는 응답. username(상대)가 보낸 친구 요청을 수락할 것인지 묻는다.
+        /// 수락을 선택한다면 RequestAcceptFriend 호출해야함 override 필요
+        /// </summary>
+        public virtual void JoinFriendRoom(int flag)
+        {
+            /*
+             * if(flag == -1) 친구가 참가중인 방이 없습니다.
+             * else if(flag == -2) 친구의 방이 이미 게임중입니다.
+             * else if(flag == -3) 친구의 방이 가득 찼습니다.
+             * 
+             * 아무런 응답이 오지 않으면 성공했다는 것. 서버에서 자동으로 RoomJoin을 호출함.
+             */
+        }
+
+        /// <summary>
         ///  RequestSignIn 호출 후 도착하는 응답. 로그인을 시도한 후 
         ///  username을 통해 성공하면 계정 아이디, 실패하면 빈 문자열을 전달한다. override 필요
         /// </summary>
