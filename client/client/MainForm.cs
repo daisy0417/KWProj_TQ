@@ -546,6 +546,11 @@ namespace client
 
         private void p2_logout_btn_Click(object sender, EventArgs e)
         {
+            client.RequestSignOut();
+        }
+
+        public override void SignOut()
+        {
             panel2_gameStart.Visible = false;
             p1_1_login_panel.Visible = true;
             //panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = false; }));
