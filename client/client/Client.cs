@@ -175,6 +175,28 @@ namespace client
                     parentForm.PlayerList(playerArr.ToList());
                 }
             }
+            else if (header.Equals("SENDFRIENDREQUEST"))
+            {
+                parentForm.SendFriendRequest(!content.Equals("-1"));
+            }else if (header.Equals("FRIENDREQUEST"))
+            {
+                parentForm.FriendRequest(content);
+            }else if (header.Equals("ACCEPTFRIEND"))
+            {
+                parentForm.AcceptFriend(!content.Equals("-1"));
+            }else if (header.Equals("FRIENDSLIST"))
+            {
+                if (content == string.Empty) parentForm.FriendList(new List<string>());
+                else
+                {
+                    string[] friendArr = content.Split(',');
+                    parentForm.FriendList(friendArr.ToList());
+                }
+            }
+            else if (header.Equals("JOINFRIENDROOM"))
+            {
+                parentForm.JoinFriendRoom(int.Parse(content));
+            }
             else if (header.Equals("GAMESTART"))
             {
                 if (content.Equals("0"))
