@@ -238,6 +238,7 @@ namespace client
             {
                 e.Handled = true;
             }
+            
             // 엔터 입력 시 send 버튼 클릭과 같은 이벤트
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -381,6 +382,56 @@ namespace client
             }
         }
 
+        private void p1_username_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 엔터 입력 시 send 버튼 클릭과 같은 이벤트
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+
+                // 로그인 버튼 눌렀을 때 유효성 검사
+                string username = p1_username_tbx.Text;
+                string password = p1_pw_tbx.Text;
+                DialogResult result = DialogResult.None;
+
+                // 이름, 비번 둘 중 하나라도 입력하지 않으면 팝업 띄움
+                if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
+                {
+                    ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    result = DialogResult.Yes;
+                }
+
+                // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감
+                if (result == DialogResult.Yes)
+                {
+                    client.RequestSignIn(p1_username_tbx.Text, p1_pw_tbx.Text);
+                    islock = true;
+                    lock (locker)
+                    {
+                        while (islock == true)
+                        {
+                            Monitor.Wait(locker);
+                        }
+                    }
+                    if (message.Equals(p1_username_tbx.Text))
+                    {
+                        //p1_gameStart_btn.Invoke(new MethodInvoker(delegate { p1_gameStart_btn.Visible = true; }));
+                        panel1_login_server.Invoke(new MethodInvoker(delegate { panel1_login_server.Visible = false; }));
+                        panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = true; }));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+
+            }
+        }
+
         private void p1_pw_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 엔터 입력 시 send 버튼 클릭과 같은 이벤트
@@ -398,37 +449,9 @@ namespace client
                 {
                     ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                // 입력 정보가 맞는 지 확인하는 팝업 띄움
-                // 팝업에 Yes, No 버튼이 있음. No가 입력되면 다시 입력 창으로 되돌아감 
                 else
                 {
-                    string nameCheck = string.Format("당신은 {0} 님이 맞습니까?", p1_username_tbx.Text);
-                    var name_messageRes = MessageBox.Show(nameCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (name_messageRes == DialogResult.No)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        name_messageRes = DialogResult.Yes;
-                    }
-
-                    string pwCheck = string.Format("비밀번호는 {0} 이 맞습니까?", p1_pw_tbx.Text);
-                    var pw_messageRes = MessageBox.Show(pwCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (pw_messageRes == DialogResult.No)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        pw_messageRes = DialogResult.Yes;
-                    }
-
-                    if (pw_messageRes == DialogResult.Yes && name_messageRes == DialogResult.Yes)
-                    {
-                        result = DialogResult.Yes;
-                    }
+                    result = DialogResult.Yes;
                 }
 
                 // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감
@@ -1182,6 +1205,15 @@ namespace client
                     p5_1_QA_tbx.Select(p5_1_QA_tbx.Text.Length, 0); p5_1_QA_tbx.ScrollToCaret(); }));
             });
 
+            p5_2_QA_tbx.Invoke(new MethodInvoker(delegate { p5_2_QA_tbx.Text = ""; }));
+            chatList.ForEach(chat =>
+            {
+                p5_2_QA_tbx.Invoke(new MethodInvoker(delegate {
+                    p5_2_QA_tbx.AppendText(chat + "\r\n");
+                    p5_2_QA_tbx.Select(p5_2_QA_tbx.Text.Length, 0); p5_2_QA_tbx.ScrollToCaret();
+                }));
+            });
+
             if ( panel6_Answer.Visible == true) //판넬5 포함
             {
                 //chatList.Clear();
@@ -1260,46 +1292,6 @@ namespace client
                 p4_1_state_player3.Invoke(new MethodInvoker(delegate { p4_1_state_player3.Text = "대기 중"; }));
                 p4_1_state_player4.Invoke(new MethodInvoker(delegate { p4_1_state_player4.Text = "대기 중"; }));
                 p4_1_state_player5.Invoke(new MethodInvoker(delegate { p4_1_state_player5.Text = "대기 중"; }));
-                /*
-                if(serverRoomInfo!=null)
-                    foreach (string room in serverRoomInfo)
-                    {
-                        string[] roomInfo = room.Split(',');
-                        string roomName = roomInfo[0];
-                        string playerCount = roomInfo[1];
-                        string roomMax = roomInfo[2];
-
-                        //p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Text = string.Format("{0} 님 {1} 방 접속 중", p1_username_tbx.Text, roomName); }));
-                        // "방 이름 - 접속 인원 / 최대 정원" 으로 나타나야 하는데, 접속 인원이 반영 안됨.
-                        //p4_1_roomInfo_label.Text = "방장 방";
-                        p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Text = "방장 방"; }));
-                        //p4_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_roomInfo_label.Text = String.Format("{0} 방 - {1} / {2}", roomName, playerCount, roomMax); }));
-
-
-                        switch (playerCount)
-                        {
-                            case "0":
-                                p4_1_player1.Invoke(new MethodInvoker(delegate { p4_1_player1.Text = p1_username_tbx.Text; }));
-                                break;
-                            case "1":
-                                p4_1_player2.Invoke(new MethodInvoker(delegate { p4_1_player2.Text = p1_username_tbx.Text; }));
-                                break; ;
-                            case "2":
-                                p4_1_player3.Invoke(new MethodInvoker(delegate { p4_1_player3.Text = p1_username_tbx.Text; }));
-                                break;
-                            case "3":
-                                p4_1_player4.Invoke(new MethodInvoker(delegate { p4_1_player4.Text = p1_username_tbx.Text; }));
-                                break;
-                            case "4":
-                                p4_1_player5.Invoke(new MethodInvoker(delegate { p4_1_player5.Text = p1_username_tbx.Text; }));
-                                break;
-                        }
-                    }
-                */
-            }
-            else
-            {
-                //p4_1_roomInfo_label.Invoke(new MethodInvoker(delegate { p4_1_roomInfo_label.Visible = false; }));
             }
         }
 
@@ -1732,10 +1724,7 @@ namespace client
             p6_timer_label.Invoke(new MethodInvoker(delegate { p6_timer_label.Text = "0"; }));
             timer1.Start();
             client.RequestBuzzer();
-            //>>>>> 정답 출력 test
-            // 정답인지 확인
-
-            //if(b_cnt1==0 || b_cnt2 == 0 || b_cnt3 == 0 || b_cnt4 == 0 || b_cnt5 == 0)
+            
 
             //폼을 정답 맞추는 것으로 바꿔야 함 - 턴 없애기, tbx 입력
             //버저를 누른 유저에게만 해당하도록 설정 필요
@@ -1748,11 +1737,6 @@ namespace client
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.ReadOnly = false; }));
             p6_2_answer_tbx.Invoke(new MethodInvoker(delegate { p6_2_answer_tbx.Text = ""; }));
             p6_2_answer_tbx.ForeColor = Color.CornflowerBlue;
-
-
-
-
-
 
             //부저 제한 횟수 넘길 시, 오류 출력 필요 > 사람마다 횟수 계산
 
@@ -1815,8 +1799,6 @@ namespace client
                     p6_player1_score.Invoke(new MethodInvoker(delegate { p6_player1_score.Text = score[0].ToString();}));
                     break;
             }
-            
-
 
         }
 
@@ -1959,11 +1941,17 @@ namespace client
 
         int turn_cnt = 0;   // 질문 횟수 계산
 
-        private void p6_2_QA_tbx_VisibleChanged(object sender, EventArgs e)
+        // 자동 스크롤
+        private void p5_1_QA_tbx_VisibleChanged(object sender, EventArgs e)
         {
-            p6_2_QA_tbx.Invoke(new MethodInvoker(delegate {
-                p6_2_QA_tbx.AppendText(""); p6_2_QA_tbx.Select(p6_2_QA_tbx.Text.Length, 0);
-                p6_2_QA_tbx.ScrollToCaret();
+            p5_1_QA_tbx.Invoke(new MethodInvoker(delegate {
+                p5_1_QA_tbx.AppendText("");
+                p5_1_QA_tbx.Select(p5_1_QA_tbx.Text.Length, 0); p5_1_QA_tbx.ScrollToCaret();
+            }));
+
+            p5_2_QA_tbx.Invoke(new MethodInvoker(delegate {
+                p5_2_QA_tbx.AppendText("");
+                p5_2_QA_tbx.Select(p5_2_QA_tbx.Text.Length, 0); p5_2_QA_tbx.ScrollToCaret();
             }));
         }
 
@@ -1972,6 +1960,11 @@ namespace client
             p5_1_QA_tbx.Invoke(new MethodInvoker(delegate {
                 p5_1_QA_tbx.AppendText("");
                 p5_1_QA_tbx.Select(p5_1_QA_tbx.Text.Length, 0); p5_1_QA_tbx.ScrollToCaret();
+            }));
+
+            p5_2_QA_tbx.Invoke(new MethodInvoker(delegate {
+                p5_2_QA_tbx.AppendText("");
+                p5_2_QA_tbx.Select(p5_2_QA_tbx.Text.Length, 0); p5_2_QA_tbx.ScrollToCaret();
             }));
         }
 
@@ -1982,6 +1975,14 @@ namespace client
                 p6_QA_tbx.Select(p6_QA_tbx.Text.Length, 0); p6_QA_tbx.ScrollToCaret();
             }));
    
+        }
+
+        private void p6_2_QA_tbx_VisibleChanged(object sender, EventArgs e)
+        {
+            p6_2_QA_tbx.Invoke(new MethodInvoker(delegate {
+                p6_2_QA_tbx.AppendText(""); p6_2_QA_tbx.Select(p6_2_QA_tbx.Text.Length, 0);
+                p6_2_QA_tbx.ScrollToCaret();
+            }));
         }
 
         private void p6_2_send_btn_Click(object sender, EventArgs e)
@@ -2024,6 +2025,7 @@ namespace client
                 client.RequestWordSelect(p5_input_label.Text);
             }
         }
+
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
