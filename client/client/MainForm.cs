@@ -743,6 +743,12 @@ namespace client
 
         private void p3_people_tbx_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // 숫자, 백스페이스, '.'만 입력 가능
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 e.Handled = true;
@@ -773,14 +779,11 @@ namespace client
                     {
                         try
                         {
-                            //OwnerWait();
-                            //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-                            //panel4_1_owner_waitRoom.Invoke(new MethodInvoker(delegate { panel4_1_owner_waitRoom.Visible = true; }));
                             client.RequestRoomCreate(roomName, roomMax);
                         }
                         catch (NullReferenceException n)
                         {
-                            ShowMessageBox("create room error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            ShowMessageBox("방을 생성하지 못했습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
