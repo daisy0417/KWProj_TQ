@@ -55,6 +55,7 @@ namespace client
 
             // panel3
             // datagridView 안에 있는 버튼은 따로 이름을 모르겠어서, 혹시 찾으시면 추가 부탁 드립니다.
+            p3_rank_btn.Font = font_14;
             p3_title_label.Font = font_14;
             p3_dataGridView1.Font = font_14;
             p3_create_btn.Font = font_14;
