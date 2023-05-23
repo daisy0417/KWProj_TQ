@@ -42,12 +42,27 @@ namespace ServerProgram
         }
         ~Server()
         {
+            update_db();
+        }
+
+        public void update_db()
+        {
             SQLiteConnection conn;
             conn = new SQLiteConnection("Data Source=login_info.db");
             conn.Open();
-            string query = "update idpw set wins = "+win_point+" where ID= '"+username+"'";
-            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            string query = "select wins from idpw where ID='" + username + "'";
+            SQLiteCommand cmd= new SQLiteCommand(query, conn);
+            SQLiteDataReader dr = cmd.ExecuteReader();
+            int result=0;
+            while (dr.Read())
+            {
+                result = Convert.ToInt32(dr["wins"]);
+            }
+            query= "update idpw set wins = " + (result+win_point) + " where ID= '" + username + "'";
+            cmd = new SQLiteCommand(query, conn);
             cmd.ExecuteNonQuery();
+            conn.Close();
+            win_point = 0;
         }
 
         public void change_room(int newRoom)
@@ -308,6 +323,9 @@ namespace ServerProgram
                     }else if (header.Equals("SETBCOUNT"))
                     {
                         SetBcount(server);
+                    }else if (header.Equals("GETRANK"))
+                    {
+                        Parse_rank(server);
                     }
                     //알 수 없는 header일때
                     else
@@ -358,7 +376,7 @@ namespace ServerProgram
         #region 로그인 기능
 
         private Dictionary<string, string> loginData = new Dictionary<string, string>();
-        private Dictionary<string, int> win_points= new Dictionary<string, int>();
+    
         private SQLiteConnection conn;
         private void LoadLoginData()
         {
@@ -378,7 +396,6 @@ namespace ServerProgram
             while (reader.Read())
             {
                 loginData.Add(reader["ID"].ToString(), reader["pw"].ToString());
-                win_points.Add(reader["ID"].ToString(),Convert.ToInt32(reader["wins"]));
             }
             reader.Close();
 
@@ -394,10 +411,8 @@ namespace ServerProgram
                     {
                         parentForm.PrintLog("login user : " + username + ", " + password);
                         server.SendResponse("SIGNIN", username);
-                        server.username = username;
-                        int win;
-                        win_points.TryGetValue(username, out win);
-                        server.set_winpoint(win);
+                        server.username = username;                 
+                        server.set_winpoint(0);
                         return;
                     }
                 }
@@ -416,7 +431,6 @@ namespace ServerProgram
             {
                 parentForm.PrintLog("create new account : " + username + ", " + password);
                 loginData.Add(username, password);
-                win_points.Add(username, 0);
 
                 conn = new SQLiteConnection("Data Source=login_info.db");
                 conn.Open();
@@ -1017,6 +1031,7 @@ namespace ServerProgram
                 room.starting = false;
                 for (int i = 0; i < qList.Count; i++)
                 {
+                    qList[i].update_db();
                     if (qList[i].username.CompareTo(room.GetOwner().username) == 0)
                     {
                         qList[i].SendResponse("GAMESCREEN", "OWNERWAIT");
@@ -1094,6 +1109,26 @@ namespace ServerProgram
                     return;
                 }
             }
+        }
+        #endregion
+
+        #region 기타
+        private void Parse_rank(Server server)
+        {
+            conn = new SQLiteConnection("Data Source=login_info.db");
+            conn.Open();
+            string query = "select ID,wins from idpw order by wins desc limit 15";
+            SQLiteCommand cmd=new SQLiteCommand(query, conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            string rank_arr=null;
+            while (reader.Read())
+            {
+                rank_arr += reader["ID"].ToString()+','+reader["wins"].ToString()+',';
+
+            }
+            conn.Close();
+            server.SendResponse("RANKING", rank_arr);
+
         }
         #endregion
     }
