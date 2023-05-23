@@ -221,6 +221,9 @@ namespace ServerProgram
                     {
                         string[] idpw = content.Split(':');
                         SignUp(idpw[0], idpw[1], server);
+                    }else if (header.Equals("SIGNOUT"))
+                    {
+                        SignOut(server);
                     }
                     //방 관련
                     else if (header.Equals("ROOMLIST"))
@@ -382,7 +385,7 @@ namespace ServerProgram
 
         private void SignUp(string username, string password, Server server)
         {
-            if (loginData.ContainsKey(username))
+            if (loginData.ContainsKey(username) || username.Equals("NONE"))
             {
                 server.SendClient("SIGNUP|0");
             }
@@ -401,6 +404,19 @@ namespace ServerProgram
 
                 server.SendClient("SIGNUP|1");
             }
+        }
+
+        private void SignOut(Server server)
+        {
+            servers.ForEach(s =>
+            {
+                if (s.username.Equals(server.username))
+                {
+                    s.username = "NONE";
+                    s.SendResponse("SIGNOUT", "1");
+                    return;
+                }
+            });
         }
         #endregion
 
