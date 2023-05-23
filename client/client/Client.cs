@@ -230,6 +230,10 @@ namespace client
             {
                 parentForm.RefreshWins(content);
             }
+            else if (header.Equals("RANKING"))
+            {
+                parentForm.Ranking(content);
+            }
             else if (header.Equals("GAMESCREEN"))
             {
                 if (content.Equals("OWNERWAIT"))
