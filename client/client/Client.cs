@@ -65,17 +65,9 @@ namespace client
                 swriter.Close();
                 client.Close();
 
-                //서버에서 포트를 할당받음
-                TcpClient client2 = new TcpClient();
-                client2.Connect(serverIP, 5000);
-                sreader = new StreamReader(client2.GetStream());
-                int port = int.Parse(sreader.ReadLine());
-                sreader.Close();
-                client2.Close();
-
                 //서버-클라이언트 연결 시작
                 client = new TcpClient();
-                client.Connect(serverIP, port);
+                client.Connect(serverIP, 5000);
                 sreader = new StreamReader(client.GetStream());
                 swriter = new StreamWriter(client.GetStream());
                 swriter.AutoFlush = true;
