@@ -237,6 +237,23 @@ namespace client
             {
                 e.Handled = true;
             }
+            // 엔터 입력 시 send 버튼 클릭과 같은 이벤트
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                if (string.IsNullOrEmpty(p1_ip_tbx.Text))
+                {
+                    ShowMessageBox("IP를 입력해주세요", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    TryConnectServer(p1_ip_tbx.Text);
+                    p1_1_login_panel.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
+                    p1_login_btn.Invoke(new MethodInvoker(delegate { p1_1_login_panel.Visible = true; }));
+                    //                p1_1_login_panel.Visible = true;
+                    //                p1_login_btn.Visible = true;
+                }
+            }
         }
 
         public override void ConnectServerResult(bool success)
@@ -363,6 +380,83 @@ namespace client
             }
         }
 
+        private void p1_pw_tbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 엔터 입력 시 send 버튼 클릭과 같은 이벤트
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+
+                // 로그인 버튼 눌렀을 때 유효성 검사
+                string username = p1_username_tbx.Text;
+                string password = p1_pw_tbx.Text;
+                DialogResult result = DialogResult.None;
+
+                // 이름, 비번 둘 중 하나라도 입력하지 않으면 팝업 띄움
+                if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
+                {
+                    ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // 입력 정보가 맞는 지 확인하는 팝업 띄움
+                // 팝업에 Yes, No 버튼이 있음. No가 입력되면 다시 입력 창으로 되돌아감 
+                else
+                {
+                    string nameCheck = string.Format("당신은 {0} 님이 맞습니까?", p1_username_tbx.Text);
+                    var name_messageRes = MessageBox.Show(nameCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (name_messageRes == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        name_messageRes = DialogResult.Yes;
+                    }
+
+                    string pwCheck = string.Format("비밀번호는 {0} 이 맞습니까?", p1_pw_tbx.Text);
+                    var pw_messageRes = MessageBox.Show(pwCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (pw_messageRes == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        pw_messageRes = DialogResult.Yes;
+                    }
+
+                    if (pw_messageRes == DialogResult.Yes && name_messageRes == DialogResult.Yes)
+                    {
+                        result = DialogResult.Yes;
+                    }
+                }
+
+                // 모든 정보가 맞을 때, 게임 시작 패널로 넘어감
+                if (result == DialogResult.Yes)
+                {
+                    client.RequestSignIn(p1_username_tbx.Text, p1_pw_tbx.Text);
+                    islock = true;
+                    lock (locker)
+                    {
+                        while (islock == true)
+                        {
+                            Monitor.Wait(locker);
+                        }
+                    }
+                    if (message.Equals(p1_username_tbx.Text))
+                    {
+                        //p1_gameStart_btn.Invoke(new MethodInvoker(delegate { p1_gameStart_btn.Visible = true; }));
+                        panel1_login_server.Invoke(new MethodInvoker(delegate { panel1_login_server.Visible = false; }));
+                        panel2_gameStart.Invoke(new MethodInvoker(delegate { panel2_gameStart.Visible = true; }));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+
+            }
+        }
 
         public override void SignIn(string username)
         {
@@ -1864,8 +1958,6 @@ namespace client
                 client.RequestWordSelect(p5_input_label.Text);
             }
         }
-
-
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
