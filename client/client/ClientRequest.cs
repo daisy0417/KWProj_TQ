@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -131,6 +132,10 @@ namespace client
         public void RequestSetBcount()
         {
             SendRequest("SETBCOUNT", "0");
+        }
+        public void RequestGetRank()
+        {
+            SendRequest("GETRANK", "0");
         }
     }
 }

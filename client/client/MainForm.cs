@@ -28,7 +28,8 @@ namespace client
             Font font_14 = new Font(FontLibrary.Families[0], 14f);
             Font font_12 = new Font(FontLibrary.Families[0], 12f);
             // main form
-            title_label.Font = font_40;
+           title_label.Font = font_40;
+           // this.title_label.Font = new Font("한컴 말랑말랑 Bold", 40f, FontStyle.Bold);
             midTitle_label.Font = font_18;
             main_login_btn.Font = font_20;
 
@@ -1897,7 +1898,34 @@ namespace client
 
         }
 
+        public override void Ranking(string rank_arr)
+        {
+            panel_rank.Invoke(new MethodInvoker(delegate { panel_rank.Visible = true; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+            p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.Text = ""; })) ;
 
+            string[] id_and_wins = rank_arr.Split(',');
+            string row;
+            for (int i = 0; i < id_and_wins.Length - 1; i++)
+            {
+                row = "";
+                row += "ID : " + id_and_wins[i] + "\t승리: " + id_and_wins[i + 1]
+                    + "회\n";
+                p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText("\n" + row); }));
+                p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText("\n"); }));
+                i++;
+            }
+        }
+        private void p_rank_btn_back_Click(object sender, EventArgs e)
+        {
+            panel_rank.Invoke(new MethodInvoker(delegate { panel_rank.Visible = false; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
+        }
+
+        private void p3_rank_btn_Click(object sender, EventArgs e)
+        {
+            client.RequestGetRank();
+        }
 
         #region 게임 진행 - panel5_Owner, 5_1_Owner_Answer, 5_2_Owner_Wait : 출제자 화면
         private void p5_send_btn_Click(object sender, EventArgs e)
