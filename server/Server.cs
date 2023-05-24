@@ -848,7 +848,6 @@ namespace ServerProgram
 
             room.SendCurrentQuestioner();
         }
-        private bool isbuzzercalled = false;
         private void SendAnswer(string answer, Server server)
         {
             RoomChat(answer, server);
@@ -866,19 +865,10 @@ namespace ServerProgram
             if (room == null) return;
             int questioner;
             room.GetPresenter().SendResponse("GAMESCREEN", "PRESENTERWAIT");
-            if (!isbuzzercalled)
-            {
+
                 questioner=room.NextQuestioner();
-            }
-            else
-            {
-                questioner = room.CurrentQuestioner;
-                isbuzzercalled = false;
-            }
 
             List<Server> qList = room.GetQuestionerList();
-            if (room.Get_total_q() != 20)
-            {
                 for (int i = 0; i < qList.Count; i++)
                 {
                     if (i == questioner)
@@ -890,13 +880,10 @@ namespace ServerProgram
                         qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
                     }
                 }
-            }
-            else
+            if (room.Get_total_q() == 20) // 모든 플레이어가 도전 기회를 소모해서 게임 종료하는 조건 
             {
-                for (int i = 0; i < qList.Count; i++)
-                {
-                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
-                }
+                RoomChat("실패! 정답은 " + room.word, server);
+                Set_nextround(server);
             }
         }
 
@@ -953,7 +940,7 @@ namespace ServerProgram
         }
         private void GuessAnswer(string guess,Server server)
         {
-            isbuzzercalled = true;
+           
             RoomChat(guess, server);
             GameRoom room = null;
             for (int i = 0; i < gameRooms.Count; i++)
@@ -965,6 +952,7 @@ namespace ServerProgram
                 }
             }
             if (room == null) return;
+            room.Plus_total_q();
             List<Server> qList = room.GetQuestionerList();
             for (int i = 0; i < qList.Count; i++)
             {
@@ -980,7 +968,6 @@ namespace ServerProgram
             {
                 RoomChat("땡", server);
             }
-
             int tok;
             List<Server> ql = room.GetQuestionerList();
             for (tok = 0; tok < ql.Count(); tok++)
@@ -990,9 +977,10 @@ namespace ServerProgram
             }
             if (tok == ql.Count()) // 모든 플레이어가 도전 기회를 소모해서 게임 종료하는 조건 
             {
-                RoomChat("실패! 정답은 "+room.word, server);
+                RoomChat("실패! 정답은 " + room.word, server);
                 Set_nextround(server);
             }
+
         }
         private void Set_nextround(Server server)
         {
@@ -1059,31 +1047,13 @@ namespace ServerProgram
 
             if (room == null) return;
 
-            //room.GetPresenter().SendResponse("GAMESCREEN", "LOCKBYBUZZER");
-            int questioner = room.CurrentQuestioner;
-
             List<Server> qList = room.GetQuestionerList();
-
-            //server.SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
 
             for (int i = 0; i < qList.Count; i++)
             {
                 if (qList[i].username != server.username)
                     qList[i].SendResponse("GAMESCREEN", "LOCKBYBUZZER");
             }
-            /*
-            for (int i = 0; i < qList.Count; i++)
-            {
-                if (server.username.CompareTo(room.GetOwner().username) == 0)
-                {
-                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERQUESTION");
-                }
-                else
-                {
-                    qList[i].SendResponse("GAMESCREEN", "QUESTIONERWAIT");
-                }
-            }
-            */
         }
         private void SetBcount(Server server)
         {
