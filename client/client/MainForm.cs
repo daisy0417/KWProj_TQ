@@ -70,6 +70,7 @@ namespace client
             p3_roomname_tbx.Font = font_12;
             p3_people_label.Font = new Font(FontLibrary.Families[0], 11f);
             p3_roomname_label.Font = new Font(FontLibrary.Families[0], 11f);
+            p3_friend_list_btn.Font = font_12;
 
             // panel4
             p4_roomInfo_label.Font = font_12;
@@ -199,7 +200,13 @@ namespace client
             p7_back_btn.Font = font_14;
             p7_ranking_label.Font = font_18;
             p7_ranking_dgv.Font = font_14;
-            p7_ranking_dgv.DefaultCellStyle.Font = font_14;
+            p7_ranking_dgv.DefaultCellStyle.Font = font_14; //셀 내부
+
+            //p panel 8
+            p8_back_btn.Font = font_14;
+            p8_friendlist_label.Font = font_18;
+            p8_friend_dgv.Font = font_14;
+            p8_friend_dgv.DefaultCellStyle.Font = font_14; //셀 내부
             #endregion
         }
 
@@ -1966,6 +1973,8 @@ namespace client
 
         }
 
+
+        #region 랭킹
         public override void Ranking(string rank_arr)
         {
 
@@ -1979,7 +1988,7 @@ namespace client
                 row +="[[["+(i/2+1)+"위]]] "+"ID : " + id_and_wins[i] + "\t승리: " + id_and_wins[i + 1]
                     + "회\r\n";
                // p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText( row); }));
-                p7_ranking_dgv.Invoke(new MethodInvoker(delegate { p7_ranking_dgv.Rows.Add((i / 2 + 1) + " 위", id_and_wins[i], id_and_wins[i + 1] + " 회"); }));
+                p7_ranking_dgv.Invoke(new MethodInvoker(delegate { p7_ranking_dgv.Rows.Add((i / 2 + 1) + " 위", id_and_wins[i], id_and_wins[i + 1] + " 점"); }));
                 i++;
             }
         }
@@ -1995,8 +2004,62 @@ namespace client
             panel7_rank.Invoke(new MethodInvoker(delegate { panel7_rank.Visible = true; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
         }
+        #endregion
+
+        #region 친구 목록
+
+        public override void FriendList(List<string> friendList)
+        {
+            p8_friend_dgv.Invoke(new MethodInvoker(delegate { p8_friend_dgv.Rows.Clear(); }));
+
+            for (int i = 0; i < friendList.Count - 1; i++)
+            {
+                // 표 출력 예시 : [ (숫자) ] [ ID ] [ 초대하기 버튼 ]
+                p8_friend_dgv.Invoke(new MethodInvoker(delegate { p8_friend_dgv.Rows.Add(i + 1, friendList[i]); }));
+            }
+        }
+
+        private void p8_back_btn_Click(object sender, EventArgs e)
+        {
+            panel8_friend.Invoke(new MethodInvoker(delegate { panel8_friend.Visible = false; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
+        }
+
+        private void p3_friend_list_btn_Click(object sender, EventArgs e) 
+        {
+            client.RequestFirendsList();
+            panel8_friend.Invoke(new MethodInvoker(delegate { panel8_friend.Visible = true; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+        }
+
+        // 초대하기 버튼 입력시 친구 초대
+        private void p8_friend_dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (fName != string.Empty)
+            {
+                client.RequestSendFriendRequest(fName);
+            }
+        }
+
+        public override void JoinFriendRoom(int flag)
+        {
+            if(flag == -1)
+            {
+                ShowMessageBox("친구가 참가 중인 방이 없습니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if(flag == -2)
+            {
+                ShowMessageBox("친구의 방이 이미 게임 중입니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if(flag == -3)
+            {
+                ShowMessageBox("친구의 방이 가득 찼습니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else
+                ShowMessageBox("친구를 초대하는데 성공했습니다.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        #endregion
 
         #region 게임 진행 - panel5_Owner, 5_1_Owner_Answer, 5_2_Owner_Wait : 출제자 화면
+
         private void p5_send_btn_Click(object sender, EventArgs e)
         {
             // presenterchoice 화면과 연결됨 -> panel 5
@@ -2253,6 +2316,7 @@ namespace client
             }
        
         }
+
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
