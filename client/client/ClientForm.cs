@@ -73,8 +73,7 @@ namespace client
         }
 
         /// <summary>
-        /// RequestSendFriendRequest 호출 후 상대에게 도착하는 응답. username(상대)가 보낸 친구 요청을 수락할 것인지 묻는다.
-        /// 수락을 선택한다면 RequestAcceptFriend 호출해야함 override 필요
+        /// RequestJoinFriendRoom 호출  override 필요
         /// </summary>
         public virtual void JoinFriendRoom(int flag)
         {

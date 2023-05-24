@@ -40,6 +40,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -63,6 +67,7 @@
             this.p2_welcome__label = new System.Windows.Forms.Label();
             this.p2_title_label = new System.Windows.Forms.Label();
             this.panel3_roomList = new System.Windows.Forms.Panel();
+            this.p3_friend_list_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_rank_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_dataGridView1 = new System.Windows.Forms.DataGridView();
             this.RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -225,6 +230,13 @@
             this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p7_back_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p7_ranking_label = new System.Windows.Forms.Label();
+            this.panel8_friend = new System.Windows.Forms.Panel();
+            this.p8_friend_dgv = new System.Windows.Forms.DataGridView();
+            this.Column8_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8_3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.p8_friendlist_label = new System.Windows.Forms.Label();
+            this.p8_back_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -244,6 +256,8 @@
             this.panel6_2_Answer_Wait.SuspendLayout();
             this.panel7_rank.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p7_ranking_dgv)).BeginInit();
+            this.panel8_friend.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.p8_friend_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // title_label
@@ -632,6 +646,7 @@
             // 
             // panel3_roomList
             // 
+            this.panel3_roomList.Controls.Add(this.p3_friend_list_btn);
             this.panel3_roomList.Controls.Add(this.p3_rank_btn);
             this.panel3_roomList.Controls.Add(this.p3_dataGridView1);
             this.panel3_roomList.Controls.Add(this.p3_comein_label);
@@ -651,6 +666,34 @@
             this.panel3_roomList.TabIndex = 6;
             this.panel3_roomList.Visible = false;
             this.panel3_roomList.VisibleChanged += new System.EventHandler(this.panel3_roomList_VisibleChanged);
+            // 
+            // p3_friend_list_btn
+            // 
+            this.p3_friend_list_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_friend_list_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_friend_list_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p3_friend_list_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.p3_friend_list_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p3_friend_list_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p3_friend_list_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p3_friend_list_btn.IsDerivedStyle = true;
+            this.p3_friend_list_btn.Location = new System.Drawing.Point(574, 32);
+            this.p3_friend_list_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p3_friend_list_btn.Name = "p3_friend_list_btn";
+            this.p3_friend_list_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_friend_list_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p3_friend_list_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p3_friend_list_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p3_friend_list_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p3_friend_list_btn.PressTextColor = System.Drawing.Color.White;
+            this.p3_friend_list_btn.Size = new System.Drawing.Size(184, 40);
+            this.p3_friend_list_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p3_friend_list_btn.StyleManager = null;
+            this.p3_friend_list_btn.TabIndex = 21;
+            this.p3_friend_list_btn.Text = "친구 목록 보기";
+            this.p3_friend_list_btn.ThemeAuthor = "Narwin";
+            this.p3_friend_list_btn.ThemeName = "MetroLite";
+            this.p3_friend_list_btn.Click += new System.EventHandler(this.p3_friend_list_btn_Click);
             // 
             // p3_rank_btn
             // 
@@ -2965,6 +3008,7 @@
             // 
             // Column1
             // 
+            this.Column1.FillWeight = 56.14974F;
             this.Column1.HeaderText = "순위";
             this.Column1.MinimumWidth = 3;
             this.Column1.Name = "Column1";
@@ -2972,6 +3016,7 @@
             // 
             // Column2
             // 
+            this.Column2.FillWeight = 171.702F;
             this.Column2.HeaderText = "ID";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -2979,6 +3024,7 @@
             // 
             // Score
             // 
+            this.Score.FillWeight = 72.14835F;
             this.Score.HeaderText = "Score";
             this.Score.MinimumWidth = 6;
             this.Score.Name = "Score";
@@ -3024,12 +3070,134 @@
             this.p7_ranking_label.Text = "< Ranking >";
             this.p7_ranking_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel8_friend
+            // 
+            this.panel8_friend.Controls.Add(this.p8_friend_dgv);
+            this.panel8_friend.Controls.Add(this.p8_friendlist_label);
+            this.panel8_friend.Controls.Add(this.p8_back_btn);
+            this.panel8_friend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8_friend.Location = new System.Drawing.Point(18, 75);
+            this.panel8_friend.Name = "panel8_friend";
+            this.panel8_friend.Size = new System.Drawing.Size(988, 539);
+            this.panel8_friend.TabIndex = 28;
+            this.panel8_friend.Visible = false;
+            // 
+            // p8_friend_dgv
+            // 
+            this.p8_friend_dgv.AllowUserToAddRows = false;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p8_friend_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.p8_friend_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p8_friend_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.p8_friend_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.p8_friend_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column8_1,
+            this.Column8_2,
+            this.Column8_3});
+            this.p8_friend_dgv.Location = new System.Drawing.Point(122, 66);
+            this.p8_friend_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p8_friend_dgv.MultiSelect = false;
+            this.p8_friend_dgv.Name = "p8_friend_dgv";
+            this.p8_friend_dgv.ReadOnly = true;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p8_friend_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.p8_friend_dgv.RowHeadersVisible = false;
+            this.p8_friend_dgv.RowHeadersWidth = 51;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p8_friend_dgv.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.p8_friend_dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p8_friend_dgv.RowTemplate.Height = 40;
+            this.p8_friend_dgv.Size = new System.Drawing.Size(746, 401);
+            this.p8_friend_dgv.TabIndex = 20;
+            this.p8_friend_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.p8_friend_dgv_CellClick);
+            // 
+            // Column8_1
+            // 
+            this.Column8_1.FillWeight = 32.08556F;
+            this.Column8_1.HeaderText = "";
+            this.Column8_1.MinimumWidth = 6;
+            this.Column8_1.Name = "Column8_1";
+            this.Column8_1.ReadOnly = true;
+            // 
+            // Column8_2
+            // 
+            this.Column8_2.FillWeight = 190.7774F;
+            this.Column8_2.HeaderText = "ID";
+            this.Column8_2.MinimumWidth = 6;
+            this.Column8_2.Name = "Column8_2";
+            this.Column8_2.ReadOnly = true;
+            // 
+            // Column8_3
+            // 
+            this.Column8_3.FillWeight = 77.13707F;
+            this.Column8_3.HeaderText = "초대하기 버튼";
+            this.Column8_3.MinimumWidth = 6;
+            this.Column8_3.Name = "Column8_3";
+            this.Column8_3.ReadOnly = true;
+            this.Column8_3.Text = "초대하기";
+            // 
+            // p8_friendlist_label
+            // 
+            this.p8_friendlist_label.AutoSize = true;
+            this.p8_friendlist_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p8_friendlist_label.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.p8_friendlist_label.Location = new System.Drawing.Point(413, 13);
+            this.p8_friendlist_label.Name = "p8_friendlist_label";
+            this.p8_friendlist_label.Size = new System.Drawing.Size(187, 42);
+            this.p8_friendlist_label.TabIndex = 19;
+            this.p8_friendlist_label.Text = "< 친구 목록 >";
+            this.p8_friendlist_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // p8_back_btn
+            // 
+            this.p8_back_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p8_back_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p8_back_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p8_back_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p8_back_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p8_back_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p8_back_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p8_back_btn.IsDerivedStyle = true;
+            this.p8_back_btn.Location = new System.Drawing.Point(396, 480);
+            this.p8_back_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p8_back_btn.Name = "p8_back_btn";
+            this.p8_back_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p8_back_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p8_back_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p8_back_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p8_back_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p8_back_btn.PressTextColor = System.Drawing.Color.White;
+            this.p8_back_btn.Size = new System.Drawing.Size(221, 47);
+            this.p8_back_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p8_back_btn.StyleManager = null;
+            this.p8_back_btn.TabIndex = 17;
+            this.p8_back_btn.Text = "뒤로가기";
+            this.p8_back_btn.ThemeAuthor = "Narwin";
+            this.p8_back_btn.ThemeName = "MetroLite";
+            this.p8_back_btn.Click += new System.EventHandler(this.p8_back_btn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
+            this.Controls.Add(this.panel8_friend);
             this.Controls.Add(this.panel7_rank);
             this.Controls.Add(this.panel6_2_Answer_Wait);
             this.Controls.Add(this.panel6_Answer);
@@ -3080,6 +3248,9 @@
             this.panel7_rank.ResumeLayout(false);
             this.panel7_rank.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p7_ranking_dgv)).EndInit();
+            this.panel8_friend.ResumeLayout(false);
+            this.panel8_friend.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.p8_friend_dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3257,11 +3428,19 @@
         private MetroSet_UI.Controls.MetroSetButton p3_rank_btn;
         private System.Windows.Forms.Panel panel7_rank;
         private System.Windows.Forms.DataGridView p7_ranking_dgv;
+        private MetroSet_UI.Controls.MetroSetButton p7_back_btn;
+        private System.Windows.Forms.Label p7_ranking_label;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Score;
-        private MetroSet_UI.Controls.MetroSetButton p7_back_btn;
-        private System.Windows.Forms.Label p7_ranking_label;
+        private System.Windows.Forms.Panel panel8_friend;
+        private System.Windows.Forms.DataGridView p8_friend_dgv;
+        private System.Windows.Forms.Label p8_friendlist_label;
+        private MetroSet_UI.Controls.MetroSetButton p8_back_btn;
+        private MetroSet_UI.Controls.MetroSetButton p3_friend_list_btn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8_2;
+        private System.Windows.Forms.DataGridViewButtonColumn Column8_3;
         private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_1_player2_menu;
         private System.Windows.Forms.ToolStripMenuItem p4_1_player2_item;
         private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_1_player3_menu;
