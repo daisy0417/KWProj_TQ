@@ -260,8 +260,8 @@ namespace ServerProgram
                         Server server2 = FindServer(content);
                         if (AddFriendShip(server1, server2))
                         {
-                            server1.SendResponse("FRIENDSLIST", GetFriendListString(server1.username));
-                            server2.SendResponse("FRIENDSLIST", GetFriendListString(server2.username));
+                            server1.SendResponse("ACCEPTFRIEND", "1");
+                            server2.SendResponse("ACCEPTFRIEND", "1");
                         }
                         else
                         {
@@ -272,7 +272,11 @@ namespace ServerProgram
                     {
                         Server targetServer = FindServer(content);
                         if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
-                        else targetServer.SendResponse("FRIENDREQUEST", server.username);
+                        else
+                        {
+                            server.SendResponse("SENDFRIENDREQUEST", "1"); // 친구 요청 보냄
+                            targetServer.SendResponse("FRIENDREQUEST", server.username);
+                        }
                     }
                     else if (header.Equals("FRIENDSLIST"))
                     {
