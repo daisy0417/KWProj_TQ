@@ -154,7 +154,7 @@ namespace client
         {
 
         }
-
+        public virtual void Whisper(string msg) { }
         /// <summary>
         ///  RequestPlayerList 호출 후 도착하는 응답. 현재 방에 존재하는 플레이어의 username 목록을 playerList로 전달한다. 
         ///  해당 방에 플레이어가 진입할때 기존에 있던 다른 플레이어들에게 자동으로 호출되어 방의 인원 변경을 자동으로 반영하게 함. override 필요

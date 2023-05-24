@@ -154,14 +154,14 @@ namespace ServerProgram
 
                     IPAddress clientIP = IPAddress.Parse("127.0.0.1");
 
-                    servers.Add(new Server(clientIP, listener, 0,client, sread));
+                    servers.Add(new Server(clientIP, listener, 0, client, sread));
                     Thread thread1 = new Thread(chat_server);
                     thread1.IsBackground = true;
                     thread1.Start();
 
                     parentForm.PrintLog("new clent connected ip : " + msg + " | port : " + portmain + " | room : " + 0);
                 }
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 parentForm.PrintLog(e.Message);
             }
@@ -180,7 +180,7 @@ namespace ServerProgram
                     string msg = server.read_client();
                     string[] request = msg.Split('|');
                     string header, content;
-                    if(request.Length < 2)
+                    if (request.Length < 2)
                     {
                         header = "NONE";
                         content = msg;
@@ -220,7 +220,7 @@ namespace ServerProgram
                     {
                         string[] idpw = content.Split(':');
                         SignUp(idpw[0], idpw[1], server);
-                    }else if (header.Equals("SIGNOUT"))
+                    } else if (header.Equals("SIGNOUT"))
                     {
                         SignOut(server);
                     }
@@ -258,7 +258,7 @@ namespace ServerProgram
                     {
                         Server server1 = FindServer(server.username);
                         Server server2 = FindServer(content);
-                        if(AddFriendShip(server1, server2))
+                        if (AddFriendShip(server1, server2))
                         {
                             server1.SendResponse("FRIENDSLIST", GetFriendListString(server1.username));
                             server2.SendResponse("FRIENDSLIST", GetFriendListString(server2.username));
@@ -268,7 +268,7 @@ namespace ServerProgram
                             //잘못된 친구 요청입니다.
                             server.SendResponse("ACCEPTFRIEND", -1);
                         }
-                    }else if (header.Equals("SENDFRIENDREQUEST"))
+                    } else if (header.Equals("SENDFRIENDREQUEST"))
                     {
                         Server targetServer = FindServer(content);
                         if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
@@ -298,7 +298,7 @@ namespace ServerProgram
                     {
                         SendAnswer(content, server);
 
-                    }else if (header.Equals("SENDQUESTION"))
+                    } else if (header.Equals("SENDQUESTION"))
                     {
                         SendQuestion(content, server);
                     }
@@ -312,18 +312,18 @@ namespace ServerProgram
                     }
                     else if (header.Equals("GUESSANSWER"))
                     {
-                        GuessAnswer(content,server);
+                        GuessAnswer(content, server);
                     }
                     else if (header.Equals("BUZZER"))
                     {
                         Buzzer(server);
-                    }else if (header.Equals("EXITGAME"))
+                    } else if (header.Equals("EXITGAME"))
                     {
                         ExitGame(server);
-                    }else if (header.Equals("SETBCOUNT"))
+                    } else if (header.Equals("SETBCOUNT"))
                     {
                         SetBcount(server);
-                    }else if (header.Equals("GETRANK"))
+                    } else if (header.Equals("GETRANK"))
                     {
                         Parse_rank(server);
                     }
@@ -338,7 +338,7 @@ namespace ServerProgram
             {
                 ExitGame(server);
 
-                parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() + 
+                parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() +
                     " | port : " + server.Port.ToString() + " | room : " + server.roomnum().ToString());
                 servers.Remove(server);
             }
@@ -363,7 +363,7 @@ namespace ServerProgram
 
         private Server FindServer(string username)
         {
-            for(int i=0; i< servers.Count; i++)
+            for (int i = 0; i < servers.Count; i++)
             {
                 if (servers[i].username == username) return servers[i];
             }
@@ -376,7 +376,7 @@ namespace ServerProgram
         #region 로그인 기능
 
         private Dictionary<string, string> loginData = new Dictionary<string, string>();
-    
+
         private SQLiteConnection conn;
         private void LoadLoginData()
         {
@@ -407,11 +407,11 @@ namespace ServerProgram
             {
                 if (loginData[username].Equals(password))
                 {
-                    if(servers.Find(s => s.username.Equals(username)) == null)
+                    if (servers.Find(s => s.username.Equals(username)) == null)
                     {
                         parentForm.PrintLog("login user : " + username + ", " + password);
                         server.SendResponse("SIGNIN", username);
-                        server.username = username;                 
+                        server.username = username;
                         server.set_winpoint(0);
                         return;
                     }
@@ -499,7 +499,7 @@ namespace ServerProgram
                 friendString += string.Format("{0},", f);
             });
 
-            if(friendString.Length > 0)
+            if (friendString.Length > 0)
             {
                 friendString = friendString.Substring(0, friendString.Length - 1);
             }
@@ -509,7 +509,7 @@ namespace ServerProgram
 
         private GameRoom FindUserGameRoom(string username)
         {
-            for(int i=0; i<gameRooms.Count; i++)
+            for (int i = 0; i < gameRooms.Count; i++)
             {
                 if (gameRooms[i].players.Find(p => p.username == username) != null) return gameRooms[i];
             }
@@ -538,7 +538,7 @@ namespace ServerProgram
 
         private bool ContainFriendship(string username1, string username2)
         {
-            return friendshipList.Contains(new Tuple<string, string>(username1, username2)) 
+            return friendshipList.Contains(new Tuple<string, string>(username1, username2))
                 || friendshipList.Contains(new Tuple<string, string>(username2, username1));
         }
 
@@ -572,7 +572,7 @@ namespace ServerProgram
         private List<GameRoom> gameRooms = new List<GameRoom>();
         private bool RoomCreate(string roomName, int max, Server roomOwner)
         {
-            for(int i=0; i<gameRooms.Count; i++)
+            for (int i = 0; i < gameRooms.Count; i++)
             {
                 if (gameRooms[i].name == roomName) return false;
             }
@@ -584,7 +584,7 @@ namespace ServerProgram
             gameRooms.Add(newGameRoom);
 
             PlayerList(roomName, roomOwner);
-            
+
             return true;
         }
 
@@ -679,8 +679,8 @@ namespace ServerProgram
                     if (num != null)
                         if (num.Equals("kick"))
                             server.SendResponse("KICK", 0);
-                    else
-                        server.SendResponse("ROOMOUT", 0);
+                        else
+                            server.SendResponse("ROOMOUT", 0);
 
                     RefreshRoom();
 
@@ -701,7 +701,7 @@ namespace ServerProgram
             }
 
             return roomListString.Substring(0, roomListString.Length - 1);
-            
+
         }
 
         private void PlayerList(string roomName, Server server)
@@ -751,13 +751,14 @@ namespace ServerProgram
 
             if (gameRoom == null) return;
 
-            int namelength=server.username.Length;
-            if (content[namelength+1]=='/' && server.username.CompareTo(gameRoom.ownerPlayer.username) == 0)
+            int namelength = server.username.Length;
+            if(content.Length>namelength+1)
+            if (content[namelength + 1] == '/')
             {
-                ChatCommand(content.Substring(namelength+1), server,gameRoom);
+                ChatCommand(content.Substring(namelength + 1), server, gameRoom);
                 return;
             }
-                
+
 
             string chatListString = string.Empty;
 
@@ -774,11 +775,15 @@ namespace ServerProgram
                 p.SendResponse("ROOMCHAT", chatListString);
             });
         }
-        private void ChatCommand(string command,Server server,GameRoom room) {
-            string[] parsed_cmd=command.Split(' ');
+        private void ChatCommand(string command, Server server, GameRoom room) {
+            string[] parsed_cmd = command.Split(' ');
             if (parsed_cmd[0].Equals("/newhost"))
             {
+                if (server.username.CompareTo(room.ownerPlayer.username) != 0)
+                    return;
                 int i;
+                if (parsed_cmd.Length < 2)
+                    return;
                 for (i = 0; i < room.players.Count; i++)
                     if (room.players[i].username.CompareTo(parsed_cmd[1]) == 0)
                         break;
@@ -794,9 +799,13 @@ namespace ServerProgram
                     PlayerList(room.name, p);
                     ReadyList(room.name, p);
                 });
-            }else if (parsed_cmd[0].Equals("/kick"))
+            } else if (parsed_cmd[0].Equals("/kick"))
             {
+                if(server.username.CompareTo(room.ownerPlayer.username) != 0)
+                    return;
                 int i;
+                if (parsed_cmd.Length < 2)
+                    return;
                 for (i = 0; i < room.players.Count; i++)
                     if (room.players[i].username.CompareTo(parsed_cmd[1]) == 0)
                         break;
@@ -804,6 +813,27 @@ namespace ServerProgram
                     return;
                 room.Ban_user(room.players[i]);
                 RoomOut("kick", room.players[i]);
+            } else if (parsed_cmd[0].Equals("/whisper")|| parsed_cmd[0].Equals("/w"))
+            {
+                int reciver=-1;
+                int sender=-1;
+                if (parsed_cmd.Length < 2)
+                    return;
+                for (int i = 0; i < room.players.Count; i++) {
+                    if (room.players[i].username.CompareTo(parsed_cmd[1]) == 0)
+                        reciver= i;
+                    if (room.players[i]==server)
+                        sender=i;
+                }        
+                if (reciver == room.players.Count)
+                    return;
+                string msg=sender.ToString();
+                for(int k = 2; k < parsed_cmd.Length; k++)
+                {
+                    msg += parsed_cmd[k];
+                }
+                room.players[reciver].SendResponse("WHISPER", msg);
+
             }
         }
 
