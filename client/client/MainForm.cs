@@ -2011,7 +2011,7 @@ namespace client
         {
             p8_friend_dgv.Invoke(new MethodInvoker(delegate { p8_friend_dgv.Rows.Clear(); }));
 
-            for (int i = 0; i < friendList.Count - 1; i++)
+            for (int i = 0; i < friendList.Count; i++)
             {
                 // 표 출력 예시 : [ (숫자) ] [ ID ] [ 초대하기 버튼 ]
                 p8_friend_dgv.Invoke(new MethodInvoker(delegate { p8_friend_dgv.Rows.Add(i + 1, friendList[i]); }));
