@@ -137,7 +137,7 @@ namespace client
         {
 
         }
-
+        public virtual void RoomJoinRejected() { }
         /// <summary>
         ///  RequestRoomOut 호출 후 도착하는 응답. 현재 참가중인 방에서 나온다. override 필요
         /// </summary>
@@ -145,7 +145,7 @@ namespace client
         {
 
         }
-
+        public virtual void Kicked() { }
         /// <summary>
         ///  RequestSendRoomChat 호출 후 도착하는 응답. 메세지를 보낸 후 chatList를 통해 해당 메세지가 포함된 채팅 목록을 전달한다. 
         ///  계정명과 채팅 내용이 ':'로 구분되어 있다. override 필요

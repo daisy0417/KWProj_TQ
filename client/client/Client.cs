@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.IO;
+using System.Security.Policy;
 
 namespace client
 {
@@ -153,6 +154,10 @@ namespace client
             else if (header.Equals("ROOMOUT"))
             {
                 parentForm.RoomOut();
+            }
+            else if (header.Equals("KICK"))
+            {
+                parentForm.Kicked();
             }
             else if (header.Equals("ROOMCHAT"))
             {
