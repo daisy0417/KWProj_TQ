@@ -36,6 +36,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -204,9 +208,13 @@
             this.p6_2_player5_score = new System.Windows.Forms.Label();
             this.p6_2_timer_label = new System.Windows.Forms.Label();
             this.panel6_2_Answer_Wait = new System.Windows.Forms.Panel();
-            this.panel_rank = new System.Windows.Forms.Panel();
-            this.p_rank_tbx = new MetroFramework.Controls.MetroTextBox();
-            this.p_rank_btn = new MetroFramework.Controls.MetroButton();
+            this.panel7_rank = new System.Windows.Forms.Panel();
+            this.p7_ranking_dgv = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p7_back_btn = new MetroSet_UI.Controls.MetroSetButton();
+            this.p7_ranking_label = new System.Windows.Forms.Label();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -219,7 +227,8 @@
             this.panel5_1_Owner_Answer.SuspendLayout();
             this.panel5_2_Owner_Wait.SuspendLayout();
             this.panel6_2_Answer_Wait.SuspendLayout();
-            this.panel_rank.SuspendLayout();
+            this.panel7_rank.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.p7_ranking_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // title_label
@@ -2769,36 +2778,122 @@
             this.panel6_2_Answer_Wait.TabIndex = 26;
             this.panel6_2_Answer_Wait.Visible = false;
             // 
-            // panel_rank
+            // panel7_rank
             // 
-            this.panel_rank.Controls.Add(this.p_rank_tbx);
-            this.panel_rank.Controls.Add(this.p_rank_btn);
-            this.panel_rank.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_rank.Location = new System.Drawing.Point(18, 75);
-            this.panel_rank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel_rank.Name = "panel_rank";
-            this.panel_rank.Size = new System.Drawing.Size(988, 539);
-            this.panel_rank.TabIndex = 27;
-            this.panel_rank.Visible = false;
+            this.panel7_rank.Controls.Add(this.p7_ranking_dgv);
+            this.panel7_rank.Controls.Add(this.p7_back_btn);
+            this.panel7_rank.Controls.Add(this.p7_ranking_label);
+            this.panel7_rank.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7_rank.Location = new System.Drawing.Point(18, 75);
+            this.panel7_rank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel7_rank.Name = "panel7_rank";
+            this.panel7_rank.Size = new System.Drawing.Size(988, 539);
+            this.panel7_rank.TabIndex = 27;
+            this.panel7_rank.Visible = false;
             // 
-            // p_rank_tbx
+            // p7_ranking_dgv
             // 
-            this.p_rank_tbx.Location = new System.Drawing.Point(80, 61);
-            this.p_rank_tbx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.p_rank_tbx.Multiline = true;
-            this.p_rank_tbx.Name = "p_rank_tbx";
-            this.p_rank_tbx.Size = new System.Drawing.Size(817, 388);
-            this.p_rank_tbx.TabIndex = 1;
+            this.p7_ranking_dgv.AllowUserToAddRows = false;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p7_ranking_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.p7_ranking_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p7_ranking_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.p7_ranking_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.p7_ranking_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Score});
+            this.p7_ranking_dgv.Location = new System.Drawing.Point(86, 69);
+            this.p7_ranking_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p7_ranking_dgv.MultiSelect = false;
+            this.p7_ranking_dgv.Name = "p7_ranking_dgv";
+            this.p7_ranking_dgv.ReadOnly = true;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p7_ranking_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.p7_ranking_dgv.RowHeadersVisible = false;
+            this.p7_ranking_dgv.RowHeadersWidth = 51;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p7_ranking_dgv.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.p7_ranking_dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p7_ranking_dgv.RowTemplate.Height = 40;
+            this.p7_ranking_dgv.Size = new System.Drawing.Size(817, 401);
+            this.p7_ranking_dgv.TabIndex = 15;
             // 
-            // p_rank_btn
+            // Column1
             // 
-            this.p_rank_btn.Location = new System.Drawing.Point(345, 456);
-            this.p_rank_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.p_rank_btn.Name = "p_rank_btn";
-            this.p_rank_btn.Size = new System.Drawing.Size(247, 76);
-            this.p_rank_btn.TabIndex = 0;
-            this.p_rank_btn.Text = "뒤로가기";
-            this.p_rank_btn.Click += new System.EventHandler(this.p_rank_btn_back_Click);
+            this.Column1.HeaderText = "순위";
+            this.Column1.MinimumWidth = 3;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "ID";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Score
+            // 
+            this.Score.HeaderText = "Score";
+            this.Score.MinimumWidth = 6;
+            this.Score.Name = "Score";
+            this.Score.ReadOnly = true;
+            // 
+            // p7_back_btn
+            // 
+            this.p7_back_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p7_back_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p7_back_btn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.p7_back_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p7_back_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p7_back_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.p7_back_btn.HoverTextColor = System.Drawing.Color.White;
+            this.p7_back_btn.IsDerivedStyle = true;
+            this.p7_back_btn.Location = new System.Drawing.Point(407, 482);
+            this.p7_back_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p7_back_btn.Name = "p7_back_btn";
+            this.p7_back_btn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p7_back_btn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.p7_back_btn.NormalTextColor = System.Drawing.Color.White;
+            this.p7_back_btn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p7_back_btn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.p7_back_btn.PressTextColor = System.Drawing.Color.White;
+            this.p7_back_btn.Size = new System.Drawing.Size(221, 47);
+            this.p7_back_btn.Style = MetroSet_UI.Enums.Style.Light;
+            this.p7_back_btn.StyleManager = null;
+            this.p7_back_btn.TabIndex = 14;
+            this.p7_back_btn.Text = "뒤로가기";
+            this.p7_back_btn.ThemeAuthor = "Narwin";
+            this.p7_back_btn.ThemeName = "MetroLite";
+            this.p7_back_btn.Click += new System.EventHandler(this.p7_rank_btn_back_Click);
+            // 
+            // p7_ranking_label
+            // 
+            this.p7_ranking_label.AutoSize = true;
+            this.p7_ranking_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p7_ranking_label.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.p7_ranking_label.Location = new System.Drawing.Point(413, 10);
+            this.p7_ranking_label.Name = "p7_ranking_label";
+            this.p7_ranking_label.Size = new System.Drawing.Size(195, 42);
+            this.p7_ranking_label.TabIndex = 13;
+            this.p7_ranking_label.Text = "< Ranking >";
+            this.p7_ranking_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -2806,7 +2901,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
-            this.Controls.Add(this.panel_rank);
+            this.Controls.Add(this.panel7_rank);
             this.Controls.Add(this.panel6_2_Answer_Wait);
             this.Controls.Add(this.panel6_Answer);
             this.Controls.Add(this.panel5_1_Owner_Answer);
@@ -2848,7 +2943,9 @@
             this.panel5_2_Owner_Wait.PerformLayout();
             this.panel6_2_Answer_Wait.ResumeLayout(false);
             this.panel6_2_Answer_Wait.PerformLayout();
-            this.panel_rank.ResumeLayout(false);
+            this.panel7_rank.ResumeLayout(false);
+            this.panel7_rank.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.p7_ranking_dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3024,8 +3121,12 @@
         private System.Windows.Forms.Label p6_2_timer_label;
         private System.Windows.Forms.Panel panel6_2_Answer_Wait;
         private MetroSet_UI.Controls.MetroSetButton p3_rank_btn;
-        private System.Windows.Forms.Panel panel_rank;
-        private MetroFramework.Controls.MetroTextBox p_rank_tbx;
-        private MetroFramework.Controls.MetroButton p_rank_btn;
+        private System.Windows.Forms.Panel panel7_rank;
+        private System.Windows.Forms.DataGridView p7_ranking_dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Score;
+        private MetroSet_UI.Controls.MetroSetButton p7_back_btn;
+        private System.Windows.Forms.Label p7_ranking_label;
     }
 }

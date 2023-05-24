@@ -60,6 +60,7 @@ namespace client
             p3_rank_btn.Font = font_14;
             p3_title_label.Font = font_14;
             p3_dataGridView1.Font = font_14;
+            p3_dataGridView1.DefaultCellStyle.Font = font_14;
             p3_create_btn.Font = font_14;
             p3_comein_label.Font = font_14;
             p3_back_btn.Font = font_14;
@@ -193,6 +194,12 @@ namespace client
             p6_2_send_btn.Font = font_16;
             p6_2_answer_tbx.Font = font_12;
             p6_2_QA_tbx.Font = font_12;
+
+            // panel7
+            p7_back_btn.Font = font_14;
+            p7_ranking_label.Font = font_18;
+            p7_ranking_dgv.Font = font_14;
+            p7_ranking_dgv.DefaultCellStyle.Font = font_14;
             #endregion
         }
 
@@ -1902,9 +1909,8 @@ namespace client
 
         public override void Ranking(string rank_arr)
         {
-            panel_rank.Invoke(new MethodInvoker(delegate { panel_rank.Visible = true; }));
-            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-            p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.Text = ""; })) ;
+
+            p7_ranking_dgv.Invoke(new MethodInvoker(delegate { p7_ranking_dgv.Rows.Clear(); }));
 
             string[] id_and_wins = rank_arr.Split(',');
             string row;
@@ -1913,20 +1919,22 @@ namespace client
                 row = "";
                 row +="[[["+(i/2+1)+"위]]] "+"ID : " + id_and_wins[i] + "\t승리: " + id_and_wins[i + 1]
                     + "회\r\n";
-                p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText( row); }));
-             
+               // p_rank_tbx.Invoke(new MethodInvoker(delegate { p_rank_tbx.AppendText( row); }));
+                p7_ranking_dgv.Invoke(new MethodInvoker(delegate { p7_ranking_dgv.Rows.Add((i / 2 + 1) + " 위", id_and_wins[i], id_and_wins[i + 1] + " 회"); }));
                 i++;
             }
         }
-        private void p_rank_btn_back_Click(object sender, EventArgs e)
+        private void p7_rank_btn_back_Click(object sender, EventArgs e)
         {
-            panel_rank.Invoke(new MethodInvoker(delegate { panel_rank.Visible = false; }));
+            panel7_rank.Invoke(new MethodInvoker(delegate { panel7_rank.Visible = false; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
         }
 
         private void p3_rank_btn_Click(object sender, EventArgs e)
         {
             client.RequestGetRank();
+            panel7_rank.Invoke(new MethodInvoker(delegate { panel7_rank.Visible = true; }));
+            panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
         }
 
         #region 게임 진행 - panel5_Owner, 5_1_Owner_Answer, 5_2_Owner_Wait : 출제자 화면
