@@ -877,6 +877,7 @@ namespace client
             else
             {
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                panel8_friend.Invoke(new MethodInvoker(delegate { panel8_friend.Visible = false; }));
 
                 // 플레이어의 대기 방 패널로 넘어가야 됨.
                 try
