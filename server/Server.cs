@@ -631,6 +631,11 @@ namespace ServerProgram
             }
             else
             {
+                if (gameRooms[index].Is_banned(server))
+                {
+                    server.SendResponse("ROOMJOIN", "-3");
+                    return;
+                }
                 server.ready = false;
                 //기존에 방에 있던 플레이어들에게 해당 플레이어가 들어와서 생긴 방의 변동을 자동으로 전달
                 gameRooms[index].AddPlayer(server);
@@ -647,7 +652,6 @@ namespace ServerProgram
 
         private void RoomOut(string num, Server server)
         {
-            server.win(int.Parse(num));
             for (int i = 0; i < gameRooms.Count; i++)
             {
                 if (gameRooms[i].ContainPlayer(server))
@@ -672,7 +676,11 @@ namespace ServerProgram
                     }
 
                     server.change_room(0);
-                    server.SendResponse("ROOMOUT", 0);
+                    if (num != null)
+                        if (num.Equals("kick"))
+                            server.SendResponse("KICK", 0);
+                    else
+                        server.SendResponse("ROOMOUT", 0);
 
                     RefreshRoom();
 
@@ -743,6 +751,14 @@ namespace ServerProgram
 
             if (gameRoom == null) return;
 
+            int namelength=server.username.Length;
+            if (content[namelength+1]=='/' && server.username.CompareTo(gameRoom.ownerPlayer.username) == 0)
+            {
+                ChatCommand(content.Substring(namelength+1), server,gameRoom);
+                return;
+            }
+                
+
             string chatListString = string.Empty;
 
             gameRoom.chats.Add(content);
@@ -757,6 +773,38 @@ namespace ServerProgram
             {
                 p.SendResponse("ROOMCHAT", chatListString);
             });
+        }
+        private void ChatCommand(string command,Server server,GameRoom room) {
+            string[] parsed_cmd=command.Split(' ');
+            if (parsed_cmd[0].Equals("/newhost"))
+            {
+                int i;
+                for (i = 0; i < room.players.Count; i++)
+                    if (room.players[i].username.CompareTo(parsed_cmd[1]) == 0)
+                        break;
+                if (i == room.players.Count)
+                    return;
+                room.SetOwner(room.players[i]);
+                server.SendResponse("GAMESCREEN", "PLAYERWAIT");
+                room.players[i].SendResponse("GAMESCREEN", "OWNERWAIT");
+                room.players[i].ready = true;
+                room.Swap_owner_in_players(room.players[i]);
+                room.players.ForEach(p =>
+                {
+                    PlayerList(room.name, p);
+                    ReadyList(room.name, p);
+                });
+            }else if (parsed_cmd[0].Equals("/kick"))
+            {
+                int i;
+                for (i = 0; i < room.players.Count; i++)
+                    if (room.players[i].username.CompareTo(parsed_cmd[1]) == 0)
+                        break;
+                if (i == room.players.Count)
+                    return;
+                room.Ban_user(room.players[i]);
+                RoomOut("kick", room.players[i]);
+            }
         }
 
 
@@ -1118,6 +1166,7 @@ namespace ServerProgram
         private int total_questions = 0;
         public int CurrentQuestioner { get { return currentQuestioner; } }
         public string word;
+        private List<Server> banned;
 
         //owner가 시작 요청을 보낼 경우 보내게 될 응답. 게임 시작 신호를 모든 플레이어에게 보낸다.
 
@@ -1190,6 +1239,7 @@ namespace ServerProgram
             this.room = NextRoom();
             players = new List<Server>();
             chats = new List<string>();
+            banned = new List<Server>();
         }
 
         public void ClearChat()
@@ -1248,6 +1298,21 @@ namespace ServerProgram
         {
             return ownerPlayer;
         }
+        public void SetOwner(Server owner)
+        {
+            ownerPlayer = owner;
+        }
+        public void Swap_owner_in_players(Server newowner){
+            Server server = newowner;
+            for(int i = 0;i< players.Count;i++)
+            {
+                if (players[i] == server)
+                {
+                    players[i] = players[0];
+                    players[0] = server; break;
+                }
+            }
+        }
         public List<Server> GetQuestionerList()
         {
             List<Server> questionerList = new List<Server>();
@@ -1266,5 +1331,15 @@ namespace ServerProgram
         public void Plus_total_q() { total_questions++; }
         private static int roomCount = 1;
         private static int NextRoom() { return roomCount++; }
+        public void Ban_user(Server server)
+        {
+            banned.Add(server);
+        }
+        public bool Is_banned(Server server)
+        {
+            if(banned!=null)
+            if (banned.Contains(server)) return true;
+            return false;
+        }
     }
 }

@@ -863,6 +863,11 @@ namespace client
             {
                 ShowMessageBox("정원이 가득 찼습니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (result.Equals("-3"))
+            {
+                ShowMessageBox("당신은 이 방에서 퇴장당했습니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                p4_Out_btn_Click(null,null);
+            }
             else
             {
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -881,6 +886,7 @@ namespace client
                 }
             }
         }
+
         public override void PlayerWait()
         {
             Changing();
@@ -1418,6 +1424,17 @@ namespace client
         public override void RoomOut()
         {
             ShowMessageBox("방 나옴", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public override void Kicked()
+        {
+            p3_title_label.Visible = false;
+            p3_people_label.Visible = false;
+            p3_people_tbx.Visible = false;
+            p3_create_btn.Visible = false;
+            p3_roomname_label.Visible = false;
+            p3_roomname_tbx.Visible = false;
+            backPanel();
+            ShowMessageBox("강제 퇴장당함", "Room Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void p4_Out_btn_Click(object sender, EventArgs e)
