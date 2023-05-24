@@ -87,14 +87,24 @@
             this.p4_refesh_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_Out_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_player5 = new System.Windows.Forms.Label();
+            this.p4_1_player5_menu = new MetroSet_UI.Controls.MetroSetContextMenuStrip();
+            this.p4_1_player5_item = new System.Windows.Forms.ToolStripMenuItem();
             this.p4_send_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_player4 = new System.Windows.Forms.Label();
+            this.p4_1_player4_menu = new MetroSet_UI.Controls.MetroSetContextMenuStrip();
+            this.p4_1_player4_item = new System.Windows.Forms.ToolStripMenuItem();
             this.p4_message_tbx = new System.Windows.Forms.TextBox();
             this.p4_player3 = new System.Windows.Forms.Label();
+            this.p4_1_player3_menu = new MetroSet_UI.Controls.MetroSetContextMenuStrip();
+            this.p4_1_player3_item = new System.Windows.Forms.ToolStripMenuItem();
             this.p4_ready_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_player2 = new System.Windows.Forms.Label();
+            this.p4_1_player2_menu = new MetroSet_UI.Controls.MetroSetContextMenuStrip();
+            this.p4_1_player2_item = new System.Windows.Forms.ToolStripMenuItem();
             this.p4_roomInfo_label = new System.Windows.Forms.Label();
             this.p4_player1 = new System.Windows.Forms.Label();
+            this.p4_player1_menu = new MetroSet_UI.Controls.MetroSetContextMenuStrip();
+            this.p4_player1_item = new System.Windows.Forms.ToolStripMenuItem();
             this.p4_chat_tbx = new System.Windows.Forms.TextBox();
             this.p3_title_label = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -135,8 +145,6 @@
             this.p4_1_message_tbx = new System.Windows.Forms.TextBox();
             this.p4_1_start_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p4_1_player5 = new System.Windows.Forms.Label();
-            this.p4_1_friend_menu = new MetroSet_UI.Controls.MetroSetContextMenuStrip();
-            this.p4_1_friend_add_item = new System.Windows.Forms.ToolStripMenuItem();
             this.p4_1_player4 = new System.Windows.Forms.Label();
             this.p4_1_player3 = new System.Windows.Forms.Label();
             this.p4_1_player2 = new System.Windows.Forms.Label();
@@ -223,9 +231,13 @@
             this.panel3_roomList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).BeginInit();
             this.panel4_player_waitRoom.SuspendLayout();
+            this.p4_1_player5_menu.SuspendLayout();
+            this.p4_1_player4_menu.SuspendLayout();
+            this.p4_1_player3_menu.SuspendLayout();
+            this.p4_1_player2_menu.SuspendLayout();
+            this.p4_player1_menu.SuspendLayout();
             this.panel6_Answer.SuspendLayout();
             this.panel4_1_owner_waitRoom.SuspendLayout();
-            this.p4_1_friend_menu.SuspendLayout();
             this.panel5_Owner.SuspendLayout();
             this.panel5_1_Owner_Answer.SuspendLayout();
             this.panel5_2_Owner_Wait.SuspendLayout();
@@ -1085,12 +1097,34 @@
             // p4_player5
             // 
             this.p4_player5.BackColor = System.Drawing.Color.LightGray;
+            this.p4_player5.ContextMenuStrip = this.p4_1_player5_menu;
             this.p4_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player5.Location = new System.Drawing.Point(17, 399);
             this.p4_player5.Name = "p4_player5";
             this.p4_player5.Size = new System.Drawing.Size(171, 76);
             this.p4_player5.TabIndex = 33;
             this.p4_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p4_1_player5_menu
+            // 
+            this.p4_1_player5_menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.p4_1_player5_menu.IsDerivedStyle = true;
+            this.p4_1_player5_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.p4_1_player5_item});
+            this.p4_1_player5_menu.Name = "p4_1_player1_menu";
+            this.p4_1_player5_menu.Size = new System.Drawing.Size(136, 28);
+            this.p4_1_player5_menu.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_1_player5_menu.StyleManager = null;
+            this.p4_1_player5_menu.ThemeAuthor = "Narwin";
+            this.p4_1_player5_menu.ThemeName = "MetroLite";
+            // 
+            // p4_1_player5_item
+            // 
+            this.p4_1_player5_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player5_item.Name = "p4_1_player5_item";
+            this.p4_1_player5_item.Size = new System.Drawing.Size(135, 24);
+            this.p4_1_player5_item.Text = "친구 하기";
+            this.p4_1_player5_item.Click += new System.EventHandler(this.p4_1_player5_item_Click);
             // 
             // p4_send_btn
             // 
@@ -1123,12 +1157,34 @@
             // p4_player4
             // 
             this.p4_player4.BackColor = System.Drawing.Color.LightGray;
+            this.p4_player4.ContextMenuStrip = this.p4_1_player4_menu;
             this.p4_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player4.Location = new System.Drawing.Point(17, 318);
             this.p4_player4.Name = "p4_player4";
             this.p4_player4.Size = new System.Drawing.Size(171, 76);
             this.p4_player4.TabIndex = 32;
             this.p4_player4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p4_1_player4_menu
+            // 
+            this.p4_1_player4_menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.p4_1_player4_menu.IsDerivedStyle = true;
+            this.p4_1_player4_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.p4_1_player4_item});
+            this.p4_1_player4_menu.Name = "p4_1_player1_menu";
+            this.p4_1_player4_menu.Size = new System.Drawing.Size(136, 28);
+            this.p4_1_player4_menu.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_1_player4_menu.StyleManager = null;
+            this.p4_1_player4_menu.ThemeAuthor = "Narwin";
+            this.p4_1_player4_menu.ThemeName = "MetroLite";
+            // 
+            // p4_1_player4_item
+            // 
+            this.p4_1_player4_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player4_item.Name = "p4_1_player4_item";
+            this.p4_1_player4_item.Size = new System.Drawing.Size(135, 24);
+            this.p4_1_player4_item.Text = "친구 하기";
+            this.p4_1_player4_item.Click += new System.EventHandler(this.p4_1_player4_item_Click);
             // 
             // p4_message_tbx
             // 
@@ -1145,12 +1201,34 @@
             // p4_player3
             // 
             this.p4_player3.BackColor = System.Drawing.Color.LightGray;
+            this.p4_player3.ContextMenuStrip = this.p4_1_player3_menu;
             this.p4_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player3.Location = new System.Drawing.Point(17, 236);
             this.p4_player3.Name = "p4_player3";
             this.p4_player3.Size = new System.Drawing.Size(171, 76);
             this.p4_player3.TabIndex = 31;
             this.p4_player3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p4_1_player3_menu
+            // 
+            this.p4_1_player3_menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.p4_1_player3_menu.IsDerivedStyle = true;
+            this.p4_1_player3_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.p4_1_player3_item});
+            this.p4_1_player3_menu.Name = "p4_1_player1_menu";
+            this.p4_1_player3_menu.Size = new System.Drawing.Size(136, 28);
+            this.p4_1_player3_menu.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_1_player3_menu.StyleManager = null;
+            this.p4_1_player3_menu.ThemeAuthor = "Narwin";
+            this.p4_1_player3_menu.ThemeName = "MetroLite";
+            // 
+            // p4_1_player3_item
+            // 
+            this.p4_1_player3_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player3_item.Name = "p4_1_player3_item";
+            this.p4_1_player3_item.Size = new System.Drawing.Size(135, 24);
+            this.p4_1_player3_item.Text = "친구 하기";
+            this.p4_1_player3_item.Click += new System.EventHandler(this.p4_1_player3_item_Click);
             // 
             // p4_ready_btn
             // 
@@ -1184,12 +1262,34 @@
             // p4_player2
             // 
             this.p4_player2.BackColor = System.Drawing.Color.LightGray;
+            this.p4_player2.ContextMenuStrip = this.p4_1_player2_menu;
             this.p4_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player2.Location = new System.Drawing.Point(17, 155);
             this.p4_player2.Name = "p4_player2";
             this.p4_player2.Size = new System.Drawing.Size(171, 76);
             this.p4_player2.TabIndex = 30;
             this.p4_player2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p4_1_player2_menu
+            // 
+            this.p4_1_player2_menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.p4_1_player2_menu.IsDerivedStyle = true;
+            this.p4_1_player2_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.p4_1_player2_item});
+            this.p4_1_player2_menu.Name = "p4_1_player1_menu";
+            this.p4_1_player2_menu.Size = new System.Drawing.Size(136, 28);
+            this.p4_1_player2_menu.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_1_player2_menu.StyleManager = null;
+            this.p4_1_player2_menu.ThemeAuthor = "Narwin";
+            this.p4_1_player2_menu.ThemeName = "MetroLite";
+            // 
+            // p4_1_player2_item
+            // 
+            this.p4_1_player2_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player2_item.Name = "p4_1_player2_item";
+            this.p4_1_player2_item.Size = new System.Drawing.Size(135, 24);
+            this.p4_1_player2_item.Text = "친구 하기";
+            this.p4_1_player2_item.Click += new System.EventHandler(this.p4_1_player2_item_Click);
             // 
             // p4_roomInfo_label
             // 
@@ -1203,6 +1303,7 @@
             // p4_player1
             // 
             this.p4_player1.BackColor = System.Drawing.Color.LightCoral;
+            this.p4_player1.ContextMenuStrip = this.p4_player1_menu;
             this.p4_player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p4_player1.Location = new System.Drawing.Point(17, 72);
@@ -1210,6 +1311,27 @@
             this.p4_player1.Size = new System.Drawing.Size(171, 76);
             this.p4_player1.TabIndex = 29;
             this.p4_player1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // p4_player1_menu
+            // 
+            this.p4_player1_menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.p4_player1_menu.IsDerivedStyle = true;
+            this.p4_player1_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.p4_player1_item});
+            this.p4_player1_menu.Name = "p4_1_player1_menu";
+            this.p4_player1_menu.Size = new System.Drawing.Size(136, 28);
+            this.p4_player1_menu.Style = MetroSet_UI.Enums.Style.Light;
+            this.p4_player1_menu.StyleManager = null;
+            this.p4_player1_menu.ThemeAuthor = "Narwin";
+            this.p4_player1_menu.ThemeName = "MetroLite";
+            // 
+            // p4_player1_item
+            // 
+            this.p4_player1_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_player1_item.Name = "p4_player1_item";
+            this.p4_player1_item.Size = new System.Drawing.Size(135, 24);
+            this.p4_player1_item.Text = "친구 하기";
+            this.p4_player1_item.Click += new System.EventHandler(this.p4_player1_item_Click);
             // 
             // p4_chat_tbx
             // 
@@ -1803,7 +1925,7 @@
             // p4_1_player5
             // 
             this.p4_1_player5.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player5.ContextMenuStrip = this.p4_1_friend_menu;
+            this.p4_1_player5.ContextMenuStrip = this.p4_1_player5_menu;
             this.p4_1_player5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player5.Location = new System.Drawing.Point(16, 409);
             this.p4_1_player5.Name = "p4_1_player5";
@@ -1811,31 +1933,10 @@
             this.p4_1_player5.TabIndex = 33;
             this.p4_1_player5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // p4_1_friend_menu
-            // 
-            this.p4_1_friend_menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.p4_1_friend_menu.IsDerivedStyle = true;
-            this.p4_1_friend_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.p4_1_friend_add_item});
-            this.p4_1_friend_menu.Name = "p4_1_player1_menu";
-            this.p4_1_friend_menu.Size = new System.Drawing.Size(211, 56);
-            this.p4_1_friend_menu.Style = MetroSet_UI.Enums.Style.Light;
-            this.p4_1_friend_menu.StyleManager = null;
-            this.p4_1_friend_menu.ThemeAuthor = "Narwin";
-            this.p4_1_friend_menu.ThemeName = "MetroLite";
-            this.p4_1_friend_menu.Click += new System.EventHandler(this.Item_01_Click);
-            // 
-            // p4_1_friend_add_item
-            // 
-            this.p4_1_friend_add_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p4_1_friend_add_item.Name = "p4_1_friend_add_item";
-            this.p4_1_friend_add_item.Size = new System.Drawing.Size(210, 24);
-            this.p4_1_friend_add_item.Text = "친구 하기";
-            // 
             // p4_1_player4
             // 
             this.p4_1_player4.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player4.ContextMenuStrip = this.p4_1_friend_menu;
+            this.p4_1_player4.ContextMenuStrip = this.p4_1_player4_menu;
             this.p4_1_player4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player4.Location = new System.Drawing.Point(16, 328);
             this.p4_1_player4.Name = "p4_1_player4";
@@ -1846,26 +1947,24 @@
             // p4_1_player3
             // 
             this.p4_1_player3.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player3.ContextMenuStrip = this.p4_1_friend_menu;
+            this.p4_1_player3.ContextMenuStrip = this.p4_1_player3_menu;
             this.p4_1_player3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player3.Location = new System.Drawing.Point(16, 248);
             this.p4_1_player3.Name = "p4_1_player3";
             this.p4_1_player3.Size = new System.Drawing.Size(171, 76);
             this.p4_1_player3.TabIndex = 31;
             this.p4_1_player3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.p4_1_player3.Click += new System.EventHandler(this.p4_1_player3_Click);
             // 
             // p4_1_player2
             // 
             this.p4_1_player2.BackColor = System.Drawing.Color.LightGray;
-            this.p4_1_player2.ContextMenuStrip = this.p4_1_friend_menu;
+            this.p4_1_player2.ContextMenuStrip = this.p4_1_player2_menu;
             this.p4_1_player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player2.Location = new System.Drawing.Point(16, 165);
             this.p4_1_player2.Name = "p4_1_player2";
             this.p4_1_player2.Size = new System.Drawing.Size(171, 76);
             this.p4_1_player2.TabIndex = 30;
             this.p4_1_player2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.p4_1_player2.Click += new System.EventHandler(this.p4_1_player2_Click);
             // 
             // p4_1_player1
             // 
@@ -1877,7 +1976,6 @@
             this.p4_1_player1.Size = new System.Drawing.Size(171, 76);
             this.p4_1_player1.TabIndex = 29;
             this.p4_1_player1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.p4_1_player1.Click += new System.EventHandler(this.p4_1_player1_Click);
             // 
             // p4_1_chat_tbx
             // 
@@ -2932,13 +3030,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 630);
             this.ControlBox = false;
-            this.Controls.Add(this.panel4_1_owner_waitRoom);
             this.Controls.Add(this.panel7_rank);
             this.Controls.Add(this.panel6_2_Answer_Wait);
             this.Controls.Add(this.panel6_Answer);
             this.Controls.Add(this.panel5_1_Owner_Answer);
             this.Controls.Add(this.panel5_2_Owner_Wait);
             this.Controls.Add(this.panel5_Owner);
+            this.Controls.Add(this.panel4_1_owner_waitRoom);
             this.Controls.Add(this.panel4_player_waitRoom);
             this.Controls.Add(this.p3_title_label);
             this.Controls.Add(this.panel3_roomList);
@@ -2962,11 +3060,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.p3_dataGridView1)).EndInit();
             this.panel4_player_waitRoom.ResumeLayout(false);
             this.panel4_player_waitRoom.PerformLayout();
+            this.p4_1_player5_menu.ResumeLayout(false);
+            this.p4_1_player4_menu.ResumeLayout(false);
+            this.p4_1_player3_menu.ResumeLayout(false);
+            this.p4_1_player2_menu.ResumeLayout(false);
+            this.p4_player1_menu.ResumeLayout(false);
             this.panel6_Answer.ResumeLayout(false);
             this.panel6_Answer.PerformLayout();
             this.panel4_1_owner_waitRoom.ResumeLayout(false);
             this.panel4_1_owner_waitRoom.PerformLayout();
-            this.p4_1_friend_menu.ResumeLayout(false);
             this.panel5_Owner.ResumeLayout(false);
             this.panel5_Owner.PerformLayout();
             this.panel5_1_Owner_Answer.ResumeLayout(false);
@@ -3160,7 +3262,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Score;
         private MetroSet_UI.Controls.MetroSetButton p7_back_btn;
         private System.Windows.Forms.Label p7_ranking_label;
-        private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_1_friend_menu;
-        private System.Windows.Forms.ToolStripMenuItem p4_1_friend_add_item;
+        private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_1_player2_menu;
+        private System.Windows.Forms.ToolStripMenuItem p4_1_player2_item;
+        private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_1_player3_menu;
+        private System.Windows.Forms.ToolStripMenuItem p4_1_player3_item;
+        private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_1_player4_menu;
+        private System.Windows.Forms.ToolStripMenuItem p4_1_player4_item;
+        private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_1_player5_menu;
+        private System.Windows.Forms.ToolStripMenuItem p4_1_player5_item;
+        private MetroSet_UI.Controls.MetroSetContextMenuStrip p4_player1_menu;
+        private System.Windows.Forms.ToolStripMenuItem p4_player1_item;
     }
 }

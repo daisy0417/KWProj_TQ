@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,6 @@ namespace client
         public MainForm()
         {
             InitializeComponent();
-
-            this.title_label.Font = new Font("한컴 말랑말랑 Bold", 40f, FontStyle.Bold);
 
             #region font 설정
             Font font_40 = new Font(FontLibrary.Families[0], 40f);
@@ -2174,42 +2173,21 @@ namespace client
             }
         }
 
-        private void p4_1_player1_Click(object sender, EventArgs e)
+        public override void SendFriendRequest(bool success)
         {
-            ContextMenuStrip player1_friend = new System.Windows.Forms.ContextMenuStrip();
-            //client.RequestSendFriendRequest(p4_1_player1.Text);
-
-            
-            ToolStripMenuItem item_01 = new ToolStripMenuItem("친구 맺기");
-            item_01.Click += Item_01_Click;
-            player1_friend.Items.Add(item_01);
-
-            player1_friend.Show(MousePosition);
-           
+            /*
+             * if(success == false) 사용자를 찾을 수 없습니다.
+             */
+            if(success==false)
+            {
+                ShowMessageBox("사용자를 찾을 수 없습니다.", "No", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                ShowMessageBox("성공", "yes", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
 
-        private void p4_1_player2_Click(object sender, EventArgs e)
-        {
-            ContextMenuStrip player2_friend = new System.Windows.Forms.ContextMenuStrip();
-            ToolStripMenuItem item_01 = new ToolStripMenuItem("친구 맺기");
-            item_01.Click += Item_01_Click;
-            player2_friend.Items.Add(item_01);
-
-            player2_friend.Show(MousePosition);
-            //client.RequestSendFriendRequest(p4_1_player2.Text);
-        }
-
-        private void p4_1_player3_Click(object sender, EventArgs e)
-        {
-            ContextMenuStrip player3_friend = new System.Windows.Forms.ContextMenuStrip();
-        }
-
-        
-        private void Item_01_Click(object sender, EventArgs e)
-        {
-            client.RequestSendFriendRequest(p4_1_player1.Text);
-            throw new NotImplementedException();
-        }
 
         public override void FriendRequest(string username)
         {
@@ -2218,14 +2196,14 @@ namespace client
              */
             DialogResult request_result = DialogResult.None;
 
-            ShowMessageBox(string.Format("{0} 님이 친구 요청을 보냈습니다.\n수락하시겠습니까?",username), "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            ShowMessageBox(string.Format("{0} 님이 친구 요청을 보냈습니다.\n수락하시겠습니까?",username), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(request_result == DialogResult.OK)
+            if(request_result == DialogResult.Yes)
             {
                 // 친구 요청 수락
                 client.RequestAcceptFriend(username);
             }
-            else
+            else if(request_result == DialogResult.No)
             {
                 ShowMessageBox(string.Format("{0} 님의 친구 요청을 거절했습니다.", username), "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -2241,7 +2219,39 @@ namespace client
             {
                 ShowMessageBox("사용자를 찾을 수 없습니다.", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                ShowMessageBox("친구 OK","OK",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
+
+        private void p4_1_player2_item_Click(object sender, EventArgs e)
+        {
+            client.RequestSendFriendRequest(p4_1_player2.Text);
+        }
+
+        private void p4_1_player3_item_Click(object sender, EventArgs e)
+        {
+            client.RequestSendFriendRequest(p4_1_player3.Text);
+        }
+
+        private void p4_1_player4_item_Click(object sender, EventArgs e)
+        {
+            client.RequestSendFriendRequest(p4_1_player4.Text);
+        }
+
+        private void p4_1_player5_item_Click(object sender, EventArgs e)
+        {
+            client.RequestSendFriendRequest(p4_1_player5.Text);
+        }
+
+        private void p4_player1_item_Click(object sender, EventArgs e)
+        {
+            client.RequestSendFriendRequest(p4_1_player1.Text);
+        }
+
+
+
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x
         public override void QuestionerWait()
