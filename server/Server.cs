@@ -752,6 +752,7 @@ namespace ServerProgram
             if (gameRoom == null) return;
 
             int namelength=server.username.Length;
+            if(content.Length>namelength+1)
             if (content[namelength+1]=='/' && server.username.CompareTo(gameRoom.ownerPlayer.username) == 0)
             {
                 ChatCommand(content.Substring(namelength+1), server,gameRoom);
