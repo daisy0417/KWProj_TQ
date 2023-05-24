@@ -647,7 +647,6 @@ namespace ServerProgram
 
         private void RoomOut(string num, Server server)
         {
-            server.win(int.Parse(num));
             for (int i = 0; i < gameRooms.Count; i++)
             {
                 if (gameRooms[i].ContainPlayer(server))
@@ -743,6 +742,14 @@ namespace ServerProgram
 
             if (gameRoom == null) return;
 
+            int namelength=server.username.Length;
+            if (content[namelength+1]=='/' && server.username.CompareTo(gameRoom.ownerPlayer.username) == 0)
+            {
+                ChatCommand(content.Substring(namelength+1), server,gameRoom);
+                return;
+            }
+                
+
             string chatListString = string.Empty;
 
             gameRoom.chats.Add(content);
@@ -757,6 +764,28 @@ namespace ServerProgram
             {
                 p.SendResponse("ROOMCHAT", chatListString);
             });
+        }
+        private void ChatCommand(string command,Server server,GameRoom room) {
+            string[] parsed_cmd=command.Split(' ');
+            if (parsed_cmd[0].Equals("/newhost"))
+            {
+                int i;
+                for (i = 0; i < room.players.Count; i++)
+                    if (room.players[i].username.CompareTo(parsed_cmd[1]) == 0)
+                        break;
+                if (i == room.players.Count)
+                    return;
+                room.SetOwner(room.players[i]);
+                server.SendResponse("GAMESCREEN", "PLAYERWAIT");
+                room.players[i].SendResponse("GAMESCREEN", "OWNERWAIT");
+                room.players[i].ready = true;
+                room.Swap_owner_in_players(room.players[i]);
+                room.players.ForEach(p =>
+                {
+                    PlayerList(room.name, p);
+                    ReadyList(room.name, p);
+                });
+            }
         }
 
 
@@ -1247,6 +1276,21 @@ namespace ServerProgram
         public Server GetOwner()
         {
             return ownerPlayer;
+        }
+        public void SetOwner(Server owner)
+        {
+            ownerPlayer = owner;
+        }
+        public void Swap_owner_in_players(Server newowner){
+            Server server = newowner;
+            for(int i = 0;i< players.Count;i++)
+            {
+                if (players[i] == server)
+                {
+                    players[i] = players[0];
+                    players[0] = server; break;
+                }
+            }
         }
         public List<Server> GetQuestionerList()
         {
