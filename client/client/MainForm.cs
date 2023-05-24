@@ -1317,8 +1317,50 @@ namespace client
                     p6_2_QA_tbx.ScrollToCaret();}));
             });
         }
+       
+        public override void Whisper(string msg)
+        {
+           
+            int sender = Convert.ToInt32(msg.Substring(0, 1));
+            switch (sender)
+            {
+                case 0:
+                    p4_1_player1_ballon.Invoke(new MethodInvoker(delegate { p4_1_player1_ballon.Text = msg.Substring(1); }));
+                    p4_1_player1_ballon.Invoke(new MethodInvoker(delegate { p4_1_player1_ballon.Visible = true; }));
+                    p4_player1_ballon.Invoke(new MethodInvoker(delegate { p4_player1_ballon.Text = msg.Substring(1); }));
+                    p4_player1_ballon.Invoke(new MethodInvoker(delegate { p4_player1_ballon.Visible = true; }));
 
+                    break;
+                case 1:
+                    p4_1_player2_ballon.Invoke(new MethodInvoker(delegate { p4_1_player2_ballon.Text = msg.Substring(1); }));
+                    p4_1_player2_ballon.Invoke(new MethodInvoker(delegate { p4_1_player2_ballon.Visible = true; }));
+                    p4_player2_ballon.Invoke(new MethodInvoker(delegate { p4_player2_ballon.Text = msg.Substring(1); }));
+                    p4_player2_ballon.Invoke(new MethodInvoker(delegate { p4_player2_ballon.Visible = true; }));
 
+                    break;
+                case 2:
+                    p4_1_player3_ballon.Invoke(new MethodInvoker(delegate { p4_1_player3_ballon.Text = msg.Substring(1); }));
+                    p4_1_player3_ballon.Invoke(new MethodInvoker(delegate { p4_1_player3_ballon.Visible = true; }));
+                    p4_player3_ballon.Invoke(new MethodInvoker(delegate { p4_player3_ballon.Text = msg.Substring(1); }));
+                    p4_player3_ballon.Invoke(new MethodInvoker(delegate { p4_player3_ballon.Visible = true; }));
+
+                    break;
+                case 3:
+                    p4_1_player4_ballon.Invoke(new MethodInvoker(delegate { p4_1_player4_ballon.Text = msg.Substring(1); }));
+                    p4_1_player4_ballon.Invoke(new MethodInvoker(delegate { p4_1_player4_ballon.Visible = true; }));
+                    p4_player4_ballon.Invoke(new MethodInvoker(delegate { p4_player4_ballon.Text = msg.Substring(1); }));
+                    p4_player4_ballon.Invoke(new MethodInvoker(delegate { p4_player4_ballon.Visible = true; }));
+
+                    break;
+                case 4:
+                    p4_1_player5_ballon.Invoke(new MethodInvoker(delegate { p4_1_player5_ballon.Text = msg.Substring(1); }));
+                    p4_1_player5_ballon.Invoke(new MethodInvoker(delegate { p4_1_player5_ballon.Visible = true; }));
+                    p4_player5_ballon.Invoke(new MethodInvoker(delegate { p4_player5_ballon.Text = msg.Substring(1); }));
+                    p4_player5_ballon.Invoke(new MethodInvoker(delegate { p4_player5_ballon.Visible = true; }));
+                    break;
+            }
+        }
+     
         #region Owner(방장)
 
         private void p4_1_start_btn_Click(object sender, EventArgs e)
@@ -2324,6 +2366,44 @@ namespace client
                 p5_input_label.Invoke(new MethodInvoker(delegate { p5_input_label.Text = p5_message_tbx.Text; }));
                 client.RequestWordSelect(p5_input_label.Text);
             }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            p4_1_player1_ballon.Invoke(new MethodInvoker(delegate { p4_1_player1_ballon.Visible = false; }));
+            p4_1_player2_ballon.Invoke(new MethodInvoker(delegate { p4_1_player2_ballon.Visible = false; }));
+            p4_1_player3_ballon.Invoke(new MethodInvoker(delegate { p4_1_player3_ballon.Visible = false; }));
+            p4_1_player4_ballon.Invoke(new MethodInvoker(delegate { p4_1_player4_ballon.Visible = false; }));
+            p4_1_player5_ballon.Invoke(new MethodInvoker(delegate { p4_1_player5_ballon.Visible = false; }));
+            p4_player1_ballon.Invoke(new MethodInvoker(delegate { p4_player1_ballon.Visible = false; }));
+            p4_player2_ballon.Invoke(new MethodInvoker(delegate { p4_player2_ballon.Visible = false; }));
+            p4_player3_ballon.Invoke(new MethodInvoker(delegate { p4_player3_ballon.Visible = false; }));
+            p4_player4_ballon.Invoke(new MethodInvoker(delegate { p4_player4_ballon.Visible = false; }));
+            p4_player5_ballon.Invoke(new MethodInvoker(delegate { p4_player5_ballon.Visible = false; }));
+            timer2.Stop();
+            
+        }
+
+        private void p4_1_player1_ballon_VisibleChanged(object sender, EventArgs e)
+        {
+            p4_1_player1_ballon.Invoke(new MethodInvoker(delegate { p4_1_player1_ballon.BringToFront(); }));
+            p4_1_player2_ballon.Invoke(new MethodInvoker(delegate { p4_1_player2_ballon.BringToFront(); }));
+            p4_1_player3_ballon.Invoke(new MethodInvoker(delegate { p4_1_player3_ballon.BringToFront(); }));
+            p4_1_player4_ballon.Invoke(new MethodInvoker(delegate { p4_1_player4_ballon.BringToFront(); }));
+            p4_1_player5_ballon.Invoke(new MethodInvoker(delegate { p4_1_player5_ballon.BringToFront(); }));
+            p4_player1_ballon.Invoke(new MethodInvoker(delegate { p4_player1_ballon.BringToFront(); }));
+            p4_player2_ballon.Invoke(new MethodInvoker(delegate { p4_player2_ballon.BringToFront(); }));
+            p4_player3_ballon.Invoke(new MethodInvoker(delegate { p4_player3_ballon.BringToFront(); }));
+            p4_player4_ballon.Invoke(new MethodInvoker(delegate { p4_player4_ballon.BringToFront(); }));
+            p4_player5_ballon.Invoke(new MethodInvoker(delegate { p4_player5_ballon.BringToFront(); }));
+            if (p4_1_player1_ballon.Visible||p4_1_player2_ballon.Visible|| p4_1_player3_ballon.Visible ||
+                p4_1_player4_ballon.Visible || p4_1_player5_ballon.Visible || p4_player1_ballon.Visible ||
+                p4_player2_ballon.Visible || p4_player3_ballon.Visible || p4_player4_ballon.Visible ||
+                p4_player5_ballon.Visible)
+            {
+                timer2.Start();
+            }
+       
         }
 
 

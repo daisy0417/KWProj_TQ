@@ -171,6 +171,10 @@ namespace client
                     parentForm.RoomChat(new List<string>());
                 }
             }
+            else if (header.Equals("WHISPER"))
+            {
+                parentForm.Whisper(content);
+            }
             else if (header.Equals("PLAYERLIST"))
             {
                 // 받아 온 content가 비어있지 않다면, 접속된 유저 이름 가져옴
