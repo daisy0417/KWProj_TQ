@@ -1923,7 +1923,10 @@ namespace client
             { 
                 buzzer_on=false;
                 timer1.Stop();
-                client.RequestGuessAnswer(p6_answer_tbx.Text);  // 정답인지 확인
+                string ans=p6_answer_tbx.Text;
+                if (p6_2_answer_tbx.Visible)
+                    ans = p6_2_answer_tbx.Text;
+                client.RequestGuessAnswer(ans);  // 정답인지 확인
                 //답 읽어오기
             }
             
@@ -2406,6 +2409,8 @@ namespace client
             }
        
         }
+
+
 
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x

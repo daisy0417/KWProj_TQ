@@ -115,8 +115,6 @@ namespace ServerProgram
         private int portCount = 1;
         private IPAddress serverIP = IPAddress.Parse("127.0.0.1"); // ip는 입력 받아 저장
 
-        public int NewPort() { return portmain + portCount++; }
-
         public MainServer(ServerForm parentForm)
         {
             this.parentForm = parentForm;
@@ -150,7 +148,6 @@ namespace ServerProgram
                     TcpClient client = listener.AcceptTcpClient();
                     StreamReader sread = new StreamReader(client.GetStream());
                     string msg = sread.ReadLine();
-                    //int room = int.Parse(msg); //방번호 받고 포트번호 주기 -> 이재 방 번호는 필요없음. 0으로 고정
 
                     IPAddress clientIP = IPAddress.Parse("127.0.0.1");
 
@@ -281,9 +278,6 @@ namespace ServerProgram
                     else if (header.Equals("FRIENDSLIST"))
                     {
                         server.SendResponse("FRIENDSLIST", GetFriendListString(server.username));
-                    }else if (header.Equals("FRIENDREMOVE"))
-                    {
-                        FriendRemove(content, server);
                     }
                     //방 채팅
                     else if (header.Equals("ROOMCHAT"))
@@ -488,44 +482,6 @@ namespace ServerProgram
             {
                 RoomJoin(room.name, server);
             }
-        }
-
-        private void FriendRemove(string friendName, Server server)
-        {
-            int pos = -1;
-
-            for(int i = 0; i<friendshipList.Count; i++)
-            {
-                if (friendshipList[i].Item1.Equals(friendName) && friendshipList[i].Item2.Equals(server.username))
-                {
-                    pos = i;
-                    break;
-                }
-                else if (friendshipList[i].Item1.Equals(server.username) && friendshipList[i].Item2.Equals(friendName))
-                {
-                    pos = i;
-                    break;
-                }
-            }
-
-            if (pos != -1)
-            {
-                Tuple<string, string> findItem = friendshipList[pos];
-
-                conn = new SQLiteConnection("Data Source=friend_info.db");
-                conn.Open();
-                
-                string query = "DELETE FROM friendship WHERE username1='" + findItem.Item1 + "' AND username2='" + findItem.Item2 + "'";
-                SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                int result = cmd.ExecuteNonQuery();
-
-                friendshipList.RemoveAt(pos);
-
-                int friendPos = servers.FindIndex(f => f.username.Equals(friendName));
-                if(friendPos != -1) { servers[friendPos].SendResponse("FRIENDSLIST", GetFriendListString(friendName)); }
-            }
-            
-            server.SendResponse("FRIENDREMOVE", pos);
         }
 
         private string GetFriendListString(string username)
@@ -873,10 +829,7 @@ namespace ServerProgram
                 if (reciver == room.players.Count)
                     return;
                 string msg=sender.ToString();
-                for(int k = 2; k < parsed_cmd.Length; k++)
-                {
-                    msg += parsed_cmd[k];
-                }
+                msg+=command.Substring(parsed_cmd[0].Length + parsed_cmd[1].Length + 1);
                 room.players[reciver].SendResponse("WHISPER", msg);
 
             }

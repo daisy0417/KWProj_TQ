@@ -206,10 +206,6 @@ namespace client
             {
                 parentForm.JoinFriendRoom(int.Parse(content));
             }
-            else if (header.Equals("FRIENDREMOVE"))
-            {
-                parentForm.FriendRemove(!content.Equals("-1"));
-            }
             else if (header.Equals("GAMESTART"))
             {
                 if (content.Equals("0"))
