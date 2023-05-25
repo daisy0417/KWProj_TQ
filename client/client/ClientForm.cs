@@ -73,6 +73,14 @@ namespace client
         }
 
         /// <summary>
+        /// RequestFriendRemove 호출 후 도착하는 응답. 친구 삭제의 성공 여부를 반환
+        /// </summary>
+        public virtual void FriendRemove(bool sucess)
+        {
+            //if(sucess) RequestFriendList 정도 호출하면 될듯
+        }
+
+        /// <summary>
         /// RequestJoinFriendRoom 호출  override 필요
         /// </summary>
         public virtual void JoinFriendRoom(int flag)
