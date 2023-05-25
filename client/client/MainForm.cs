@@ -1522,12 +1522,12 @@ namespace client
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 e.Handled = true;
-                string content = p4_1_message_tbx.Text;
+                string content = p4_message_tbx.Text;
                 client.username = p1_username_tbx.Text;
                 if (content != string.Empty)
                 {
                     client.RequestSendRoomChat(client.username, content);
-                    p4_1_message_tbx.Text = "";
+                    p4_message_tbx.Text = "";
                 }
             }
         }
@@ -1943,34 +1943,39 @@ namespace client
             switch (score.Length-1)
             {
                 case 4:
-                    p5_1_player5_score.Invoke(new MethodInvoker(delegate { p5_1_player5_score.Text = score[4].ToString(); }));
-                    p5_2_player5_score.Invoke(new MethodInvoker(delegate { p5_2_player5_score.Text = score[4].ToString(); }));
-                    p6_2_player5_score.Invoke(new MethodInvoker(delegate { p6_2_player5_score.Text = score[4].ToString(); }));
-                    p6_player5_score.Invoke(new MethodInvoker(delegate { p6_player5_score.Text = score[4].ToString(); }));
+                    p5_player5_score.Invoke(new MethodInvoker(delegate { p5_player5_score.Text = "점수 : " + score[4].ToString(); }));
+                    p5_1_player5_score.Invoke(new MethodInvoker(delegate { p5_1_player5_score.Text = "점수 : " + score[4].ToString(); }));
+                    p5_2_player5_score.Invoke(new MethodInvoker(delegate { p5_2_player5_score.Text = "점수 : " + score[4].ToString(); }));
+                    p6_2_player5_score.Invoke(new MethodInvoker(delegate { p6_2_player5_score.Text = "점수 : " + score[4].ToString(); }));
+                    p6_player5_score.Invoke(new MethodInvoker(delegate { p6_player5_score.Text = "점수 : " + score[4].ToString(); }));
                     goto case 0;
                 case 3:
-                    p5_1_player4_score.Invoke(new MethodInvoker(delegate { p5_1_player4_score.Text = score[3].ToString(); }));
-                    p5_2_player4_score.Invoke(new MethodInvoker(delegate { p5_2_player4_score.Text = score[3].ToString(); }));
-                    p6_2_player4_score.Invoke(new MethodInvoker(delegate { p6_2_player4_score.Text = score[3].ToString(); }));
-                    p6_player4_score.Invoke(new MethodInvoker(delegate { p6_player4_score.Text = score[3].ToString(); }));
+                    p5_player4_score.Invoke(new MethodInvoker(delegate { p5_player4_score.Text = "점수 : " + score[3].ToString(); }));
+                    p5_1_player4_score.Invoke(new MethodInvoker(delegate { p5_1_player4_score.Text = "점수 : " + score[3].ToString(); }));
+                    p5_2_player4_score.Invoke(new MethodInvoker(delegate { p5_2_player4_score.Text = "점수 : " + score[3].ToString(); }));
+                    p6_2_player4_score.Invoke(new MethodInvoker(delegate { p6_2_player4_score.Text = "점수 : " + score[3].ToString(); }));
+                    p6_player4_score.Invoke(new MethodInvoker(delegate { p6_player4_score.Text = "점수 : " + score[3].ToString(); }));
                     goto case 2;
                 case 2:
-                    p5_1_player3_score.Invoke(new MethodInvoker(delegate { p5_1_player3_score.Text = score[2].ToString(); }));
-                    p5_2_player3_score.Invoke(new MethodInvoker(delegate { p5_2_player3_score.Text = score[2].ToString(); }));
-                    p6_2_player3_score.Invoke(new MethodInvoker(delegate { p6_2_player3_score.Text = score[2].ToString(); }));
-                    p6_player3_score.Invoke(new MethodInvoker(delegate { p6_player3_score.Text = score[2].ToString(); }));
+                    p5_player3_score.Invoke(new MethodInvoker(delegate { p5_player3_score.Text = "점수 : " + score[2].ToString(); }));
+                    p5_1_player3_score.Invoke(new MethodInvoker(delegate { p5_1_player3_score.Text = "점수 : " + score[2].ToString(); }));
+                    p5_2_player3_score.Invoke(new MethodInvoker(delegate { p5_2_player3_score.Text = "점수 : " + score[2].ToString(); }));
+                    p6_2_player3_score.Invoke(new MethodInvoker(delegate { p6_2_player3_score.Text = "점수 : " + score[2].ToString(); }));
+                    p6_player3_score.Invoke(new MethodInvoker(delegate { p6_player3_score.Text = "점수 : " + score[2].ToString(); }));
                     goto case 1;
                 case 1:
-                    p5_1_player2_score.Invoke(new MethodInvoker(delegate { p5_1_player2_score.Text = score[1].ToString(); }));
-                    p5_2_player2_score.Invoke(new MethodInvoker(delegate { p5_2_player2_score.Text = score[1].ToString(); }));
-                    p6_2_player2_score.Invoke(new MethodInvoker(delegate { p6_2_player2_score.Text = score[1].ToString(); }));
-                    p6_player2_score.Invoke(new MethodInvoker(delegate { p6_player2_score.Text = score[1].ToString(); }));
+                    p5_player2_score.Invoke(new MethodInvoker(delegate { p5_player2_score.Text = "점수 : " + score[1].ToString(); }));
+                    p5_1_player2_score.Invoke(new MethodInvoker(delegate { p5_1_player2_score.Text = "점수 : " + score[1].ToString(); }));
+                    p5_2_player2_score.Invoke(new MethodInvoker(delegate { p5_2_player2_score.Text = "점수 : " + score[1].ToString(); }));
+                    p6_2_player2_score.Invoke(new MethodInvoker(delegate { p6_2_player2_score.Text = "점수 : " + score[1].ToString(); }));
+                    p6_player2_score.Invoke(new MethodInvoker(delegate { p6_player2_score.Text = "점수 : " + score[1].ToString(); }));
                     goto case 0;
                 case 0:
-                    p5_1_player1_score.Invoke(new MethodInvoker(delegate { p5_1_player1_score.Text = score[0].ToString(); }));
-                    p5_2_player1_score.Invoke(new MethodInvoker(delegate { p5_2_player1_score.Text = score[0].ToString(); }));
-                    p6_2_player1_score.Invoke(new MethodInvoker(delegate { p6_2_player1_score.Text = score[0].ToString(); }));
-                    p6_player1_score.Invoke(new MethodInvoker(delegate { p6_player1_score.Text = score[0].ToString();}));
+                    p5_player1_score.Invoke(new MethodInvoker(delegate { p5_player1_score.Text = "점수 : " + score[0].ToString(); }));
+                    p5_1_player1_score.Invoke(new MethodInvoker(delegate { p5_1_player1_score.Text = "점수 : " + score[0].ToString(); }));
+                    p5_2_player1_score.Invoke(new MethodInvoker(delegate { p5_2_player1_score.Text = "점수 : " + score[0].ToString(); }));
+                    p6_2_player1_score.Invoke(new MethodInvoker(delegate { p6_2_player1_score.Text = "점수 : " + score[0].ToString(); }));
+                    p6_player1_score.Invoke(new MethodInvoker(delegate { p6_player1_score.Text = "점수 : " + score[0].ToString();}));
                     break;
             }
 
