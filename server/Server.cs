@@ -258,7 +258,7 @@ namespace ServerProgram
                     {
                         Server server1 = FindServer(server.username);
                         Server server2 = FindServer(content);
-                        if (AddFriendShip(server1, server2))
+                        if (AddFriendShip(server1, server2)==true)
                         {
                             server1.SendResponse("FRIENDSLIST", GetFriendListString(server1.username));
                             server2.SendResponse("FRIENDSLIST", GetFriendListString(server2.username));

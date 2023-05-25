@@ -2062,61 +2062,10 @@ namespace client
                 ShowMessageBox("친구를 초대하는데 성공했습니다.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public override void SendFriendRequest(bool success)
+        // >>> 친구 추가 하기
+        private void p4_player1_item_Click(object sender, EventArgs e)
         {
-            /*
-             * if(success == false) 사용자를 찾을 수 없습니다.
-             */
-            if (success == false)
-            {
-                ShowMessageBox("사용자를 찾을 수 없습니다.", "No", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-
-        public override void FriendRequest(string username)
-        {
-            /*
-             * 다이얼로그로 물어본 후 OK 선택하면 RequestAcceptFriend(username)
-             */
-
-            var request_result = MessageBox.Show(string.Format("{0} 님이 친구 요청을 보냈습니다.\n수락하시겠습니까?", username), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (request_result == DialogResult.Yes)
-            {
-                // 친구 요청 수락
-                client.RequestAcceptFriend(username);
-            }
-            else
-            {
-                ShowMessageBox(string.Format("{0} 님의 친구 요청을 거절했습니다.", username), "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-        }
-
-        public override void AcceptFriend(bool success)
-        {
-            /*
-             * if(success == false) 사용자를 찾을 수 없습니다.
-             */
-
-            if(success==true)
-            {
-                ShowMessageBox("친구가 되었습니다.","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                ShowMessageBox("사용자를 찾을 수 없습니다.", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-            /*
-            if (success == false)
-            {
-                ShowMessageBox("사용자를 찾을 수 없습니다.", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                ShowMessageBox("친구 OK", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            */
+            client.RequestSendFriendRequest(p4_1_player1.Text);
         }
 
         private void p4_1_player2_item_Click(object sender, EventArgs e)
@@ -2139,10 +2088,58 @@ namespace client
             client.RequestSendFriendRequest(p4_1_player5.Text);
         }
 
-        private void p4_player1_item_Click(object sender, EventArgs e)
+
+        public override void SendFriendRequest(bool success)
         {
-            client.RequestSendFriendRequest(p4_1_player1.Text);
+            // 친구 요청을 보낼 때 없는 사용자이거나 비어 있는 라벨을 클릭해서 친구 요청을 보낸 경우
+            // 친구 요청을 보내는 쪽 화면에 표시됨
+ 
+            if (success == false)
+            {
+                ShowMessageBox("사용자를 찾을 수 없습니다.", "No", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                // test
+                ShowMessageBox("친구 요청을 보냈습니다.", "Yes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
+
+        public override void FriendRequest(string username)
+        {
+            // 친구 요청을 받은 쪽에서 보여짐
+
+            var request_result = MessageBox.Show(string.Format("{0} 님이 친구 요청을 보냈습니다.\n수락하시겠습니까?", username), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (request_result == DialogResult.Yes)
+            {
+                // 친구 요청 수락
+                client.RequestAcceptFriend(username);
+            }
+            else
+            {
+                ShowMessageBox(string.Format("{0} 님의 친구 요청을 거절했습니다.", username), "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        public override void AcceptFriend(bool success)
+        {
+            // 친구 요청을 보낸 쪽에서 보여짐
+            /*
+             * if(success == false) 사용자를 찾을 수 없습니다.
+             */
+
+            if(success==true)
+            {
+                ShowMessageBox("친구가 되었습니다.","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ShowMessageBox("사용자를 찾을 수 없습니다.", "Warnnig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
         #endregion
 
 
