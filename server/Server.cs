@@ -23,11 +23,8 @@ namespace ServerProgram
         private StreamWriter writer;
         private int room;
         public IPAddress clientIP;
-        private int port;
         private int win_point;
         private int remain_qs=5;
-
-        public int Port { get { return port; } }
 
         public string username = "NONE";
         public bool ready = false;
@@ -203,7 +200,7 @@ namespace ServerProgram
                         if (int.TryParse(content, out newRoom))
                         {
                             server.change_room(newRoom);
-                            parentForm.PrintLog("changed room | port : " + server.Port + " | " + content);
+                            parentForm.PrintLog("changed room |" + content);
                             server.SendResponse("GETROOM", server.roomnum());
                         }
                     }
@@ -347,8 +344,7 @@ namespace ServerProgram
             {
                 ExitGame(server);
 
-                parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() +
-                    " | port : " + server.Port.ToString() + " | room : " + server.roomnum().ToString());
+                parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() + " | room : " + server.roomnum().ToString());
                 servers.Remove(server);
             }
         }
