@@ -2469,6 +2469,11 @@ namespace client
        
         }
 
+        private void panel5_Owner_VisibleChanged(object sender, EventArgs e)
+        {
+            this.ActiveControl = p5_message_tbx;    // 커서 포커싱 설정
+        }
+
 
 
 
@@ -2525,6 +2530,8 @@ namespace client
             p6_solution_label.Invoke(new MethodInvoker(delegate { p6_solution_label.Text = "? ? ?"; }));
             p6_answer_tbx.Text = "( 출제자가 답을 입력 중입니다. )";
             p6_answer_tbx.ReadOnly = true;
+
+            this.ActiveControl = p6_answer_tbx; // 커서 포커싱 설정
         }
 
         private void p6_send_btn_Click(object sender, EventArgs e)
