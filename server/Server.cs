@@ -655,6 +655,10 @@ namespace ServerProgram
                     {
                         index = -2;
                         break;
+                    }else if (gameRooms[i].starting)
+                    {
+                        index = -4;
+                        break;
                     }
                     else
                     {
@@ -671,6 +675,9 @@ namespace ServerProgram
             else if (index == -2)
             {
                 server.SendResponse("ROOMJOIN", -2);
+            }else if(index == -4)
+            {
+                server.SendResponse("ROOMJOIN", -4);
             }
             else
             {
