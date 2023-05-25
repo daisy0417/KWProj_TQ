@@ -1812,8 +1812,8 @@ namespace client
 
                 else
                 {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt1 + "/ 5 )";
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt1 + " / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt1 + " / 5 )";
                 }
             }
             else if (p_name == p4_player2.Text)
@@ -1826,8 +1826,8 @@ namespace client
                 }
                 else
                 {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt2 + "/ 5 )";
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt2 + " / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt2 + " / 5 )";
                 }
             }
             else if (p_name == p4_player3.Text)
@@ -1840,8 +1840,8 @@ namespace client
                 }
                 else
                 {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt3 + "/ 5 )";
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt3 + " / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt3 + " / 5 )";
                 }
             }
             else if (p_name == p4_player4.Text)
@@ -1854,8 +1854,8 @@ namespace client
                 }
                 else
                 {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt4 + "/ 5 )";
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt4 + " / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt4 + " / 5 )";
                 }
             }
             else if (p_name == p4_player5.Text)
@@ -1868,8 +1868,8 @@ namespace client
                 }
                 else
                 {
-                    p6_buzzer_btn.Text = "정답 ( " + b_cnt5 + "/ 5 )";
-                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt5 + "/ 5 )";
+                    p6_buzzer_btn.Text = "정답 ( " + b_cnt5 + " / 5 )";
+                    p6_2_buzzer_btn.Text = "정답 ( " + b_cnt5 + " / 5 )";
                 }
             }
         }
@@ -2214,8 +2214,7 @@ namespace client
         private void p5_send_btn_Click(object sender, EventArgs e)
         {
             // presenterchoice 화면과 연결됨 -> panel 5
-            p5_input_label.Invoke(new MethodInvoker(delegate { p5_input_label.Text = p5_message_tbx.Text; }));
-            client.RequestWordSelect(p5_input_label.Text);
+            client.RequestWordSelect(p5_message_tbx.Text);
         }
 
         // 게임 시작 후 출제자가 제시어 정하는 화면
@@ -2246,7 +2245,7 @@ namespace client
             panel5_1_Owner_Answer.Invoke(new MethodInvoker(delegate { panel5_1_Owner_Answer.Visible = true; }));
 
             // 제시어를 출제자 화면에는 보여줌
-            p5_1_answer_label.Invoke(new MethodInvoker(delegate { p5_1_answer_label.Text = p5_message_tbx.Text; }));
+            p5_1_answer_label.Invoke(new MethodInvoker(delegate { p5_1_answer_label.Text = "정답 : " + p5_message_tbx.Text; }));
         }
 
         private void p5_1_yes_btn_Click(object sender, EventArgs e)

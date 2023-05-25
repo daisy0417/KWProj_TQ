@@ -1141,6 +1141,7 @@ namespace ServerProgram
             {
                 qList = room.GetPlayerList();
                 RoomChat("게임 종료!", server);
+                room.ClearChat();
                 room.starting = false;
                 for (int i = 0; i < qList.Count; i++)
                 {
