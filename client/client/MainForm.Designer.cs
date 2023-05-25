@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,9 +44,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.title_label = new System.Windows.Forms.Label();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.midTitle_label = new System.Windows.Forms.Label();
@@ -70,6 +70,9 @@
             this.p3_friend_list_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_rank_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.p3_dgv_RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p3_dgv_people = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p3_dgv_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.p3_comein_label = new System.Windows.Forms.Label();
             this.p3_create_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.p3_makeRoom_btn = new MetroSet_UI.Controls.MetroSetButton();
@@ -246,9 +249,6 @@
             this.p8_friendlist_label = new System.Windows.Forms.Label();
             this.p8_back_btn = new MetroSet_UI.Controls.MetroSetButton();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.p3_dgv_RoomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p3_dgv_people = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p3_dgv_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1_login_server.SuspendLayout();
             this.p1_1_login_panel.SuspendLayout();
             this.panel2_gameStart.SuspendLayout();
@@ -784,6 +784,49 @@
             this.p3_dataGridView1.Size = new System.Drawing.Size(741, 450);
             this.p3_dataGridView1.TabIndex = 4;
             this.p3_dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.p3_dataGridView1_CellClick);
+            this.p3_dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.p3_dataGridView1_ColumnHeaderMouseClick);
+            // 
+            // p3_dgv_RoomName
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dgv_RoomName.DefaultCellStyle = dataGridViewCellStyle18;
+            this.p3_dgv_RoomName.FillWeight = 134.9317F;
+            this.p3_dgv_RoomName.HeaderText = "방 이름";
+            this.p3_dgv_RoomName.MinimumWidth = 6;
+            this.p3_dgv_RoomName.Name = "p3_dgv_RoomName";
+            this.p3_dgv_RoomName.ReadOnly = true;
+            // 
+            // p3_dgv_people
+            // 
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p3_dgv_people.DefaultCellStyle = dataGridViewCellStyle19;
+            this.p3_dgv_people.FillWeight = 54.10001F;
+            this.p3_dgv_people.HeaderText = "접속 인원";
+            this.p3_dgv_people.MinimumWidth = 6;
+            this.p3_dgv_people.Name = "p3_dgv_people";
+            this.p3_dgv_people.ReadOnly = true;
+            // 
+            // p3_dgv_btn
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.p3_dgv_btn.DefaultCellStyle = dataGridViewCellStyle20;
+            this.p3_dgv_btn.FillWeight = 68.98967F;
+            this.p3_dgv_btn.HeaderText = "버튼";
+            this.p3_dgv_btn.MinimumWidth = 6;
+            this.p3_dgv_btn.Name = "p3_dgv_btn";
+            this.p3_dgv_btn.ReadOnly = true;
+            this.p3_dgv_btn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.p3_dgv_btn.Text = "입장하기";
+            this.p3_dgv_btn.UseColumnTextForButtonValue = true;
             // 
             // p3_comein_label
             // 
@@ -3317,48 +3360,6 @@
             // 
             this.timer2.Interval = 3000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // p3_dgv_RoomName
-            // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dgv_RoomName.DefaultCellStyle = dataGridViewCellStyle18;
-            this.p3_dgv_RoomName.FillWeight = 134.9317F;
-            this.p3_dgv_RoomName.HeaderText = "방 이름";
-            this.p3_dgv_RoomName.MinimumWidth = 6;
-            this.p3_dgv_RoomName.Name = "p3_dgv_RoomName";
-            this.p3_dgv_RoomName.ReadOnly = true;
-            // 
-            // p3_dgv_people
-            // 
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.p3_dgv_people.DefaultCellStyle = dataGridViewCellStyle19;
-            this.p3_dgv_people.FillWeight = 54.10001F;
-            this.p3_dgv_people.HeaderText = "접속 인원";
-            this.p3_dgv_people.MinimumWidth = 6;
-            this.p3_dgv_people.Name = "p3_dgv_people";
-            this.p3_dgv_people.ReadOnly = true;
-            // 
-            // p3_dgv_btn
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.p3_dgv_btn.DefaultCellStyle = dataGridViewCellStyle20;
-            this.p3_dgv_btn.FillWeight = 68.98967F;
-            this.p3_dgv_btn.HeaderText = "버튼";
-            this.p3_dgv_btn.MinimumWidth = 6;
-            this.p3_dgv_btn.Name = "p3_dgv_btn";
-            this.p3_dgv_btn.ReadOnly = true;
-            this.p3_dgv_btn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.p3_dgv_btn.Text = "입장하기";
-            this.p3_dgv_btn.UseColumnTextForButtonValue = true;
             // 
             // MainForm
             // 

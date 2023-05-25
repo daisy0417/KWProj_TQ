@@ -847,15 +847,27 @@ namespace client
         //테이블 내 입장하기 버튼 클릭 시
         private void p3_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string rName = p3_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            roomname = rName;
-            if (rName != string.Empty)
+            if(e.RowIndex != -1)
             {
-                client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
-                //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
-                //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
-                //client.RequestRoomCreate(roomName, "5");
-                //PlayerWait();
+                string rName = p3_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                roomname = rName;
+                if (rName != string.Empty)
+                {
+                    client.RequestRoomJoin(rName);   // 서버에 방 이름 정보 보냄
+                    //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
+                    //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
+                    //client.RequestRoomCreate(roomName, "5");
+                    //PlayerWait();
+                }
+            }
+        }
+
+        private void p3_dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+            foreach (DataGridViewColumn item in p3_dataGridView1.Columns)
+            {
+                item.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
         }
 
@@ -1988,7 +2000,6 @@ namespace client
         #region 랭킹
         public override void Ranking(string rank_arr)
         {
-
             p7_ranking_dgv.Invoke(new MethodInvoker(delegate { p7_ranking_dgv.Rows.Clear(); }));
 
             string[] id_and_wins = rank_arr.Split(',');
@@ -2003,6 +2014,7 @@ namespace client
                 i++;
             }
         }
+
         private void p7_rank_btn_back_Click(object sender, EventArgs e)
         {
             panel7_rank.Invoke(new MethodInvoker(delegate { panel7_rank.Visible = false; }));
@@ -2056,24 +2068,27 @@ namespace client
         /// </summary>
         private void p8_friend_dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex==p8_dgv_column3.Index)
+            if (e.RowIndex != -1)
             {
-                string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
-                if (fName != string.Empty)
+                if (e.ColumnIndex == p8_dgv_column3.Index)
                 {
-                    client.RequestJoinFriendRoom(fName);
+                    string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    if (fName != string.Empty)
+                    {
+                        client.RequestJoinFriendRoom(fName);
+                    }
+
+                    //ShowMessageBox("1", "1", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
-                
-                //ShowMessageBox("1", "1", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
-            if(e.ColumnIndex==p8_dgv_column4.Index)
-            {
-                string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
-                if (fName != string.Empty)
+                if (e.ColumnIndex == p8_dgv_column4.Index)
                 {
-                    client.RequestFriendRemove(fName);
+                    string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    if (fName != string.Empty)
+                    {
+                        client.RequestFriendRemove(fName);
+                    }
+                    //ShowMessageBox("2", "2", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
-                //ShowMessageBox("2", "2", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
