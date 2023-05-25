@@ -2041,13 +2041,31 @@ namespace client
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
         }
 
-        // 초대하기 버튼 입력시 친구 초대
+        /// <summary>
+        /// 친구 리스트
+        /// 기능 1. 친구 방에 입장하기
+        /// 기능 2. 해당 친구 삭제하기
+        /// </summary>
         private void p8_friend_dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
-            if (fName != string.Empty)
+            if(e.ColumnIndex==p8_dgv_column3.Index)
             {
-                client.RequestJoinFriendRoom(fName);
+                string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if (fName != string.Empty)
+                {
+                    client.RequestJoinFriendRoom(fName);
+                }
+                
+                //ShowMessageBox("1", "1", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            if(e.ColumnIndex==p8_dgv_column4.Index)
+            {
+                string fName = p8_friend_dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if (fName != string.Empty)
+                {
+                    client.RequestFriendRemove(fName);
+                }
+                //ShowMessageBox("2", "2", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
 
@@ -2064,6 +2082,20 @@ namespace client
                 ShowMessageBox("친구의 방이 가득 찼습니다.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }else
                 ShowMessageBox("친구를 초대하는데 성공했습니다.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public override void FriendRemove(bool sucess)
+        {
+            //if(sucess) RequestFriendList 정도 호출하면 될듯
+            if (sucess == true)
+            {
+                client.RequestFirendsList();
+                ShowMessageBox("삭제", "1", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                ShowMessageBox("삭제노노", "1", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
         }
 
         // >>> 친구 추가 하기
