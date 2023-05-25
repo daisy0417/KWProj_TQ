@@ -115,8 +115,6 @@ namespace ServerProgram
         private int portCount = 1;
         private IPAddress serverIP = IPAddress.Parse("127.0.0.1"); // ip는 입력 받아 저장
 
-        public int NewPort() { return portmain + portCount++; }
-
         public MainServer(ServerForm parentForm)
         {
             this.parentForm = parentForm;
@@ -150,7 +148,6 @@ namespace ServerProgram
                     TcpClient client = listener.AcceptTcpClient();
                     StreamReader sread = new StreamReader(client.GetStream());
                     string msg = sread.ReadLine();
-                    //int room = int.Parse(msg); //방번호 받고 포트번호 주기 -> 이재 방 번호는 필요없음. 0으로 고정
 
                     IPAddress clientIP = IPAddress.Parse("127.0.0.1");
 
@@ -260,8 +257,8 @@ namespace ServerProgram
                         Server server2 = FindServer(content);
                         if (AddFriendShip(server1, server2)==true)
                         {
-                            server1.SendResponse("FRIENDSLIST", GetFriendListString(server1.username));
-                            server2.SendResponse("FRIENDSLIST", GetFriendListString(server2.username));
+                            server1.SendResponse("ACCEPTFRIEND", "1");
+                            server2.SendResponse("ACCEPTFRIEND", "1");
                         }
                         else
                         {
@@ -272,7 +269,11 @@ namespace ServerProgram
                     {
                         Server targetServer = FindServer(content);
                         if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
-                        else targetServer.SendResponse("FRIENDREQUEST", server.username);
+                        else
+                        {
+                            server.SendResponse("SENDFRIENDREQUEST", "1"); // 친구 요청 보냄
+                            targetServer.SendResponse("FRIENDREQUEST", server.username);
+                        }
                     }
                     else if (header.Equals("FRIENDSLIST"))
                     {
@@ -828,10 +829,7 @@ namespace ServerProgram
                 if (reciver == room.players.Count)
                     return;
                 string msg=sender.ToString();
-                for(int k = 2; k < parsed_cmd.Length; k++)
-                {
-                    msg += parsed_cmd[k];
-                }
+                msg+=command.Substring(parsed_cmd[0].Length + parsed_cmd[1].Length + 1);
                 room.players[reciver].SendResponse("WHISPER", msg);
 
             }

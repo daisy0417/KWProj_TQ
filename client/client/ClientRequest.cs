@@ -52,6 +52,11 @@ namespace client
             SendRequest("SENDFRIENDREQUEST", friendUsername);
         }
 
+        public void RequestFriendRemove(string friendUsername)
+        {
+            SendRequest("FRIENDREMOVE", friendUsername);
+        }
+
         public void RequestFirendsList()
         {
             SendRequest("FRIENDSLIST", "0");

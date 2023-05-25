@@ -877,6 +877,7 @@ namespace client
             else
             {
                 ShowMessageBox(result + " 방에 참가완료", "Room Join", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                panel8_friend.Invoke(new MethodInvoker(delegate { panel8_friend.Visible = false; }));
 
                 // 플레이어의 대기 방 패널로 넘어가야 됨.
                 try
@@ -1922,7 +1923,10 @@ namespace client
             { 
                 buzzer_on=false;
                 timer1.Stop();
-                client.RequestGuessAnswer(p6_answer_tbx.Text);  // 정답인지 확인
+                string ans=p6_answer_tbx.Text;
+                if (p6_2_answer_tbx.Visible)
+                    ans = p6_2_answer_tbx.Text;
+                client.RequestGuessAnswer(ans);  // 정답인지 확인
                 //답 읽어오기
             }
             
@@ -2011,7 +2015,7 @@ namespace client
         {
             p8_friend_dgv.Invoke(new MethodInvoker(delegate { p8_friend_dgv.Rows.Clear(); }));
 
-            for (int i = 0; i < friendList.Count - 1; i++)
+            for (int i = 0; i < friendList.Count; i++)
             {
                 // 표 출력 예시 : [ (숫자) ] [ ID ] [ 초대하기 버튼 ]
                 p8_friend_dgv.Invoke(new MethodInvoker(delegate { p8_friend_dgv.Rows.Add(i + 1, friendList[i]); }));
@@ -2402,6 +2406,8 @@ namespace client
             }
        
         }
+
+
 
 
         // 게임 시작 후 질문자가 질문을 기다리는 화면 > 턴x

@@ -1253,7 +1253,7 @@
             // 
             // p4_1_player4_item
             // 
-            this.p4_1_player4_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player4_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player4_item.Name = "p4_1_player4_item";
             this.p4_1_player4_item.Size = new System.Drawing.Size(119, 22);
             this.p4_1_player4_item.Text = "친구 하기";
@@ -1297,7 +1297,7 @@
             // 
             // p4_1_player3_item
             // 
-            this.p4_1_player3_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player3_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player3_item.Name = "p4_1_player3_item";
             this.p4_1_player3_item.Size = new System.Drawing.Size(119, 22);
             this.p4_1_player3_item.Text = "친구 하기";
@@ -1358,7 +1358,7 @@
             // 
             // p4_1_player2_item
             // 
-            this.p4_1_player2_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_1_player2_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_1_player2_item.Name = "p4_1_player2_item";
             this.p4_1_player2_item.Size = new System.Drawing.Size(119, 22);
             this.p4_1_player2_item.Text = "친구 하기";
@@ -1455,7 +1455,7 @@
             // 
             // p4_player1_item
             // 
-            this.p4_player1_item.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p4_player1_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p4_player1_item.Name = "p4_player1_item";
             this.p4_player1_item.Size = new System.Drawing.Size(119, 22);
             this.p4_player1_item.Text = "친구 하기";
@@ -3179,7 +3179,7 @@
             this.p7_back_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p7_back_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p7_back_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p7_back_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p7_back_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p7_back_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p7_back_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p7_back_btn.HoverTextColor = System.Drawing.Color.White;
@@ -3298,7 +3298,7 @@
             // p8_friendlist_label
             // 
             this.p8_friendlist_label.AutoSize = true;
-            this.p8_friendlist_label.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p8_friendlist_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p8_friendlist_label.ForeColor = System.Drawing.SystemColors.ControlText;
             this.p8_friendlist_label.Location = new System.Drawing.Point(350, 19);
             this.p8_friendlist_label.Name = "p8_friendlist_label";
@@ -3312,7 +3312,7 @@
             this.p8_back_btn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p8_back_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.p8_back_btn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.p8_back_btn.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.p8_back_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.p8_back_btn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p8_back_btn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.p8_back_btn.HoverTextColor = System.Drawing.Color.White;
@@ -3334,6 +3334,11 @@
             this.p8_back_btn.ThemeAuthor = "Narwin";
             this.p8_back_btn.ThemeName = "MetroLite";
             this.p8_back_btn.Click += new System.EventHandler(this.p8_back_btn_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 3000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // MainForm
             // 
