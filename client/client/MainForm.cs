@@ -855,7 +855,7 @@ namespace client
                 //panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = false; }));
                 //panel4_player_waitRoom.Invoke(new MethodInvoker(delegate { panel4_player_waitRoom.Visible = true; }));
                 //client.RequestRoomCreate(roomName, "5");
-                PlayerWait();
+                //PlayerWait();
             }
         }
 
@@ -873,6 +873,9 @@ namespace client
             {
                 ShowMessageBox("당신은 이 방에서 퇴장당했습니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 p4_Out_btn_Click(null,null);
+            }else if (result.Equals("-4"))
+            {
+                ShowMessageBox("이미 게임중인 방에는 참가할 수 없습니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
