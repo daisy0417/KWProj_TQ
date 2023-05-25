@@ -23,11 +23,8 @@ namespace ServerProgram
         private StreamWriter writer;
         private int room;
         public IPAddress clientIP;
-        private int port;
         private int win_point;
         private int remain_qs=5;
-
-        public int Port { get { return port; } }
 
         public string username = "NONE";
         public bool ready = false;
@@ -203,7 +200,7 @@ namespace ServerProgram
                         if (int.TryParse(content, out newRoom))
                         {
                             server.change_room(newRoom);
-                            parentForm.PrintLog("changed room | port : " + server.Port + " | " + content);
+                            parentForm.PrintLog("changed room |" + content);
                             server.SendResponse("GETROOM", server.roomnum());
                         }
                     }
@@ -267,17 +264,25 @@ namespace ServerProgram
                         }
                     } else if (header.Equals("SENDFRIENDREQUEST"))
                     {
-                        Server targetServer = FindServer(content);
-                        if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
+                        if (server.username.Equals(content)) server.SendResponse("SENDFRIENDREQUEST", "-1");
                         else
                         {
-                            server.SendResponse("SENDFRIENDREQUEST", "1"); // 친구 요청 보냄
-                            targetServer.SendResponse("FRIENDREQUEST", server.username);
+                            Server targetServer = FindServer(content);
+                            if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
+                            else
+                            {
+                                server.SendResponse("SENDFRIENDREQUEST", "1"); // 친구 요청 보냄
+                                targetServer.SendResponse("FRIENDREQUEST", server.username);
+                            }
                         }
                     }
                     else if (header.Equals("FRIENDSLIST"))
                     {
                         server.SendResponse("FRIENDSLIST", GetFriendListString(server.username));
+                    }
+                    else if (header.Equals("FRIENDREMOVE"))
+                    {
+                        FriendRemove(content, server);
                     }
                     //방 채팅
                     else if (header.Equals("ROOMCHAT"))
@@ -339,8 +344,7 @@ namespace ServerProgram
             {
                 ExitGame(server);
 
-                parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() +
-                    " | port : " + server.Port.ToString() + " | room : " + server.roomnum().ToString());
+                parentForm.PrintLog("disconnect client | ip : " + server.clientIP.ToString() + " | room : " + server.roomnum().ToString());
                 servers.Remove(server);
             }
         }
@@ -482,6 +486,44 @@ namespace ServerProgram
             {
                 RoomJoin(room.name, server);
             }
+        }
+
+        private void FriendRemove(string friendName, Server server)
+        {
+            int pos = -1;
+
+            for (int i = 0; i < friendshipList.Count; i++)
+            {
+                if (friendshipList[i].Item1.Equals(friendName) && friendshipList[i].Item2.Equals(server.username))
+                {
+                    pos = i;
+                    break;
+                }
+                else if (friendshipList[i].Item1.Equals(server.username) && friendshipList[i].Item2.Equals(friendName))
+                {
+                    pos = i;
+                    break;
+                }
+            }
+
+            if (pos != -1)
+            {
+                Tuple<string, string> findItem = friendshipList[pos];
+
+                conn = new SQLiteConnection("Data Source=friend_info.db");
+                conn.Open();
+
+                string query = "DELETE FROM friendship WHERE username1='" + findItem.Item1 + "' AND username2='" + findItem.Item2 + "'";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                int result = cmd.ExecuteNonQuery();
+
+                friendshipList.RemoveAt(pos);
+
+                int friendPos = servers.FindIndex(f => f.username.Equals(friendName));
+                if (friendPos != -1) { servers[friendPos].SendResponse("FRIENDSLIST", GetFriendListString(friendName)); }
+            }
+
+            server.SendResponse("FRIENDREMOVE", pos);
         }
 
         private string GetFriendListString(string username)
