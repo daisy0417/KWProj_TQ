@@ -267,12 +267,16 @@ namespace ServerProgram
                         }
                     } else if (header.Equals("SENDFRIENDREQUEST"))
                     {
-                        Server targetServer = FindServer(content);
-                        if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
+                        if (server.username.Equals(content)) server.SendResponse("SENDFRIENDREQUEST", "-1");
                         else
                         {
-                            server.SendResponse("SENDFRIENDREQUEST", "1"); // 친구 요청 보냄
-                            targetServer.SendResponse("FRIENDREQUEST", server.username);
+                            Server targetServer = FindServer(content);
+                            if (targetServer == null) server.SendResponse("SENDFRIENDREQUEST", "-1"); //없는 사용자입니다.
+                            else
+                            {
+                                server.SendResponse("SENDFRIENDREQUEST", "1"); // 친구 요청 보냄
+                                targetServer.SendResponse("FRIENDREQUEST", server.username);
+                            }
                         }
                     }
                     else if (header.Equals("FRIENDSLIST"))
