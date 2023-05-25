@@ -2224,6 +2224,7 @@ namespace client
             Changing();
             // RequestWordSelect() 을 보낼 수 있는 버튼 필요 -> send 버튼으로 지정
             //panel5_Owner.Visible = true;
+            p5_message_tbx.Invoke(new MethodInvoker(delegate { p5_message_tbx.Text = ""; }));
             panel5_Owner.Invoke(new MethodInvoker(delegate { panel5_Owner.Visible = true; }));
             p6_2_solution_label.Invoke(new MethodInvoker(delegate { p6_2_solution_label.Text = "입력 중..."; }));
         }
