@@ -1522,12 +1522,12 @@ namespace client
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 e.Handled = true;
-                string content = p4_1_message_tbx.Text;
+                string content = p4_message_tbx.Text;
                 client.username = p1_username_tbx.Text;
                 if (content != string.Empty)
                 {
                     client.RequestSendRoomChat(client.username, content);
-                    p4_1_message_tbx.Text = "";
+                    p4_message_tbx.Text = "";
                 }
             }
         }
