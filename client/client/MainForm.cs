@@ -873,6 +873,7 @@ namespace client
 
         public override void RoomJoin(string result)
         {
+            
             if (result.Equals("-1"))
             {
                 ShowMessageBox("존재하지 않는 방입니다.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -2019,6 +2020,11 @@ namespace client
         {
             panel7_rank.Invoke(new MethodInvoker(delegate { panel7_rank.Visible = false; }));
             panel3_roomList.Invoke(new MethodInvoker(delegate { panel3_roomList.Visible = true; }));
+            p3_people_label.Visible = false;
+            p3_people_tbx.Visible = false;
+            p3_create_btn.Visible = false;
+            p3_roomname_label.Visible = false;
+            p3_roomname_tbx.Visible = false;
         }
 
         private void p3_rank_btn_Click(object sender, EventArgs e)
@@ -2113,11 +2119,11 @@ namespace client
             if (sucess == true)
             {
                 client.RequestFirendsList();
-                ShowMessageBox("삭제", "1", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ShowMessageBox("친구가 삭제 되었습니다.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                ShowMessageBox("삭제노노", "1", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ShowMessageBox("친구가 삭제 되지 않았습니다.", "Not Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
