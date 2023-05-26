@@ -328,16 +328,13 @@ namespace client
 
         private void p1_signUp_btn_Click(object sender, EventArgs e)
         {
-            string username = p1_pw_tbx.Text;
-            string password = p1_username_tbx.Text;
+            string username = p1_username_tbx.Text;
+            string password = p1_pw_tbx.Text;
+
             DialogResult result;
 
-            if (username != string.Empty && password != string.Empty)
-            {
-                client.RequestSignUp(username, password);
-            }
             // 이름, 비번 둘 중 하나라도 입력하지 않으면 팝업 띄움
-            if (string.IsNullOrEmpty(p1_username_tbx.Text) || string.IsNullOrEmpty(p1_pw_tbx.Text))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 ShowMessageBox("이름과 비밀번호를 정확히 입력해주세요.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -346,7 +343,7 @@ namespace client
             // 팝업에 Yes, No 버튼이 있음. No가 입력되면 다시 입력 창으로 되돌아감 
             else
             {
-                string nameCheck = string.Format("당신은 {0} 님이 맞습니까?", p1_username_tbx.Text);
+                string nameCheck = string.Format("당신은 {0} 님이 맞습니까?", username);
                 var name_messageRes = MessageBox.Show(nameCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (name_messageRes == DialogResult.No)
                 {
@@ -357,7 +354,7 @@ namespace client
                     name_messageRes = DialogResult.Yes;
                 }
 
-                string pwCheck = string.Format("비밀번호는 {0} 이 맞습니까?", p1_pw_tbx.Text);
+                string pwCheck = string.Format("비밀번호는 {0} 이 맞습니까?", password);
                 var pw_messageRes = MessageBox.Show(pwCheck, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (pw_messageRes == DialogResult.No)
                 {
@@ -372,7 +369,7 @@ namespace client
                 if (result == DialogResult.Yes)
                 {
 
-                    client.RequestSignUp(p1_username_tbx.Text, p1_pw_tbx.Text);
+                    client.RequestSignUp(username, password);
                     islock = true;
                     lock (locker)
                     {
